@@ -1,6 +1,11 @@
-# EdTeknoGuard 🛡️
+# PortalNOC (TeknoGuard) 🛡️
 
-**EdTeknoGuard** adalah sistem terpadu pemantauan berkala (*automated periodic monitoring*) dan deteksi dini (*early warning system*) performa modem ONT (Optical Network Terminal) seperti ZTE GM220-S & XPON serta manajemen operasional jaringan untuk penyedia layanan internet (ISP lokal).
+**PortalNOC (TeknoGuard)** adalah sistem pemantauan berkala (*automated periodic monitoring*), deteksi dini (*early warning system*) performa modem ONT, manajemen penagihan, dan operasional jaringan khusus tim NOC ISP.
+
+> **Ekosistem 3-Repo SaaS Komersial:**
+> - **`portalnoc`** (repo ini): Admin NOC & Telemetry Data Plane.
+> - **`portalpelanggan`** ([GitHub](https://github.com/raihanagilm/portalpelanggan)): Portal Pelanggan Mandiri (MyTekno).
+> - **`portalvendor`** ([GitHub](https://github.com/raihanagilm/portalvendor)): Vendor Control Plane untuk manajemen multi-tenant ISP, feature flags ON/OFF bertanda tangan, status langganan, dan tema warna.
 
 ---
 
@@ -44,8 +49,8 @@ Dokumentasi proyek tersimpan terstruktur di direktori `docs/`:
    - Persistent scheduler state di MySQL & otomatis menjadwalkan *Catch-Up Scan* saat server reboot/restart.
 3. **Multi-Kredensial Modem ONT (Exhaustive Scan & Fallback Chain):**
    - Mendukung multi-pasangan username & password modem per kantor dengan memori kegagalan (*failed_credentials*) untuk scanning super cepat.
-4. **Portal Pelanggan Mandiri (TeknoCust):**
-   - Sub-aplikasi mandiri untuk warga (`/portal`) dengan fitur cek redaman, pemantauan kuota, kelola nama & password WiFi rumah, serta tiket lapor kendala.
+4. **Kesiapan Multi-Tenant Komersial & Custom Branding:**
+   - Siap dikontrol oleh `portalvendor` untuk mengaktifkan/mematikan modul berbayar per klien ISP, disertai dukungan kustomisasi logo lokal oleh Admin ISP dan driver adapter modem (`driver_registry.py`) per karakteristik jaringan ISP.
 5. **Integrasi MikroTik RouterOS API:**
    - Sinkronisasi otomatis DHCP Leases, status isolir pelanggan, dan penghitungan kuota pemakaian riil dari Simple Queues.
 6. **Notifikasi Native APK Android (Web Wrapper):**
@@ -57,8 +62,8 @@ Dokumentasi proyek tersimpan terstruktur di direktori `docs/`:
 
 - **Backend:** Python 3.10+ / FastAPI / SQLAlchemy 2.x / PyMySQL / Uvicorn / HTTPX / APScheduler
 - **Database:** MySQL Local (Arsitektur Multi-Database: `MasterBase` untuk master global, `TenantBase` terisolasi per kantor)
-- **Frontend Admin (TeknoGuard):** React 18 + Vite + Tailwind CSS + Lucide Icons + Chart.js
-- **Frontend Portal Warga (TeknoCust):** React 18 SPA terintegrasi di `/portal` (Mobile-First)
+- **Frontend Admin (TeknoGuard):** React + Vite + Tailwind CSS + Lucide Icons + Chart.js
+- **Control Plane Integration:** Sinkronisasi policy fitur & tema dari `portalvendor` (`https://github.com/raihanagilm/portalvendor`)
 
 ---
 
@@ -121,6 +126,5 @@ npm run dev
 ```
 
 Akses aplikasi di browser:
-- **Dashboard Admin NOC (TeknoGuard):** `http://localhost:5173` (atau port 7890 jika build terdistribusi)
-- **Portal Pelanggan (TeknoCust):** `http://localhost:5173/portal` (atau `http://localhost:7890/portal`)
-- **Dokumentasi API Swagger:** `http://localhost:7890/docs`
+- **Dashboard Admin NOC (TeknoGuard):** `http://localhost:5173` (atau port `7890` jika build terdistribusi)
+- **Dokumentasi API Swagger:** `http://localhost:7890/docs` (mode development)

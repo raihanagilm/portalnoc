@@ -1,7 +1,17 @@
 # AGENTS.md — EdTeknoGuard System Router & AI Instructions
 
-## 1. System Overview
-EdTeknoGuard is an automated periodic monitoring and early warning system for Optical Network Terminal (ONT) modems (ZTE GM220-S & XPON) used by Internet Service Providers (ISP). It detects optical power degradation before customers experience Loss of Signal (LOS).
+## 1. System Overview & 3-Repo Ecosystem
+**PortalNOC (TeknoGuard)** is an automated periodic monitoring, billing, and early warning system for Optical Network Terminal (ONT) modems (ZTE GM220-S, Huawei, FiberHome, XPON) and MikroTik routers used by Internet Service Providers (ISP).
+
+This repository operates as a **standalone Admin NOC Data Plane** inside a 3-repo commercial SaaS architecture:
+- **`portalnoc`** (`https://github.com/raihanagilm/portalnoc`): Admin NOC & network telemetry Data Plane (strictly NO `app/portal` or `frontend/src/portal` customer portal code).
+- **`portalpelanggan`** (`https://github.com/raihanagilm/portalpelanggan`): Standalone MyTekno Customer Portal Data Plane.
+- **`portalvendor`** (`https://github.com/raihanagilm/portalvendor`): Vendor Control Plane managing multi-tenant ISP licensing, feature flags (ON/OFF), subscription status, and theme policies.
+
+### Multi-Tenant Commercial Guardrails (PortalVendor Integration)
+- **Feature Flags & Theme Policy:** Controlled exclusively by Vendor via `portalvendor` (signed policy). Never allow ISP Admin users to self-enable paid modules.
+- **Logo Customization:** ISP Admins may only customize their local **brand logo & display name**.
+- **Modem Differences per ISP:** Extend/select drivers in `app/services/scraper/driver_registry.py` rather than duplicating the entire backend codebase when onboarding ISPs with different ONT models.
 
 For full technical and operational guides, see:
 - [Architecture & Design](docs/architecture.md)

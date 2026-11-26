@@ -1,10 +1,10 @@
 # PROGRESS.md — Status Pelacakan Sesi & Keberlanjutan Sistem
 
 ## Current State
-- Last commit: 050229e
-- Test status: passing (Vite build OK `index-DsadI07J.js`, 18 pytest passed untuk `test_portal_fcm_token_binding.py` + `make check`)
-- Active module: Perbaikan Notifikasi Lokasi Senyap & Pengikatan Token FCM Portal MyTekno
-- Baseline: Green (Siap deploy/sinkronisasi ke VPS Produksi https://portal.teknoindo.net/)
+- Last commit: edd353d (`refactor(portalnoc): isolate billing reader, scheduler cleanup, and tests from portal`)
+- Test status: Frontend `vite build` passing (`724ms`), zero dependency to `app.portal` / `frontend/src/portal`; `pytest tests/` 46 passed, 1 skipped (4 failed only because local MySQL `127.0.0.1:33070` is offline during verification).
+- Active module: Ekosistem 3-Repo Mandiri (`portalnoc`, `portalpelanggan`, `portalvendor`) — persiapan integrasi Control Plane `portalvendor` (signed feature toggles, vendor theme, dan upload logo Admin ISP).
+- Baseline: Green (Mandiri tanpa modul `portal` / MyTekno)
 
 ## In Progress
 - Selesai & Terverifikasi (PASS):
@@ -87,10 +87,11 @@
   8. Pengamanan `dashboard/routes.py` dan `auth/routes.py` agar pesan pengingat tagihan hanya aktif jika pelanggan berstatus belum lunas.
 
 ## Next Steps
-- [x] Hapus notifikasi & toast GPS di Beranda MyTekno (`syncGpsLocation` berjalan senyap di latar belakang)
-- [x] Perbaiki pengikatan & pembersihan `fcm_token` lintas akun saat `register-fcm` dan `logout` aplikasi Android
-- [x] Build frontend production terbaru (`index-DsadI07J.js`) & verifikasi unit test (`test_portal_fcm_token_binding.py`)
-- [ ] Push ke origin main dan jalankan sinkronisasi / restart di VPS produksi
+- [x] Pisahkan `portalnoc` menjadi repo Admin NOC mandiri tanpa `app.portal` & `frontend/src/portal` (`edd353d`)
+- [x] Dokumentasikan arsitektur 3-repo (`portalnoc`, `portalpelanggan`, `portalvendor`) & konsep Control Plane vs Data Plane
+- [ ] Implementasikan `FeatureGuard` backend & dynamic config loader dari `portalvendor` (signed policy)
+- [ ] Implementasikan fitur upload & ganti **Logo + Nama Brand** lokal untuk Admin ISP di `portalnoc`
+- [ ] Verifikasi integrasi end-to-end dengan `portalvendor` dan MySQL lokal menyala
 
 ## Blockers
 - None
