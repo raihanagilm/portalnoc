@@ -11709,7 +11709,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$97 = {
+var __iconData$82 = {
 	name: "activity",
 	size: 24,
 	node: [["path", {
@@ -11717,8 +11717,8 @@ var __iconData$97 = {
 		key: "169zse"
 	}]]
 };
-__iconData$97.node;
-var Activity = createLucideIcon(__iconData$97);
+__iconData$82.node;
+var Activity = createLucideIcon(__iconData$82);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/arrow-down-to-line.mjs
 /**
@@ -11727,7 +11727,7 @@ var Activity = createLucideIcon(__iconData$97);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$96 = {
+var __iconData$81 = {
 	name: "arrow-down-to-line",
 	size: 24,
 	node: [
@@ -11745,8 +11745,8 @@ var __iconData$96 = {
 		}]
 	]
 };
-__iconData$96.node;
-var ArrowDownToLine = createLucideIcon(__iconData$96);
+__iconData$81.node;
+var ArrowDownToLine = createLucideIcon(__iconData$81);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/arrow-down.mjs
 /**
@@ -11755,7 +11755,7 @@ var ArrowDownToLine = createLucideIcon(__iconData$96);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$95 = {
+var __iconData$80 = {
 	name: "arrow-down",
 	size: 24,
 	node: [["path", {
@@ -11766,8 +11766,8 @@ var __iconData$95 = {
 		key: "1idqje"
 	}]]
 };
-__iconData$95.node;
-var ArrowDown = createLucideIcon(__iconData$95);
+__iconData$80.node;
+var ArrowDown = createLucideIcon(__iconData$80);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/arrow-left.mjs
 /**
@@ -11776,7 +11776,7 @@ var ArrowDown = createLucideIcon(__iconData$95);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$94 = {
+var __iconData$79 = {
 	name: "arrow-left",
 	size: 24,
 	node: [["path", {
@@ -11787,40 +11787,8 @@ var __iconData$94 = {
 		key: "x3x0zl"
 	}]]
 };
-__iconData$94.node;
-var ArrowLeft = createLucideIcon(__iconData$94);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/arrow-left-right.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$93 = {
-	name: "arrow-left-right",
-	size: 24,
-	node: [
-		["path", {
-			d: "M8 3 4 7l4 4",
-			key: "9rb6wj"
-		}],
-		["path", {
-			d: "M4 7h16",
-			key: "6tx8e3"
-		}],
-		["path", {
-			d: "m16 21 4-4-4-4",
-			key: "siv7j2"
-		}],
-		["path", {
-			d: "M20 17H4",
-			key: "h6l3hr"
-		}]
-	]
-};
-__iconData$93.node;
-var ArrowLeftRight = createLucideIcon(__iconData$93);
+__iconData$79.node;
+var ArrowLeft = createLucideIcon(__iconData$79);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/arrow-up-down.mjs
 /**
@@ -11829,7 +11797,7 @@ var ArrowLeftRight = createLucideIcon(__iconData$93);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$92 = {
+var __iconData$78 = {
 	name: "arrow-up-down",
 	size: 24,
 	node: [
@@ -11851,8 +11819,8 @@ var __iconData$92 = {
 		}]
 	]
 };
-__iconData$92.node;
-var ArrowUpDown = createLucideIcon(__iconData$92);
+__iconData$78.node;
+var ArrowUpDown = createLucideIcon(__iconData$78);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/arrow-up.mjs
 /**
@@ -11861,7 +11829,7 @@ var ArrowUpDown = createLucideIcon(__iconData$92);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$91 = {
+var __iconData$77 = {
 	name: "arrow-up",
 	size: 24,
 	node: [["path", {
@@ -11872,65 +11840,8 @@ var __iconData$91 = {
 		key: "x0mq9r"
 	}]]
 };
-__iconData$91.node;
-var ArrowUp = createLucideIcon(__iconData$91);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/ban.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$90 = {
-	name: "ban",
-	size: 24,
-	node: [["circle", {
-		cx: "12",
-		cy: "12",
-		r: "10",
-		key: "1mglay"
-	}], ["path", {
-		d: "M4.929 4.929 19.07 19.071",
-		key: "196cmz"
-	}]]
-};
-__iconData$90.node;
-var Ban = createLucideIcon(__iconData$90);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/banknote.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$89 = {
-	name: "banknote",
-	size: 24,
-	node: [
-		["rect", {
-			width: "20",
-			height: "12",
-			x: "2",
-			y: "6",
-			rx: "2",
-			key: "9lu3g6"
-		}],
-		["circle", {
-			cx: "12",
-			cy: "12",
-			r: "2",
-			key: "1c9p78"
-		}],
-		["path", {
-			d: "M6 12h.01M18 12h.01",
-			key: "113zkx"
-		}]
-	]
-};
-__iconData$89.node;
-var Banknote = createLucideIcon(__iconData$89);
+__iconData$77.node;
+var ArrowUp = createLucideIcon(__iconData$77);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/bell-off.mjs
 /**
@@ -11939,7 +11850,7 @@ var Banknote = createLucideIcon(__iconData$89);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$88 = {
+var __iconData$76 = {
 	name: "bell-off",
 	size: 24,
 	node: [
@@ -11961,8 +11872,8 @@ var __iconData$88 = {
 		}]
 	]
 };
-__iconData$88.node;
-var BellOff = createLucideIcon(__iconData$88);
+__iconData$76.node;
+var BellOff = createLucideIcon(__iconData$76);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/bell.mjs
 /**
@@ -11971,7 +11882,7 @@ var BellOff = createLucideIcon(__iconData$88);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$87 = {
+var __iconData$75 = {
 	name: "bell",
 	size: 24,
 	node: [["path", {
@@ -11982,8 +11893,8 @@ var __iconData$87 = {
 		key: "11g9vi"
 	}]]
 };
-__iconData$87.node;
-var Bell = createLucideIcon(__iconData$87);
+__iconData$75.node;
+var Bell = createLucideIcon(__iconData$75);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/building-complex.mjs
 /**
@@ -11992,7 +11903,7 @@ var Bell = createLucideIcon(__iconData$87);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$86 = {
+var __iconData$74 = {
 	name: "building-complex",
 	size: 24,
 	node: [
@@ -12019,8 +11930,8 @@ var __iconData$86 = {
 	],
 	aliases: ["building-2"]
 };
-__iconData$86.node;
-var BuildingComplex = createLucideIcon(__iconData$86);
+__iconData$74.node;
+var BuildingComplex = createLucideIcon(__iconData$74);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/camera.mjs
 /**
@@ -12029,7 +11940,7 @@ var BuildingComplex = createLucideIcon(__iconData$86);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$85 = {
+var __iconData$73 = {
 	name: "camera",
 	size: 24,
 	node: [["path", {
@@ -12042,8 +11953,8 @@ var __iconData$85 = {
 		key: "1vg3eu"
 	}]]
 };
-__iconData$85.node;
-var Camera = createLucideIcon(__iconData$85);
+__iconData$73.node;
+var Camera = createLucideIcon(__iconData$73);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/calendar.mjs
 /**
@@ -12052,7 +11963,7 @@ var Camera = createLucideIcon(__iconData$85);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$84 = {
+var __iconData$72 = {
 	name: "calendar",
 	size: 24,
 	node: [
@@ -12078,63 +11989,8 @@ var __iconData$84 = {
 		}]
 	]
 };
-__iconData$84.node;
-var Calendar = createLucideIcon(__iconData$84);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/chart-column.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$83 = {
-	name: "chart-column",
-	size: 24,
-	node: [
-		["path", {
-			d: "M3 3v16a2 2 0 0 0 2 2h16",
-			key: "c24i48"
-		}],
-		["path", {
-			d: "M18 17V9",
-			key: "2bz60n"
-		}],
-		["path", {
-			d: "M13 17V5",
-			key: "1frdt8"
-		}],
-		["path", {
-			d: "M8 17v-3",
-			key: "17ska0"
-		}]
-	],
-	aliases: ["bar-chart-3"]
-};
-__iconData$83.node;
-var ChartColumn = createLucideIcon(__iconData$83);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/chart-pie.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$82 = {
-	name: "chart-pie",
-	size: 24,
-	node: [["path", {
-		d: "M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z",
-		key: "pzmjnu"
-	}], ["path", {
-		d: "M21.21 15.89A10 10 0 1 1 8 2.83",
-		key: "k2fpak"
-	}]],
-	aliases: ["pie-chart"]
-};
-__iconData$82.node;
-var ChartPie = createLucideIcon(__iconData$82);
+__iconData$72.node;
+var Calendar = createLucideIcon(__iconData$72);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/check-check.mjs
 /**
@@ -12143,7 +11999,7 @@ var ChartPie = createLucideIcon(__iconData$82);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$81 = {
+var __iconData$71 = {
 	name: "check-check",
 	size: 24,
 	node: [["path", {
@@ -12154,8 +12010,8 @@ var __iconData$81 = {
 		key: "ke71qq"
 	}]]
 };
-__iconData$81.node;
-var CheckCheck = createLucideIcon(__iconData$81);
+__iconData$71.node;
+var CheckCheck = createLucideIcon(__iconData$71);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/check.mjs
 /**
@@ -12164,7 +12020,7 @@ var CheckCheck = createLucideIcon(__iconData$81);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$80 = {
+var __iconData$70 = {
 	name: "check",
 	size: 24,
 	node: [["path", {
@@ -12172,8 +12028,8 @@ var __iconData$80 = {
 		key: "1gmf2c"
 	}]]
 };
-__iconData$80.node;
-var Check = createLucideIcon(__iconData$80);
+__iconData$70.node;
+var Check = createLucideIcon(__iconData$70);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/chevron-down.mjs
 /**
@@ -12182,7 +12038,7 @@ var Check = createLucideIcon(__iconData$80);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$79 = {
+var __iconData$69 = {
 	name: "chevron-down",
 	size: 24,
 	node: [["path", {
@@ -12190,8 +12046,8 @@ var __iconData$79 = {
 		key: "qrunsl"
 	}]]
 };
-__iconData$79.node;
-var ChevronDown = createLucideIcon(__iconData$79);
+__iconData$69.node;
+var ChevronDown = createLucideIcon(__iconData$69);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/chevron-left.mjs
 /**
@@ -12200,7 +12056,7 @@ var ChevronDown = createLucideIcon(__iconData$79);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$78 = {
+var __iconData$68 = {
 	name: "chevron-left",
 	size: 24,
 	node: [["path", {
@@ -12208,8 +12064,8 @@ var __iconData$78 = {
 		key: "1wnfg3"
 	}]]
 };
-__iconData$78.node;
-var ChevronLeft = createLucideIcon(__iconData$78);
+__iconData$68.node;
+var ChevronLeft = createLucideIcon(__iconData$68);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/chevron-up.mjs
 /**
@@ -12218,7 +12074,7 @@ var ChevronLeft = createLucideIcon(__iconData$78);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$77 = {
+var __iconData$67 = {
 	name: "chevron-up",
 	size: 24,
 	node: [["path", {
@@ -12226,8 +12082,8 @@ var __iconData$77 = {
 		key: "153udz"
 	}]]
 };
-__iconData$77.node;
-var ChevronUp = createLucideIcon(__iconData$77);
+__iconData$67.node;
+var ChevronUp = createLucideIcon(__iconData$67);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/chevron-right.mjs
 /**
@@ -12236,7 +12092,7 @@ var ChevronUp = createLucideIcon(__iconData$77);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$76 = {
+var __iconData$66 = {
 	name: "chevron-right",
 	size: 24,
 	node: [["path", {
@@ -12244,8 +12100,8 @@ var __iconData$76 = {
 		key: "mthhwq"
 	}]]
 };
-__iconData$76.node;
-var ChevronRight = createLucideIcon(__iconData$76);
+__iconData$66.node;
+var ChevronRight = createLucideIcon(__iconData$66);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/circle-alert.mjs
 /**
@@ -12254,7 +12110,7 @@ var ChevronRight = createLucideIcon(__iconData$76);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$75 = {
+var __iconData$65 = {
 	name: "circle-alert",
 	size: 24,
 	node: [
@@ -12281,8 +12137,8 @@ var __iconData$75 = {
 	],
 	aliases: ["alert-circle"]
 };
-__iconData$75.node;
-var CircleAlert = createLucideIcon(__iconData$75);
+__iconData$65.node;
+var CircleAlert = createLucideIcon(__iconData$65);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/circle-check.mjs
 /**
@@ -12291,7 +12147,7 @@ var CircleAlert = createLucideIcon(__iconData$75);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$74 = {
+var __iconData$64 = {
 	name: "circle-check",
 	size: 24,
 	node: [["circle", {
@@ -12305,8 +12161,8 @@ var __iconData$74 = {
 	}]],
 	aliases: ["check-circle-2"]
 };
-__iconData$74.node;
-var CircleCheck = createLucideIcon(__iconData$74);
+__iconData$64.node;
+var CircleCheck = createLucideIcon(__iconData$64);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/circle-x.mjs
 /**
@@ -12315,7 +12171,7 @@ var CircleCheck = createLucideIcon(__iconData$74);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$73 = {
+var __iconData$63 = {
 	name: "circle-x",
 	size: 24,
 	node: [
@@ -12336,8 +12192,8 @@ var __iconData$73 = {
 	],
 	aliases: ["x-circle"]
 };
-__iconData$73.node;
-var CircleX = createLucideIcon(__iconData$73);
+__iconData$63.node;
+var CircleX = createLucideIcon(__iconData$63);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/clock.mjs
 /**
@@ -12346,7 +12202,7 @@ var CircleX = createLucideIcon(__iconData$73);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$72 = {
+var __iconData$62 = {
 	name: "clock",
 	size: 24,
 	node: [["circle", {
@@ -12359,8 +12215,8 @@ var __iconData$72 = {
 		key: "mmk7yg"
 	}]]
 };
-__iconData$72.node;
-var Clock = createLucideIcon(__iconData$72);
+__iconData$62.node;
+var Clock = createLucideIcon(__iconData$62);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/copy.mjs
 /**
@@ -12369,7 +12225,7 @@ var Clock = createLucideIcon(__iconData$72);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$71 = {
+var __iconData$61 = {
 	name: "copy",
 	size: 24,
 	node: [["rect", {
@@ -12385,8 +12241,8 @@ var __iconData$71 = {
 		key: "zix9uf"
 	}]]
 };
-__iconData$71.node;
-var Copy = createLucideIcon(__iconData$71);
+__iconData$61.node;
+var Copy = createLucideIcon(__iconData$61);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/credit-card.mjs
 /**
@@ -12395,7 +12251,7 @@ var Copy = createLucideIcon(__iconData$71);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$70 = {
+var __iconData$60 = {
 	name: "credit-card",
 	size: 24,
 	node: [
@@ -12420,8 +12276,8 @@ var __iconData$70 = {
 		}]
 	]
 };
-__iconData$70.node;
-var CreditCard = createLucideIcon(__iconData$70);
+__iconData$60.node;
+var CreditCard = createLucideIcon(__iconData$60);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/database.mjs
 /**
@@ -12430,7 +12286,7 @@ var CreditCard = createLucideIcon(__iconData$70);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$69 = {
+var __iconData$59 = {
 	name: "database",
 	size: 24,
 	node: [
@@ -12451,8 +12307,8 @@ var __iconData$69 = {
 		}]
 	]
 };
-__iconData$69.node;
-var Database = createLucideIcon(__iconData$69);
+__iconData$59.node;
+var Database = createLucideIcon(__iconData$59);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/download.mjs
 /**
@@ -12461,7 +12317,7 @@ var Database = createLucideIcon(__iconData$69);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$68 = {
+var __iconData$58 = {
 	name: "download",
 	size: 24,
 	node: [
@@ -12479,8 +12335,8 @@ var __iconData$68 = {
 		}]
 	]
 };
-__iconData$68.node;
-var Download = createLucideIcon(__iconData$68);
+__iconData$58.node;
+var Download = createLucideIcon(__iconData$58);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.mjs
 /**
@@ -12489,7 +12345,7 @@ var Download = createLucideIcon(__iconData$68);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$67 = {
+var __iconData$57 = {
 	name: "ellipsis-vertical",
 	size: 24,
 	node: [
@@ -12514,8 +12370,8 @@ var __iconData$67 = {
 	],
 	aliases: ["more-vertical"]
 };
-__iconData$67.node;
-var EllipsisVertical = createLucideIcon(__iconData$67);
+__iconData$57.node;
+var EllipsisVertical = createLucideIcon(__iconData$57);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/eye-off.mjs
 /**
@@ -12524,7 +12380,7 @@ var EllipsisVertical = createLucideIcon(__iconData$67);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$66 = {
+var __iconData$56 = {
 	name: "eye-off",
 	size: 24,
 	node: [
@@ -12546,8 +12402,8 @@ var __iconData$66 = {
 		}]
 	]
 };
-__iconData$66.node;
-var EyeOff = createLucideIcon(__iconData$66);
+__iconData$56.node;
+var EyeOff = createLucideIcon(__iconData$56);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/eye.mjs
 /**
@@ -12556,7 +12412,7 @@ var EyeOff = createLucideIcon(__iconData$66);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$65 = {
+var __iconData$55 = {
 	name: "eye",
 	size: 24,
 	node: [["path", {
@@ -12569,8 +12425,8 @@ var __iconData$65 = {
 		key: "1v7zrd"
 	}]]
 };
-__iconData$65.node;
-var Eye = createLucideIcon(__iconData$65);
+__iconData$55.node;
+var Eye = createLucideIcon(__iconData$55);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/file-spreadsheet.mjs
 /**
@@ -12579,7 +12435,7 @@ var Eye = createLucideIcon(__iconData$65);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$64 = {
+var __iconData$54 = {
 	name: "file-spreadsheet",
 	size: 24,
 	node: [
@@ -12609,8 +12465,8 @@ var __iconData$64 = {
 		}]
 	]
 };
-__iconData$64.node;
-var FileSpreadsheet = createLucideIcon(__iconData$64);
+__iconData$54.node;
+var FileSpreadsheet = createLucideIcon(__iconData$54);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/file-text.mjs
 /**
@@ -12619,7 +12475,7 @@ var FileSpreadsheet = createLucideIcon(__iconData$64);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$63 = {
+var __iconData$53 = {
 	name: "file-text",
 	size: 24,
 	node: [
@@ -12645,8 +12501,8 @@ var __iconData$63 = {
 		}]
 	]
 };
-__iconData$63.node;
-var FileText = createLucideIcon(__iconData$63);
+__iconData$53.node;
+var FileText = createLucideIcon(__iconData$53);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/funnel.mjs
 /**
@@ -12655,7 +12511,7 @@ var FileText = createLucideIcon(__iconData$63);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$62 = {
+var __iconData$52 = {
 	name: "funnel",
 	size: 24,
 	node: [["path", {
@@ -12664,8 +12520,8 @@ var __iconData$62 = {
 	}]],
 	aliases: ["filter"]
 };
-__iconData$62.node;
-var Funnel = createLucideIcon(__iconData$62);
+__iconData$52.node;
+var Funnel = createLucideIcon(__iconData$52);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/gauge.mjs
 /**
@@ -12674,7 +12530,7 @@ var Funnel = createLucideIcon(__iconData$62);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$61 = {
+var __iconData$51 = {
 	name: "gauge",
 	size: 24,
 	node: [["path", {
@@ -12685,8 +12541,8 @@ var __iconData$61 = {
 		key: "19p75a"
 	}]]
 };
-__iconData$61.node;
-var Gauge = createLucideIcon(__iconData$61);
+__iconData$51.node;
+var Gauge = createLucideIcon(__iconData$51);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/globe.mjs
 /**
@@ -12695,7 +12551,7 @@ var Gauge = createLucideIcon(__iconData$61);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$60 = {
+var __iconData$50 = {
 	name: "globe",
 	size: 24,
 	node: [
@@ -12715,8 +12571,8 @@ var __iconData$60 = {
 		}]
 	]
 };
-__iconData$60.node;
-var Globe = createLucideIcon(__iconData$60);
+__iconData$50.node;
+var Globe = createLucideIcon(__iconData$50);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/house.mjs
 /**
@@ -12725,7 +12581,7 @@ var Globe = createLucideIcon(__iconData$60);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$59 = {
+var __iconData$49 = {
 	name: "house",
 	size: 24,
 	node: [["path", {
@@ -12737,8 +12593,8 @@ var __iconData$59 = {
 	}]],
 	aliases: ["home"]
 };
-__iconData$59.node;
-var House = createLucideIcon(__iconData$59);
+__iconData$49.node;
+var House = createLucideIcon(__iconData$49);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/info.mjs
 /**
@@ -12747,7 +12603,7 @@ var House = createLucideIcon(__iconData$59);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$58 = {
+var __iconData$48 = {
 	name: "info",
 	size: 24,
 	node: [
@@ -12767,26 +12623,8 @@ var __iconData$58 = {
 		}]
 	]
 };
-__iconData$58.node;
-var Info = createLucideIcon(__iconData$58);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/infinity.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$57 = {
-	name: "infinity",
-	size: 24,
-	node: [["path", {
-		d: "M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8",
-		key: "18ogeb"
-	}]]
-};
-__iconData$57.node;
-var Infinity$1 = createLucideIcon(__iconData$57);
+__iconData$48.node;
+var Info = createLucideIcon(__iconData$48);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/key-round.mjs
 /**
@@ -12795,7 +12633,7 @@ var Infinity$1 = createLucideIcon(__iconData$57);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$56 = {
+var __iconData$47 = {
 	name: "key-round",
 	size: 24,
 	node: [["path", {
@@ -12809,8 +12647,8 @@ var __iconData$56 = {
 		key: "w0ekpg"
 	}]]
 };
-__iconData$56.node;
-var KeyRound = createLucideIcon(__iconData$56);
+__iconData$47.node;
+var KeyRound = createLucideIcon(__iconData$47);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/key.mjs
 /**
@@ -12819,7 +12657,7 @@ var KeyRound = createLucideIcon(__iconData$56);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$55 = {
+var __iconData$46 = {
 	name: "key",
 	size: 24,
 	node: [
@@ -12839,69 +12677,8 @@ var __iconData$55 = {
 		}]
 	]
 };
-__iconData$55.node;
-var Key = createLucideIcon(__iconData$55);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/landmark.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$54 = {
-	name: "landmark",
-	size: 24,
-	node: [
-		["path", {
-			d: "M10 18v-7",
-			key: "wt116b"
-		}],
-		["path", {
-			d: "M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z",
-			key: "yxxwt6"
-		}],
-		["path", {
-			d: "M14 18v-7",
-			key: "vav6t3"
-		}],
-		["path", {
-			d: "M18 18v-7",
-			key: "aexdmj"
-		}],
-		["path", {
-			d: "M3 22h18",
-			key: "8prr45"
-		}],
-		["path", {
-			d: "M6 18v-7",
-			key: "1ivflk"
-		}]
-	]
-};
-__iconData$54.node;
-var Landmark = createLucideIcon(__iconData$54);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/laptop.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$53 = {
-	name: "laptop",
-	size: 24,
-	node: [["path", {
-		d: "M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z",
-		key: "1pdavp"
-	}], ["path", {
-		d: "M20.054 15.987H3.946",
-		key: "14rxg9"
-	}]]
-};
-__iconData$53.node;
-var Laptop = createLucideIcon(__iconData$53);
+__iconData$46.node;
+var Key = createLucideIcon(__iconData$46);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/layout-grid.mjs
 /**
@@ -12910,7 +12687,7 @@ var Laptop = createLucideIcon(__iconData$53);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$52 = {
+var __iconData$45 = {
 	name: "layout-grid",
 	size: 24,
 	node: [
@@ -12948,8 +12725,8 @@ var __iconData$52 = {
 		}]
 	]
 };
-__iconData$52.node;
-var LayoutGrid = createLucideIcon(__iconData$52);
+__iconData$45.node;
+var LayoutGrid = createLucideIcon(__iconData$45);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/loader-circle.mjs
 /**
@@ -12958,7 +12735,7 @@ var LayoutGrid = createLucideIcon(__iconData$52);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$51 = {
+var __iconData$44 = {
 	name: "loader-circle",
 	size: 24,
 	node: [["path", {
@@ -12967,75 +12744,8 @@ var __iconData$51 = {
 	}]],
 	aliases: ["loader-2"]
 };
-__iconData$51.node;
-var LoaderCircle = createLucideIcon(__iconData$51);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/list.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$50 = {
-	name: "list",
-	size: 24,
-	node: [
-		["path", {
-			d: "M3 5h.01",
-			key: "18ugdj"
-		}],
-		["path", {
-			d: "M3 12h.01",
-			key: "nlz23k"
-		}],
-		["path", {
-			d: "M3 19h.01",
-			key: "noohij"
-		}],
-		["path", {
-			d: "M8 5h13",
-			key: "1pao27"
-		}],
-		["path", {
-			d: "M8 12h13",
-			key: "1za7za"
-		}],
-		["path", {
-			d: "M8 19h13",
-			key: "m83p4d"
-		}]
-	]
-};
-__iconData$50.node;
-var List = createLucideIcon(__iconData$50);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/lock-open.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$49 = {
-	name: "lock-open",
-	size: 24,
-	node: [["rect", {
-		width: "18",
-		height: "11",
-		x: "3",
-		y: "11",
-		rx: "2",
-		ry: "2",
-		key: "1w4ew1"
-	}], ["path", {
-		d: "M7 11V7a5 5 0 0 1 9.9-1",
-		key: "1mm8w8"
-	}]],
-	aliases: ["unlock"]
-};
-__iconData$49.node;
-var LockOpen = createLucideIcon(__iconData$49);
+__iconData$44.node;
+var LoaderCircle = createLucideIcon(__iconData$44);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/lock.mjs
 /**
@@ -13044,7 +12754,7 @@ var LockOpen = createLucideIcon(__iconData$49);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$48 = {
+var __iconData$43 = {
 	name: "lock",
 	size: 24,
 	node: [["rect", {
@@ -13060,8 +12770,8 @@ var __iconData$48 = {
 		key: "fwvmzm"
 	}]]
 };
-__iconData$48.node;
-var Lock = createLucideIcon(__iconData$48);
+__iconData$43.node;
+var Lock = createLucideIcon(__iconData$43);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/log-out.mjs
 /**
@@ -13070,7 +12780,7 @@ var Lock = createLucideIcon(__iconData$48);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$47 = {
+var __iconData$42 = {
 	name: "log-out",
 	size: 24,
 	node: [
@@ -13088,8 +12798,8 @@ var __iconData$47 = {
 		}]
 	]
 };
-__iconData$47.node;
-var LogOut = createLucideIcon(__iconData$47);
+__iconData$42.node;
+var LogOut = createLucideIcon(__iconData$42);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/map-pin.mjs
 /**
@@ -13098,7 +12808,7 @@ var LogOut = createLucideIcon(__iconData$47);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$46 = {
+var __iconData$41 = {
 	name: "map-pin",
 	size: 24,
 	node: [["path", {
@@ -13111,8 +12821,8 @@ var __iconData$46 = {
 		key: "ilqhr7"
 	}]]
 };
-__iconData$46.node;
-var MapPin = createLucideIcon(__iconData$46);
+__iconData$41.node;
+var MapPin = createLucideIcon(__iconData$41);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/message-circle.mjs
 /**
@@ -13121,7 +12831,7 @@ var MapPin = createLucideIcon(__iconData$46);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$45 = {
+var __iconData$40 = {
 	name: "message-circle",
 	size: 24,
 	node: [["path", {
@@ -13129,8 +12839,8 @@ var __iconData$45 = {
 		key: "1sd12s"
 	}]]
 };
-__iconData$45.node;
-var MessageCircle = createLucideIcon(__iconData$45);
+__iconData$40.node;
+var MessageCircle = createLucideIcon(__iconData$40);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/moon.mjs
 /**
@@ -13139,7 +12849,7 @@ var MessageCircle = createLucideIcon(__iconData$45);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$44 = {
+var __iconData$39 = {
 	name: "moon",
 	size: 24,
 	node: [["path", {
@@ -13147,56 +12857,8 @@ var __iconData$44 = {
 		key: "kfwtm"
 	}]]
 };
-__iconData$44.node;
-var Moon = createLucideIcon(__iconData$44);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/network.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$43 = {
-	name: "network",
-	size: 24,
-	node: [
-		["rect", {
-			x: "16",
-			y: "16",
-			width: "6",
-			height: "6",
-			rx: "1",
-			key: "4q2zg0"
-		}],
-		["rect", {
-			x: "2",
-			y: "16",
-			width: "6",
-			height: "6",
-			rx: "1",
-			key: "8cvhb9"
-		}],
-		["rect", {
-			x: "9",
-			y: "2",
-			width: "6",
-			height: "6",
-			rx: "1",
-			key: "1egb70"
-		}],
-		["path", {
-			d: "M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3",
-			key: "1jsf9p"
-		}],
-		["path", {
-			d: "M12 12V8",
-			key: "2874zd"
-		}]
-	]
-};
-__iconData$43.node;
-var Network = createLucideIcon(__iconData$43);
+__iconData$39.node;
+var Moon = createLucideIcon(__iconData$39);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/octagon-alert.mjs
 /**
@@ -13205,7 +12867,7 @@ var Network = createLucideIcon(__iconData$43);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$42 = {
+var __iconData$38 = {
 	name: "octagon-alert",
 	size: 24,
 	node: [
@@ -13224,8 +12886,8 @@ var __iconData$42 = {
 	],
 	aliases: ["alert-octagon"]
 };
-__iconData$42.node;
-var OctagonAlert = createLucideIcon(__iconData$42);
+__iconData$38.node;
+var OctagonAlert = createLucideIcon(__iconData$38);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/pause.mjs
 /**
@@ -13234,7 +12896,7 @@ var OctagonAlert = createLucideIcon(__iconData$42);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$41 = {
+var __iconData$37 = {
 	name: "pause",
 	size: 24,
 	node: [["rect", {
@@ -13253,8 +12915,8 @@ var __iconData$41 = {
 		key: "1wsw3u"
 	}]]
 };
-__iconData$41.node;
-var Pause = createLucideIcon(__iconData$41);
+__iconData$37.node;
+var Pause = createLucideIcon(__iconData$37);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/pen.mjs
 /**
@@ -13263,7 +12925,7 @@ var Pause = createLucideIcon(__iconData$41);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$40 = {
+var __iconData$36 = {
 	name: "pen",
 	size: 24,
 	node: [["path", {
@@ -13272,29 +12934,8 @@ var __iconData$40 = {
 	}]],
 	aliases: ["edit-2"]
 };
-__iconData$40.node;
-var Pen = createLucideIcon(__iconData$40);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/pencil.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$39 = {
-	name: "pencil",
-	size: 24,
-	node: [["path", {
-		d: "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
-		key: "1a8usu"
-	}], ["path", {
-		d: "m15 5 4 4",
-		key: "1mk7zo"
-	}]]
-};
-__iconData$39.node;
-var Pencil = createLucideIcon(__iconData$39);
+__iconData$36.node;
+var Pen = createLucideIcon(__iconData$36);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/phone.mjs
 /**
@@ -13303,7 +12944,7 @@ var Pencil = createLucideIcon(__iconData$39);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$38 = {
+var __iconData$35 = {
 	name: "phone",
 	size: 24,
 	node: [["path", {
@@ -13311,8 +12952,8 @@ var __iconData$38 = {
 		key: "9njp5v"
 	}]]
 };
-__iconData$38.node;
-var Phone = createLucideIcon(__iconData$38);
+__iconData$35.node;
+var Phone = createLucideIcon(__iconData$35);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/play.mjs
 /**
@@ -13321,7 +12962,7 @@ var Phone = createLucideIcon(__iconData$38);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$37 = {
+var __iconData$34 = {
 	name: "play",
 	size: 24,
 	node: [["path", {
@@ -13329,8 +12970,8 @@ var __iconData$37 = {
 		key: "10ikf1"
 	}]]
 };
-__iconData$37.node;
-var Play = createLucideIcon(__iconData$37);
+__iconData$34.node;
+var Play = createLucideIcon(__iconData$34);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/plus.mjs
 /**
@@ -13339,7 +12980,7 @@ var Play = createLucideIcon(__iconData$37);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$36 = {
+var __iconData$33 = {
 	name: "plus",
 	size: 24,
 	node: [["path", {
@@ -13350,8 +12991,8 @@ var __iconData$36 = {
 		key: "s699le"
 	}]]
 };
-__iconData$36.node;
-var Plus = createLucideIcon(__iconData$36);
+__iconData$33.node;
+var Plus = createLucideIcon(__iconData$33);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/radio.mjs
 /**
@@ -13360,7 +13001,7 @@ var Plus = createLucideIcon(__iconData$36);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$35 = {
+var __iconData$32 = {
 	name: "radio",
 	size: 24,
 	node: [
@@ -13388,40 +13029,8 @@ var __iconData$35 = {
 		}]
 	]
 };
-__iconData$35.node;
-var Radio = createLucideIcon(__iconData$35);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/receipt-text.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$34 = {
-	name: "receipt-text",
-	size: 24,
-	node: [
-		["path", {
-			d: "M13 16H8",
-			key: "wsln4y"
-		}],
-		["path", {
-			d: "M14 8H8",
-			key: "1l3xfs"
-		}],
-		["path", {
-			d: "M16 12H8",
-			key: "1fr5h0"
-		}],
-		["path", {
-			d: "M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z",
-			key: "ycz6yz"
-		}]
-	]
-};
-__iconData$34.node;
-var ReceiptText = createLucideIcon(__iconData$34);
+__iconData$32.node;
+var Radio = createLucideIcon(__iconData$32);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/refresh-cw.mjs
 /**
@@ -13430,7 +13039,7 @@ var ReceiptText = createLucideIcon(__iconData$34);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$33 = {
+var __iconData$31 = {
 	name: "refresh-cw",
 	size: 24,
 	node: [
@@ -13452,8 +13061,8 @@ var __iconData$33 = {
 		}]
 	]
 };
-__iconData$33.node;
-var RefreshCw = createLucideIcon(__iconData$33);
+__iconData$31.node;
+var RefreshCw = createLucideIcon(__iconData$31);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/rotate-ccw-clock.mjs
 /**
@@ -13462,7 +13071,7 @@ var RefreshCw = createLucideIcon(__iconData$33);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$32 = {
+var __iconData$30 = {
 	name: "rotate-ccw-clock",
 	size: 24,
 	node: [
@@ -13481,8 +13090,8 @@ var __iconData$32 = {
 	],
 	aliases: ["history"]
 };
-__iconData$32.node;
-var RotateCcwClock = createLucideIcon(__iconData$32);
+__iconData$30.node;
+var RotateCcwClock = createLucideIcon(__iconData$30);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/rotate-ccw.mjs
 /**
@@ -13491,7 +13100,7 @@ var RotateCcwClock = createLucideIcon(__iconData$32);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$31 = {
+var __iconData$29 = {
 	name: "rotate-ccw",
 	size: 24,
 	node: [["path", {
@@ -13502,8 +13111,8 @@ var __iconData$31 = {
 		key: "1xhq8a"
 	}]]
 };
-__iconData$31.node;
-var RotateCcw = createLucideIcon(__iconData$31);
+__iconData$29.node;
+var RotateCcw = createLucideIcon(__iconData$29);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/rotate-cw.mjs
 /**
@@ -13512,7 +13121,7 @@ var RotateCcw = createLucideIcon(__iconData$31);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$30 = {
+var __iconData$28 = {
 	name: "rotate-cw",
 	size: 24,
 	node: [["path", {
@@ -13523,8 +13132,8 @@ var __iconData$30 = {
 		key: "1q7to0"
 	}]]
 };
-__iconData$30.node;
-var RotateCw = createLucideIcon(__iconData$30);
+__iconData$28.node;
+var RotateCw = createLucideIcon(__iconData$28);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/router.mjs
 /**
@@ -13533,7 +13142,7 @@ var RotateCw = createLucideIcon(__iconData$30);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$29 = {
+var __iconData$27 = {
 	name: "router",
 	size: 24,
 	node: [
@@ -13567,8 +13176,8 @@ var __iconData$29 = {
 		}]
 	]
 };
-__iconData$29.node;
-var Router = createLucideIcon(__iconData$29);
+__iconData$27.node;
+var Router = createLucideIcon(__iconData$27);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/save.mjs
 /**
@@ -13577,7 +13186,7 @@ var Router = createLucideIcon(__iconData$29);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$28 = {
+var __iconData$26 = {
 	name: "save",
 	size: 24,
 	node: [
@@ -13595,8 +13204,8 @@ var __iconData$28 = {
 		}]
 	]
 };
-__iconData$28.node;
-var Save = createLucideIcon(__iconData$28);
+__iconData$26.node;
+var Save = createLucideIcon(__iconData$26);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/scroll-text.mjs
 /**
@@ -13605,7 +13214,7 @@ var Save = createLucideIcon(__iconData$28);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$27 = {
+var __iconData$25 = {
 	name: "scroll-text",
 	size: 24,
 	node: [
@@ -13627,8 +13236,8 @@ var __iconData$27 = {
 		}]
 	]
 };
-__iconData$27.node;
-var ScrollText = createLucideIcon(__iconData$27);
+__iconData$25.node;
+var ScrollText = createLucideIcon(__iconData$25);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/search.mjs
 /**
@@ -13637,7 +13246,7 @@ var ScrollText = createLucideIcon(__iconData$27);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$26 = {
+var __iconData$24 = {
 	name: "search",
 	size: 24,
 	node: [["path", {
@@ -13650,8 +13259,8 @@ var __iconData$26 = {
 		key: "4ej97u"
 	}]]
 };
-__iconData$26.node;
-var Search = createLucideIcon(__iconData$26);
+__iconData$24.node;
+var Search = createLucideIcon(__iconData$24);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/send.mjs
 /**
@@ -13660,7 +13269,7 @@ var Search = createLucideIcon(__iconData$26);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$25 = {
+var __iconData$23 = {
 	name: "send",
 	size: 24,
 	node: [["path", {
@@ -13671,8 +13280,8 @@ var __iconData$25 = {
 		key: "12cjpa"
 	}]]
 };
-__iconData$25.node;
-var Send = createLucideIcon(__iconData$25);
+__iconData$23.node;
+var Send = createLucideIcon(__iconData$23);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/server.mjs
 /**
@@ -13681,7 +13290,7 @@ var Send = createLucideIcon(__iconData$25);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$24 = {
+var __iconData$22 = {
 	name: "server",
 	size: 24,
 	node: [
@@ -13719,8 +13328,8 @@ var __iconData$24 = {
 		}]
 	]
 };
-__iconData$24.node;
-var Server = createLucideIcon(__iconData$24);
+__iconData$22.node;
+var Server = createLucideIcon(__iconData$22);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/shield-alert.mjs
 /**
@@ -13729,7 +13338,7 @@ var Server = createLucideIcon(__iconData$24);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$23 = {
+var __iconData$21 = {
 	name: "shield-alert",
 	size: 24,
 	node: [
@@ -13747,8 +13356,8 @@ var __iconData$23 = {
 		}]
 	]
 };
-__iconData$23.node;
-var ShieldAlert = createLucideIcon(__iconData$23);
+__iconData$21.node;
+var ShieldAlert = createLucideIcon(__iconData$21);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/shield-check.mjs
 /**
@@ -13757,7 +13366,7 @@ var ShieldAlert = createLucideIcon(__iconData$23);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$22 = {
+var __iconData$20 = {
 	name: "shield-check",
 	size: 24,
 	node: [["path", {
@@ -13768,44 +13377,8 @@ var __iconData$22 = {
 		key: "dzmm74"
 	}]]
 };
-__iconData$22.node;
-var ShieldCheck = createLucideIcon(__iconData$22);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/signal.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$21 = {
-	name: "signal",
-	size: 24,
-	node: [
-		["path", {
-			d: "M2 20h.01",
-			key: "4haj6o"
-		}],
-		["path", {
-			d: "M7 20v-4",
-			key: "j294jx"
-		}],
-		["path", {
-			d: "M12 20v-8",
-			key: "i3yub9"
-		}],
-		["path", {
-			d: "M17 20V8",
-			key: "1tkaf5"
-		}],
-		["path", {
-			d: "M22 4v16",
-			key: "sih9yq"
-		}]
-	]
-};
-__iconData$21.node;
-var Signal = createLucideIcon(__iconData$21);
+__iconData$20.node;
+var ShieldCheck = createLucideIcon(__iconData$20);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/sliders-horizontal.mjs
 /**
@@ -13814,7 +13387,7 @@ var Signal = createLucideIcon(__iconData$21);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$20 = {
+var __iconData$19 = {
 	name: "sliders-horizontal",
 	size: 24,
 	node: [
@@ -13856,8 +13429,8 @@ var __iconData$20 = {
 		}]
 	]
 };
-__iconData$20.node;
-var SlidersHorizontal = createLucideIcon(__iconData$20);
+__iconData$19.node;
+var SlidersHorizontal = createLucideIcon(__iconData$19);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/sliders-vertical.mjs
 /**
@@ -13866,7 +13439,7 @@ var SlidersHorizontal = createLucideIcon(__iconData$20);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$19 = {
+var __iconData$18 = {
 	name: "sliders-vertical",
 	size: 24,
 	node: [
@@ -13909,8 +13482,8 @@ var __iconData$19 = {
 	],
 	aliases: ["sliders"]
 };
-__iconData$19.node;
-var SlidersVertical = createLucideIcon(__iconData$19);
+__iconData$18.node;
+var SlidersVertical = createLucideIcon(__iconData$18);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/smartphone.mjs
 /**
@@ -13919,7 +13492,7 @@ var SlidersVertical = createLucideIcon(__iconData$19);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$18 = {
+var __iconData$17 = {
 	name: "smartphone",
 	size: 24,
 	node: [["rect", {
@@ -13935,8 +13508,8 @@ var __iconData$18 = {
 		key: "mhygvu"
 	}]]
 };
-__iconData$18.node;
-var Smartphone = createLucideIcon(__iconData$18);
+__iconData$17.node;
+var Smartphone = createLucideIcon(__iconData$17);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/square.mjs
 /**
@@ -13945,7 +13518,7 @@ var Smartphone = createLucideIcon(__iconData$18);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$17 = {
+var __iconData$16 = {
 	name: "square",
 	size: 24,
 	node: [["rect", {
@@ -13957,8 +13530,8 @@ var __iconData$17 = {
 		key: "afitv7"
 	}]]
 };
-__iconData$17.node;
-var Square = createLucideIcon(__iconData$17);
+__iconData$16.node;
+var Square = createLucideIcon(__iconData$16);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/thermometer.mjs
 /**
@@ -13967,7 +13540,7 @@ var Square = createLucideIcon(__iconData$17);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$16 = {
+var __iconData$15 = {
 	name: "thermometer",
 	size: 24,
 	node: [["path", {
@@ -13975,8 +13548,8 @@ var __iconData$16 = {
 		key: "17jzev"
 	}]]
 };
-__iconData$16.node;
-var Thermometer = createLucideIcon(__iconData$16);
+__iconData$15.node;
+var Thermometer = createLucideIcon(__iconData$15);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/ticket.mjs
 /**
@@ -13985,7 +13558,7 @@ var Thermometer = createLucideIcon(__iconData$16);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$15 = {
+var __iconData$14 = {
 	name: "ticket",
 	size: 24,
 	node: [
@@ -14007,8 +13580,8 @@ var __iconData$15 = {
 		}]
 	]
 };
-__iconData$15.node;
-var Ticket = createLucideIcon(__iconData$15);
+__iconData$14.node;
+var Ticket = createLucideIcon(__iconData$14);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/trash.mjs
 /**
@@ -14017,7 +13590,7 @@ var Ticket = createLucideIcon(__iconData$15);
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var __iconData$14 = {
+var __iconData$13 = {
 	name: "trash",
 	size: 24,
 	node: [
@@ -14044,29 +13617,8 @@ var __iconData$14 = {
 	],
 	aliases: ["trash-2"]
 };
-__iconData$14.node;
-var Trash = createLucideIcon(__iconData$14);
-//#endregion
-//#region node_modules/lucide-react/dist/esm/icons/trending-up.mjs
-/**
-* @license lucide-react v1.53.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var __iconData$13 = {
-	name: "trending-up",
-	size: 24,
-	node: [["path", {
-		d: "M16 7h6v6",
-		key: "box55l"
-	}], ["path", {
-		d: "m22 7-8.5 8.5-5-5L2 17",
-		key: "1t1m79"
-	}]]
-};
 __iconData$13.node;
-var TrendingUp = createLucideIcon(__iconData$13);
+var Trash = createLucideIcon(__iconData$13);
 //#endregion
 //#region node_modules/lucide-react/dist/esm/icons/triangle-alert.mjs
 /**
@@ -30541,7 +30093,7 @@ function FilterContainer({ children, className = "" }) {
 /**
 * Helper to compute pagination items with ellipses (...)
 */
-function getPaginationRange$1(currentPage, totalPages) {
+function getPaginationRange(currentPage, totalPages) {
 	if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
 	const pages = [];
 	pages.push(1);
@@ -30585,7 +30137,7 @@ function DataTableContainer({ children, page = 1, totalPages = 1, totalCount, to
 			else if (p > safePage && onNextPage) onNextPage();
 		}
 	};
-	const paginationItems = getPaginationRange$1(safePage, safeTotalPages);
+	const paginationItems = getPaginationRange(safePage, safeTotalPages);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "bg-white rounded-xl border border-[#CCDDF0] shadow-2xs overflow-hidden",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -42610,7186 +42162,6 @@ function LoginView({ onLoginSuccess }) {
 	});
 }
 //#endregion
-//#region src/portal/components/layout/PortalNavigation.jsx
-function PortalBottomNav({ activeTab, onTabChange }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
-		className: "sticky bottom-0 w-full bg-white/98 backdrop-blur-md border-t border-slate-200 z-30 shrink-0 pb-[max(env(safe-area-inset-bottom,0px),8px)] shadow-[0_-2px_10px_rgba(0,0,0,0.03)] select-none",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "grid grid-cols-5 h-14 items-center px-1",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					type: "button",
-					onClick: () => onTabChange("beranda"),
-					className: `flex flex-col items-center justify-center min-h-[48px] py-1 transition cursor-pointer ${activeTab === "beranda" ? "text-blue-600 font-bold" : "text-slate-500 hover:text-slate-700"}`,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: `p-1.5 rounded-xl transition ${activeTab === "beranda" ? "bg-blue-50 text-blue-600" : ""}`,
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(House, { className: `w-5 h-5 ${activeTab === "beranda" ? "stroke-[2.3]" : "stroke-[1.8]"}` })
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "text-[11px] tracking-tight mt-0.5 font-medium leading-none",
-						children: "Beranda"
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					type: "button",
-					onClick: () => onTabChange("kuota"),
-					className: `flex flex-col items-center justify-center min-h-[48px] py-1 transition cursor-pointer ${activeTab === "kuota" ? "text-blue-600 font-bold" : "text-slate-500 hover:text-slate-700"}`,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: `p-1.5 rounded-xl transition ${activeTab === "kuota" ? "bg-blue-50 text-blue-600" : ""}`,
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChartPie, { className: `w-5 h-5 ${activeTab === "kuota" ? "stroke-[2.3]" : "stroke-[1.8]"}` })
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "text-[11px] tracking-tight mt-0.5 font-medium leading-none",
-						children: "Kuota"
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					type: "button",
-					onClick: () => onTabChange("pembayaran"),
-					className: "flex flex-col items-center justify-center -mt-2 min-h-[48px] group cursor-pointer",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: `w-10 h-10 rounded-xl flex items-center justify-center transition-all ${activeTab === "pembayaran" ? "bg-blue-600 text-white shadow-md shadow-blue-600/30 ring-2 ring-white scale-105" : "bg-slate-800 text-white shadow-xs group-hover:bg-blue-600"}`,
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CreditCard, { className: "w-5 h-5 stroke-[2.2]" })
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: `text-[11px] tracking-tight mt-1 leading-none ${activeTab === "pembayaran" ? "text-blue-600 font-bold" : "text-slate-600 font-medium"}`,
-						children: "Bayar"
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					type: "button",
-					onClick: () => onTabChange("kendala"),
-					className: `flex flex-col items-center justify-center min-h-[48px] py-1 transition cursor-pointer ${activeTab === "kendala" ? "text-blue-600 font-bold" : "text-slate-500 hover:text-slate-700"}`,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: `p-1.5 rounded-xl transition ${activeTab === "kendala" ? "bg-blue-50 text-blue-600" : ""}`,
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleAlert, { className: `w-5 h-5 ${activeTab === "kendala" ? "stroke-[2.3]" : "stroke-[1.8]"}` })
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "text-[11px] tracking-tight mt-0.5 font-medium leading-none",
-						children: "Kendala"
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					type: "button",
-					onClick: () => onTabChange("profil"),
-					className: `flex flex-col items-center justify-center min-h-[48px] py-1 transition cursor-pointer ${activeTab === "profil" ? "text-blue-600 font-bold" : "text-slate-500 hover:text-slate-700"}`,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: `p-1.5 rounded-xl transition ${activeTab === "profil" ? "bg-blue-50 text-blue-600" : ""}`,
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(User, { className: `w-5 h-5 ${activeTab === "profil" ? "stroke-[2.3]" : "stroke-[1.8]"}` })
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "text-[11px] tracking-tight mt-0.5 font-medium leading-none",
-						children: "Profil"
-					})]
-				})
-			]
-		})
-	});
-}
-//#endregion
-//#region src/portal/services/portalApi.js
-/**
-* Unified API Client for Portal Pelanggan TeknoCust
-* Implements OOP Principles & Full Backend API Connectivity
-*/
-var PortalApiService = class {
-	constructor(baseUrl = "/portal/api") {
-		this.baseUrl = baseUrl;
-	}
-	async request(endpoint, options = {}, retries = 1) {
-		const url = `${this.baseUrl}${endpoint}`;
-		const defaultHeaders = { "Accept": "application/json" };
-		if (options.body && !(options.body instanceof FormData)) defaultHeaders["Content-Type"] = "application/json";
-		const config = {
-			...options,
-			credentials: "include",
-			headers: {
-				...defaultHeaders,
-				...options.headers
-			}
-		};
-		try {
-			const response = await fetch(url, config);
-			const data = await response.json().catch(() => ({}));
-			return {
-				ok: response.ok,
-				status: response.status,
-				data
-			};
-		} catch (error) {
-			const isGet = !options.method || options.method.toUpperCase() === "GET";
-			if (retries > 0 && isGet) {
-				await new Promise((r) => setTimeout(r, 800));
-				return this.request(endpoint, options, retries - 1);
-			}
-			console.warn(`[PortalApiService Network Warning] ${endpoint}:`, error.message);
-			return {
-				ok: false,
-				status: 500,
-				error: error.message,
-				data: null
-			};
-		}
-	}
-	get(endpoint, params = {}) {
-		const query = new URLSearchParams();
-		Object.entries(params).forEach(([key, value]) => {
-			if (value !== void 0 && value !== null && value !== "") query.append(key, value);
-		});
-		const queryString = query.toString() ? `?${query.toString()}` : "";
-		return this.request(`${endpoint}${queryString}`, { method: "GET" });
-	}
-	post(endpoint, body = {}) {
-		return this.request(endpoint, {
-			method: "POST",
-			body: JSON.stringify(body)
-		});
-	}
-};
-var PortalAuthService = class {
-	static async me() {
-		return new PortalApiService().get("/auth/me");
-	}
-	static async login(identifier, password, rememberMe = true, platform = null) {
-		const plat = platform || (typeof window !== "undefined" && window.AndroidBridge ? "APP" : "WEB");
-		return new PortalApiService().post("/auth/login", {
-			identifier,
-			password,
-			remember_me: rememberMe,
-			platform: plat
-		});
-	}
-	static async logout(fcmToken = null, platform = null) {
-		const plat = platform || (typeof window !== "undefined" && window.AndroidBridge ? "APP" : "WEB");
-		return new PortalApiService().post("/auth/logout", {
-			platform: plat,
-			fcm_token: fcmToken || null
-		});
-	}
-	static async mintaResetPassword(no_hp) {
-		return new PortalApiService().post("/auth/minta-reset-password", { no_hp });
-	}
-	static async konfirmasiResetPassword(payload) {
-		return new PortalApiService().post("/auth/konfirmasi-reset-password", payload);
-	}
-	static async resetPassword(payload) {
-		return new PortalApiService().post("/auth/konfirmasi-reset-password", payload);
-	}
-	static async registerFcm(token, idPelanggan = null, kantor = null) {
-		return new PortalApiService().post("/auth/register-fcm", {
-			fcm_token: token,
-			id_pelanggan: idPelanggan,
-			kantor
-		});
-	}
-};
-var PortalDashboardService = class {
-	static async getDashboard() {
-		return new PortalApiService().get("/dashboard");
-	}
-	static async liveProbeSignal() {
-		return new PortalApiService().post("/dashboard/live-probe", {});
-	}
-};
-var PortalKuotaService = class {
-	static async getKuota() {
-		return new PortalApiService().get("/kuota");
-	}
-};
-var PortalKendalaService = class {
-	static async list() {
-		return new PortalApiService().get("/kendala");
-	}
-	static async create(payload) {
-		return new PortalApiService().post("/kendala/buat", payload);
-	}
-	static async delete(ticketId) {
-		return new PortalApiService().request(`/kendala/${encodeURIComponent(ticketId)}`, { method: "DELETE" });
-	}
-};
-var PortalWifiService = class {
-	static async getWifi() {
-		return new PortalApiService().get("/wifi");
-	}
-	static async changeWifi(payload) {
-		return new PortalApiService().post("/wifi/ganti", payload);
-	}
-	static async getConnectedDevices() {
-		return new PortalApiService().get("/wifi/perangkat-terhubung");
-	}
-	static async scanConnectedDevices() {
-		return new PortalApiService().post("/wifi/perangkat-terhubung/scan");
-	}
-	static async toggleBlockDevice(macAddress, block = null) {
-		return new PortalApiService().post("/wifi/perangkat-terhubung/toggle-block", {
-			mac_address: macAddress,
-			block
-		});
-	}
-};
-var PortalProfilService = class {
-	static async changePassword(payload) {
-		return new PortalApiService().post("/profil/ganti-password", payload);
-	}
-	static async updateProfile(payload) {
-		return new PortalApiService().post("/profil/update", payload);
-	}
-	static async uploadFoto(imageBase64) {
-		return new PortalApiService().post("/profil/foto", { image_base64: imageBase64 });
-	}
-	static async deleteFoto() {
-		return new PortalApiService().request("/profil/foto", { method: "DELETE" });
-	}
-	static async lockGpsLocation(latitude, longitude, accuracy = null, force = false) {
-		return new PortalApiService().post("/profil/lokasi-gps", {
-			latitude,
-			longitude,
-			accuracy,
-			force
-		});
-	}
-};
-var PortalPembayaranService = class {
-	/** Halaman Tagihan: daftar belum lunas, kartu bayar, dan kanal bank. Dibaca live. */
-	static async getTagihan() {
-		return new PortalApiService().get("/pembayaran");
-	}
-	/** Riwayat tagihan yang sudah lunas, termasuk pembayaran tunai ke petugas. */
-	static async getRiwayat(limit = 24) {
-		return new PortalApiService().get("/pembayaran/riwayat", { limit });
-	}
-	/**
-	* Satu kali pemeriksaan sesudah pelanggan menekan "Saya sudah bayar".
-	* Jeda 10 detik, batas 2 menit, dan penghentian saat 429 diatur pemanggil.
-	*/
-	static async periksaPembayaran(invoiceId) {
-		return new PortalApiService().get("/pembayaran/periksa", { invoice_id: invoiceId });
-	}
-};
-new PortalApiService();
-//#endregion
-//#region src/portal/components/modals/PortalLegalModal.jsx
-function PortalLegalModal({ isOpen, onClose, initialTab = "privasi" }) {
-	const [activeTab, setActiveTab] = (0, import_react.useState)(initialTab);
-	(0, import_react.useEffect)(() => {
-		if (!isOpen) return;
-		const handleKeyDown = (e) => {
-			if (e.key === "Escape") {
-				e.preventDefault();
-				if (onClose) onClose();
-			}
-		};
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, [isOpen, onClose]);
-	if (!isOpen) return null;
-	return typeof document !== "undefined" ? (0, import_react_dom.createPortal)(/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150 font-sans",
-		onClick: (e) => {
-			if (e.target === e.currentTarget) onClose();
-		},
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			role: "dialog",
-			"aria-modal": "true",
-			"aria-labelledby": "portal-legal-modal-title",
-			className: "w-full max-w-sm bg-white text-slate-800 rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col relative select-none animate-in zoom-in-95 duration-150 max-h-[62vh] sm:max-h-[480px]",
-			onClick: (e) => e.stopPropagation(),
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-4 py-3 border-b border-slate-100 flex items-center justify-between bg-white shrink-0",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "min-w-0",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-							id: "portal-legal-modal-title",
-							className: "text-xs font-bold text-slate-900 leading-tight",
-							children: activeTab === "privasi" ? "Kebijakan Privasi & Izin" : "Syarat & Ketentuan"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-[11px] text-slate-500 font-normal mt-0.5",
-							children: "MyTekno Customer Care"
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						type: "button",
-						onClick: onClose,
-						className: "w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition cursor-pointer shrink-0",
-						title: "Tutup Modal",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "w-4 h-4" })
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "px-4 pt-2.5 pb-2 bg-slate-50/50 border-b border-slate-100 shrink-0",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "grid grid-cols-2 p-0.5 bg-slate-200/60 rounded-lg text-xs",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							type: "button",
-							onClick: () => setActiveTab("privasi"),
-							className: `py-1.5 px-3 rounded-md transition cursor-pointer text-xs font-medium text-center ${activeTab === "privasi" ? "bg-white text-slate-900 font-semibold shadow-xs" : "text-slate-600 hover:text-slate-900"}`,
-							children: "Kebijakan Privasi"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							type: "button",
-							onClick: () => setActiveTab("syarat"),
-							className: `py-1.5 px-3 rounded-md transition cursor-pointer text-xs font-medium text-center ${activeTab === "syarat" ? "bg-white text-slate-900 font-semibold shadow-xs" : "text-slate-600 hover:text-slate-900"}`,
-							children: "Syarat & Ketentuan"
-						})]
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "p-4 space-y-4 overflow-y-auto text-xs text-slate-600 leading-relaxed",
-					children: activeTab === "privasi" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "pb-2.5 border-b border-slate-100",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "font-semibold text-slate-900 text-xs mb-0.5",
-							children: "Transparansi Data & Sensor"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-[11.5px] text-slate-500 leading-snug",
-							children: "Kami hanya meminta izin perangkat yang esensial untuk kebutuhan operasional layanan internet rumah Anda."
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "divide-y divide-slate-100 space-y-3 pt-0.5",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-								className: "space-y-1 pt-2.5 first:pt-0",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-										className: "font-semibold text-slate-900 text-xs",
-										children: "1. Izin Lokasi Presisi (GPS)"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-										className: "text-[11.5px] text-slate-600 leading-relaxed",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-											className: "text-slate-700",
-											children: "Tujuan:"
-										}), " Memetakan titik fisik rumah pelanggan pada sistem NOC TeknoGuard saat terhubung ke WiFi rumah."]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-[11px] text-slate-500 leading-relaxed",
-										children: "Aplikasi tidak melacak lokasi di latar belakang saat aplikasi ditutup. Koordinat hanya digunakan agar teknisi cepat sampai saat terjadi gangguan kabel fisik atau redaman drop."
-									})
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-								className: "space-y-1 pt-3",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-										className: "font-semibold text-slate-900 text-xs",
-										children: "2. Izin Akses Galeri dan Kamera"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-										className: "text-[11.5px] text-slate-600 leading-relaxed",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-											className: "text-slate-700",
-											children: "Tujuan:"
-										}), " Mengambil atau mengganti foto profil akun MyTekno serta melampirkan foto bukti pembayaran tagihan."]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-[11px] text-slate-500 leading-relaxed",
-										children: "Aplikasi tidak membaca atau memindai berkas foto pribadi lainnya di penyimpanan perangkat Anda."
-									})
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-								className: "space-y-1 pt-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-									className: "font-semibold text-slate-900 text-xs",
-									children: "3. Data Transaksi Pembayaran"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-[11.5px] text-slate-600 leading-relaxed",
-									children: "Nomor Virtual Account dan riwayat tagihan diproses dengan protokol HTTPS resmi. MyTekno tidak menyimpan nomor kartu kredit atau PIN perbankan pribadi Anda."
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-								className: "space-y-1 pt-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-									className: "font-semibold text-slate-900 text-xs",
-									children: "4. Perlindungan Data Akun (UU PDP)"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-									className: "text-[11.5px] text-slate-600 leading-relaxed",
-									children: [
-										"Nomor WhatsApp hanya digunakan untuk verifikasi login resmi dan notifikasi operasional internet. Kata sandi dienkripsi dengan standar ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { children: "cryptographic hash" }),
-										". Data Anda tidak diperjualbelikan kepada pihak ketiga."
-									]
-								})]
-							})
-						]
-					})] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "pb-2.5 border-b border-slate-100",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "font-semibold text-slate-900 text-xs mb-0.5",
-							children: "Ketentuan Penggunaan Layanan"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-[11.5px] text-slate-500 leading-snug",
-							children: "Ketentuan ini mengatur tata tertib berlangganan internet serta hak dan kewajiban pelanggan resmi."
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "divide-y divide-slate-100 space-y-3 pt-0.5",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-								className: "space-y-1 pt-2.5 first:pt-0",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-									className: "font-semibold text-slate-900 text-xs",
-									children: "Pasal 1: Layanan Sambungan Internet"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-[11.5px] text-slate-600 leading-relaxed",
-									children: "Penyedia layanan menyediakan sambungan internet tanpa batas (unlimited) sesuai paket bandwidth yang dipilih pada formulir pemasangan."
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-								className: "space-y-1 pt-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-									className: "font-semibold text-slate-900 text-xs",
-									children: "Pasal 2: Pemantauan Daya Optik dan Pemeliharaan"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-[11.5px] text-slate-600 leading-relaxed",
-									children: "Sistem EdTeknoGuard memantau daya redaman optik modem ONT secara berkala untuk mencegah terjadinya sinyal putus (LOS). Tim teknisi berhak melakukan pengecekan kabel fisik demi menjaga kualitas koneksi."
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-								className: "space-y-1 pt-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-									className: "font-semibold text-slate-900 text-xs",
-									children: "Pasal 3: Tagihan dan Pembayaran"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-[11.5px] text-slate-600 leading-relaxed",
-									children: "Pelanggan berkewajiban membayar tagihan bulanan sebelum tanggal jatuh tempo. Keterlambatan pembayaran setelah masa tenggang dapat mengakibatkan isolir sementara hingga tagihan dilunasi."
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-								className: "space-y-1 pt-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-									className: "font-semibold text-slate-900 text-xs",
-									children: "Pasal 4: Tanggung Jawab Perangkat ONT"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-[11.5px] text-slate-600 leading-relaxed",
-									children: "Modem ONT dan adaptor listrik merupakan aset operasional penyedia layanan. Pelanggan wajib menjaga fisik perangkat dan tidak memindahtangankannya tanpa persetujuan resmi."
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-								className: "space-y-1 pt-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-									className: "font-semibold text-slate-900 text-xs",
-									children: "Pasal 5: Pelaporan Kendala Mandiri"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-[11.5px] text-slate-600 leading-relaxed",
-									children: "Pelanggan dapat membuat tiket pengaduan secara mandiri melalui aplikasi MyTekno. Tim teknisi akan merespons sesuai antrean dan prioritas gangguan di lapangan."
-								})]
-							})
-						]
-					})] })
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-4 py-3 border-t border-slate-100 bg-white flex items-center justify-between shrink-0 font-sans",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "text-[11px] text-slate-400 font-normal",
-						children: "Pembaruan: November 2026"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						type: "button",
-						onClick: onClose,
-						className: "px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-xs transition active:scale-98 cursor-pointer min-h-[36px] flex items-center justify-center",
-						children: "Saya Mengerti"
-					})]
-				})
-			]
-		})
-	}), document.body) : null;
-}
-//#endregion
-//#region src/portal/components/auth/PortalResetPasswordView.jsx
-function RouterPusingMascot({ className = "w-28 h-20" }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: `${className} inline-flex items-center justify-center pointer-events-none drop-shadow-md leading-none`,
-		style: { lineHeight: 0 },
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-			className: "mascot-svg",
-			viewBox: "0 10 240 150",
-			fill: "none",
-			xmlns: "http://www.w3.org/2000/svg",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-				className: "rig-torso",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-leg-l",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M85 118V154H101V118",
-							fill: "#20C5D2"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M85 118V154H101V118",
-							stroke: "#0F172A",
-							strokeWidth: "4",
-							strokeLinejoin: "round"
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-leg-r",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M139 118V154H155V118",
-							fill: "#20C5D2"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M139 118V154H155V118",
-							stroke: "#0F172A",
-							strokeWidth: "4",
-							strokeLinejoin: "round"
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("g", {
-						className: "rig-antenna-l",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M78 53.9999L68 17.9999C67 13.9999 73 12.9999 76 15.9999L88 51.9999L78 53.9999Z",
-							fill: "#2563EB",
-							stroke: "#0F172A",
-							strokeWidth: "5",
-							strokeLinejoin: "round"
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("g", {
-						className: "rig-antenna-r",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M162 53.9999L172 17.9999C173 13.9999 167 12.9999 164 15.9999L152 51.9999L162 53.9999Z",
-							fill: "#2563EB",
-							stroke: "#0F172A",
-							strokeWidth: "5",
-							strokeLinejoin: "round"
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-body",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M58 54C72 50 168 50 182 54C196 58 206 102 200 120C196 128 178 132 120 132C62 132 44 128 40 120C34 102 44 58 58 54Z",
-								fill: "#20C5D2",
-								stroke: "#0F172A",
-								strokeWidth: "5.5",
-								strokeLinejoin: "round"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M44 114C70 118 170 118 196 114",
-								stroke: "#0F172A",
-								strokeWidth: "3.5",
-								strokeLinecap: "round"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M120 125.5C121.933 125.5 123.5 123.933 123.5 122C123.5 120.067 121.933 118.5 120 118.5C118.067 118.5 116.5 120.067 116.5 122C116.5 123.933 118.067 125.5 120 125.5Z",
-								stroke: "#0F172A",
-								strokeWidth: "1.8"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M120 119V122",
-								stroke: "#0F172A",
-								strokeWidth: "1.8",
-								strokeLinecap: "round"
-							})
-						]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-leds",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								className: "led-1",
-								d: "M64 124.5C65.3807 124.5 66.5 123.381 66.5 122C66.5 120.619 65.3807 119.5 64 119.5C62.6193 119.5 61.5 120.619 61.5 122C61.5 123.381 62.6193 124.5 64 124.5Z",
-								fill: "#0F172A"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								className: "led-2",
-								d: "M72 124.5C73.3807 124.5 74.5 123.381 74.5 122C74.5 120.619 73.3807 119.5 72 119.5C70.6193 119.5 69.5 120.619 69.5 122C69.5 123.381 70.6193 124.5 72 124.5Z",
-								fill: "#0F172A"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								className: "led-3",
-								d: "M80 124.5C81.3807 124.5 82.5 123.381 82.5 122C82.5 120.619 81.3807 119.5 80 119.5C78.6193 119.5 77.5 120.619 77.5 122C77.5 123.381 78.6193 124.5 80 124.5Z",
-								fill: "#0F172A"
-							})
-						]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-eyes",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M86 84C86 85.5913 86.6321 87.1174 87.7574 88.2426C88.8826 89.3679 90.4087 90 92 90C93.5913 90 95.1174 89.3679 96.2426 88.2426C97.3679 87.1174 98 85.5913 98 84C98 82.4087 97.3679 80.8826 96.2426 79.7574C95.1174 78.6321 93.5913 78 92 78C90.4087 78 88.8826 78.6321 87.7574 79.7574C86.6321 80.8826 86 82.4087 86 84ZM89 84C89 84.7956 89.3161 85.5587 89.8787 86.1213C90.4413 86.6839 91.2044 87 92 87C92.7956 87 93.5587 86.6839 94.1213 86.1213C94.6839 85.5587 95 84.7956 95 84C95 83.2044 94.6839 82.4413 94.1213 81.8787C93.5587 81.3161 92.7956 81 92 81C91.2044 81 90.4413 81.3161 89.8787 81.8787C89.3161 82.4413 89 83.2044 89 84Z",
-							stroke: "#0F172A",
-							strokeWidth: "2.5",
-							strokeLinecap: "round"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M142 84C142 85.5913 142.632 87.1174 143.757 88.2426C144.883 89.3679 146.409 90 148 90C149.591 90 151.117 89.3679 152.243 88.2426C153.368 87.1174 154 85.5913 154 84C154 82.4087 153.368 80.8826 152.243 79.7574C151.117 78.6321 149.591 78 148 78C146.409 78 144.883 78.6321 143.757 79.7574C142.632 80.8826 142 82.4087 142 84ZM145 84C145 84.7956 145.316 85.5587 145.879 86.1213C146.441 86.6839 147.204 87 148 87C148.796 87 149.559 86.6839 150.121 86.1213C150.684 85.5587 151 84.7956 151 84C151 83.2044 150.684 82.4413 150.121 81.8787C149.559 81.3161 148.796 81 148 81C147.204 81 146.441 81.3161 145.879 81.8787C145.316 82.4413 145 83.2044 145 84Z",
-							stroke: "#0F172A",
-							strokeWidth: "2.5",
-							strokeLinecap: "round"
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("g", {
-						className: "rig-mouth",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M106 97C110 99.5 114 99.5 118 97C122 94.5 126 94.5 130 97C134 99.5 138 99.5 142 97",
-							stroke: "#0F172A",
-							strokeWidth: "3.5",
-							strokeLinecap: "round"
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-stars",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M121.5 50.6086L124.444 56.7467L130.333 57.7698L125.426 61.8618L127.389 67.9999L121.5 63.9079L115.611 67.9999L117.574 61.8618L112.667 57.7698L118.556 56.7467L121.5 50.6086Z",
-								fill: "#F59E0B"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M139.167 41.9131L142.111 48.0512L148 49.0742L143.093 53.1663L145.056 59.3044L139.167 55.2123L133.278 59.3044L135.241 53.1663L130.333 49.0742L136.222 48.0512L139.167 41.9131Z",
-								fill: "#F59E0B"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M107.146 26.6954L109.722 32.0663L114.875 32.9614L110.581 36.542L112.299 41.9128L107.146 38.3323L101.993 41.9128L103.711 36.542L99.4167 32.9614L104.569 32.0663L107.146 26.6954Z",
-								fill: "#F59E0B"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M135.854 26.6954L138.431 32.0663L143.583 32.9614L139.289 36.542L141.007 41.9128L135.854 38.3323L130.701 41.9128L132.419 36.542L128.125 32.9614L133.278 32.0663L135.854 26.6954Z",
-								fill: "#F59E0B"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M121.5 18L123.708 23.3708L128.125 24.266L124.444 27.8465L125.917 33.2174L121.5 29.6368L117.083 33.2174L118.556 27.8465L114.875 24.266L119.292 23.3708L121.5 18Z",
-								fill: "#F59E0B"
-							})
-						]
-					})
-				]
-			})
-		})
-	});
-}
-function PortalResetPasswordView({ onBackToLogin }) {
-	const [step, setStep] = (0, import_react.useState)("input_phone");
-	const [noHp, setNoHp] = (0, import_react.useState)("");
-	const [submittedData, setSubmittedData] = (0, import_react.useState)(null);
-	const [loading, setLoading] = (0, import_react.useState)(false);
-	const [errorMsg, setErrorMsg] = (0, import_react.useState)("");
-	const handleRequestReset = async (e) => {
-		e.preventDefault();
-		setErrorMsg("");
-		setLoading(true);
-		try {
-			const res = await PortalAuthService.mintaResetPassword(noHp);
-			if (res.ok && res.data?.ok) {
-				setSubmittedData(res.data);
-				setStep("submitted_success");
-			} else setErrorMsg(res.data?.message || "Gagal memproses permintaan reset password.");
-		} catch (err) {
-			setErrorMsg("Terjadi kesalahan jaringan atau server. Silakan coba lagi.");
-		} finally {
-			setLoading(false);
-		}
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "h-[100dvh] w-full bg-slate-100 sm:bg-slate-200/80 flex items-center justify-center p-0 sm:p-4 text-slate-900 font-sans overflow-hidden",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "w-full sm:max-w-[440px] h-[100dvh] sm:h-[92dvh] bg-white sm:rounded-2xl sm:shadow-2xl sm:border sm:border-slate-200/80 flex flex-col overflow-hidden relative",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "relative bg-blue-600 h-[190px] sm:h-[210px] overflow-hidden shrink-0 border-b border-blue-700/60 shadow-xs",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "relative z-10 pt-4 px-5",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-3",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-							src: "/tekno-indo-logo.png",
-							alt: "TeknoIndonet Logo",
-							className: "w-10 h-10 sm:w-11 sm:h-11 object-contain bg-white border-2 border-white rounded-xl p-1 shadow-xs shrink-0"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "min-w-0",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "text-white text-xl font-bold tracking-tight leading-none",
-								children: ["My", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-blue-200",
-									children: "Tekno"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "text-blue-100/90 text-xs mt-1 font-medium leading-tight",
-								children: "Layanan Mandiri Pelanggan"
-							})]
-						})]
-					})
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "absolute inset-0 flex items-center justify-center pt-12 pb-2 pointer-events-none",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RouterPusingMascot, { className: "w-24 h-20 sm:w-28 sm:h-22" })
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "relative -mt-4 bg-white rounded-t-2xl shadow-xl flex-1 flex flex-col justify-between overflow-y-auto z-10",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-5 pt-4 pb-4 sm:px-6 sm:pt-5 sm:pb-5 flex flex-col justify-between min-h-full",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "text-center mb-3 sm:mb-4",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-								className: "text-lg font-bold text-slate-900 tracking-tight",
-								children: "Lupa Password"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs text-slate-500 mt-0.5 font-medium",
-								children: step === "submitted_success" ? "Permintaan reset telah terkirim ke Tim Admin NOC" : "Pemulihan kata sandi akun pelanggan MyTekno"
-							})]
-						}),
-						errorMsg && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "mb-3 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-2 animate-fadeIn",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleAlert, { className: "w-4 h-4 shrink-0 mt-0.5 text-rose-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "font-semibold leading-relaxed",
-								children: errorMsg
-							})]
-						}),
-						step === "input_phone" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "space-y-4",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "p-3.5 rounded-xl border border-blue-100 bg-blue-50/60 text-xs text-blue-900 space-y-1.5 leading-relaxed",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "font-bold flex items-center gap-1.5 text-blue-800",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyRound, { className: "w-4 h-4 text-blue-600 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Pemulihan Sandi Melalui Admin" })]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-blue-800/90 text-xs leading-relaxed",
-									children: "Masukkan Nomor WhatsApp terdaftar Anda. Sistem akan membuatkan kata sandi baru secara aman dan meneruskannya ke tiket Admin NOC TeknoIndonet untuk dikirimkan langsung ke WhatsApp Anda."
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
-								onSubmit: handleRequestReset,
-								className: "space-y-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-1",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-										htmlFor: "reset-phone",
-										className: "text-xs font-semibold text-slate-700 block",
-										children: "Nomor WhatsApp Terdaftar"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "relative",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-											id: "reset-phone",
-											type: "tel",
-											required: true,
-											autoComplete: "tel",
-											value: noHp,
-											onChange: (e) => setNoHp(e.target.value),
-											placeholder: "Contoh: 081234567890 atau 628...",
-											className: "w-full pl-9 pr-3 py-2.5 rounded-lg border border-slate-300 text-base sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition min-h-[44px]"
-										})]
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "submit",
-									disabled: loading,
-									className: "w-full mt-2 py-2.5 sm:py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-xs transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.99] cursor-pointer min-h-[44px]",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: loading ? "Memproses Permintaan..." : "Kirim Permintaan Reset" }), loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-4 h-4 animate-spin shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Send, { className: "w-4 h-4 shrink-0" })]
-								})]
-							})]
-						}),
-						step === "submitted_success" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "space-y-4 animate-fadeIn text-center py-2",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-100 shadow-xs",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-8 h-8" })
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-1.5 px-2",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-											className: "text-base font-black text-slate-900",
-											children: "Permintaan Reset Diterima!"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-											className: "text-xs text-slate-600 leading-relaxed",
-											children: [
-												"Permintaan reset kata sandi untuk pelanggan ",
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-													className: "text-slate-800 font-bold",
-													children: submittedData?.nama || "Anda"
-												}),
-												" telah masuk ke antrean Tim Admin NOC."
-											]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "mt-3 p-3 rounded-xl bg-slate-50 border border-slate-200/90 text-left space-y-1 text-xs text-slate-700",
-											children: [
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													className: "font-bold text-slate-800 text-[11px] uppercase tracking-wide",
-													children: "Langkah Selanjutnya:"
-												}),
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-													className: "text-[11px] text-slate-600 leading-relaxed",
-													children: "Admin NOC TeknoIndonet akan segera mengirimkan kata sandi baru ke nomor WhatsApp Anda:"
-												}),
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													className: "text-xs font-mono font-bold text-blue-700 bg-white p-2 rounded-lg border border-blue-200 inline-block mt-1",
-													children: submittedData?.no_hp || noHp
-												})
-											]
-										})
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									type: "button",
-									onClick: onBackToLogin,
-									className: "w-full mt-3 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-sm transition active:scale-[0.99] cursor-pointer min-h-[44px]",
-									children: "Kembali ke Halaman Masuk"
-								})
-							]
-						}),
-						step === "input_phone" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-							type: "button",
-							onClick: onBackToLogin,
-							className: "w-full mt-4 py-2.5 px-4 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer min-h-[40px]",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeft, { className: "w-4 h-4 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Kembali ke Halaman Masuk" })]
-						})
-					] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "pt-3 pb-1 text-center text-[10px] text-slate-400 font-mono shrink-0",
-						children: "© 2026 MyTekno - Layanan Mandiri Pelanggan TeknoIndonet"
-					})]
-				})
-			})]
-		})
-	});
-}
-//#endregion
-//#region src/portal/components/auth/PortalAuthView.jsx
-function RouterMenyapaMascot({ className = "w-28 h-20" }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: `${className} inline-flex items-center justify-center pointer-events-none drop-shadow-md leading-none`,
-		style: { lineHeight: 0 },
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-			className: "mascot-router-svg",
-			viewBox: "0 10 240 150",
-			fill: "none",
-			xmlns: "http://www.w3.org/2000/svg",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-				className: "rig-torso",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-leg-l",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M85 118V156H101V118",
-							fill: "#20C5D2"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M85 118V156H101V118",
-							stroke: "#0F172A",
-							strokeWidth: "4",
-							strokeLinejoin: "round"
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-leg-r",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M139 118V156H155V118",
-							fill: "#20C5D2"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M139 118V156H155V118",
-							stroke: "#0F172A",
-							strokeWidth: "4",
-							strokeLinejoin: "round"
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("g", {
-						className: "rig-antenna-l",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M78 53.9999L68 17.9999C67 13.9999 73 12.9999 76 15.9999L88 51.9999L78 53.9999Z",
-							fill: "#2563EB",
-							stroke: "#0F172A",
-							strokeWidth: "5",
-							strokeLinejoin: "round"
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("g", {
-						className: "rig-antenna-r",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M162 53.9999L172 17.9999C173 13.9999 167 12.9999 164 15.9999L152 51.9999L162 53.9999Z",
-							fill: "#2563EB",
-							stroke: "#0F172A",
-							strokeWidth: "5",
-							strokeLinejoin: "round"
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-body",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M58 54C72 50 168 50 182 54C196 58 206 102 200 120C196 128 178 132 120 132C62 132 44 128 40 120C34 102 44 58 58 54Z",
-								fill: "#20C5D2",
-								stroke: "#0F172A",
-								strokeWidth: "5.5",
-								strokeLinejoin: "round"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M44 114C70 118 170 118 196 114",
-								stroke: "#0F172A",
-								strokeWidth: "3.5",
-								strokeLinecap: "round"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M120 125.5C121.933 125.5 123.5 123.933 123.5 122C123.5 120.067 121.933 118.5 120 118.5C118.067 118.5 116.5 120.067 116.5 122C116.5 123.933 118.067 125.5 120 125.5Z",
-								stroke: "#0F172A",
-								strokeWidth: "1.8"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M120 119V122",
-								stroke: "#0F172A",
-								strokeWidth: "1.8",
-								strokeLinecap: "round"
-							})
-						]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-leds",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								className: "router-led-1",
-								d: "M64 124.5C65.3807 124.5 66.5 123.381 66.5 122C66.5 120.619 65.3807 119.5 64 119.5C62.6193 119.5 61.5 120.619 61.5 122C61.5 123.381 62.6193 124.5 64 124.5Z",
-								fill: "#0F172A"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								className: "router-led-2",
-								d: "M72 124.5C73.3807 124.5 74.5 123.381 74.5 122C74.5 120.619 73.3807 119.5 72 119.5C70.6193 119.5 69.5 120.619 69.5 122C69.5 123.381 70.6193 124.5 72 124.5Z",
-								fill: "#0F172A"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								className: "router-led-3",
-								d: "M80 124.5C81.3807 124.5 82.5 123.381 82.5 122C82.5 120.619 81.3807 119.5 80 119.5C78.6193 119.5 77.5 120.619 77.5 122C77.5 123.381 78.6193 124.5 80 124.5Z",
-								fill: "#0F172A"
-							})
-						]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-eyes",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M92 92.5C96.6944 92.5 100.5 88.6944 100.5 84C100.5 79.3056 96.6944 75.5 92 75.5C87.3056 75.5 83.5 79.3056 83.5 84C83.5 88.6944 87.3056 92.5 92 92.5Z",
-								fill: "#0F172A"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M94.5 84.5C96.1569 84.5 97.5 83.1569 97.5 81.5C97.5 79.8431 96.1569 78.5 94.5 78.5C92.8431 78.5 91.5 79.8431 91.5 81.5C91.5 83.1569 92.8431 84.5 94.5 84.5Z",
-								fill: "white"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M148 92.5C152.694 92.5 156.5 88.6944 156.5 84C156.5 79.3056 152.694 75.5 148 75.5C143.306 75.5 139.5 79.3056 139.5 84C139.5 88.6944 143.306 92.5 148 92.5Z",
-								fill: "#0F172A"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M150.5 84.5C152.157 84.5 153.5 83.1569 153.5 81.5C153.5 79.8431 152.157 78.5 150.5 78.5C148.843 78.5 147.5 79.8431 147.5 81.5C147.5 83.1569 148.843 84.5 150.5 84.5Z",
-								fill: "white"
-							})
-						]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("g", {
-						className: "rig-mouth",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M112 95C114 103 126 103 128 95",
-							stroke: "#0F172A",
-							strokeWidth: "4",
-							strokeLinecap: "round"
-						})
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-arm-l",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M38.3045 100.595C29.0621 97.48 20.1247 114.834 16.4254 128.863",
-							stroke: "#0F172A",
-							strokeWidth: "4.5",
-							strokeLinecap: "round"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M10.9165 127.006C9.85802 130.146 11.5456 133.549 14.6857 134.608C17.8258 135.666 21.2294 133.979 22.2879 130.839C23.3463 127.699 21.6588 124.295 18.5186 123.236C15.3785 122.178 11.9749 123.866 10.9165 127.006Z",
-							fill: "#20C5D2",
-							stroke: "#0F172A",
-							strokeWidth: "3.5"
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-						className: "rig-arm-r",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M200 95C209.753 94.8728 212.427 75.5364 211.263 61.0753",
-							stroke: "#0F172A",
-							strokeWidth: "4.5",
-							strokeLinecap: "round"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M217.076 60.9996C217.032 57.6861 214.311 55.0351 210.998 55.0783C207.685 55.1215 205.033 57.8426 205.077 61.156C205.12 64.4695 207.841 67.1205 211.154 67.0773C214.468 67.0341 217.119 64.313 217.076 60.9996Z",
-							fill: "#20C5D2",
-							stroke: "#0F172A",
-							strokeWidth: "3.5"
-						})]
-					})
-				]
-			})
-		})
-	});
-}
-function PortalLoginView({ onLoginSuccess, onGoToReset }) {
-	const [identifier, setIdentifier] = (0, import_react.useState)("");
-	const [password, setPassword] = (0, import_react.useState)("");
-	const [rememberMe, setRememberMe] = (0, import_react.useState)(true);
-	const [isInfoExpanded, setIsInfoExpanded] = (0, import_react.useState)(false);
-	const [showPassword, setShowPassword] = (0, import_react.useState)(false);
-	const [loading, setLoading] = (0, import_react.useState)(false);
-	const [error, setError] = (0, import_react.useState)("");
-	const [legalModal, setLegalModal] = (0, import_react.useState)({
-		open: false,
-		tab: "privasi"
-	});
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		setLoading(true);
-		setError("");
-		try {
-			const res = await PortalAuthService.login(identifier, password, rememberMe);
-			if (res.ok && res.data?.ok) {
-				if (window.AndroidBridge && typeof window.AndroidBridge.notifyLoginSuccess === "function") try {
-					window.AndroidBridge.notifyLoginSuccess();
-				} catch (_) {}
-				onLoginSuccess(res.data.customer);
-			} else setError(res.data?.message || res.data?.detail || "Nomor WhatsApp atau Kata Sandi salah!");
-		} catch {
-			setError("Gagal menghubungi server TeknoIndonet.");
-		} finally {
-			setLoading(false);
-		}
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "h-[100dvh] w-full bg-slate-100 sm:bg-slate-200/80 flex items-center justify-center p-0 sm:p-4 text-slate-900 font-sans overflow-hidden",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "w-full sm:max-w-[440px] h-[100dvh] sm:h-[92dvh] bg-white sm:rounded-2xl sm:shadow-2xl sm:border sm:border-slate-200/80 flex flex-col overflow-hidden relative",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "relative bg-blue-600 h-[200px] sm:h-[220px] overflow-hidden shrink-0 border-b border-blue-700/60 shadow-xs",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "relative z-10 pt-4 px-5",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-3",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-								src: "/tekno-indo-logo.png",
-								alt: "TeknoIndonet Logo",
-								className: "w-10 h-10 sm:w-11 sm:h-11 object-contain bg-white border-2 border-white rounded-xl p-1 shadow-xs shrink-0"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "min-w-0",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "text-white text-xl font-bold tracking-tight leading-none",
-									children: ["My", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-blue-200",
-										children: "Tekno"
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "text-blue-100/90 text-xs mt-1 font-medium leading-tight",
-									children: "Layanan Mandiri Pelanggan"
-								})]
-							})]
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "absolute inset-0 flex items-center justify-center pt-12 pb-2 pointer-events-none",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RouterMenyapaMascot, { className: "w-24 h-20 sm:w-28 sm:h-22" })
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "relative -mt-4 bg-white rounded-t-2xl shadow-xl flex-1 flex flex-col justify-between overflow-y-auto z-10",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "px-5 pt-4 pb-4 sm:px-6 sm:pt-5 sm:pb-5 flex flex-col justify-between min-h-full",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "text-center mb-3 sm:mb-4",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-									className: "text-lg font-bold text-slate-900 tracking-tight",
-									children: "Masuk ke Akun Pelanggan"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-xs text-slate-500 mt-0.5",
-									children: "Masukkan nomor WhatsApp dan kata sandi Anda"
-								})]
-							}),
-							error && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "mb-3 p-2.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleAlert, { className: "w-4 h-4 shrink-0 text-rose-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: error })]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
-								onSubmit: handleSubmit,
-								className: "space-y-3",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "space-y-1",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-											htmlFor: "identifier",
-											className: "text-xs font-semibold text-slate-700 block",
-											children: "Nomor WhatsApp Terdaftar"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "relative",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-												id: "identifier",
-												type: "tel",
-												required: true,
-												autoComplete: "tel",
-												value: identifier,
-												onChange: (e) => setIdentifier(e.target.value),
-												placeholder: "Contoh: 081234567890",
-												className: "w-full pl-9 pr-3 py-2.5 rounded-lg border border-slate-300 text-base sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition min-h-[44px]"
-											})]
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "space-y-1",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-center justify-between",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-												htmlFor: "password",
-												className: "text-xs font-semibold text-slate-700",
-												children: "Kata Sandi (Password)"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-												type: "button",
-												onClick: onGoToReset,
-												className: "text-xs font-semibold text-blue-600 hover:text-blue-800 hover:underline cursor-pointer",
-												children: "Lupa Password?"
-											})]
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "relative",
-											children: [
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lock, { className: "w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" }),
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-													id: "password",
-													type: showPassword ? "text" : "password",
-													required: true,
-													autoComplete: "current-password",
-													value: password,
-													onChange: (e) => setPassword(e.target.value),
-													placeholder: "••••••••",
-													className: "w-full pl-9 pr-10 py-2.5 rounded-lg border border-slate-300 text-base sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition font-mono min-h-[44px]"
-												}),
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-													type: "button",
-													onClick: () => setShowPassword(!showPassword),
-													className: "absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 cursor-pointer",
-													"aria-label": showPassword ? "Sembunyikan password" : "Lihat password",
-													children: showPassword ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOff, { className: "w-4 h-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { className: "w-4 h-4" })
-												})
-											]
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "flex items-center pt-0.5",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
-											className: "inline-flex items-center gap-2 cursor-pointer select-none",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-												id: "remember",
-												type: "checkbox",
-												checked: rememberMe,
-												onChange: (e) => setRememberMe(e.target.checked),
-												className: "w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 focus:ring-offset-0 cursor-pointer"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-xs text-slate-600 font-medium",
-												children: "Ingat Saya di Perangkat Ini"
-											})]
-										})
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-										id: "btn-submit",
-										type: "submit",
-										disabled: loading,
-										className: "w-full mt-1 py-2.5 sm:py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-xs transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.99] cursor-pointer min-h-[44px]",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: loading ? "Memproses..." : "Masuk ke Akun Saya" }), loading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-4 h-4 animate-spin shrink-0" })]
-									})
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "rounded-xl border border-slate-200 overflow-hidden mt-3 sm:mt-4 bg-white",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: () => setIsInfoExpanded(!isInfoExpanded),
-									className: "w-full px-3.5 py-2.5 flex items-center justify-between text-left hover:bg-slate-50 transition cursor-pointer",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-2 text-xs font-semibold text-slate-700",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Info, { className: "w-3.5 h-3.5 text-blue-600 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Informasi Akun Pelanggan" })]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-1 text-[11px] text-slate-500",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: isInfoExpanded ? "Tutup" : "Lihat" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: `w-3.5 h-3.5 transition-transform duration-200 ${isInfoExpanded ? "rotate-180" : ""}` })]
-									})]
-								}), isInfoExpanded && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "px-3.5 pb-3 text-xs text-slate-600 space-y-2 border-t border-slate-200 animate-fadeIn",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-										className: "leading-relaxed pt-2",
-										children: [
-											"Aplikasi ini khusus pelanggan ",
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-												className: "text-blue-700",
-												children: "TeknoIndonet"
-											}),
-											". Cukup masukkan ",
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-												className: "text-blue-700 font-semibold",
-												children: "Nomor WhatsApp"
-											}),
-											" yang terdaftar saat pemasangan WiFi rumah Anda."
-										]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-										className: "leading-relaxed text-slate-600",
-										children: [
-											"Kata sandi awal adalah ",
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-												className: "text-blue-700 font-semibold",
-												children: "Nomor WhatsApp terdaftar"
-											}),
-											" Anda. Setelah berhasil login, Anda dapat langsung memantau kuota, mengganti nama WiFi, hingga melaporkan kendala."
-										]
-									})]
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "pt-2 text-center text-[10.5px] text-slate-500 leading-normal",
-								children: [
-									"Dengan masuk, Anda menyetujui",
-									" ",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										type: "button",
-										onClick: () => setLegalModal({
-											open: true,
-											tab: "syarat"
-										}),
-										className: "text-blue-600 font-semibold hover:underline cursor-pointer",
-										children: "Syarat & Ketentuan"
-									}),
-									" ",
-									"serta",
-									" ",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										type: "button",
-										onClick: () => setLegalModal({
-											open: true,
-											tab: "privasi"
-										}),
-										className: "text-blue-600 font-semibold hover:underline cursor-pointer",
-										children: "Kebijakan Privasi"
-									}),
-									" ",
-									"MyTekno."
-								]
-							})
-						] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "pt-2 pb-1 text-center text-[10px] text-slate-400 font-mono shrink-0",
-							children: "© 2026 MyTekno - Portal Layanan Mandiri Pelanggan"
-						})]
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalLegalModal, {
-					isOpen: legalModal.open,
-					initialTab: legalModal.tab,
-					onClose: () => setLegalModal({
-						open: false,
-						tab: "privasi"
-					})
-				})
-			]
-		})
-	});
-}
-//#endregion
-//#region src/portal/components/payment/paymentUtils.js
-/**
-* Helper Utility Format Rupiah, Tanggal, & Virtual Account
-* Khusus domain modul pembayaran TeknoCust.
-*/
-var rupiah = (n) => n === null || n === void 0 || n === "" ? "-" : `Rp ${Number(n).toLocaleString("id-ID")}`;
-var BULAN = [
-	"Januari",
-	"Februari",
-	"Maret",
-	"April",
-	"Mei",
-	"Juni",
-	"Juli",
-	"Agustus",
-	"September",
-	"Oktober",
-	"November",
-	"Desember"
-];
-/** "2026-10" -> "Oktober 2026" */
-var periodeTeks = (p) => {
-	if (!p) return "";
-	const [y, m] = String(p).split("-");
-	const idx = Number(m) - 1;
-	return BULAN[idx] ? `${BULAN[idx]} ${y}` : p;
-};
-/** "2026-10-30" -> "30 Okt 2026" */
-var tanggalTeks = (d) => {
-	if (!d) return "-";
-	const dt = new Date(d);
-	if (Number.isNaN(dt.getTime())) return d;
-	return `${dt.getDate()} ${BULAN[dt.getMonth()].slice(0, 3)} ${dt.getFullYear()}`;
-};
-/** Tampilan 4-4-4-4 agar mudah dibaca. Tombol salin tetap memakai 16 digit bersih. */
-var vaTampil = (va) => String(va || "").replace(/(\d{4})(?=\d)/g, "$1 ").trim();
-var jenisTagihanTeks = (type) => {
-	const t = String(type || "").toLowerCase();
-	if (t === "langganan") return "Iuran Langganan";
-	if (t === "pemasangan") return "Biaya Pemasangan";
-	return type ? type.charAt(0).toUpperCase() + type.slice(1) : "Tagihan";
-};
-var billingModeTeks = (mode) => {
-	const m = String(mode || "").trim().toLowerCase();
-	if (m === "prabayar" || m === "prepaid") return "Prabayar";
-	if (m === "pascabayar" || m === "postpaid") return "Pascabayar";
-	return "-";
-};
-//#endregion
-//#region src/portal/components/notifications/PortalNotificationsPage.jsx
-function NotificationCardItem({ item, isRead, onCardClick, onActionClick, onDelete }) {
-	const getStatusColor = () => {
-		switch (item.statusType) {
-			case "info": return "text-blue-600";
-			case "success": return "text-emerald-600";
-			case "danger": return "text-rose-600";
-			default: return "text-blue-600";
-		}
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-		onClick: () => onCardClick(item),
-		className: `p-3.5 space-y-1.5 transition-colors cursor-pointer select-none ${isRead ? "bg-slate-50/80 hover:bg-slate-100/70 text-slate-500" : "bg-white hover:bg-slate-50/40 text-slate-900 shadow-2xs"}`,
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex items-center justify-between gap-2",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "flex items-center gap-2 min-w-0",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: `text-xs truncate ${isRead ? "font-medium text-slate-600" : "font-bold text-slate-900"}`,
-						children: item.title
-					})
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center gap-1.5 shrink-0",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-						className: `text-[10px] font-medium inline-flex items-center gap-1 tracking-normal ${isRead ? "opacity-65" : ""} ${getStatusColor()}`,
-						children: [item.statusType === "success" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3 h-3 shrink-0" }) : item.statusType === "info" && item.statusText !== "MENUNGGU" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-3 h-3 shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock, { className: "w-3 h-3 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "capitalize",
-							children: item.statusText?.toLowerCase() || ""
-						})]
-					}), item.statusType !== "danger" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						type: "button",
-						onClick: (e) => {
-							e.stopPropagation();
-							onDelete(item);
-						},
-						className: "p-1 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition cursor-pointer",
-						title: "Hapus Pemberitahuan Ini",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { className: "w-3.5 h-3.5" })
-					})]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				className: `text-xs leading-relaxed ${isRead ? "text-slate-400" : "text-slate-600 font-normal"}`,
-				children: item.desc
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "pt-1 flex items-center justify-between text-[11px] font-sans",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-					className: `flex items-center gap-1 ${isRead ? "text-slate-400" : "text-slate-500"}`,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock, { className: "w-3 h-3 text-slate-400 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.timestamp })]
-				}), item.actionText && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					type: "button",
-					onClick: (e) => {
-						e.stopPropagation();
-						onActionClick(item);
-					},
-					className: `font-semibold inline-flex items-center gap-0.5 transition cursor-pointer font-sans ${isRead ? "text-slate-500 hover:text-blue-600" : "text-blue-600 hover:text-blue-700 hover:underline"}`,
-					title: `Buka ${item.actionText}`,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.actionText }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "w-3.5 h-3.5" })]
-				})]
-			})
-		]
-	});
-}
-function formatRelativeTime(dateString) {
-	if (!dateString) return "Baru saja";
-	try {
-		const d = new Date(dateString.replace(" ", "T"));
-		if (isNaN(d.getTime())) return dateString;
-		const diffMs = (/* @__PURE__ */ new Date()).getTime() - d.getTime();
-		const diffSec = Math.floor(diffMs / 1e3);
-		const diffMin = Math.floor(diffSec / 60);
-		const diffHour = Math.floor(diffMin / 60);
-		const diffDay = Math.floor(diffHour / 24);
-		if (diffMin < 1) return "Baru saja";
-		if (diffMin < 60) return `${diffMin} mnt lalu`;
-		if (diffHour < 24) return `${diffHour} jam lalu`;
-		if (diffDay === 1) return "Kemarin";
-		if (diffDay < 7) return `${diffDay} hari lalu`;
-		return d.toLocaleDateString("id-ID", {
-			day: "numeric",
-			month: "short",
-			hour: "2-digit",
-			minute: "2-digit"
-		});
-	} catch {
-		return dateString;
-	}
-}
-function PortalNotificationsPage({ customer, dashboardData, onBack, onNavigate }) {
-	const [tickets, setTickets] = (0, import_react.useState)([]);
-	const [payments, setPayments] = (0, import_react.useState)([]);
-	const [loading, setLoading] = (0, import_react.useState)(true);
-	const [readIds, setReadIds] = (0, import_react.useState)(() => {
-		try {
-			const saved = localStorage.getItem("teknocust_read_notifications");
-			return saved ? JSON.parse(saved) : [];
-		} catch {
-			return [];
-		}
-	});
-	const [notifToDelete, setNotifToDelete] = (0, import_react.useState)(null);
-	const [showClearAllModal, setShowClearAllModal] = (0, import_react.useState)(false);
-	(0, import_react.useEffect)(() => {
-		if (!notifToDelete && !showClearAllModal) return;
-		const handleKeyDown = (e) => {
-			if (e.key === "Escape") {
-				e.preventDefault();
-				if (notifToDelete) setNotifToDelete(null);
-				if (showClearAllModal) setShowClearAllModal(false);
-			}
-		};
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, [notifToDelete, showClearAllModal]);
-	const [deletedIds, setDeletedIds] = (0, import_react.useState)(() => {
-		try {
-			const saved = localStorage.getItem("teknocust_deleted_notifications");
-			return saved ? JSON.parse(saved) : [];
-		} catch {
-			return [];
-		}
-	});
-	const [billingData, setBillingData] = (0, import_react.useState)(null);
-	(0, import_react.useEffect)(() => {
-		let isMounted = true;
-		setLoading(true);
-		Promise.allSettled([
-			PortalKendalaService.list(),
-			PortalPembayaranService.getRiwayat(5),
-			PortalPembayaranService.getTagihan()
-		]).then(([ticketRes, paymentRes, billingRes]) => {
-			if (!isMounted) return;
-			if (ticketRes.status === "fulfilled" && ticketRes.value?.ok && ticketRes.value.data?.tickets) setTickets(ticketRes.value.data.tickets);
-			if (paymentRes.status === "fulfilled" && paymentRes.value?.ok && paymentRes.value.data?.invoices) setPayments(paymentRes.value.data.invoices);
-			if (billingRes.status === "fulfilled" && billingRes.value) setBillingData(billingRes.value.data || billingRes.value);
-		}).catch((err) => console.error("Gagal mengambil data notifikasi:", err)).finally(() => {
-			if (isMounted) setLoading(false);
-		});
-		return () => {
-			isMounted = false;
-		};
-	}, []);
-	const pel = {
-		...customer || {},
-		...dashboardData?.customer || {}
-	};
-	const isBelumBayar = pel.status_pembayaran === "BELUM_BAYAR" || pel.status_pembayaran === "OVERDUE" || pel.status_pembayaran === "ISOLIR";
-	const notificationList = (0, import_react.useMemo)(() => {
-		const items = [];
-		const unpaidInvoices = billingData?.unpaid || [];
-		const activeBill = billingData?.next_bill || (unpaidInvoices.length > 0 ? unpaidInvoices[0] : null);
-		const hasUnpaidBill = Boolean(activeBill || unpaidInvoices.length > 0) || isBelumBayar || pel.total_tagihan && pel.total_tagihan > 0 || pel.is_overdue;
-		if (pel.billing_reminder && hasUnpaidBill) items.push({
-			id: pel.billing_reminder.id,
-			category: "BILLING",
-			title: "Pengingat Tagihan Internet (NOC)",
-			desc: pel.billing_reminder.pesan,
-			timestamp: pel.billing_reminder.waktu,
-			actionText: "Bayar Sekarang",
-			actionTab: "pembayaran",
-			actionSubTab: "tagihan",
-			statusText: pel.status_pembayaran || "Belum bayar",
-			statusType: "danger"
-		});
-		if (hasUnpaidBill && !pel.billing_reminder) {
-			const nominalValue = activeBill?.total || billingData?.unpaid_total || pel.total_tagihan || pel.harga_paket;
-			const hargaFormatted = nominalValue ? new Intl.NumberFormat("id-ID", {
-				style: "currency",
-				currency: "IDR",
-				maximumFractionDigits: 0
-			}).format(nominalValue) : "Rp -";
-			let periodeLabel = "bulan ini";
-			if (activeBill?.billing_period) periodeLabel = periodeTeks(activeBill.billing_period);
-			else if (pel.periode_tagihan) periodeLabel = pel.periode_tagihan.includes("-") ? periodeTeks(pel.periode_tagihan) : pel.periode_tagihan;
-			const now = /* @__PURE__ */ new Date();
-			const todayDateStr = now.toISOString().slice(0, 10);
-			const reminderTimeLabel = now.getHours() >= 10 ? "Hari ini, 10:00" : "Kemarin, 10:00";
-			const isOverdue = Boolean(activeBill?.overdue || pel.is_overdue || pel.status_pembayaran === "OVERDUE");
-			items.push({
-				id: `billing-unpaid-${pel.id_pelanggan || "cust"}-${todayDateStr}`,
-				category: "BILLING",
-				title: "Pengingat Tagihan Belum Dibayar",
-				desc: `Tagihan internet periode ${periodeLabel} (${hargaFormatted}) belum dibayar. Mohon segera melakukan pembayaran tagihan internet bulanan Anda.`,
-				timestamp: reminderTimeLabel,
-				actionText: "Bayar Sekarang",
-				actionTab: "pembayaran",
-				actionSubTab: "tagihan",
-				statusText: isOverdue ? "Terlambat" : "Belum bayar",
-				statusType: "danger"
-			});
-		} else if (!hasUnpaidBill && !pel.billing_reminder) {
-			const periodeLabel = pel.periode_tagihan ? pel.periode_tagihan.includes("-") ? periodeTeks(pel.periode_tagihan) : pel.periode_tagihan : "bulan ini";
-			items.push({
-				id: `billing-paid-${pel.periode_tagihan || "current"}`,
-				category: "BILLING",
-				title: "Tagihan Lunas Terverifikasi",
-				desc: `Iuran internet periode ${periodeLabel} sudah lunas dan aktif lancar.`,
-				timestamp: "Periode aktif",
-				actionText: "Lihat Detail",
-				actionTab: "pembayaran",
-				actionSubTab: "tagihan",
-				statusText: "Lunas",
-				statusType: "success"
-			});
-		}
-		payments.forEach((inv) => {
-			const timeStr = formatRelativeTime(inv.payment?.date || inv.issue_date);
-			const periodeLabel = inv.billing_period ? periodeTeks(inv.billing_period) : inv.number || "Bulan Ini";
-			const nominalStr = rupiah(inv.total);
-			const metodeStr = inv.payment?.method_label || "Lunas";
-			items.push({
-				id: `payment-invoice-${inv.id}`,
-				category: "PAYMENT",
-				title: `Pembayaran Berhasil: ${periodeLabel}`,
-				desc: `Pembayaran iuran internet sebesar ${nominalStr} (${metodeStr}) telah berhasil diverifikasi dan tercatat lunas.`,
-				timestamp: timeStr,
-				actionText: "Lihat Struk",
-				actionTab: "pembayaran",
-				actionSubTab: "riwayat",
-				statusText: "LUNAS",
-				statusType: "success"
-			});
-		});
-		tickets.forEach((t) => {
-			const timeStr = formatRelativeTime(t.updated_at || t.created_at);
-			const isSelesai = t.status === "SELESAI";
-			let statusLabel = t.status || "MENUNGGU";
-			let statusType = "info";
-			let desc = `Laporan #${t.id_tiket} (${t.kategori || "Gangguan"}): ${t.deskripsi || "Menunggu penanganan tim teknisi."}`;
-			if (isSelesai) statusType = "success";
-			else if (t.status === "DIPROSES" || t.status === "DICEK_ADMIN" || t.status === "MENUNGGU") statusType = "info";
-			else statusType = "danger";
-			items.push({
-				id: `ticket-${t.id_tiket}-${t.status}`,
-				category: "TICKET",
-				title: `Kendala: ${t.kategori || "Gangguan"}`,
-				desc,
-				timestamp: timeStr,
-				actionText: "Lihat Tiket",
-				actionTab: "kendala",
-				statusText: statusLabel,
-				statusType
-			});
-		});
-		return items.filter((item) => !deletedIds.includes(item.id));
-	}, [
-		isBelumBayar,
-		pel,
-		tickets,
-		payments,
-		billingData,
-		deletedIds
-	]);
-	const handleMarkAllAsRead = () => {
-		const allIds = notificationList.map((n) => n.id);
-		const next = Array.from(/* @__PURE__ */ new Set([...readIds, ...allIds]));
-		setReadIds(next);
-		try {
-			localStorage.setItem("teknocust_read_notifications", JSON.stringify(next));
-			window.dispatchEvent(new Event("teknocust_notifications_updated"));
-		} catch (e) {
-			console.error(e);
-		}
-	};
-	const handleClearReadNotifications = () => {
-		setShowClearAllModal(true);
-	};
-	const handleConfirmClearAll = () => {
-		const readItems = notificationList.filter((it) => readIds.includes(it.id));
-		if (readItems.length > 0) {
-			const readItemIds = readItems.map((it) => it.id);
-			const next = Array.from(/* @__PURE__ */ new Set([...deletedIds, ...readItemIds]));
-			setDeletedIds(next);
-			try {
-				localStorage.setItem("teknocust_deleted_notifications", JSON.stringify(next));
-				window.dispatchEvent(new Event("teknocust_notifications_updated"));
-			} catch (err) {
-				console.error(err);
-			}
-		}
-		setShowClearAllModal(false);
-	};
-	const handleConfirmDelete = () => {
-		if (!notifToDelete) return;
-		const next = [...deletedIds, notifToDelete.id];
-		setDeletedIds(next);
-		try {
-			localStorage.setItem("teknocust_deleted_notifications", JSON.stringify(next));
-			window.dispatchEvent(new Event("teknocust_notifications_updated"));
-		} catch (err) {
-			console.error(err);
-		}
-		setNotifToDelete(null);
-	};
-	const handleToggleRead = (item) => {
-		if (!readIds.includes(item.id)) {
-			const next = [...readIds, item.id];
-			setReadIds(next);
-			try {
-				localStorage.setItem("teknocust_read_notifications", JSON.stringify(next));
-				window.dispatchEvent(new Event("teknocust_notifications_updated"));
-			} catch (e) {
-				console.error(e);
-			}
-		}
-	};
-	const handleActionNavigate = (item) => {
-		if (!readIds.includes(item.id)) {
-			const next = [...readIds, item.id];
-			setReadIds(next);
-			try {
-				localStorage.setItem("teknocust_read_notifications", JSON.stringify(next));
-				window.dispatchEvent(new Event("teknocust_notifications_updated"));
-			} catch (e) {
-				console.error(e);
-			}
-		}
-		if (onNavigate && item.actionTab) onNavigate(item.actionTab, item.actionSubTab);
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex-1 h-full min-h-0 flex flex-col bg-[#EEF2F6] text-slate-900",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "shrink-0 relative z-0 bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700 border-b border-blue-700/60 overflow-hidden",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "absolute inset-0 pointer-events-none overflow-hidden select-none",
-					"aria-hidden": "true",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-							className: "absolute -top-16 -right-16 w-64 h-64 text-white opacity-[0.16]",
-							viewBox: "0 0 240 240",
-							fill: "none",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "120",
-									cy: "120",
-									r: "30",
-									stroke: "currentColor",
-									strokeWidth: "1.5",
-									strokeDasharray: "3 3"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "120",
-									cy: "120",
-									r: "55",
-									stroke: "currentColor",
-									strokeWidth: "1.5"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "120",
-									cy: "120",
-									r: "85",
-									stroke: "currentColor",
-									strokeWidth: "1.5",
-									strokeDasharray: "6 4"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "120",
-									cy: "120",
-									r: "115",
-									stroke: "currentColor",
-									strokeWidth: "1.5"
-								})
-							]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-							className: "absolute top-2 left-16 w-56 h-28 text-white opacity-[0.14]",
-							viewBox: "0 0 220 110",
-							fill: "none",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-									x1: "20",
-									y1: "40",
-									x2: "70",
-									y2: "20",
-									stroke: "currentColor",
-									strokeWidth: "1.2",
-									strokeDasharray: "2 2"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-									x1: "70",
-									y1: "20",
-									x2: "130",
-									y2: "50",
-									stroke: "currentColor",
-									strokeWidth: "1.2"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-									x1: "130",
-									y1: "50",
-									x2: "190",
-									y2: "25",
-									stroke: "currentColor",
-									strokeWidth: "1.2",
-									strokeDasharray: "3 3"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-									x1: "70",
-									y1: "20",
-									x2: "80",
-									y2: "85",
-									stroke: "currentColor",
-									strokeWidth: "1.2"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-									x1: "80",
-									y1: "85",
-									x2: "150",
-									y2: "90",
-									stroke: "currentColor",
-									strokeWidth: "1.2",
-									strokeDasharray: "2 2"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-									x1: "130",
-									y1: "50",
-									x2: "150",
-									y2: "90",
-									stroke: "currentColor",
-									strokeWidth: "1.2"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "20",
-									cy: "40",
-									r: "2.5",
-									fill: "currentColor"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "70",
-									cy: "20",
-									r: "3.5",
-									fill: "currentColor"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "130",
-									cy: "50",
-									r: "3",
-									fill: "currentColor"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "190",
-									cy: "25",
-									r: "2.5",
-									fill: "currentColor"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "80",
-									cy: "85",
-									r: "2.5",
-									fill: "currentColor"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-									cx: "150",
-									cy: "90",
-									r: "3",
-									fill: "currentColor"
-								})
-							]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-							className: "absolute -bottom-4 left-0 w-full h-24 text-white opacity-[0.12]",
-							viewBox: "0 0 400 90",
-							preserveAspectRatio: "none",
-							fill: "none",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M-20 60 C 80 15, 180 85, 280 35 C 340 10, 390 60, 440 40",
-								stroke: "currentColor",
-								strokeWidth: "1.8",
-								strokeLinecap: "round"
-							})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -top-10 right-4 w-36 h-36 bg-blue-300/25 rounded-full blur-2xl pointer-events-none" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-10 left-10 w-28 h-28 bg-indigo-400/15 rounded-full blur-xl pointer-events-none" })
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "relative px-4 sm:px-5 pt-4 pb-20 sm:pb-22 flex items-center justify-between gap-3",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-2.5 min-w-0 flex-1",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							type: "button",
-							onClick: onBack,
-							"aria-label": "Kembali",
-							className: "w-10 h-10 rounded-xl bg-blue-700/70 hover:bg-blue-700 border border-white/20 flex items-center justify-center text-white transition cursor-pointer shrink-0 active:scale-95",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { className: "w-5 h-5 stroke-[2.2]" })
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "min-w-0 flex-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-								className: "text-sm font-bold tracking-tight text-white leading-tight",
-								children: "Pusat Notifikasi"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs font-medium text-white/95 mt-0.5 leading-snug break-words",
-								children: "Pemberitahuan & riwayat aktivitas"
-							})]
-						})]
-					})
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
-				className: "scroll-area -mt-18 flex-1 overflow-y-auto relative z-10",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "px-3.5 pb-24 space-y-3",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "bg-white rounded-xl shadow-xs overflow-hidden border border-slate-200/90",
-						children: [(notificationList.some((it) => !readIds.includes(it.id)) || notificationList.some((it) => readIds.includes(it.id))) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "px-3.5 py-2.5 border-b border-slate-100 flex items-center justify-end gap-3 bg-white",
-							children: [
-								notificationList.some((it) => !readIds.includes(it.id)) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: handleMarkAllAsRead,
-									className: "text-blue-600 hover:text-blue-700 text-xs font-semibold transition inline-flex items-center gap-1 cursor-pointer py-0.5",
-									title: "Tandai seluruh pemberitahuan sebagai sudah dibaca",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCheck, { className: "w-3.5 h-3.5 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Tandai Dibaca" })]
-								}),
-								notificationList.some((it) => !readIds.includes(it.id)) && notificationList.some((it) => readIds.includes(it.id)) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "w-px h-3 bg-slate-200",
-									"aria-hidden": "true"
-								}),
-								notificationList.some((it) => readIds.includes(it.id)) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: handleClearReadNotifications,
-									className: "text-rose-600 hover:text-rose-700 text-xs font-semibold transition inline-flex items-center gap-1 cursor-pointer py-0.5",
-									title: "Hapus seluruh pemberitahuan yang sudah dibaca",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { className: "w-3.5 h-3.5 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Hapus Dibaca" })]
-								})
-							]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "divide-y divide-slate-100",
-							children: loading && notificationList.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "p-3.5 space-y-2.5 animate-pulse",
-								children: [
-									1,
-									2,
-									3
-								].map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "py-2.5 border-b border-slate-100 space-y-2",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-center justify-between",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-4 bg-slate-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-16 h-4 bg-slate-200 rounded" })]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-3/4 h-3.5 bg-slate-200 rounded" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-1/2 h-3 bg-slate-100 rounded" })
-									]
-								}, i))
-							}) : notificationList.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "p-8 text-center space-y-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-5 h-5" })
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "text-xs font-bold text-slate-800",
-									children: "Tidak Ada Notifikasi"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-xs text-slate-500 mt-0.5",
-									children: "Semua pemberitahuan sudah dibersihkan atau belum ada kendala baru."
-								})] })]
-							}) : notificationList.map((item) => {
-								const isRead = readIds.includes(item.id);
-								return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NotificationCardItem, {
-									item,
-									isRead,
-									onCardClick: handleToggleRead,
-									onActionClick: handleActionNavigate,
-									onDelete: (it) => setNotifToDelete(it)
-								}, item.id);
-							})
-						})]
-					})
-				})
-			}),
-			notifToDelete && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4",
-				onClick: (e) => {
-					if (e.target === e.currentTarget) setNotifToDelete(null);
-				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					role: "dialog",
-					"aria-modal": "true",
-					"aria-labelledby": "delete-notification-title",
-					className: "max-w-sm w-full bg-white rounded-2xl p-5 border border-gray-200 shadow-2xl space-y-4",
-					onClick: (e) => e.stopPropagation(),
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "w-11 h-11 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { className: "w-5 h-5" })
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "text-center space-y-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								id: "delete-notification-title",
-								className: "text-sm font-bold text-gray-900",
-								children: "Hapus Pemberitahuan Ini?"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								className: "text-xs text-gray-500 leading-relaxed",
-								children: [
-									"Pemberitahuan ",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-										className: "text-gray-800 font-semibold",
-										children: notifToDelete.title
-									}),
-									" akan disembunyikan dari riwayat Anda."
-								]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex gap-2 pt-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								type: "button",
-								onClick: () => setNotifToDelete(null),
-								className: "flex-1 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold transition cursor-pointer",
-								children: "Tidak (Esc)"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								type: "button",
-								onClick: handleConfirmDelete,
-								className: "flex-1 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Ya, Hapus" })
-							})]
-						})
-					]
-				})
-			}),
-			showClearAllModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4",
-				onClick: (e) => {
-					if (e.target === e.currentTarget) setShowClearAllModal(false);
-				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					role: "dialog",
-					"aria-modal": "true",
-					"aria-labelledby": "clear-all-notifications-title",
-					className: "max-w-sm w-full bg-white rounded-2xl p-5 border border-gray-200 shadow-2xl space-y-4",
-					onClick: (e) => e.stopPropagation(),
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "w-11 h-11 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { className: "w-5 h-5" })
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "text-center space-y-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								id: "clear-all-notifications-title",
-								className: "text-sm font-bold text-gray-900",
-								children: "Hapus Semua Notifikasi?"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs text-gray-500 leading-relaxed",
-								children: "Seluruh pemberitahuan yang sudah dibaca akan dihapus dari daftar Anda."
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex gap-2 pt-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								type: "button",
-								onClick: () => setShowClearAllModal(false),
-								className: "flex-1 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold transition cursor-pointer",
-								children: "Batal (Esc)"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								type: "button",
-								onClick: handleConfirmClearAll,
-								className: "flex-1 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Ya, Hapus Semua" })
-							})]
-						})
-					]
-				})
-			})
-		]
-	});
-}
-//#endregion
-//#region src/portal/components/common/PortalActiveMascot.jsx
-/**
-* Cache in-memory untuk SVG yang telah di-fetch agar tidak fetch berulang kali
-*/
-var svgCache = {};
-/**
-* Daftar maskot rotasi berkala (bergantian setiap 3 menit / 180 detik)
-*/
-var ROTATING_MASCOTS = [
-	"menyapa",
-	"rekomendasi",
-	"analisis-redaman",
-	"percaya-diri",
-	"tersipu",
-	"bosan",
-	"berpikir",
-	"juara",
-	"bintang",
-	"memantau",
-	"siaga-24jam"
-];
-/**
-* Menghitung indeks maskot sinkron dengan waktu nyata jam dinding (interval 3 menit)
-*/
-var getWallClockMascotIndex = () => {
-	return Math.floor(Date.now() / 18e4) % ROTATING_MASCOTS.length;
-};
-/**
-* Menentukan maskot prioritas berdasarkan kondisi aktivitas sistem:
-*/
-function getActiveMascotKey(data, rotatingIndex) {
-	const currentIndex = typeof rotatingIndex === "number" ? rotatingIndex : getWallClockMascotIndex();
-	if (!data) return ROTATING_MASCOTS[currentIndex % ROTATING_MASCOTS.length];
-	const customer = data.customer || {};
-	const signal = data.signal || {};
-	const latestTicket = data.latest_ticket;
-	if ((typeof signal.rx_power === "number" ? signal.rx_power : parseFloat(signal.rx_power || -21)) <= -28 || signal.status_koneksi === "CRITICAL" || signal.status_koneksi === "LOS") return "gangguan";
-	if (customer.status_pembayaran === "BELUM_BAYAR" || customer.status_tagihan === "MENUNGGAK") return "marah";
-	if (customer.is_active === false || customer.status === "NONAKTIF") return "sedih";
-	if (latestTicket && [
-		"MENUNGGU",
-		"DICEK_ADMIN",
-		"DIPROSES"
-	].includes(latestTicket.status)) {
-		if (latestTicket.status === "MENUNGGU") return "pelanggan";
-		if (latestTicket.status === "DICEK_ADMIN") return "layanan-pelanggan";
-		if (latestTicket.status === "DIPROSES") return "teknisi";
-	}
-	if (customer.status_pembayaran === "LUNAS_BARU") return "gembira";
-	return ROTATING_MASCOTS[currentIndex % ROTATING_MASCOTS.length];
-}
-/**
-* Komponen Maskot Interaktif Portal (Memuat SVG mandiri secara asinkron dari /mascots/<key>.svg)
-*/
-function PortalActiveMascot({ data, mascotKey: customMascotKey, className = "w-20 h-16" }) {
-	const [rotatingIndex, setRotatingIndex] = (0, import_react.useState)(() => getWallClockMascotIndex());
-	const mascotKey = customMascotKey || getActiveMascotKey(data, rotatingIndex);
-	const [svgContent, setSvgContent] = (0, import_react.useState)(() => svgCache[mascotKey] || "");
-	(0, import_react.useEffect)(() => {
-		const timer = setInterval(() => {
-			const newIdx = getWallClockMascotIndex();
-			setRotatingIndex((prev) => prev !== newIdx ? newIdx : prev);
-		}, 1e4);
-		return () => clearInterval(timer);
-	}, []);
-	(0, import_react.useEffect)(() => {
-		if (svgCache[mascotKey]) {
-			setSvgContent(svgCache[mascotKey]);
-			return;
-		}
-		let isMounted = true;
-		fetch(`/mascots/${mascotKey}.svg`).then((res) => {
-			if (!res.ok) throw new Error(`HTTP ${res.status}`);
-			return res.text();
-		}).then((svgText) => {
-			svgCache[mascotKey] = svgText;
-			if (isMounted) setSvgContent(svgText);
-		}).catch((err) => {
-			console.warn(`[PortalActiveMascot] Gagal memuat SVG /mascots/${mascotKey}.svg:`, err);
-		});
-		return () => {
-			isMounted = false;
-		};
-	}, [mascotKey]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: `relative pointer-events-none select-none inline-flex items-center justify-center leading-none mascot-container-${mascotKey} ${className} [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-full [&>svg]:max-h-full [&>svg]:object-contain`,
-		style: {
-			overflow: "visible",
-			lineHeight: 0
-		},
-		dangerouslySetInnerHTML: { __html: svgContent }
-	});
-}
-//#endregion
-//#region src/portal/utils/notificationUtils.js
-/**
-* Menghitung daftar ID notifikasi aktif
-*/
-function getActiveNotificationList(customer, tickets = [], payments = []) {
-	const pel = customer || {};
-	const isBelumBayar = pel.status_pembayaran === "BELUM_BAYAR" || pel.status_pembayaran === "OVERDUE" || pel.status_pembayaran === "ISOLIR";
-	const items = [];
-	if (pel.billing_reminder && pel.billing_reminder.id) items.push({ id: pel.billing_reminder.id });
-	if (isBelumBayar || pel.total_tagihan && pel.total_tagihan > 0 || pel.is_overdue) {
-		const todayDateStr = (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
-		items.push({ id: `billing-unpaid-${pel.id_pelanggan || "cust"}-${todayDateStr}` });
-	} else if (!pel.billing_reminder) items.push({ id: `billing-paid-${pel.periode_tagihan || "current"}` });
-	tickets.forEach((t) => {
-		items.push({ id: `ticket-${t.id_tiket}-${t.status}` });
-	});
-	payments.forEach((p) => {
-		if (p.id) items.push({ id: `payment-invoice-${p.id}` });
-	});
-	return items;
-}
-/**
-* Mengecek apakah ada notifikasi baru yang belum dibaca (dan belum dihapus)
-*/
-function checkHasUnreadNotifications(customer, tickets = [], payments = []) {
-	try {
-		const savedDeleted = localStorage.getItem("teknocust_deleted_notifications");
-		const deletedIds = savedDeleted ? JSON.parse(savedDeleted) : [];
-		const savedRead = localStorage.getItem("teknocust_read_notifications");
-		const readIds = savedRead ? JSON.parse(savedRead) : [];
-		return getActiveNotificationList(customer, tickets, payments).filter((item) => !deletedIds.includes(item.id)).some((item) => !readIds.includes(item.id));
-	} catch {
-		return false;
-	}
-}
-//#endregion
-//#region src/portal/components/layout/PortalHeader.jsx
-function PortalHeader({ title = "MyTekno", subtitle = "Portal Layanan Mandiri Pelanggan TeknoIndonet", dashboardData = null, customer = null, avatarInitials = null, greeting = null, showNotificationDot = null, hasUnreadNotifications = null, onNotificationClick = null, onOpenNotifications = null, children = null }) {
-	const pel = customer || dashboardData?.customer || null;
-	const [hasUnread, setHasUnread] = (0, import_react.useState)(false);
-	const handleNotificationClick = onNotificationClick || onOpenNotifications;
-	(0, import_react.useEffect)(() => {
-		let isMounted = true;
-		Promise.allSettled([PortalKendalaService.list(), PortalPembayaranService.getRiwayat(5)]).then(([ticketRes, paymentRes]) => {
-			if (!isMounted) return;
-			const tickets = ticketRes.status === "fulfilled" && ticketRes.value?.ok && ticketRes.value.data?.tickets ? ticketRes.value.data.tickets : [];
-			const payments = paymentRes.status === "fulfilled" && paymentRes.value?.ok && paymentRes.value.data?.invoices ? paymentRes.value.data.invoices : [];
-			const unread = checkHasUnreadNotifications(pel, tickets, payments);
-			setHasUnread(unread);
-		}).catch(() => {
-			if (isMounted) {
-				const unread = checkHasUnreadNotifications(pel, [], []);
-				setHasUnread(unread);
-			}
-		});
-		return () => {
-			isMounted = false;
-		};
-	}, [pel?.id_pelanggan, pel?.status_pembayaran]);
-	const isDotVisible = showNotificationDot !== null ? showNotificationDot : hasUnreadNotifications !== null ? hasUnreadNotifications : hasUnread;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "shrink-0 relative z-0 bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700 border-b border-blue-700/60 overflow-hidden",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "absolute inset-0 pointer-events-none overflow-hidden select-none",
-				"aria-hidden": "true",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-						className: "absolute -top-16 -right-16 w-64 h-64 text-white opacity-[0.16]",
-						viewBox: "0 0 240 240",
-						fill: "none",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "120",
-								cy: "120",
-								r: "30",
-								stroke: "currentColor",
-								strokeWidth: "1.5",
-								strokeDasharray: "3 3"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "120",
-								cy: "120",
-								r: "55",
-								stroke: "currentColor",
-								strokeWidth: "1.5"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "120",
-								cy: "120",
-								r: "85",
-								stroke: "currentColor",
-								strokeWidth: "1.5",
-								strokeDasharray: "6 4"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "120",
-								cy: "120",
-								r: "115",
-								stroke: "currentColor",
-								strokeWidth: "1.5"
-							})
-						]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-						className: "absolute top-2 left-6 w-56 h-28 text-white opacity-[0.14]",
-						viewBox: "0 0 220 110",
-						fill: "none",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-								x1: "20",
-								y1: "40",
-								x2: "70",
-								y2: "20",
-								stroke: "currentColor",
-								strokeWidth: "1.2",
-								strokeDasharray: "2 2"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-								x1: "70",
-								y1: "20",
-								x2: "130",
-								y2: "50",
-								stroke: "currentColor",
-								strokeWidth: "1.2"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-								x1: "130",
-								y1: "50",
-								x2: "190",
-								y2: "25",
-								stroke: "currentColor",
-								strokeWidth: "1.2",
-								strokeDasharray: "3 3"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-								x1: "70",
-								y1: "20",
-								x2: "80",
-								y2: "85",
-								stroke: "currentColor",
-								strokeWidth: "1.2"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-								x1: "80",
-								y1: "85",
-								x2: "150",
-								y2: "90",
-								stroke: "currentColor",
-								strokeWidth: "1.2",
-								strokeDasharray: "2 2"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
-								x1: "130",
-								y1: "50",
-								x2: "150",
-								y2: "90",
-								stroke: "currentColor",
-								strokeWidth: "1.2"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "20",
-								cy: "40",
-								r: "2.5",
-								fill: "currentColor"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "70",
-								cy: "20",
-								r: "3.5",
-								fill: "currentColor"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "130",
-								cy: "50",
-								r: "3",
-								fill: "currentColor"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "190",
-								cy: "25",
-								r: "2.5",
-								fill: "currentColor"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "80",
-								cy: "85",
-								r: "2.5",
-								fill: "currentColor"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-								cx: "150",
-								cy: "90",
-								r: "3",
-								fill: "currentColor"
-							})
-						]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-						className: "absolute -bottom-4 left-0 w-full h-24 text-white opacity-[0.12]",
-						viewBox: "0 0 400 90",
-						preserveAspectRatio: "none",
-						fill: "none",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M-20 60 C 80 15, 180 85, 280 35 C 340 10, 390 60, 440 40",
-							stroke: "currentColor",
-							strokeWidth: "1.8",
-							strokeLinecap: "round"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-							d: "M-10 80 C 90 35, 190 95, 290 55 C 350 25, 400 75, 450 55",
-							stroke: "currentColor",
-							strokeWidth: "1.2",
-							strokeLinecap: "round"
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -top-10 right-4 w-36 h-36 bg-blue-300/25 rounded-full blur-2xl pointer-events-none" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-10 left-10 w-28 h-28 bg-indigo-400/15 rounded-full blur-xl pointer-events-none" })
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: `relative px-4 sm:px-5 pt-4 ${children ? "pb-3" : "pb-20 sm:pb-22"} flex items-center justify-between gap-3`,
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center gap-3 min-w-0 flex-1",
-					children: [avatarInitials ? customer?.foto_profil ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-						src: customer.foto_profil,
-						alt: "",
-						onError: (e) => {
-							e.currentTarget.style.display = "none";
-						},
-						className: "w-11 h-11 rounded-full object-cover border-2 border-white/40 shrink-0 shadow-xs"
-					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "w-11 h-11 rounded-full bg-blue-700/80 border-2 border-white/30 flex items-center justify-center text-white text-xs font-bold tracking-tight shrink-0 shadow-xs",
-						children: avatarInitials
-					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "shrink-0 inline-flex items-center justify-center leading-none overflow-visible",
-						style: { lineHeight: 0 },
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalActiveMascot, {
-							data: dashboardData || { customer },
-							className: "w-11 h-9"
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "min-w-0 flex-1",
-						children: greeting ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "text-xs font-medium text-white/80 leading-tight truncate",
-							children: greeting
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "text-sm font-bold text-white tracking-tight leading-snug mt-0.5 truncate",
-							children: title
-						})] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-							className: "text-sm font-bold tracking-tight text-white leading-tight",
-							children: title
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xs font-medium text-white/95 mt-0.5 leading-snug break-words",
-							children: subtitle
-						})] })
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-					type: "button",
-					onClick: handleNotificationClick,
-					"aria-label": "Buka Notifikasi",
-					className: "relative w-10 h-10 rounded-xl bg-blue-700/70 hover:bg-blue-700 border border-white/20 flex items-center justify-center text-white transition cursor-pointer shrink-0 active:scale-95",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Bell, { className: "w-4 h-4 stroke-[2.2]" }), isDotVisible && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full ring-2 ring-blue-600" })]
-				})]
-			}),
-			children && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "relative px-4 sm:px-5 pb-8 pt-1",
-				children
-			})
-		]
-	});
-}
-//#endregion
-//#region src/portal/components/modals/ConnectedDevicesModal.jsx
-function ConnectedDevicesModal({ isOpen, onClose, devices, loading, scanning, onRefresh, onDeviceUpdate, lastUpdated }) {
-	const [internalDevices, setInternalDevices] = (0, import_react.useState)(devices || []);
-	const [blockingMac, setBlockingMac] = (0, import_react.useState)(null);
-	const [feedbackMsg, setFeedbackMsg] = (0, import_react.useState)(null);
-	const [confirmModal, setConfirmModal] = (0, import_react.useState)({
-		isOpen: false,
-		device: null,
-		isBlocking: true
-	});
-	(0, import_react.useEffect)(() => {
-		if (devices) setInternalDevices(devices);
-	}, [devices]);
-	(0, import_react.useEffect)(() => {
-		if (!isOpen) return;
-		const handleKeyDown = (e) => {
-			if (e.key === "Escape") {
-				e.preventDefault();
-				if (onClose) onClose();
-			}
-		};
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, [isOpen, onClose]);
-	if (!isOpen) return null;
-	const currentList = internalDevices;
-	const onlineDevices = currentList.filter((d) => d.status === "ONLINE" && !d.is_blocked);
-	const blockedDevices = currentList.filter((d) => d.is_blocked);
-	const offlineDevices = currentList.filter((d) => d.status !== "ONLINE" && !d.is_blocked);
-	const handleRequestConfirm = (dev) => {
-		setConfirmModal({
-			isOpen: true,
-			device: dev,
-			isBlocking: !dev.is_blocked
-		});
-	};
-	const handleExecuteToggleBlock = async () => {
-		const dev = confirmModal.device;
-		if (!dev) return;
-		setConfirmModal({
-			isOpen: false,
-			device: null,
-			isBlocking: true
-		});
-		setBlockingMac(dev.mac_address);
-		setFeedbackMsg(null);
-		try {
-			const res = await PortalWifiService.toggleBlockDevice(dev.mac_address, !dev.is_blocked);
-			if (res.ok) {
-				const nextBlockedState = !dev.is_blocked;
-				setInternalDevices((prev) => prev.map((item) => item.mac_address === dev.mac_address ? {
-					...item,
-					is_blocked: nextBlockedState,
-					blocked_at: nextBlockedState ? (/* @__PURE__ */ new Date()).toISOString() : null
-				} : item));
-				setFeedbackMsg({
-					type: "success",
-					text: res.data?.message || `Perangkat berhasil ${nextBlockedState ? "diblokir" : "dibuka blokirnya"}.`
-				});
-				if (onDeviceUpdate) onDeviceUpdate(dev.mac_address, nextBlockedState);
-				else if (onRefresh) onRefresh();
-			} else setFeedbackMsg({
-				type: "error",
-				text: res.data?.message || "Gagal mengubah status blokir perangkat."
-			});
-		} catch (err) {
-			console.error(err);
-			setFeedbackMsg({
-				type: "error",
-				text: "Terjadi kesalahan sistem saat menghubungi modem."
-			});
-		} finally {
-			setBlockingMac(null);
-			setTimeout(() => setFeedbackMsg(null), 4e3);
-		}
-	};
-	const getDeviceIcon = (dev) => {
-		const host = (dev.hostname || "").toLowerCase();
-		if ((dev.tipe_koneksi || "").toUpperCase() === "LAN") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Network, { className: "w-4 h-4 text-emerald-600" });
-		if (host.includes("laptop") || host.includes("pc") || host.includes("macbook") || host.includes("desktop") || host.includes("thinkpad") || host.includes("computer")) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Laptop, { className: "w-4 h-4 text-blue-600" });
-		return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Smartphone, { className: "w-4 h-4 text-blue-600" });
-	};
-	const getDeviceDisplayName = (dev) => {
-		if (dev.hostname && dev.hostname.trim() && dev.hostname !== "Perangkat N/A") return dev.hostname;
-		return "Perangkat Terhubung";
-	};
-	const modalContent = /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "fixed inset-0 z-50 flex items-center justify-center p-3 pb-24 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150",
-		onClick: onClose,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			role: "dialog",
-			"aria-modal": "true",
-			"aria-labelledby": "connected-devices-modal-title",
-			className: "w-full max-w-sm bg-white text-slate-800 rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col relative select-none animate-in zoom-in-95 duration-150 max-h-[calc(100dvh-7.5rem)] sm:max-h-[85vh]",
-			onClick: (e) => e.stopPropagation(),
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "p-3.5 sm:p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/90 gap-2 shrink-0",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-2.5",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-xs shrink-0",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Smartphone, { className: "w-5 h-5" })
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-1.5",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								id: "connected-devices-modal-title",
-								className: "text-sm sm:text-base font-bold text-slate-900 leading-tight truncate",
-								children: "Perangkat Terhubung"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-xs font-bold text-blue-600",
-								children: [
-									"(",
-									onlineDevices.length,
-									" aktif)"
-								]
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5 leading-tight",
-							children: "Daftar perangkat dalam 1 jaringan modem Anda"
-						})] })]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						type: "button",
-						onClick: onClose,
-						className: "w-8 h-8 rounded-lg bg-white hover:bg-slate-100 text-slate-400 hover:text-slate-600 flex items-center justify-center border border-slate-200 transition cursor-pointer",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "w-4 h-4" })
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-4 py-2.5 bg-slate-50 border-b border-slate-100 flex items-center justify-between text-xs shrink-0",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "text-[11px] text-slate-500 font-medium",
-						children: lastUpdated ? `Diperbarui: ${lastUpdated}` : "Memuat data jaringan..."
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-						type: "button",
-						onClick: onRefresh,
-						disabled: scanning || loading,
-						className: "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white font-bold text-[11px] hover:bg-blue-700 active:scale-95 transition disabled:opacity-50 cursor-pointer shadow-xs",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: `w-3 h-3 ${scanning ? "animate-spin" : ""}` }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: scanning ? "Memindai..." : "Pindai Ulang" })]
-					})]
-				}),
-				feedbackMsg && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: `mx-4 mt-3 p-3 rounded-xl flex items-center gap-2.5 text-xs font-semibold animate-in fade-in slide-in-from-top-1 shrink-0 ${feedbackMsg.type === "success" ? "bg-emerald-50 text-emerald-800 border border-emerald-200" : "bg-red-50 text-red-800 border border-red-200"}`,
-					children: [feedbackMsg.type === "success" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-4 h-4 text-emerald-600 shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TriangleAlert, { className: "w-4 h-4 text-red-600 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: feedbackMsg.text })]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "p-3 sm:p-4 overflow-y-auto space-y-3.5 flex-1",
-					children: [loading && devices.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "space-y-2.5 animate-pulse",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center justify-between px-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-28 h-3 bg-slate-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-14 h-3 bg-slate-200 rounded" })]
-						}), [...Array(3)].map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "p-3 rounded-xl bg-white border border-slate-100 shadow-2xs flex items-center justify-between gap-2.5",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-2.5 flex-1 min-w-0",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-8 h-8 rounded-lg bg-slate-200 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-1.5 flex-1 min-w-0",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-28 h-3.5 bg-slate-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-2.5 bg-slate-100 rounded" })]
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-7 h-7 rounded-lg bg-slate-100 shrink-0" })]
-						}, i))]
-					}) : devices.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "py-10 flex flex-col items-center justify-center text-center px-4",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-2.5",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wifi, { className: "w-6 h-6" })
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-								className: "text-sm font-bold text-slate-800",
-								children: "Belum Ada Perangkat Terdeteksi"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								className: "text-xs text-slate-500 max-w-xs mt-1 leading-relaxed",
-								children: [
-									"Tekan tombol ",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "Pindai Ulang" }),
-									" di atas untuk menarik data perangkat yang sedang tersambung di jaringan Anda."
-								]
-							})
-						]
-					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "space-y-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center justify-between px-1",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-[11px] font-bold uppercase tracking-wider text-slate-500",
-									children: [
-										"Sedang Tersambung (",
-										onlineDevices.length,
-										")"
-									]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "inline-flex items-center gap-1 text-[11px] text-emerald-600 font-semibold",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3 h-3" }), "Online"]
-								})]
-							}), onlineDevices.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "p-3 rounded-xl bg-slate-50 text-slate-400 text-xs text-center",
-								children: "Tidak ada perangkat aktif saat ini"
-							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "space-y-2",
-								children: onlineDevices.map((dev) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "p-3 rounded-xl bg-white border border-slate-100 shadow-2xs hover:border-blue-200 transition",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-start justify-between gap-2.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-start gap-2.5 min-w-0 flex-1",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 mt-0.5",
-												children: getDeviceIcon(dev)
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "min-w-0 flex-1",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-													className: "flex items-center gap-1.5 flex-wrap",
-													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-														className: "text-xs font-bold text-slate-900 truncate max-w-[140px] sm:max-w-[180px]",
-														children: getDeviceDisplayName(dev)
-													}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-														className: "text-[10px] font-medium text-slate-400 uppercase shrink-0",
-														children: ["· ", dev.tipe_koneksi || "WIFI"]
-													})]
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													className: "mt-1 text-[11px] text-slate-500 font-mono",
-													children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-														className: "text-slate-600 font-medium",
-														children: dev.ip_address || dev.mac_address
-													})
-												})]
-											})]
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex flex-col items-end gap-1.5 shrink-0",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-												type: "button",
-												onClick: () => handleRequestConfirm(dev),
-												disabled: blockingMac === dev.mac_address,
-												title: "Blokir akses internet perangkat ini",
-												className: "inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-[11px] font-bold active:scale-95 transition cursor-pointer disabled:opacity-50 min-w-[66px] justify-center",
-												children: blockingMac === dev.mac_address ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-3 h-3 animate-spin" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Proses..." })] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Ban, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Blokir" })] })
-											}), dev.rssi !== null && dev.rssi !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "inline-flex items-center gap-1 text-slate-400 text-[10px] font-mono font-medium",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Signal, { className: "w-3 h-3 text-blue-500" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [dev.rssi, " dBm"] })]
-											})]
-										})]
-									})
-								}, dev.id || dev.mac_address))
-							})]
-						}),
-						blockedDevices.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "space-y-2 pt-2 border-t border-slate-100",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center justify-between px-1",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-[11px] font-bold uppercase tracking-wider text-red-600 flex items-center gap-1",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lock, { className: "w-3 h-3" }),
-										"Diblokir (",
-										blockedDevices.length,
-										")"
-									]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-[10px] text-red-500 font-semibold",
-									children: "Akses Terputus"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "space-y-2",
-								children: blockedDevices.map((dev) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "p-3 rounded-xl bg-red-50/40 border border-red-100 shadow-2xs",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-start justify-between gap-2.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-start gap-2.5 min-w-0 flex-1 opacity-80",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center shrink-0 mt-0.5",
-												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Ban, { className: "w-4 h-4" })
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "min-w-0 flex-1",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-													className: "flex items-center gap-1.5 flex-wrap",
-													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-														className: "text-xs font-bold text-slate-800 line-through decoration-red-400 truncate max-w-[140px] sm:max-w-[180px]",
-														children: getDeviceDisplayName(dev)
-													}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-														className: "px-1.5 py-0.2 rounded text-[9px] font-bold bg-red-100 text-red-700 uppercase shrink-0",
-														children: "Diblokir"
-													})]
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													className: "mt-1 text-[11px] text-slate-500 font-mono",
-													children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-														className: "text-slate-600 font-medium",
-														children: dev.ip_address || dev.mac_address
-													})
-												})]
-											})]
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "flex flex-col items-end gap-1.5 shrink-0",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-												type: "button",
-												onClick: () => handleRequestConfirm(dev),
-												disabled: blockingMac === dev.mac_address,
-												title: "Buka blokir perangkat ini agar dapat mengakses internet kembali",
-												className: "inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold active:scale-95 transition cursor-pointer shadow-xs disabled:opacity-50 min-w-[84px] justify-center",
-												children: blockingMac === dev.mac_address ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-3 h-3 animate-spin" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Proses..." })] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LockOpen, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Buka Blokir" })] })
-											})
-										})]
-									})
-								}, dev.id || dev.mac_address))
-							})]
-						}),
-						offlineDevices.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "space-y-2 pt-2 border-t border-slate-100",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center justify-between px-1",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-[11px] font-bold uppercase tracking-wider text-slate-400",
-									children: [
-										"Riwayat Terhubung (",
-										offlineDevices.length,
-										")"
-									]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-[10px] text-slate-400",
-									children: "Pernah Tersambung"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "space-y-2 opacity-75",
-								children: offlineDevices.map((dev) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "p-3 rounded-xl bg-slate-50/80 border border-slate-100",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-start justify-between gap-2.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-start gap-2.5 min-w-0 flex-1",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center shrink-0 text-slate-400 mt-0.5",
-												children: getDeviceIcon(dev)
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "min-w-0 flex-1",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													className: "text-xs font-semibold text-slate-600 truncate max-w-[140px] sm:max-w-[180px]",
-													children: getDeviceDisplayName(dev)
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													className: "mt-1 text-[11px] text-slate-400 font-mono",
-													children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: dev.ip_address || dev.mac_address })
-												})]
-											})]
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "shrink-0",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-												type: "button",
-												onClick: () => handleRequestConfirm(dev),
-												disabled: blockingMac === dev.mac_address,
-												title: "Blokir perangkat ini",
-												className: "inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-600 hover:text-red-600 text-[10px] font-bold transition cursor-pointer disabled:opacity-50 min-w-[66px] justify-center",
-												children: blockingMac === dev.mac_address ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-3 h-3 animate-spin" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Proses..." })] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Ban, { className: "w-3 h-3" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Blokir" })] })
-											})
-										})]
-									})
-								}, dev.id || dev.mac_address))
-							})]
-						})
-					] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "p-3 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start gap-2 text-xs text-blue-900 leading-relaxed",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { className: "w-4 h-4 text-blue-600 shrink-0 mt-0.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-							className: "text-[11px] text-blue-800",
-							children: [
-								"Jika menemukan perangkat asing mencurigakan yang tidak Anda kenal, segera ubah ",
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "Kata Sandi WiFi" }),
-								" Anda di menu WiFi."
-							]
-						})]
-					})]
-				}),
-				confirmModal.isOpen && confirmModal.device && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in zoom-in-95 duration-150 p-5 text-left",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-3 mb-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: `w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${confirmModal.isBlocking ? "bg-red-100 text-red-600" : "bg-emerald-100 text-emerald-600"}`,
-									children: confirmModal.isBlocking ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Ban, { className: "w-5 h-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LockOpen, { className: "w-5 h-5" })
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-									className: "text-sm font-black text-slate-900 leading-tight",
-									children: confirmModal.isBlocking ? "Blokir Akses Perangkat?" : "Buka Blokir Perangkat?"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-[11px] text-slate-500 font-medium",
-									children: getDeviceDisplayName(confirmModal.device)
-								})] })]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "p-3 rounded-xl bg-slate-50 border border-slate-100 mb-4 text-xs text-slate-600 leading-relaxed",
-								children: confirmModal.isBlocking ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-									"Akses internet untuk perangkat ",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-										className: "text-slate-800",
-										children: getDeviceDisplayName(confirmModal.device)
-									}),
-									" (",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "font-mono text-[11px]",
-										children: confirmModal.device.mac_address
-									}),
-									") akan diputus secara langsung di modem."
-								] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-									"Perangkat ",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-										className: "text-slate-800",
-										children: getDeviceDisplayName(confirmModal.device)
-									}),
-									" (",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "font-mono text-[11px]",
-										children: confirmModal.device.mac_address
-									}),
-									") akan diizinkan kembali terhubung ke jaringan internet WiFi."
-								] })
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									type: "button",
-									onClick: () => setConfirmModal({
-										isOpen: false,
-										device: null,
-										isBlocking: true
-									}),
-									className: "flex-1 py-2 px-3 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-700 text-xs font-bold transition active:scale-95 cursor-pointer",
-									children: "Batal"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									type: "button",
-									onClick: handleExecuteToggleBlock,
-									className: `flex-1 py-2 px-3 rounded-xl text-white text-xs font-bold shadow-md transition active:scale-95 cursor-pointer flex items-center justify-center gap-1.5 ${confirmModal.isBlocking ? "bg-red-600 hover:bg-red-700" : "bg-emerald-600 hover:bg-emerald-700"}`,
-									children: confirmModal.isBlocking ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Ban, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Ya, Blokir" })] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LockOpen, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Ya, Buka Blokir" })] })
-								})]
-							})
-						]
-					})
-				})
-			]
-		})
-	});
-	return typeof document !== "undefined" ? (0, import_react_dom.createPortal)(modalContent, document.body) : modalContent;
-}
-//#endregion
-//#region src/portal/components/modals/SpeedTestModal.jsx
-function SpeedTestModal({ isOpen, onClose, targetSpeed = 10, latencyValue = null, customer = null, onProbeSignal = null, onTestComplete = null }) {
-	const [testPhase, setTestPhase] = (0, import_react.useState)("idle");
-	const [currentSpeed, setCurrentSpeed] = (0, import_react.useState)(0);
-	const [smoothSpeed, setSmoothSpeed] = (0, import_react.useState)(0);
-	const [downloadSpeed, setDownloadSpeed] = (0, import_react.useState)(null);
-	const [uploadSpeed, setUploadSpeed] = (0, import_react.useState)(null);
-	const [pingMs, setPingMs] = (0, import_react.useState)(null);
-	const [jitterMs, setJitterMs] = (0, import_react.useState)(null);
-	const [progressPercent, setProgressPercent] = (0, import_react.useState)(0);
-	const [errorMessage, setErrorMessage] = (0, import_react.useState)("");
-	const [checkingWifi, setCheckingWifi] = (0, import_react.useState)(false);
-	const [localWifiConnected, setLocalWifiConnected] = (0, import_react.useState)(customer?.is_connected_to_home_wifi === true);
-	const isConnectedToHomeWifi = localWifiConnected || customer?.is_connected_to_home_wifi === true;
-	(0, import_react.useEffect)(() => {
-		if (customer?.is_connected_to_home_wifi !== void 0) setLocalWifiConnected(customer.is_connected_to_home_wifi === true);
-	}, [customer?.is_connected_to_home_wifi]);
-	(0, import_react.useEffect)(() => {
-		if (isOpen) handleRecheckConnection();
-	}, [isOpen]);
-	(0, import_react.useEffect)(() => {
-		if (!isOpen) return;
-		const handleKeyDown = (e) => {
-			if (e.key === "Escape") {
-				e.preventDefault();
-				if (onClose) onClose();
-			}
-		};
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, [isOpen, onClose]);
-	const abortControllerRef = (0, import_react.useRef)(null);
-	const isMountedRef = (0, import_react.useRef)(true);
-	const targetSpeedRef = (0, import_react.useRef)(0);
-	const smoothSpeedRef = (0, import_react.useRef)(0);
-	const rafIdRef = (0, import_react.useRef)(null);
-	(0, import_react.useEffect)(() => {
-		targetSpeedRef.current = currentSpeed;
-	}, [currentSpeed]);
-	(0, import_react.useEffect)(() => {
-		let lastFrameTime = performance.now();
-		const updateNeedleSpring = (now) => {
-			const dt = Math.min((now - lastFrameTime) / 1e3, .1);
-			lastFrameTime = now;
-			const target = targetSpeedRef.current;
-			const current = smoothSpeedRef.current;
-			const diff = target - current;
-			if (Math.abs(diff) > .05) {
-				const nextVal = current + diff * (1 - Math.exp(-12 * dt));
-				smoothSpeedRef.current = nextVal;
-				if (isMountedRef.current) setSmoothSpeed(nextVal);
-			} else if (current !== target) {
-				smoothSpeedRef.current = target;
-				if (isMountedRef.current) setSmoothSpeed(target);
-			}
-			rafIdRef.current = requestAnimationFrame(updateNeedleSpring);
-		};
-		rafIdRef.current = requestAnimationFrame(updateNeedleSpring);
-		return () => {
-			if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
-		};
-	}, []);
-	(0, import_react.useEffect)(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-			if (abortControllerRef.current) abortControllerRef.current.abort();
-			if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
-		};
-	}, []);
-	(0, import_react.useEffect)(() => {
-		if (!isOpen) {
-			if (abortControllerRef.current) abortControllerRef.current.abort();
-			setTestPhase("idle");
-			setCurrentSpeed(0);
-			setSmoothSpeed(0);
-			targetSpeedRef.current = 0;
-			smoothSpeedRef.current = 0;
-			setProgressPercent(0);
-			setErrorMessage("");
-		}
-	}, [isOpen]);
-	const measurePingAndJitter = async (signal) => {
-		const count = 10;
-		let minPing = Infinity;
-		let currentJitter = 0;
-		let prevRtt = 0;
-		for (let i = 0; i < count; i++) {
-			if (signal.aborted) throw new Error("Aborted");
-			const start = performance.now();
-			try {
-				if (!(await fetch(`https://speed.cloudflare.com/__down?bytes=0&t=${Date.now()}_${i}`, {
-					cache: "no-store",
-					mode: "cors",
-					signal
-				})).ok) throw new Error("Ping failed");
-				const end = performance.now();
-				const rtt = Math.max(1, end - start);
-				if (rtt < minPing) minPing = rtt;
-				if (i === 1) currentJitter = Math.abs(rtt - prevRtt);
-				else if (i > 1) {
-					const instJitter = Math.abs(rtt - prevRtt);
-					currentJitter = instJitter > currentJitter ? currentJitter * .3 + instJitter * .7 : currentJitter * .8 + instJitter * .2;
-				}
-				prevRtt = rtt;
-				if (isMountedRef.current) {
-					setPingMs(Math.round(minPing));
-					setJitterMs(Math.max(1, Math.round(currentJitter)));
-					setProgressPercent(5 + Math.round((i + 1) / count * 15));
-				}
-			} catch (err) {
-				if (signal.aborted) throw err;
-				try {
-					const lStart = performance.now();
-					await fetch(`/portal/api/speedtest/ping?t=${Date.now()}_${i}`, {
-						cache: "no-store",
-						signal
-					});
-					const rtt = Math.max(1, performance.now() - lStart);
-					if (rtt < minPing) minPing = rtt;
-				} catch (_) {
-					minPing = latencyValue && typeof latencyValue === "number" ? Math.round(latencyValue) : 25;
-				}
-			}
-			await new Promise((r) => setTimeout(r, 60));
-		}
-		return {
-			ping: Math.round(minPing === Infinity ? 28 : minPing),
-			jitter: Math.max(1, Math.round(currentJitter))
-		};
-	};
-	const measureDownloadSpeed = async (signal) => {
-		const totalDurationMs = 7e3;
-		const graceTimeMs = 1500;
-		const overheadFactor = 1.06;
-		const numStreams = 3;
-		let totalBytesAfterGrace = 0;
-		let gracePassed = false;
-		let measurementStartTime = performance.now();
-		const testStartTime = performance.now();
-		let latestReportedSpeed = 0;
-		const streamWorker = async (streamIndex) => {
-			await new Promise((r) => setTimeout(r, streamIndex * 200));
-			while (performance.now() - testStartTime < totalDurationMs) {
-				if (signal.aborted) throw new Error("Aborted");
-				const fetchSize = 8388608;
-				const url = `https://speed.cloudflare.com/__down?bytes=${fetchSize}&t=${Date.now()}_s${streamIndex}`;
-				let response;
-				try {
-					response = await fetch(url, {
-						cache: "no-store",
-						mode: "cors",
-						signal
-					});
-				} catch (e) {
-					if (signal.aborted) throw e;
-					response = await fetch(`/portal/api/speedtest/download?bytes=${fetchSize}&t=${Date.now()}_s${streamIndex}`, {
-						cache: "no-store",
-						credentials: "include",
-						signal
-					});
-				}
-				if (!response.ok || !response.body) break;
-				const reader = response.body.getReader();
-				while (true) {
-					const { done, value } = await reader.read();
-					if (done) break;
-					if (value) {
-						const now = performance.now();
-						const elapsedTotal = now - testStartTime;
-						if (!gracePassed) {
-							if (elapsedTotal >= graceTimeMs) {
-								gracePassed = true;
-								measurementStartTime = now;
-								totalBytesAfterGrace = 0;
-							}
-						} else {
-							totalBytesAfterGrace += value.length;
-							const measuringDurationSec = (now - measurementStartTime) / 1e3;
-							if (measuringDurationSec > .1) {
-								const mbps = totalBytesAfterGrace * 8 * overheadFactor / (measuringDurationSec * 1e6);
-								latestReportedSpeed = mbps;
-								if (isMountedRef.current) {
-									setCurrentSpeed(mbps);
-									const progress = Math.min(95, 20 + Math.round(elapsedTotal / totalDurationMs * 40));
-									setProgressPercent(progress);
-								}
-							}
-						}
-						if (elapsedTotal >= totalDurationMs) {
-							try {
-								await reader.cancel();
-							} catch (_) {}
-							return;
-						}
-					}
-				}
-			}
-		};
-		await Promise.allSettled(Array.from({ length: numStreams }, (_, i) => streamWorker(i)));
-		const finalMeasuringSec = Math.max(.5, (performance.now() - measurementStartTime) / 1e3);
-		let finalDownloadMbps = totalBytesAfterGrace * 8 * overheadFactor / (finalMeasuringSec * 1e6);
-		if (finalDownloadMbps <= .1 && latestReportedSpeed > 0) finalDownloadMbps = latestReportedSpeed;
-		return Math.max(.1, Number(finalDownloadMbps.toFixed(2)));
-	};
-	const measureUploadSpeed = async (signal) => {
-		const totalDurationMs = 7e3;
-		const graceTimeMs = 1500;
-		const overheadFactor = 1.06;
-		const numStreams = 3;
-		const chunkSize = 2097152;
-		const randomBuffer = new Uint8Array(chunkSize);
-		for (let i = 0; i < randomBuffer.length; i += 1024) randomBuffer[i] = Math.floor(Math.random() * 256);
-		const uploadBlob = new Blob([randomBuffer]);
-		let totalBytesAfterGrace = 0;
-		let gracePassed = false;
-		let measurementStartTime = performance.now();
-		const testStartTime = performance.now();
-		let latestReportedSpeed = 0;
-		const streamWorker = async (streamIndex) => {
-			await new Promise((r) => setTimeout(r, streamIndex * 250));
-			let chunkCount = 0;
-			while (performance.now() - testStartTime < totalDurationMs) {
-				if (signal.aborted) throw new Error("Aborted");
-				let uploadOk = false;
-				try {
-					if ((await fetch(`https://speed.cloudflare.com/__up?t=${Date.now()}_s${streamIndex}_${chunkCount++}`, {
-						method: "POST",
-						body: uploadBlob,
-						headers: { "Content-Type": "application/octet-stream" },
-						mode: "cors",
-						cache: "no-store",
-						signal
-					})).ok) uploadOk = true;
-				} catch (e) {
-					if (signal.aborted) throw e;
-					if ((await fetch(`/portal/api/speedtest/upload?t=${Date.now()}_s${streamIndex}_${chunkCount}`, {
-						method: "POST",
-						body: uploadBlob,
-						headers: { "Content-Type": "application/octet-stream" },
-						cache: "no-store",
-						credentials: "include",
-						signal
-					})).ok) uploadOk = true;
-				}
-				if (uploadOk) {
-					const now = performance.now();
-					const elapsedTotal = now - testStartTime;
-					if (!gracePassed) {
-						if (elapsedTotal >= graceTimeMs) {
-							gracePassed = true;
-							measurementStartTime = now;
-							totalBytesAfterGrace = 0;
-						}
-					} else {
-						totalBytesAfterGrace += chunkSize;
-						const measuringDurationSec = (now - measurementStartTime) / 1e3;
-						if (measuringDurationSec > .1) {
-							const mbps = totalBytesAfterGrace * 8 * overheadFactor / (measuringDurationSec * 1e6);
-							latestReportedSpeed = mbps;
-							if (isMountedRef.current) {
-								setCurrentSpeed(mbps);
-								const progress = Math.min(98, 60 + Math.round(elapsedTotal / totalDurationMs * 38));
-								setProgressPercent(progress);
-							}
-						}
-					}
-				}
-			}
-		};
-		await Promise.allSettled(Array.from({ length: numStreams }, (_, i) => streamWorker(i)));
-		const finalMeasuringSec = Math.max(.5, (performance.now() - measurementStartTime) / 1e3);
-		let finalUploadMbps = totalBytesAfterGrace * 8 * overheadFactor / (finalMeasuringSec * 1e6);
-		if (finalUploadMbps <= .1 && latestReportedSpeed > 0) finalUploadMbps = latestReportedSpeed;
-		return Math.max(.1, Number(finalUploadMbps.toFixed(2)));
-	};
-	const handleRecheckConnection = async () => {
-		setCheckingWifi(true);
-		try {
-			let isConnected = false;
-			const res = await fetch("/portal/api/wifi");
-			if (res.ok) {
-				const json = await res.json();
-				if (json.ok && json.is_connected_to_home_wifi !== void 0) isConnected = json.is_connected_to_home_wifi === true;
-			}
-			setLocalWifiConnected(isConnected);
-			if (onProbeSignal) await onProbeSignal();
-		} catch (_) {} finally {
-			setCheckingWifi(false);
-		}
-	};
-	const runRealSpeedTest = async () => {
-		if (!isConnectedToHomeWifi) return;
-		if (abortControllerRef.current) abortControllerRef.current.abort();
-		const ac = new AbortController();
-		abortControllerRef.current = ac;
-		setErrorMessage("");
-		setTestPhase("ping");
-		setCurrentSpeed(0);
-		setDownloadSpeed(null);
-		setUploadSpeed(null);
-		setProgressPercent(5);
-		try {
-			const pingRes = await measurePingAndJitter(ac.signal);
-			if (!isMountedRef.current) return;
-			setPingMs(pingRes.ping);
-			setJitterMs(pingRes.jitter);
-			if (typeof onProbeSignal === "function") onProbeSignal();
-			setTestPhase("download");
-			const dlResult = await measureDownloadSpeed(ac.signal);
-			if (!isMountedRef.current) return;
-			setDownloadSpeed(dlResult);
-			setCurrentSpeed(dlResult);
-			await new Promise((r) => setTimeout(r, 300));
-			setTestPhase("upload");
-			setCurrentSpeed(0);
-			const ulResult = await measureUploadSpeed(ac.signal);
-			if (!isMountedRef.current) return;
-			setUploadSpeed(ulResult);
-			setCurrentSpeed(ulResult);
-			setTestPhase("completed");
-			setCurrentSpeed(dlResult);
-			setProgressPercent(100);
-			try {
-				const payload = {
-					download: dlResult,
-					upload: ulResult,
-					ping: pingRes.ping,
-					jitter: pingRes.jitter
-				};
-				const saveRes = await fetch("/portal/api/speedtest/save", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify(payload)
-				});
-				if (saveRes.ok) {
-					const resJson = await saveRes.json();
-					if (resJson.ok && typeof onTestComplete === "function") onTestComplete(resJson.data);
-				}
-			} catch (saveErr) {
-				console.warn("Gagal menyimpan hasil uji ke DB:", saveErr);
-			}
-		} catch (err) {
-			if (err.name === "AbortError" || err.message === "Aborted") return;
-			console.error("Speed test error:", err);
-			if (isMountedRef.current) {
-				setTestPhase("error");
-				setErrorMessage(err.message || "Gagal menjalankan pengujian jaringan");
-			}
-		}
-	};
-	if (!isOpen) return null;
-	const radius = 70;
-	const circumference = 2 * Math.PI * radius;
-	const arcLength = circumference * .75;
-	const speedToAngle = (speed) => {
-		return -135 + Math.max(0, Math.min(speed, 100)) / 100 * 270;
-	};
-	const needleRotation = speedToAngle(smoothSpeed);
-	const strokeDashoffset = arcLength * (1 - Math.min(Math.max((needleRotation + 135) / 270, 0), 1));
-	const isTesting = testPhase === "ping" || testPhase === "download" || testPhase === "upload";
-	const scaleLabels = [
-		{
-			val: 0,
-			angle: -135
-		},
-		{
-			val: 20,
-			angle: -81
-		},
-		{
-			val: 40,
-			angle: -27
-		},
-		{
-			val: 60,
-			angle: 27
-		},
-		{
-			val: 80,
-			angle: 81
-		},
-		{
-			val: 100,
-			angle: 135
-		}
-	];
-	const labelRadius = 86;
-	const getLabelPos = (angDeg) => {
-		const rad = (angDeg - 90) * Math.PI / 180;
-		return {
-			x: 100 + labelRadius * Math.cos(rad),
-			y: 100 + labelRadius * Math.sin(rad)
-		};
-	};
-	const modalContent = /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150",
-		onClick: onClose,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			role: "dialog",
-			"aria-modal": "true",
-			"aria-labelledby": "speed-test-modal-title",
-			className: "w-full max-w-sm bg-white text-slate-800 rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col relative select-none animate-in zoom-in-95 duration-150",
-			onClick: (e) => e.stopPropagation(),
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-4 py-3 flex items-center justify-between bg-blue-600 text-white shrink-0",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-2.5",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "w-7 h-7 rounded-lg bg-white/20 flex items-center justify-center",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Gauge, { className: "w-4 h-4 text-white" })
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							id: "speed-test-modal-title",
-							className: "text-sm font-bold tracking-tight text-white block leading-tight",
-							children: "Uji Kecepatan Modem ONT"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "text-xs text-blue-100 leading-none",
-							children: customer?.nama ? `Pelanggan: ${customer.nama}` : "Jaringan Router Pelanggan"
-						})] })]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						type: "button",
-						onClick: onClose,
-						className: "w-7 h-7 rounded-lg bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition active:scale-90 cursor-pointer",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "w-4 h-4" })
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "grid grid-cols-2 divide-x divide-slate-100 px-4 py-2.5 bg-slate-50/80 border-b border-slate-100 shrink-0",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "text-center px-2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowDown, { className: "w-3.5 h-3.5 text-blue-600 stroke-[2.5]" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "DOWNLOAD" })]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "text-xl font-bold font-mono tracking-tight text-blue-700 mt-0.5",
-							children: [downloadSpeed !== null ? downloadSpeed.toFixed(1) : testPhase === "download" ? currentSpeed.toFixed(1) : "-", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-xs font-normal text-slate-400 font-sans ml-1",
-								children: "Mbps"
-							})]
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "text-center px-2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUp, { className: "w-3.5 h-3.5 text-cyan-600 stroke-[2.5]" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "UPLOAD" })]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "text-xl font-bold font-mono tracking-tight text-cyan-700 mt-0.5",
-							children: [uploadSpeed !== null ? uploadSpeed.toFixed(1) : testPhase === "upload" ? currentSpeed.toFixed(1) : "-", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-xs font-normal text-slate-400 font-sans ml-1",
-								children: "Mbps"
-							})]
-						})]
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center justify-around py-2 px-3 text-xs border-b border-slate-100 bg-white shrink-0 font-mono",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-1 text-slate-600",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Ping:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "font-bold text-blue-700",
-								children: pingMs !== null ? `${pingMs} ms` : "-"
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-px h-3 bg-slate-200" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-1 text-slate-600",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Jitter:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "font-bold text-cyan-700",
-								children: jitterMs !== null ? `${jitterMs} ms` : "-"
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-px h-3 bg-slate-200" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-1 text-slate-600",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Paket:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "font-bold text-slate-800",
-								children: [targetSpeed, "M"]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-px h-3 bg-slate-200" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-1 text-slate-600",
-							title: "IP Modem ONT Pelanggan",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "IP:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "font-bold text-blue-700",
-								children: customer?.ip_router || "10.x.x.x"
-							})]
-						})
-					]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "relative flex flex-col items-center justify-center py-5 px-3 select-none bg-white shrink-0 min-h-[220px]",
-					children: testPhase === "idle" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "relative flex flex-col items-center justify-center py-4",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-							type: "button",
-							onClick: runRealSpeedTest,
-							className: "group relative w-24 h-24 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:scale-105 active:scale-95 transition flex flex-col items-center justify-center cursor-pointer border-4 border-blue-100",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-2xl font-black tracking-wider font-mono",
-								children: "GO"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-[11px] font-bold text-blue-100 uppercase tracking-widest font-mono",
-								children: "MULAI"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-							className: "text-xs text-slate-500 font-medium mt-3.5",
-							children: [
-								"Sentuh ",
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-									className: "text-blue-600 font-mono",
-									children: "GO"
-								}),
-								" untuk mulai uji"
-							]
-						})]
-					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "relative w-64 h-64 flex items-center justify-center",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-								className: "w-full h-full",
-								viewBox: "0 0 200 200",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
-									style: {
-										transform: "rotate(135deg)",
-										transformOrigin: "center"
-									},
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-										cx: "100",
-										cy: "100",
-										r: radius,
-										fill: "none",
-										stroke: "#e2e8f0",
-										strokeWidth: "8",
-										strokeDasharray: `${arcLength} ${circumference}`,
-										strokeLinecap: "round"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-										cx: "100",
-										cy: "100",
-										r: radius,
-										fill: "none",
-										stroke: "#2563eb",
-										strokeWidth: "8",
-										strokeDasharray: `${arcLength} ${circumference}`,
-										strokeDashoffset,
-										strokeLinecap: "round"
-									})]
-								}), scaleLabels.map((lbl) => {
-									const pos = getLabelPos(lbl.angle);
-									return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("text", {
-										x: pos.x,
-										y: pos.y,
-										textAnchor: "middle",
-										dominantBaseline: "central",
-										className: "fill-slate-400 font-mono font-bold",
-										style: { fontSize: "10px" },
-										children: lbl.val
-									}, lbl.val);
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "absolute inset-0 flex items-center justify-center pointer-events-none",
-								style: {
-									transform: `rotate(${needleRotation}deg)`,
-									willChange: "transform"
-								},
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-1.5 h-13 rounded-full bg-blue-700 origin-bottom -translate-y-6.5 shadow-xs" })
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute w-4 h-4 rounded-full bg-blue-700 border-2 border-white shadow-xs pointer-events-none" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "absolute bottom-6 flex flex-col items-center justify-center pointer-events-none",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "text-3xl font-black font-mono tracking-tight text-slate-900 leading-none",
-									children: smoothSpeed.toFixed(1)
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "text-xs font-bold text-blue-600 mt-1 uppercase tracking-wider font-mono",
-									children: "Mbps"
-								})]
-							})
-						]
-					})
-				}),
-				!isConnectedToHomeWifi && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "absolute inset-0 z-30 backdrop-blur-md bg-white/95 flex flex-col items-center justify-center p-6 text-center animate-in fade-in duration-300",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "w-28 h-24 mb-1 drop-shadow-md",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalActiveMascot, {
-								mascotKey: "security",
-								className: "w-full h-full"
-							})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-[11px] font-black uppercase tracking-wider mb-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { className: "w-3.5 h-3.5 text-blue-600 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Proteksi Jaringan Modem" })]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-							className: "text-sm font-black text-gray-900 mb-1.5 leading-snug",
-							children: "Anda Belum Tersambung ke Modem WiFi"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xs text-gray-600 max-w-xs leading-relaxed mb-4 font-normal",
-							children: "Pengujian speed test ini khusus mengukur bandwidth riil modem router Anda. Pastikan HP atau laptop Anda sudah terhubung ke WiFi rumah ini terlebih dahulu."
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-2 w-full max-w-xs",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-								type: "button",
-								onClick: handleRecheckConnection,
-								disabled: checkingWifi,
-								className: "flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-white font-bold text-xs shadow-md active:scale-95 transition cursor-pointer disabled:opacity-50",
-								style: { background: "#2563eb" },
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: `w-3.5 h-3.5 ${checkingWifi ? "animate-spin" : ""}` }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Cek Ulang Sambungan" })]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								type: "button",
-								onClick: onClose,
-								className: "px-3 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs transition active:scale-95 cursor-pointer",
-								children: "Tutup"
-							})]
-						})
-					]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-3.5 pb-3.5 pt-2 flex flex-col items-center gap-2 bg-white border-t border-gray-100 shrink-0",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "text-[11px] text-gray-500 font-medium text-center min-h-[16px] flex items-center justify-center gap-1",
-						children: [
-							testPhase === "idle" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "flex items-center gap-1 text-gray-600 text-[10px]",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Server, { className: "w-3 h-3 text-blue-600" }),
-									"Menguji koneksi modem ",
-									customer?.ip_router ? `(${customer.ip_router})` : "",
-									" ke gateway ISP"
-								]
-							}),
-							testPhase === "ping" && "Mengukur latensi ping & jitter...",
-							testPhase === "download" && "Menguji unduh data (5 detik)...",
-							testPhase === "upload" && "Menguji unggah data (5 detik)...",
-							testPhase === "completed" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-emerald-600 font-bold flex items-center gap-1 text-[11px]",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3.5 h-3.5" }), "Pengujian selesai! Koneksi aktif stabil."]
-							}),
-							testPhase === "error" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "text-rose-600 font-bold flex items-center gap-1 text-[11px]",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleAlert, { className: "w-3.5 h-3.5" }), errorMessage || "Pengujian terputus."]
-							})
-						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-2 w-full",
-						children: [testPhase !== "idle" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							type: "button",
-							onClick: runRealSpeedTest,
-							disabled: isTesting,
-							className: "flex-1 py-2 px-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-xs active:scale-95 transition disabled:opacity-50 cursor-pointer flex items-center justify-center gap-1.5",
-							children: testPhase === "completed" || testPhase === "error" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RotateCcw, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Tes Lagi" })] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-3.5 h-3.5 animate-spin" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
-								"Menguji (",
-								progressPercent,
-								"%)"
-							] })] })
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							type: "button",
-							onClick: onClose,
-							className: `py-2 px-4 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs transition active:scale-95 cursor-pointer ${testPhase === "idle" ? "w-full" : ""}`,
-							children: "Tutup"
-						})]
-					})]
-				})
-			]
-		})
-	});
-	return typeof document !== "undefined" ? (0, import_react_dom.createPortal)(modalContent, document.body) : modalContent;
-}
-//#endregion
-//#region src/portal/components/dashboard/PortalDashboardTab.jsx
-function PortalDashboardTab({ data, onNavigate, onOpenNotifications, hasUnreadNotifications }) {
-	const signal = data?.signal || {
-		rx_power: null,
-		status_koneksi: "NORMAL",
-		latency_ms: null,
-		suhu_ont: null
-	};
-	const customer = data?.customer || {
-		nama: "-",
-		paket: "-",
-		ip_router: "-",
-		status_pembayaran: "LUNAS"
-	};
-	const kuotaData = data?.kuota || {
-		kuota_terpakai_gb: 0,
-		periode_bulan: "-"
-	};
-	const kuotaTerpakai = kuotaData.kuota_terpakai_gb !== void 0 && kuotaData.kuota_terpakai_gb !== null ? Number(kuotaData.kuota_terpakai_gb).toFixed(1) : "0.0";
-	const rxPowerValue = signal.rx_power !== void 0 && signal.rx_power !== null ? Number(signal.rx_power).toFixed(2) : "-";
-	const suhuOntValue = signal.suhu_ont !== void 0 && signal.suhu_ont !== null ? Math.round(signal.suhu_ont) : "-";
-	const latencyValue = signal.latency_ms !== void 0 && signal.latency_ms !== null ? Math.round(signal.latency_ms) : "-";
-	const kuotaNum = parseFloat(kuotaTerpakai) || 0;
-	const kuotaBarPercent = Math.min(100, Math.max(5, Math.round(kuotaNum / Math.max(50, Math.ceil(kuotaNum / 50) * 50) * 100)));
-	const getInitials = (namaStr) => {
-		if (!namaStr || namaStr === "-") return "US";
-		const parts = namaStr.replace(/[^a-zA-Z\s]/g, " ").trim().split(/\s+/).filter(Boolean);
-		if (parts.length === 0) return "US";
-		if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
-		return (parts[0][0] + parts[1][0]).toUpperCase();
-	};
-	const customerInitials = getInitials(customer.nama);
-	const [showDevicesModal, setShowDevicesModal] = (0, import_react.useState)(false);
-	const [devicesList, setDevicesList] = (0, import_react.useState)([]);
-	const [loadingDevices, setLoadingDevices] = (0, import_react.useState)(false);
-	const [scanningDevices, setScanningDevices] = (0, import_react.useState)(false);
-	const [lastDeviceUpdate, setLastDeviceUpdate] = (0, import_react.useState)("");
-	const [showSpeedTestModal, setShowSpeedTestModal] = (0, import_react.useState)(false);
-	const [liveSignal, setLiveSignal] = (0, import_react.useState)(null);
-	const [lastSpeedTestData, setLastSpeedTestData] = (0, import_react.useState)(customer?.last_speed_test || null);
-	(0, import_react.useEffect)(() => {
-		if (customer?.last_speed_test) setLastSpeedTestData(customer.last_speed_test);
-	}, [customer?.last_speed_test]);
-	const targetSpeedMbps = (() => {
-		const m = String(customer.paket || "").match(/(\d+)\s*(?:mbps|m)/i);
-		return m ? parseInt(m[1], 10) : 10;
-	})();
-	const handleOpenSpeedTestModal = () => {
-		setShowSpeedTestModal(true);
-	};
-	const handleProbeSignalLive = () => {
-		PortalDashboardService.liveProbeSignal().then((res) => {
-			if (res && res.ok && res.data?.signal) setLiveSignal(res.data.signal);
-		}).catch(() => {});
-	};
-	const fetchConnectedDevices = async () => {
-		setLoadingDevices(true);
-		try {
-			const res = await PortalWifiService.getConnectedDevices();
-			if (res.ok && res.data) {
-				setDevicesList(res.data.devices || []);
-				setLastDeviceUpdate((/* @__PURE__ */ new Date()).toLocaleTimeString("id-ID", {
-					hour: "2-digit",
-					minute: "2-digit"
-				}) + " WIB");
-			}
-		} catch (e) {
-			console.error(e);
-		} finally {
-			setLoadingDevices(false);
-		}
-	};
-	const handleScanDevices = async () => {
-		setScanningDevices(true);
-		try {
-			const res = await PortalWifiService.scanConnectedDevices();
-			if (res.ok && res.data) {
-				setDevicesList(res.data.devices || []);
-				setLastDeviceUpdate((/* @__PURE__ */ new Date()).toLocaleTimeString("id-ID", {
-					hour: "2-digit",
-					minute: "2-digit"
-				}) + " WIB");
-			}
-		} catch (e) {
-			console.error(e);
-		} finally {
-			setScanningDevices(false);
-		}
-	};
-	const handleDeviceStatusUpdate = (macAddress, isBlocked) => {
-		setDevicesList((prev) => prev.map((dev) => dev.mac_address === macAddress ? {
-			...dev,
-			is_blocked: isBlocked,
-			blocked_at: isBlocked ? (/* @__PURE__ */ new Date()).toISOString() : null
-		} : dev));
-	};
-	const openDevicesModal = () => {
-		setShowDevicesModal(true);
-		fetchConnectedDevices();
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex-1 h-full min-h-0 flex flex-col bg-[#EEF2F6] text-slate-900",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalHeader, {
-				showNotificationDot: hasUnreadNotifications,
-				onNotificationClick: onOpenNotifications,
-				greeting: "Selamat Datang,",
-				title: customer.nama || "-",
-				avatarInitials: customerInitials,
-				dashboardData: data,
-				customer,
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center gap-4 pt-1",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "shrink-0 relative w-28 h-24 sm:w-32 sm:h-28 flex items-center justify-center",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 rounded-full bg-cyan-400/20 blur-xl pointer-events-none" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "relative z-10 pointer-events-none select-none transition-transform hover:scale-105",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalActiveMascot, {
-								data,
-								className: "w-28 h-22 sm:w-32 sm:h-26 drop-shadow-lg"
-							})
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex-1 min-w-0",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-								className: "text-lg font-extrabold text-white leading-tight tracking-tight",
-								children: "Kondisi Perangkat"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs text-blue-100/90 mt-0.5 leading-snug",
-								children: "Status fisik & performa modem"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "mt-2.5 flex items-center gap-3",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex flex-col",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-1 text-[9px] font-bold text-cyan-200 uppercase tracking-tight",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Gauge, { className: "w-3 h-3 text-cyan-300 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Speed Test" })]
-									}), lastSpeedTestData && lastSpeedTestData.download !== null ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "text-xs font-bold font-mono text-white leading-none mt-0.5",
-										children: [
-											"↓",
-											Number(lastSpeedTestData.download).toFixed(1),
-											" ",
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-												className: "text-[10px] text-cyan-200",
-												children: ["↑", Number(lastSpeedTestData.upload).toFixed(1)]
-											})
-										]
-									}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "text-xs font-bold font-mono text-white leading-none mt-0.5",
-										children: ["- ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-[10px] text-blue-200 font-normal",
-											children: "Mbps"
-										})]
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: handleOpenSpeedTestModal,
-									className: "inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-cyan-500 hover:bg-cyan-600 active:scale-98 text-white font-semibold text-xs shadow-xs transition-all cursor-pointer shrink-0",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Gauge, { className: "w-3.5 h-3.5 stroke-[2.2]" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Uji Speed" })]
-								})]
-							})
-						]
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
-				className: "scroll-area -mt-4 flex-1 overflow-y-auto relative z-10",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-3.5 pb-24 space-y-3.5",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-							className: "grid grid-cols-2 gap-2.5",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200/70 hover:border-slate-300 transition-all",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-1.5 mb-1.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Thermometer, { className: "w-3.5 h-3.5 text-amber-500 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-[9px] font-bold text-slate-400 uppercase tracking-widest",
-											children: "Suhu ONT"
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-										className: "font-mono text-xl font-bold text-slate-900 leading-none",
-										children: [suhuOntValue, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-xs text-slate-400 font-sans ml-0.5",
-											children: "°C"
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "h-1.5 w-full bg-slate-100 rounded-full overflow-hidden mt-2.5",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "h-full bg-amber-400 rounded-full transition-all",
-											style: { width: typeof signal.suhu_ont === "number" ? `${Math.min(100, Math.max(10, signal.suhu_ont / 70 * 100))}%` : "0%" }
-										})
-									})
-								]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200/70 hover:border-slate-300 transition-all",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-1.5 mb-1.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Signal, { className: "w-3.5 h-3.5 text-blue-600 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-[9px] font-bold text-slate-400 uppercase tracking-widest",
-											children: "Daya Terima"
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-										className: "font-mono text-xl font-bold text-slate-900 leading-none",
-										children: [rxPowerValue, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-xs text-slate-400 font-sans ml-0.5",
-											children: "dBm"
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "h-1.5 w-full bg-slate-100 rounded-full overflow-hidden mt-2.5",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "h-full bg-blue-600 rounded-full transition-all",
-											style: { width: typeof signal.rx_power === "number" ? `${Math.min(100, Math.max(15, Math.abs(signal.rx_power) / 35 * 100))}%` : "0%" }
-										})
-									})
-								]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-							className: "bg-white rounded-2xl shadow-[0_4px_20px_-4px_rgba(15,23,42,0.06)] border border-slate-200/70 p-3.5 sm:p-4",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center justify-between mb-3 px-0.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-									className: "text-sm font-bold text-slate-900 tracking-tight",
-									children: "Menu Layanan"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-xs font-semibold text-slate-500",
-									children: "Akses Cepat"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "grid grid-cols-2 gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: openDevicesModal,
-									className: "flex items-center gap-3 p-3 rounded-xl bg-slate-50/80 hover:bg-blue-50/60 border border-slate-100 hover:border-blue-200 active:scale-[0.98] transition-all cursor-pointer group text-left",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "w-11 h-11 rounded-[16px] bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-xs transition-transform group-hover:scale-105 shrink-0",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Smartphone, { className: "w-5 h-5 stroke-[2]" })
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "min-w-0 flex-1",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-xs font-bold text-slate-800 group-hover:text-blue-600 transition-colors tracking-tight",
-											children: "Perangkat"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-[10px] text-slate-500 font-medium mt-0.5",
-											children: "Cek Terhubung"
-										})]
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: () => onNavigate("wifi"),
-									className: "flex items-center gap-3 p-3 rounded-xl bg-slate-50/80 hover:bg-blue-50/60 border border-slate-100 hover:border-blue-200 active:scale-[0.98] transition-all cursor-pointer group text-left",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "w-11 h-11 rounded-[16px] bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-xs transition-transform group-hover:scale-105 shrink-0",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wifi, { className: "w-5 h-5 stroke-[2]" })
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "min-w-0 flex-1",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-xs font-bold text-slate-800 group-hover:text-blue-600 transition-colors tracking-tight",
-											children: "Kelola WiFi"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-[10px] text-slate-500 font-medium mt-0.5",
-											children: "Nama & Sandi"
-										})]
-									})]
-								})]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "grid grid-cols-12 gap-3 w-full",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "col-span-5 bg-white rounded-2xl p-3.5 border border-slate-200/70 flex flex-col justify-between shadow-[0_4px_20px_-4px_rgba(15,23,42,0.06)]",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-										className: "text-sm font-bold text-slate-900 tracking-tight",
-										children: "Pemakaian Kuota"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-2.5 my-2.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "relative w-12 h-12 flex items-center justify-center shrink-0",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-												className: "w-full h-full -rotate-90",
-												viewBox: "0 0 56 56",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-													cx: "28",
-													cy: "28",
-													r: "22",
-													fill: "none",
-													stroke: "#EFF6FF",
-													strokeWidth: "5"
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-													cx: "28",
-													cy: "28",
-													r: "22",
-													fill: "none",
-													stroke: "#2563EB",
-													strokeWidth: "5",
-													strokeDasharray: "138",
-													strokeDashoffset: Math.max(10, 138 - 138 * (kuotaBarPercent || 0) / 100),
-													strokeLinecap: "round"
-												})]
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-												className: "absolute w-5 h-5 text-blue-600",
-												viewBox: "0 0 24 24",
-												fill: "none",
-												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-													d: "M3 12C5.5 9 8 15 10.5 12C13 9 15.5 15 18 12C19.5 10.5 20.5 11.5 21 12",
-													stroke: "currentColor",
-													strokeWidth: "2.2",
-													strokeLinecap: "round",
-													strokeLinejoin: "round"
-												})
-											})]
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "min-w-0",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "font-mono text-xl font-bold text-slate-900 leading-none",
-												children: kuotaTerpakai
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "text-[11px] font-medium text-slate-500 leading-tight mt-1",
-												children: "GB Terpakai"
-											})]
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-										type: "button",
-										onClick: () => onNavigate("kuota"),
-										className: "w-full inline-flex items-center justify-between text-xs font-semibold text-blue-600 hover:text-blue-700 active:scale-98 transition pt-2 border-t border-slate-100 cursor-pointer text-left",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Cek Detail Kuota" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "w-3.5 h-3.5 stroke-[2.2] shrink-0" })]
-									})
-								]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "col-span-7 relative bg-blue-600 rounded-2xl p-3.5 flex flex-col justify-between overflow-hidden shadow-xs text-white",
-								style: { clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" },
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "absolute top-0 right-0 w-[24px] h-[24px] bg-blue-800 rounded-bl-lg pointer-events-none",
-										style: { clipPath: "polygon(0 0, 0 100%, 100% 100%)" }
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-											className: "text-sm font-bold text-white tracking-tight",
-											children: "Tagihan Iuran"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-xs font-medium text-blue-100 mt-0.5",
-											children: customer.status_pembayaran === "BELUM_BAYAR" || customer.status_tagihan === "MENUNGGAK" ? "Belum Dibayar" : "Sudah Lunas"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "font-mono text-xl font-bold text-white tracking-tight mt-2 mb-2",
-											children: ["Rp ", Number(customer.harga_paket || 15e4).toLocaleString("id-ID")]
-										})
-									] }),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										type: "button",
-										onClick: () => onNavigate("pembayaran"),
-										className: "w-full bg-white hover:bg-blue-50 active:scale-[0.99] transition-all text-blue-900 font-bold text-xs py-2 px-3 rounded-xl cursor-pointer text-center shadow-xs",
-										children: "Detail Tagihan"
-									})
-								]
-							})]
-						})
-					]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ConnectedDevicesModal, {
-				isOpen: showDevicesModal,
-				onClose: () => setShowDevicesModal(false),
-				devices: devicesList,
-				loading: loadingDevices,
-				scanning: scanningDevices,
-				onRefresh: handleScanDevices,
-				onDeviceUpdate: handleDeviceStatusUpdate,
-				lastUpdated: lastDeviceUpdate
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpeedTestModal, {
-				isOpen: showSpeedTestModal,
-				onClose: () => setShowSpeedTestModal(false),
-				targetSpeed: targetSpeedMbps,
-				latencyValue: latencyValue !== "-" ? latencyValue : null,
-				customer,
-				onProbeSignal: handleProbeSignalLive,
-				onTestComplete: (result) => {
-					if (result) setLastSpeedTestData(result);
-				}
-			})
-		]
-	});
-}
-//#endregion
-//#region src/portal/components/common/PortalToastNotification.jsx
-/**
-* PortalToastNotification
-* 
-* Komponen Notifikasi Mengambang (Floating Toast) Terpadu untuk TeknoCust (Portal Pelanggan).
-* Diposisikan mengambang tepat di atas Sticky Bottom Navigation (bottom-20),
-* tidak mendorong layout halaman, dan otomatis hilang setelah durasi tertentu.
-*
-* Props:
-* - show: boolean (apakah toast aktif)
-* - message: string (pesan notifikasi)
-* - type: 'success' | 'error' | 'warning' | 'info' (default: 'success')
-* - title: string (opsional)
-* - duration: number (milidetik, default: 5000)
-* - onClose: () => void (fungsi saat ditutup / timeout)
-*/
-function PortalToastNotification({ show, message, type = "success", title, duration = 5e3, onClose }) {
-	const onCloseRef = import_react.useRef(onClose);
-	(0, import_react.useEffect)(() => {
-		onCloseRef.current = onClose;
-	}, [onClose]);
-	(0, import_react.useEffect)(() => {
-		if (!show || !duration || duration <= 0) return;
-		const timer = setTimeout(() => {
-			if (onCloseRef.current) onCloseRef.current();
-		}, duration);
-		return () => clearTimeout(timer);
-	}, [
-		show,
-		message,
-		duration
-	]);
-	if (!show || !message) return null;
-	const config = {
-		success: {
-			defaultTitle: "Berhasil",
-			bgClass: "bg-emerald-900/95 border-emerald-500/60 text-emerald-50",
-			iconClass: "text-emerald-400",
-			Icon: CircleCheck
-		},
-		error: {
-			defaultTitle: "Gagal / Perhatian",
-			bgClass: "bg-rose-900/95 border-rose-500/60 text-rose-50",
-			iconClass: "text-rose-400",
-			Icon: CircleAlert
-		},
-		warning: {
-			defaultTitle: "Peringatan",
-			bgClass: "bg-amber-900/95 border-amber-500/60 text-amber-50",
-			iconClass: "text-amber-400",
-			Icon: TriangleAlert
-		},
-		info: {
-			defaultTitle: "Informasi",
-			bgClass: "bg-slate-900/95 border-slate-600/60 text-slate-50",
-			iconClass: "text-blue-400",
-			Icon: Info
-		}
-	};
-	const current = config[type] || config.info;
-	const IconComponent = current.Icon;
-	const displayTitle = title || current.defaultTitle;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		role: "alert",
-		"aria-live": "polite",
-		className: "absolute bottom-16 inset-x-0 mx-auto w-[calc(100%-2rem)] max-w-[300px] z-50 pointer-events-auto transition-all duration-200 animate-in fade-in slide-in-from-bottom-2",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: `px-3 py-2 rounded-xl shadow-lg shadow-slate-950/20 border backdrop-blur-md flex items-center gap-2.5 ${current.bgClass}`,
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "p-1 rounded-md bg-white/10 shrink-0",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(IconComponent, {
-						className: `w-3.5 h-3.5 ${current.iconClass}`,
-						"aria-hidden": "true"
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex-1 min-w-0 text-xs",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "font-bold tracking-tight text-[11px] leading-tight",
-						children: displayTitle
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "text-[10.5px] leading-tight text-white/90 break-words font-normal",
-						children: message
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					type: "button",
-					onClick: onClose,
-					className: "p-1 rounded-md text-white/60 hover:text-white hover:bg-white/10 transition cursor-pointer shrink-0",
-					title: "Tutup Notifikasi",
-					"aria-label": "Tutup Notifikasi",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "w-3 h-3" })
-				})
-			]
-		})
-	});
-}
-//#endregion
-//#region src/portal/components/common/PortalPagination.jsx
-/**
-* Generate windowed pagination items with ellipses (e.g. 1 2 3 ... 7 8)
-*/
-function getPaginationRange(currentPage, totalPages, maxVisible = 5) {
-	if (totalPages <= maxVisible + 2) return Array.from({ length: totalPages }, (_, i) => i + 1);
-	const leftSiblingIndex = Math.max(currentPage - 1, 1);
-	const rightSiblingIndex = Math.min(currentPage + 1, totalPages);
-	const shouldShowLeftDots = leftSiblingIndex > 2;
-	const shouldShowRightDots = rightSiblingIndex < totalPages - 1;
-	if (!shouldShowLeftDots && shouldShowRightDots) return [
-		...Array.from({ length: 4 }, (_, i) => i + 1),
-		"...",
-		totalPages
-	];
-	if (shouldShowLeftDots && !shouldShowRightDots) {
-		const rightItemCount = 4;
-		return [
-			1,
-			"...",
-			...Array.from({ length: rightItemCount }, (_, i) => totalPages - rightItemCount + 1 + i)
-		];
-	}
-	if (shouldShowLeftDots && shouldShowRightDots) return [
-		1,
-		"...",
-		...[
-			currentPage - 1,
-			currentPage,
-			currentPage + 1
-		],
-		"...",
-		totalPages
-	];
-	return Array.from({ length: totalPages }, (_, i) => i + 1);
-}
-function PortalPagination({ currentPage = 1, totalPages = 1, onPageChange, className = "" }) {
-	if (totalPages < 1) return null;
-	const pages = getPaginationRange(currentPage, totalPages);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", {
-		"aria-label": "Paginasi Halaman",
-		className: `flex items-center justify-center gap-1 sm:gap-1.5 pt-3 border-t border-gray-100 select-none ${className}`,
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				type: "button",
-				onClick: () => onPageChange(Math.max(1, currentPage - 1)),
-				disabled: currentPage === 1,
-				className: "w-8 h-8 rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:text-blue-600 disabled:opacity-35 disabled:cursor-not-allowed transition-colors flex items-center justify-center shrink-0 cursor-pointer shadow-2xs",
-				"aria-label": "Halaman Sebelumnya",
-				title: "Halaman Sebelumnya",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { className: "w-4 h-4 stroke-[2.2]" })
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "flex items-center gap-1 sm:gap-1.5",
-				children: pages.map((item, index) => {
-					if (item === "...") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "w-6 h-8 flex items-center justify-center text-xs font-semibold text-gray-400 select-none",
-						children: "..."
-					}, `dots-${index}`);
-					const isActive = item === currentPage;
-					return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-						type: "button",
-						onClick: () => onPageChange(item),
-						"aria-current": isActive ? "page" : void 0,
-						className: `w-8 h-8 rounded-lg text-xs font-bold transition-all flex items-center justify-center shrink-0 cursor-pointer ${isActive ? "bg-blue-600 text-white shadow-2xs ring-1 ring-blue-600 scale-[1.02]" : "border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:text-blue-600 shadow-2xs"}`,
-						children: item
-					}, `page-${item}`);
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				type: "button",
-				onClick: () => onPageChange(Math.min(totalPages, currentPage + 1)),
-				disabled: currentPage === totalPages,
-				className: "w-8 h-8 rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:text-blue-600 disabled:opacity-35 disabled:cursor-not-allowed transition-colors flex items-center justify-center shrink-0 cursor-pointer shadow-2xs",
-				"aria-label": "Halaman Selanjutnya",
-				title: "Halaman Selanjutnya",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "w-4 h-4 stroke-[2.2]" })
-			})
-		]
-	});
-}
-//#endregion
-//#region src/portal/components/tickets/PortalTicketsTab.jsx
-function PortalTicketsTab({ customer, dashboardData, onOpenNotifications, hasUnreadNotifications }) {
-	const [tickets, setTickets] = (0, import_react.useState)([]);
-	const [loading, setLoading] = (0, import_react.useState)(true);
-	const [showCreateModal, setShowCreateModal] = (0, import_react.useState)(false);
-	const [searchQuery, setSearchQuery] = (0, import_react.useState)("");
-	const [currentPage, setCurrentPage] = (0, import_react.useState)(1);
-	const ITEMS_PER_PAGE = 5;
-	const [kategori, setKategori] = (0, import_react.useState)("Koneksi Internet Lambat atau Terputus-putus");
-	const [deskripsi, setDeskripsi] = (0, import_react.useState)("");
-	const [noWa, setNoWa] = (0, import_react.useState)(customer?.no_hp || "");
-	const [submitting, setSubmitting] = (0, import_react.useState)(false);
-	const [deletingId, setDeletingId] = (0, import_react.useState)(null);
-	const [ticketToDelete, setTicketToDelete] = (0, import_react.useState)(null);
-	const [toast, setToast] = (0, import_react.useState)({
-		show: false,
-		message: "",
-		type: "success",
-		title: ""
-	});
-	const showToast = (msg, type = "success", title = "") => {
-		setToast({
-			show: true,
-			message: msg,
-			type,
-			title
-		});
-	};
-	const fetchTickets = async () => {
-		setLoading(true);
-		try {
-			const res = await PortalKendalaService.list();
-			if (res.ok && res.data?.tickets) setTickets(res.data.tickets);
-		} catch (e) {
-			console.error(e);
-		} finally {
-			setLoading(false);
-		}
-	};
-	(0, import_react.useEffect)(() => {
-		fetchTickets();
-	}, []);
-	(0, import_react.useEffect)(() => {
-		if (!ticketToDelete && !showCreateModal) return;
-		const handleKeyDown = (e) => {
-			if (e.key === "Escape") {
-				e.preventDefault();
-				if (ticketToDelete) setTicketToDelete(null);
-				if (showCreateModal && !submitting) setShowCreateModal(false);
-			}
-		};
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, [
-		ticketToDelete,
-		showCreateModal,
-		submitting
-	]);
-	const handleCreateTicket = async (e) => {
-		e.preventDefault();
-		setSubmitting(true);
-		const targetWa = customer?.no_hp || customer?.no_wa || noWa || "";
-		try {
-			const res = await PortalKendalaService.create({
-				kategori,
-				deskripsi: deskripsi.trim() || kategori,
-				no_wa: targetWa
-			});
-			if (res.ok && res.data.ok) {
-				showToast("Keluhan Anda berhasil dikirim ke teknisi piket NOC!", "success", "Tiket Terkirim");
-				setDeskripsi("");
-				setShowCreateModal(false);
-				fetchTickets();
-			} else showToast(res.data?.message || "Gagal mengirim tiket keluhan.", "error");
-		} catch (err) {
-			showToast("Gagal menghubungi server.", "error");
-		} finally {
-			setSubmitting(false);
-		}
-	};
-	const handleDeleteTicket = async (idTiket) => {
-		setDeletingId(idTiket);
-		try {
-			const res = await PortalKendalaService.delete(idTiket);
-			if (res.ok && res.data?.ok) {
-				showToast(res.data.message || "Tiket keluhan berhasil dihapus.", "info", "Tiket Dihapus");
-				setTicketToDelete(null);
-				fetchTickets();
-			} else showToast(res.data?.message || "Gagal menghapus tiket keluhan.", "error");
-		} catch (err) {
-			showToast("Gagal menghubungi server.", "error");
-		} finally {
-			setDeletingId(null);
-		}
-	};
-	const filteredTickets = (0, import_react.useMemo)(() => {
-		if (!searchQuery.trim()) return tickets;
-		const q = searchQuery.toLowerCase();
-		return tickets.filter((t) => t.id_tiket?.toLowerCase().includes(q) || t.kategori?.toLowerCase().includes(q) || t.deskripsi?.toLowerCase().includes(q) || t.status?.toLowerCase().includes(q));
-	}, [tickets, searchQuery]);
-	const totalPages = Math.ceil(filteredTickets.length / ITEMS_PER_PAGE) || 1;
-	const paginatedTickets = (0, import_react.useMemo)(() => {
-		const start = (currentPage - 1) * ITEMS_PER_PAGE;
-		return filteredTickets.slice(start, start + ITEMS_PER_PAGE);
-	}, [filteredTickets, currentPage]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex-1 h-full min-h-0 flex flex-col bg-[#EEF2F6] text-slate-900",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalHeader, {
-				showNotificationDot: hasUnreadNotifications,
-				onNotificationClick: onOpenNotifications,
-				title: "Pusat Kendala & Keluhan",
-				subtitle: "Layanan tiket gangguan teknis",
-				dashboardData,
-				customer
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
-				className: "scroll-area -mt-18 flex-1 overflow-y-auto relative z-10",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "px-3.5 pb-24 space-y-3",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "bg-white rounded-xl shadow-xs overflow-hidden border border-slate-200/90",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "p-3 sm:p-3.5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center gap-2.5 min-w-0",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleAlert, { className: "w-4 h-4" })
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-baseline gap-1.5 min-w-0",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-xs font-bold text-slate-900 leading-tight",
-											children: "Tiket Bantuan"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-											className: "text-xs text-slate-500 font-normal",
-											children: [
-												"· ",
-												filteredTickets.length,
-												" laporan"
-											]
-										})]
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: () => setShowCreateModal(true),
-									className: "w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white text-xs font-semibold bg-blue-600 hover:bg-blue-700 active:scale-[0.98] transition cursor-pointer shadow-xs shrink-0",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { className: "w-4 h-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Buat Tiket Baru" })]
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "p-3 sm:p-3.5 pb-2",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "relative",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { className: "w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-											type: "text",
-											value: searchQuery,
-											onChange: (e) => {
-												setSearchQuery(e.target.value);
-												setCurrentPage(1);
-											},
-											onKeyDown: (e) => {
-												if (e.key === "Escape") {
-													setSearchQuery("");
-													setCurrentPage(1);
-												}
-											},
-											placeholder: "Cari ID tiket, kategori, atau keluhan...",
-											className: "w-full pl-9 pr-8 py-2 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white transition"
-										}),
-										searchQuery && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-											type: "button",
-											onClick: () => {
-												setSearchQuery("");
-												setCurrentPage(1);
-											},
-											className: "absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 transition cursor-pointer",
-											title: "Hapus Pencarian (Esc)",
-											"aria-label": "Hapus Pencarian",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "w-3.5 h-3.5" })
-										})
-									]
-								})
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "border-t border-slate-100",
-								children: loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "p-3.5 space-y-2.5 animate-pulse",
-									children: [
-										1,
-										2,
-										3
-									].map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "py-2.5 border-b border-slate-100 space-y-2",
-										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "flex items-center justify-between",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-4 bg-slate-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-16 h-4 bg-slate-200 rounded" })]
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-3/4 h-3.5 bg-slate-200 rounded" }),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-1/2 h-3 bg-slate-100 rounded" })
-										]
-									}, i))
-								}) : filteredTickets.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "p-8 text-center space-y-2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-5 h-5" })
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "text-xs font-bold text-slate-800",
-										children: searchQuery ? "Tiket Tidak Ditemukan" : "Tidak Ada Kendala Aktif"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-xs text-slate-500 mt-0.5",
-										children: searchQuery ? "Coba cari dengan kata kunci lain." : "Sambungan internet Anda terpantau normal dan lancar."
-									})] })]
-								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "divide-y divide-slate-100",
-									children: paginatedTickets.map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-										className: "p-3.5 hover:bg-slate-50/60 space-y-1.5 transition",
-										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "flex items-center justify-between",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: "text-xs font-mono font-bold text-slate-800",
-													children: t.id_tiket
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-													className: "flex items-center gap-2",
-													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-														className: `inline-flex items-center gap-1 text-xs font-bold ${t.status === "SELESAI" ? "text-emerald-600" : "text-blue-600"}`,
-														children: [t.status === "SELESAI" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3.5 h-3.5" }) : t.status === "DIPROSES" || t.status === "DICEK_ADMIN" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-3.5 h-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: t.status })]
-													}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-														type: "button",
-														onClick: () => setTicketToDelete(t),
-														className: "p-1 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition cursor-pointer",
-														title: "Hapus Laporan Ini",
-														children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { className: "w-3.5 h-3.5" })
-													})]
-												})]
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "text-xs font-bold text-slate-900",
-												children: t.kategori
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-												className: "text-xs text-slate-600 leading-relaxed",
-												children: t.deskripsi
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "pt-1.5 flex items-center justify-between text-[11px] text-slate-400 font-sans",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-													className: "flex items-center gap-1",
-													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock, { className: "w-3 h-3 text-slate-400" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: t.created_at?.slice(0, 16) })]
-												}), t.redaman_saat_lapor && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-													className: "text-[11px] font-semibold text-slate-600",
-													children: ["Redaman: ", /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-														className: "font-mono",
-														children: [t.redaman_saat_lapor, " dBm"]
-													})]
-												})]
-											})
-										]
-									}, t.id_tiket))
-								})
-							}),
-							!loading && filteredTickets.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "px-4 py-3 bg-gray-50 border-t border-gray-100 flex flex-col items-center gap-1.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalPagination, {
-									currentPage,
-									totalPages,
-									onPageChange: setCurrentPage,
-									className: "border-t-0 pt-0"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "text-[11px] text-gray-500 font-sans",
-									children: [
-										"Halaman ",
-										currentPage,
-										" dari ",
-										totalPages,
-										" (",
-										filteredTickets.length,
-										" tiket keluhan)"
-									]
-								})]
-							})
-						]
-					})
-				})
-			}),
-			ticketToDelete && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4",
-				onClick: (e) => {
-					if (e.target === e.currentTarget && !deletingId) setTicketToDelete(null);
-				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					role: "dialog",
-					"aria-modal": "true",
-					"aria-labelledby": "delete-ticket-title",
-					className: "max-w-sm w-full bg-white rounded-2xl p-5 border border-gray-200 shadow-2xl space-y-4",
-					onClick: (e) => e.stopPropagation(),
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "w-11 h-11 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { className: "w-5 h-5" })
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "text-center space-y-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								id: "delete-ticket-title",
-								className: "text-sm font-bold text-gray-900",
-								children: "Hapus Laporan Gangguan?"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								className: "text-xs text-gray-500",
-								children: [
-									"Tiket ",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-										className: "font-mono text-gray-800",
-										children: ticketToDelete.id_tiket
-									}),
-									" (",
-									ticketToDelete.kategori,
-									") akan dihapus secara permanen."
-								]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex gap-2 pt-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								type: "button",
-								onClick: () => setTicketToDelete(null),
-								className: "flex-1 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold transition cursor-pointer",
-								children: "Batal (Esc)"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								type: "button",
-								onClick: () => handleDeleteTicket(ticketToDelete.id_tiket),
-								disabled: deletingId === ticketToDelete.id_tiket,
-								className: "flex-1 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer",
-								children: deletingId === ticketToDelete.id_tiket ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-4 h-4 animate-spin" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Ya, Hapus" })
-							})]
-						})
-					]
-				})
-			}),
-			showCreateModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4",
-				onClick: (e) => {
-					if (e.target === e.currentTarget && !submitting) setShowCreateModal(false);
-				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					role: "dialog",
-					"aria-modal": "true",
-					"aria-labelledby": "create-ticket-title",
-					className: "max-w-sm w-full bg-white rounded-2xl p-5 border border-gray-200 shadow-2xl space-y-4",
-					onClick: (e) => e.stopPropagation(),
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center justify-between pb-2 border-b border-gray-100",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "w-7 h-7 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Plus, { className: "w-4 h-4 stroke-[2.5]" })
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								id: "create-ticket-title",
-								className: "text-sm font-black text-gray-900",
-								children: "Formulir Lapor Gangguan"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							onClick: () => setShowCreateModal(false),
-							className: "text-gray-400 hover:text-gray-600 p-1 transition cursor-pointer",
-							title: "Tutup Modal (Esc)",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "w-4 h-4" })
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
-						onSubmit: handleCreateTicket,
-						className: "space-y-3 text-xs font-semibold",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "space-y-1.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-									className: "text-slate-700 block",
-									children: "Kategori Kendala"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", {
-									value: kategori,
-									onChange: (e) => setKategori(e.target.value),
-									className: "w-full px-3 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white transition cursor-pointer",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-											value: "Koneksi Internet Lambat atau Terputus-putus",
-											children: "Koneksi Internet Lambat atau Terputus-putus"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-											value: "Lampu Indikator Modem Berwarna Merah (LOS)",
-											children: "Lampu Indikator Modem Berwarna Merah (LOS)"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-											value: "Tidak Dapat Mengakses Internet",
-											children: "Tidak Dapat Mengakses Internet"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-											value: "Gagal Terhubung ke Jaringan WiFi",
-											children: "Gagal Terhubung ke Jaringan WiFi"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-											value: "Perangkat Modem Tidak Menyala (Mati Total)",
-											children: "Perangkat Modem Tidak Menyala (Mati Total)"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-											value: "Jangkauan Sinyal WiFi Lemah",
-											children: "Jangkauan Sinyal WiFi Lemah"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-											value: "Kendala Tagihan dan Pembayaran",
-											children: "Kendala Tagihan dan Pembayaran"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", {
-											value: "Kendala Lainnya",
-											children: "Kendala Lainnya"
-										})
-									]
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "space-y-1.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center justify-between",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-										className: "text-slate-700 block",
-										children: "Rincian Keluhan"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-[10px] font-normal text-slate-400",
-										children: "Opsional"
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
-									rows: 3,
-									value: deskripsi,
-									onChange: (e) => setDeskripsi(e.target.value),
-									placeholder: "Tuliskan keterangan tambahan jika ada (opsional)...",
-									className: "w-full px-3 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white transition"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex gap-2 pt-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									type: "button",
-									onClick: () => setShowCreateModal(false),
-									className: "flex-1 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-slate-700 font-bold transition cursor-pointer",
-									children: "Batal"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									type: "submit",
-									disabled: submitting,
-									className: "flex-1 py-2.5 rounded-xl text-white font-bold transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-70",
-									style: { background: "#2563eb" },
-									children: submitting ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-4 h-4 animate-spin" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Kirim Tiket" })
-								})]
-							})
-						]
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalToastNotification, {
-				show: toast.show,
-				message: toast.message,
-				type: toast.type,
-				title: toast.title,
-				onClose: () => setToast((prev) => ({
-					...prev,
-					show: false
-				}))
-			})
-		]
-	});
-}
-//#endregion
-//#region src/portal/components/wifi/PortalWifiTab.jsx
-function PortalWifiTab({ customer, dashboardData, onOpenNotifications, hasUnreadNotifications }) {
-	const [currentWifi, setCurrentWifi] = (0, import_react.useState)({
-		nama_wifi: customer?.nama_wifi || "",
-		password_wifi: customer?.password_wifi || "",
-		is_connected_to_home_wifi: false,
-		client_ip: "",
-		ip_router: ""
-	});
-	const [fetchingWifi, setFetchingWifi] = (0, import_react.useState)(true);
-	const [showCurrentPassword, setShowCurrentPassword] = (0, import_react.useState)(false);
-	const [copied, setCopied] = (0, import_react.useState)(false);
-	const [namaWifi, setNamaWifi] = (0, import_react.useState)("");
-	const [passwordWifi, setPasswordWifi] = (0, import_react.useState)("");
-	const [konfirmasiPassword, setKonfirmasiPassword] = (0, import_react.useState)("");
-	const [showPasswordNew, setShowPasswordNew] = (0, import_react.useState)(false);
-	const [showPasswordConfirm, setShowPasswordConfirm] = (0, import_react.useState)(false);
-	const [isFormOpen, setIsFormOpen] = (0, import_react.useState)(false);
-	const [loading, setLoading] = (0, import_react.useState)(false);
-	const [toast, setToast] = (0, import_react.useState)({
-		show: false,
-		message: "",
-		type: "success",
-		title: ""
-	});
-	const [showDevicesModal, setShowDevicesModal] = (0, import_react.useState)(false);
-	const [devicesList, setDevicesList] = (0, import_react.useState)([]);
-	const [loadingDevices, setLoadingDevices] = (0, import_react.useState)(false);
-	const [scanningDevices, setScanningDevices] = (0, import_react.useState)(false);
-	const [lastDeviceUpdate, setLastDeviceUpdate] = (0, import_react.useState)("");
-	const fetchConnectedDevices = async () => {
-		setLoadingDevices(true);
-		try {
-			const res = await PortalWifiService.getConnectedDevices();
-			if (res.ok && res.data) {
-				setDevicesList(res.data.devices || []);
-				setLastDeviceUpdate((/* @__PURE__ */ new Date()).toLocaleTimeString("id-ID", {
-					hour: "2-digit",
-					minute: "2-digit"
-				}) + " WIB");
-			}
-		} catch (e) {
-			console.error(e);
-		} finally {
-			setLoadingDevices(false);
-		}
-	};
-	const handleScanDevices = async () => {
-		setScanningDevices(true);
-		try {
-			const res = await PortalWifiService.scanConnectedDevices();
-			if (res.ok && res.data) {
-				setDevicesList(res.data.devices || []);
-				setLastDeviceUpdate((/* @__PURE__ */ new Date()).toLocaleTimeString("id-ID", {
-					hour: "2-digit",
-					minute: "2-digit"
-				}) + " WIB");
-			}
-		} catch (e) {
-			console.error(e);
-		} finally {
-			setScanningDevices(false);
-		}
-	};
-	const handleDeviceStatusUpdate = (macAddress, isBlocked) => {
-		setDevicesList((prev) => prev.map((dev) => dev.mac_address === macAddress ? {
-			...dev,
-			is_blocked: isBlocked,
-			blocked_at: isBlocked ? (/* @__PURE__ */ new Date()).toISOString() : null
-		} : dev));
-	};
-	const openDevicesModal = () => {
-		setShowDevicesModal(true);
-		fetchConnectedDevices();
-	};
-	const fetchWifiDetails = async () => {
-		setFetchingWifi(true);
-		try {
-			const res = await PortalWifiService.getWifi();
-			if (res.ok && res.data) {
-				setCurrentWifi({
-					...res.data,
-					is_connected_to_home_wifi: Boolean(res.data.is_connected_to_home_wifi)
-				});
-				setNamaWifi(res.data.nama_wifi || "");
-			}
-		} catch (e) {
-			console.error(e);
-		} finally {
-			setFetchingWifi(false);
-		}
-	};
-	(0, import_react.useEffect)(() => {
-		fetchWifiDetails();
-	}, []);
-	const handleCopyPassword = () => {
-		if (!currentWifi.password_wifi) return;
-		navigator.clipboard.writeText(currentWifi.password_wifi);
-		setCopied(true);
-		setTimeout(() => setCopied(false), 2e3);
-	};
-	const handleChangeWifi = async (e) => {
-		e.preventDefault();
-		setLoading(true);
-		if (!currentWifi.is_connected_to_home_wifi) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Belum Tersambung",
-				message: "Perangkat Anda belum tersambung ke WiFi rumah ini. Sambungkan WiFi HP Anda terlebih dahulu!"
-			});
-			setLoading(false);
-			return;
-		}
-		if (passwordWifi !== konfirmasiPassword) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Tidak Cocok",
-				message: "Konfirmasi kata sandi tidak cocok!"
-			});
-			setLoading(false);
-			return;
-		}
-		try {
-			const payload = {
-				nama_wifi: namaWifi,
-				password_wifi: passwordWifi,
-				konfirmasi_password: konfirmasiPassword
-			};
-			const res = await PortalWifiService.changeWifi(payload);
-			if (res.ok && res.data.ok) {
-				setToast({
-					show: true,
-					type: "success",
-					title: "WiFi Diperbarui",
-					message: res.data.message || "Nama & Kata Sandi WiFi berhasil diperbarui!"
-				});
-				setPasswordWifi("");
-				setKonfirmasiPassword("");
-				fetchWifiDetails();
-			} else setToast({
-				show: true,
-				type: "error",
-				title: "Gagal Memperbarui",
-				message: res.data?.message || "Gagal mengubah pengaturan WiFi."
-			});
-		} catch (err) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Kesalahan Sistem",
-				message: "Gagal menghubungi server."
-			});
-		} finally {
-			setLoading(false);
-		}
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex-1 h-full min-h-0 flex flex-col bg-[#EEF2F6] text-slate-900 relative",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalHeader, {
-				showNotificationDot: hasUnreadNotifications,
-				onNotificationClick: onOpenNotifications,
-				title: "Kelola WiFi Rumah",
-				subtitle: "Pengaturan nama & sandi",
-				dashboardData,
-				customer
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
-				className: "scroll-area -mt-18 flex-1 overflow-y-auto relative z-10",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-3.5 pb-24 space-y-3",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "bg-white rounded-xl shadow-xs overflow-hidden border border-slate-200/90 p-4",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center justify-between mb-3 pb-2.5 border-b border-slate-100",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center gap-2.5",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wifi, { className: "w-4 h-4" })
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-xs font-bold text-slate-900 leading-tight",
-										children: "Status WiFi Rumah"
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									type: "button",
-									onClick: fetchWifiDetails,
-									"aria-label": "Muat ulang informasi WiFi",
-									className: "w-7 h-7 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 transition cursor-pointer",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: `w-3.5 h-3.5 ${fetchingWifi ? "animate-spin" : ""}` })
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "divide-y divide-slate-100 text-xs",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center justify-between py-2.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-slate-500 font-medium",
-											children: "Nama WiFi (SSID)"
-										}), fetchingWifi && !currentWifi.nama_wifi ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-28 h-4 bg-slate-200 rounded animate-pulse" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "font-bold text-slate-900 font-mono text-sm",
-											children: currentWifi.nama_wifi || "-"
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center justify-between py-2.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-slate-500 font-medium",
-											children: "Kata Sandi Sekarang"
-										}), fetchingWifi && !currentWifi.nama_wifi ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-4 bg-slate-200 rounded animate-pulse" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-center gap-2",
-											children: [
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: "font-mono font-bold text-slate-900 text-sm",
-													children: showCurrentPassword ? currentWifi.password_wifi || "-" : "••••••••"
-												}),
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-													type: "button",
-													onClick: () => setShowCurrentPassword(!showCurrentPassword),
-													className: "p-1 rounded-md text-slate-400 hover:text-slate-700 cursor-pointer",
-													"aria-label": "Lihat kata sandi",
-													children: showCurrentPassword ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOff, { className: "w-4 h-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { className: "w-4 h-4" })
-												}),
-												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-													type: "button",
-													onClick: handleCopyPassword,
-													className: "p-1 rounded-md text-blue-600 hover:text-blue-800 cursor-pointer",
-													"aria-label": "Salin kata sandi",
-													title: "Salin Kata Sandi",
-													children: copied ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "w-4 h-4 text-emerald-600" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "w-4 h-4" })
-												})
-											]
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center justify-between py-2.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-slate-500 font-medium",
-											children: "Status Sambungan:"
-										}), currentWifi.is_connected_to_home_wifi ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-											className: "inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3.5 h-3.5 text-emerald-600" }), "Tersambung di WiFi Rumah"]
-										}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-											className: "inline-flex items-center gap-1.5 text-xs font-bold text-rose-600",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleAlert, { className: "w-3.5 h-3.5 text-rose-600" }), "Tidak Tersambung"]
-										})]
-									})
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "mt-2 pt-2 border-t border-slate-100",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: openDevicesModal,
-									className: "w-full py-2.5 px-3 rounded-lg bg-blue-50/70 hover:bg-blue-100/70 text-blue-700 text-xs font-semibold flex items-center justify-between transition active:scale-[0.98] cursor-pointer",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "w-6 h-6 rounded-md bg-blue-600 text-white flex items-center justify-center",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Smartphone, { className: "w-3.5 h-3.5" })
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Lihat Siapa Saja Yang Terhubung" })]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-[11px] font-bold text-blue-700",
-										children: "Cek Sekarang →"
-									})]
-								})
-							})
-						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "bg-white rounded-xl shadow-xs border border-slate-200/90 overflow-hidden",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-							type: "button",
-							onClick: () => setIsFormOpen(!isFormOpen),
-							className: "w-full p-3.5 flex items-center justify-between text-left hover:bg-slate-50/70 transition cursor-pointer",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "w-8 h-8 rounded-lg flex items-center justify-center bg-blue-50 text-blue-600 shrink-0",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyRound, { className: "w-4 h-4" })
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-									className: "text-xs font-bold text-slate-900 leading-tight",
-									children: "Ubah Nama & Kata Sandi WiFi"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-[11px] text-slate-500 font-medium",
-									children: "Pengaturan mandiri SSID dan kata sandi modem"
-								})] })]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 shrink-0",
-								children: isFormOpen ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronUp, { className: "w-4 h-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: "w-4 h-4" })
-							})]
-						}), isFormOpen && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "border-t border-slate-100",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "p-3.5 bg-blue-50/60 space-y-1.5 border-b border-blue-100/60",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-start gap-2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Info, { className: "w-4 h-4 text-blue-600 shrink-0 mt-0.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "min-w-0",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-xs font-bold text-blue-900 block",
-											children: "Petunjuk Penggantian WiFi:"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
-											className: "text-xs text-blue-800/90 space-y-1 mt-1 leading-relaxed",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "1. Sebelum Ganti:" }), " Pastikan HP Anda terhubung ke sinyal WiFi rumah ini (tidak dapat diubah dari luar jangkauan)."] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "2. Setelah Ganti:" }), " Seluruh HP & laptop di rumah akan terputus sesaat. Cukup sambungkan kembali dengan sandi yang baru."] })]
-										})]
-									})]
-								})
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "relative",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
-									onSubmit: handleChangeWifi,
-									className: "p-4 pt-2 space-y-3.5 text-xs font-semibold",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "space-y-1.5",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-												className: "text-gray-700 block",
-												children: "Nama WiFi (SSID) Baru"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "relative",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wifi, { className: "w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-													type: "text",
-													required: true,
-													disabled: !currentWifi.is_connected_to_home_wifi,
-													value: namaWifi,
-													onChange: (e) => setNamaWifi(e.target.value),
-													placeholder: "Contoh: WiFi-Keluarga-Berkah",
-													className: "w-full pl-9 pr-3 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 focus:outline-none focus:border-blue-600 focus:bg-white transition disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed"
-												})]
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "space-y-1.5",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-												className: "text-gray-700 block",
-												children: "Kata Sandi WiFi Baru (Minimal 8 Karakter)"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "relative",
-												children: [
-													/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lock, { className: "w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" }),
-													/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-														type: showPasswordNew ? "text" : "password",
-														required: true,
-														disabled: !currentWifi.is_connected_to_home_wifi,
-														minLength: 8,
-														autoComplete: "new-password",
-														value: passwordWifi,
-														onChange: (e) => setPasswordWifi(e.target.value),
-														placeholder: "Minimal 8 karakter kombinasi",
-														className: "w-full pl-9 pr-10 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 font-mono focus:outline-none focus:border-blue-600 focus:bg-white transition disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed"
-													}),
-													/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-														type: "button",
-														disabled: !currentWifi.is_connected_to_home_wifi,
-														onClick: () => setShowPasswordNew(!showPasswordNew),
-														className: "absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1 cursor-pointer disabled:pointer-events-none",
-														children: showPasswordNew ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOff, { className: "w-3.5 h-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { className: "w-3.5 h-3.5" })
-													})
-												]
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "space-y-1.5",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-												className: "text-gray-700 block",
-												children: "Konfirmasi Kata Sandi Baru"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "relative",
-												children: [
-													/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lock, { className: "w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" }),
-													/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-														type: showPasswordConfirm ? "text" : "password",
-														required: true,
-														disabled: !currentWifi.is_connected_to_home_wifi,
-														minLength: 8,
-														autoComplete: "new-password",
-														value: konfirmasiPassword,
-														onChange: (e) => setKonfirmasiPassword(e.target.value),
-														placeholder: "Ketik ulang kata sandi baru",
-														className: "w-full pl-9 pr-10 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 font-mono focus:outline-none focus:border-blue-600 focus:bg-white transition disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed"
-													}),
-													/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-														type: "button",
-														disabled: !currentWifi.is_connected_to_home_wifi,
-														onClick: () => setShowPasswordConfirm(!showPasswordConfirm),
-														className: "absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1 cursor-pointer disabled:pointer-events-none",
-														children: showPasswordConfirm ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOff, { className: "w-3.5 h-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { className: "w-3.5 h-3.5" })
-													})
-												]
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-											type: "submit",
-											disabled: loading || !currentWifi.is_connected_to_home_wifi,
-											className: "w-full mt-2 py-3 px-4 rounded-xl text-white font-bold text-xs shadow-md active:scale-[0.99] transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
-											style: { background: "#2563eb" },
-											children: loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-4 h-4 animate-spin" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Save, { className: "w-4 h-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Simpan Perubahan WiFi" })] })
-										})
-									]
-								}), !currentWifi.is_connected_to_home_wifi && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "absolute inset-0 z-20 backdrop-blur-md bg-white/90 flex flex-col items-center justify-center p-6 text-center animate-in fade-in duration-300 rounded-b-2xl",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "w-28 h-24 mb-1 drop-shadow-md",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalActiveMascot, {
-												mascotKey: "security",
-												className: "w-full h-full"
-											})
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-[11px] font-black uppercase tracking-wider mb-2",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { className: "w-3.5 h-3.5 text-blue-600 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Proteksi Keamanan WiFi" })]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-											className: "text-sm font-black text-gray-900 mb-1.5 leading-snug",
-											children: "Anda Belum Tersambung ke Modem WiFi"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-xs text-gray-600 max-w-xs leading-relaxed mb-4 font-normal",
-											children: "Untuk keamanan agar tidak diubah dari luar, pastikan HP atau laptop Anda sudah terhubung ke sinyal WiFi rumah ini terlebih dahulu."
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-											type: "button",
-											onClick: fetchWifiDetails,
-											className: "inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-white font-bold text-xs shadow-md active:scale-95 transition cursor-pointer",
-											style: { background: "#2563eb" },
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: `w-3.5 h-3.5 ${fetchingWifi ? "animate-spin" : ""}` }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Cek Ulang Sambungan" })]
-										})
-									]
-								})]
-							})]
-						})]
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ConnectedDevicesModal, {
-				isOpen: showDevicesModal,
-				onClose: () => setShowDevicesModal(false),
-				devices: devicesList,
-				loading: loadingDevices,
-				scanning: scanningDevices,
-				onRefresh: handleScanDevices,
-				onDeviceUpdate: handleDeviceStatusUpdate,
-				lastUpdated: lastDeviceUpdate
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalToastNotification, {
-				show: toast.show,
-				type: toast.type,
-				title: toast.title,
-				message: toast.message,
-				onClose: () => setToast((prev) => ({
-					...prev,
-					show: false
-				}))
-			})
-		]
-	});
-}
-//#endregion
-//#region src/portal/components/quota/PortalQuotaTab.jsx
-function PortalQuotaTab({ customer, dashboardData, onOpenNotifications, hasUnreadNotifications }) {
-	const [kuotaData, setKuotaData] = (0, import_react.useState)(null);
-	const [loading, setLoading] = (0, import_react.useState)(true);
-	const fetchKuota = async () => {
-		setLoading(true);
-		try {
-			const res = await PortalKuotaService.getKuota();
-			if (res.ok && res.data) setKuotaData(res.data);
-		} catch (e) {
-			console.error(e);
-		} finally {
-			setLoading(false);
-		}
-	};
-	(0, import_react.useEffect)(() => {
-		fetchKuota();
-		const interval = setInterval(() => {
-			fetchKuota();
-		}, 2e4);
-		return () => clearInterval(interval);
-	}, []);
-	(0, import_react.useEffect)(() => {
-		if (dashboardData?.kuota && !kuotaData) fetchKuota();
-	}, [dashboardData]);
-	const totalGB = kuotaData?.kuota_terpakai_gb !== void 0 && kuotaData?.kuota_terpakai_gb !== null ? Number(kuotaData.kuota_terpakai_gb).toFixed(1) : dashboardData?.kuota?.kuota_terpakai_gb !== void 0 && dashboardData?.kuota?.kuota_terpakai_gb !== null ? Number(dashboardData.kuota.kuota_terpakai_gb).toFixed(1) : "0.0";
-	const rawPaketNama = kuotaData?.kecepatan_paket || dashboardData?.kuota?.kecepatan_paket || customer?.paket || "-";
-	const cleanPaketLabel = (raw) => {
-		if (!raw || raw === "-") return "-";
-		const trimmed = String(raw).trim();
-		if (/^paket\s+/i.test(trimmed)) return trimmed;
-		return `Paket ${trimmed}`;
-	};
-	const paketNama = cleanPaketLabel(rawPaketNama);
-	const kuotaNum = parseFloat(totalGB) || 0;
-	const kuotaBarPercent = Math.min(100, Math.max(8, Math.round(kuotaNum / Math.max(50, Math.ceil(kuotaNum / 50) * 50) * 100)));
-	const getDynamicEmptyHistory = () => {
-		const list = [];
-		const now = /* @__PURE__ */ new Date();
-		for (let i = 6; i >= 0; i--) {
-			const d = new Date(now);
-			d.setDate(d.getDate() - i);
-			const day = d.getDate().toString().padStart(2, "0");
-			const month = d.toLocaleString("id-ID", { month: "short" });
-			list.push({
-				tanggal: `${day} ${month}`,
-				pemakaian_gb: 0
-			});
-		}
-		return list;
-	};
-	const history = (kuotaData?.usage_history && kuotaData.usage_history.length > 0 ? kuotaData.usage_history : getDynamicEmptyHistory()).slice(-7);
-	const maxGB = Math.max(...history.map((h) => Number(h.pemakaian_gb || 0)), 1);
-	const total7Days = history.reduce((acc, curr) => acc + Number(curr.pemakaian_gb || 0), 0).toFixed(1);
-	const getInitials = (namaStr) => {
-		if (!namaStr) return "AT";
-		const parts = namaStr.replace(/[^a-zA-Z\s]/g, " ").trim().split(/\s+/).filter(Boolean);
-		if (parts.length === 0) return "AT";
-		if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
-		return (parts[0][0] + parts[1][0]).toUpperCase();
-	};
-	getInitials(customer?.nama);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex-1 h-full min-h-0 flex flex-col bg-[#EEF2F6] text-slate-900",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalHeader, {
-			showNotificationDot: hasUnreadNotifications,
-			onNotificationClick: onOpenNotifications,
-			title: "Pemakaian Kuota",
-			subtitle: "Akumulasi data bulan ini",
-			dashboardData,
-			customer
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
-			className: "scroll-area -mt-18 flex-1 overflow-y-auto relative z-10",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "px-3.5 pb-24 space-y-3",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "bg-white rounded-xl shadow-xs border border-slate-200/90 overflow-hidden",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "p-3 sm:p-3.5 border-b border-slate-100 flex items-center justify-between gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center gap-2.5",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChartColumn, { className: "w-4 h-4" })
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-xs font-bold text-slate-900 leading-tight",
-										children: "Pemakaian Data"
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-xs text-slate-500 font-medium",
-									children: "Bulan ini"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "p-4 bg-white",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-baseline gap-1.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-3xl sm:text-4xl font-bold tracking-tight font-mono text-slate-900",
-											children: totalGB
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-sm font-semibold text-slate-500",
-											children: "GB Terpakai"
-										})]
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "mt-3 h-2 rounded-full bg-slate-100 overflow-hidden",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "h-full rounded-full transition-all duration-700 bg-blue-600",
-											style: { width: `${kuotaBarPercent}%` }
-										})
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "mt-3 flex items-center justify-between text-xs",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-slate-500 font-medium",
-											children: "Paket aktif:"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "font-bold text-slate-900",
-											children: paketNama
-										})]
-									})
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "px-4 py-2.5 border-t border-slate-100 flex items-start gap-2.5 bg-slate-50",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Infinity$1, { className: "w-4 h-4 mt-0.5 shrink-0 text-blue-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-									className: "text-xs text-slate-600 leading-relaxed font-normal",
-									children: [
-										"Internet Anda bersifat ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-											className: "text-slate-900 font-semibold",
-											children: "Tanpa Batas Kuota (Unlimited)"
-										}),
-										" tanpa batas FUP harian."
-									]
-								})]
-							})
-						]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "bg-white rounded-xl border border-slate-200/90 p-4 shadow-xs",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center justify-between mb-1",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center gap-2",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TrendingUp, { className: "w-4 h-4 text-blue-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-										className: "text-sm font-bold text-slate-900",
-										children: "Histori 7 Hari Terakhir"
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									type: "button",
-									onClick: fetchKuota,
-									"aria-label": "Segarkan data kuota",
-									className: "w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 transition cursor-pointer",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: `w-3.5 h-3.5 ${loading ? "animate-spin" : ""}` })
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs text-slate-500 mb-4 font-medium",
-								children: "Rata-rata pemakaian data harian"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "flex items-end justify-between gap-1.5 sm:gap-2 h-36 px-0.5 sm:px-1",
-								children: history.map((item, idx) => {
-									const val = Number(item.pemakaian_gb || 0);
-									const heightPercent = maxGB > 0 ? Math.max(18, Math.round(val / maxGB * 100)) : 50;
-									const dayLabel = (item.tanggal || "").split(" ")[0] || idx + 1;
-									return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex-1 h-full flex flex-col items-center justify-end gap-1.5",
-										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-[10px] sm:text-[11px] font-bold text-slate-800 font-mono leading-none",
-												children: val
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "w-full flex-1 max-h-[86px] flex items-end justify-center",
-												children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-													className: "w-full rounded-t-md transition-all duration-700 bg-blue-600",
-													style: {
-														height: `${heightPercent}%`,
-														opacity: heightPercent >= 95 ? 1 : .75
-													}
-												})
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-[10px] sm:text-[11px] font-medium text-slate-500 font-mono leading-none",
-												children: dayLabel
-											})
-										]
-									}, idx);
-								})
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Satuan: GB (Gigabyte)" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "font-mono font-bold text-slate-900",
-									children: [
-										"Total 7 hari: ",
-										total7Days,
-										" GB"
-									]
-								})]
-							})
-						]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "bg-white rounded-xl border border-slate-200/90 overflow-hidden shadow-xs",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "px-3.5 py-3 border-b border-slate-100 flex items-center justify-between bg-slate-50/60",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(List, { className: "w-4 h-4 text-blue-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-									className: "text-sm font-bold text-slate-900",
-									children: "Rincian Pemakaian"
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "text-xs text-slate-500 font-medium",
-								children: "7 hari"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "divide-y divide-slate-100",
-							children: history.map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "px-4 py-2.5 flex items-center justify-between hover:bg-slate-50/60 transition",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "text-xs text-slate-600 font-medium",
-									children: item.tanggal
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "text-xs font-bold font-mono text-slate-900",
-									children: [Number(item.pemakaian_gb || 0), " GB"]
-								})]
-							}, idx))
-						})]
-					})
-				]
-			})
-		})]
-	});
-}
-//#endregion
-//#region src/portal/components/profile/PortalProfileTab.jsx
-function PortalProfileTab({ customer, dashboardData, onNavigate, onCustomerUpdate, onLogout, onOpenNotifications, hasUnreadNotifications }) {
-	const [isPasswordExpanded, setIsPasswordExpanded] = (0, import_react.useState)(false);
-	const [isEditModalOpen, setIsEditModalOpen] = (0, import_react.useState)(false);
-	const [isLogoutConfirmOpen, setIsLogoutConfirmOpen] = (0, import_react.useState)(false);
-	const [legalModal, setLegalModal] = (0, import_react.useState)({
-		open: false,
-		tab: "privasi"
-	});
-	const [toast, setToast] = (0, import_react.useState)({
-		show: false,
-		message: "",
-		type: "success",
-		title: ""
-	});
-	const [nama, setNama] = (0, import_react.useState)(customer?.nama || "");
-	const [noHp, setNoHp] = (0, import_react.useState)(customer?.no_hp || "");
-	const [alamat, setAlamat] = (0, import_react.useState)(customer?.alamat || "");
-	const [currentCustomer, setCurrentCustomer] = (0, import_react.useState)(customer || {});
-	const [profileSaving, setProfileSaving] = (0, import_react.useState)(false);
-	const [uploadingFoto, setUploadingFoto] = (0, import_react.useState)(false);
-	const [fotoLoadError, setFotoLoadError] = (0, import_react.useState)(false);
-	const fileInputRef = import_react.useRef(null);
-	const [passwordBaru, setPasswordBaru] = (0, import_react.useState)("");
-	const [konfirmasiPassword, setKonfirmasiPassword] = (0, import_react.useState)("");
-	const [showPasswordBaru, setShowPasswordBaru] = (0, import_react.useState)(false);
-	const [showPasswordKonfirm, setShowPasswordKonfirm] = (0, import_react.useState)(false);
-	const [loading, setLoading] = (0, import_react.useState)(false);
-	(0, import_react.useEffect)(() => {
-		if (customer) {
-			setCurrentCustomer(customer);
-			setFotoLoadError(false);
-			setNama(customer.nama || "");
-			setNoHp(customer.no_hp || "");
-			setAlamat(customer.alamat || "");
-		}
-	}, [customer]);
-	(0, import_react.useEffect)(() => {
-		if (!isEditModalOpen && !isLogoutConfirmOpen) return;
-		const handleKeyDown = (e) => {
-			if (e.key === "Escape") {
-				e.preventDefault();
-				if (isEditModalOpen && !profileSaving) setIsEditModalOpen(false);
-				if (isLogoutConfirmOpen) setIsLogoutConfirmOpen(false);
-			}
-		};
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	}, [
-		isEditModalOpen,
-		isLogoutConfirmOpen,
-		profileSaving
-	]);
-	/**
-	* Mengompresi file gambar dari HP menjadi WebP maksimal 400x400 px, kualitas 80%
-	*/
-	const compressImageToWebp = (file) => {
-		return new Promise((resolve, reject) => {
-			const reader = new FileReader();
-			reader.readAsDataURL(file);
-			reader.onload = (event) => {
-				const img = new Image();
-				img.src = event.target.result;
-				img.onload = () => {
-					const canvas = document.createElement("canvas");
-					const maxDim = 400;
-					let width = img.width;
-					let height = img.height;
-					const minDim = Math.min(width, height);
-					const startX = (width - minDim) / 2;
-					const startY = (height - minDim) / 2;
-					canvas.width = maxDim;
-					canvas.height = maxDim;
-					canvas.getContext("2d").drawImage(img, startX, startY, minDim, minDim, 0, 0, maxDim, maxDim);
-					resolve(canvas.toDataURL("image/webp", .82));
-				};
-				img.onerror = (err) => reject(err);
-			};
-			reader.onerror = (err) => reject(err);
-		});
-	};
-	const handleFotoChange = async (e) => {
-		const file = e.target.files?.[0];
-		if (!file) return;
-		e.target.value = "";
-		if (!file.type.startsWith("image/")) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Bukan Gambar",
-				message: "Mohon pilih berkas foto yang valid (JPG, PNG, atau WEBP)."
-			});
-			return;
-		}
-		setUploadingFoto(true);
-		try {
-			const compressedWebp = await compressImageToWebp(file);
-			const res = await PortalProfilService.uploadFoto(compressedWebp);
-			if (res.ok && res.data?.ok) {
-				const newUrl = res.data.foto_profil;
-				setCurrentCustomer((prev) => ({
-					...prev,
-					foto_profil: newUrl
-				}));
-				if (onCustomerUpdate) onCustomerUpdate({ foto_profil: newUrl });
-				setToast({
-					show: true,
-					type: "success",
-					title: "Foto Tersimpan",
-					message: "Foto profil Anda berhasil diunggah & diperbarui!"
-				});
-			} else setToast({
-				show: true,
-				type: "error",
-				title: "Gagal Mengunggah",
-				message: res.data?.message || "Gagal menyimpan foto profil."
-			});
-		} catch (err) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Kesalahan Kompresi",
-				message: "Gagal memproses gambar foto profil."
-			});
-		} finally {
-			setUploadingFoto(false);
-		}
-	};
-	const handleDeleteFoto = async () => {
-		if (!currentCustomer?.foto_profil) return;
-		setUploadingFoto(true);
-		try {
-			const res = await PortalProfilService.deleteFoto();
-			if (res.ok && res.data?.ok) {
-				setCurrentCustomer((prev) => ({
-					...prev,
-					foto_profil: null
-				}));
-				if (onCustomerUpdate) onCustomerUpdate({ foto_profil: null });
-				setToast({
-					show: true,
-					type: "info",
-					title: "Foto Dihapus",
-					message: "Foto profil telah dihapus dan kembali ke inisial nama."
-				});
-			} else setToast({
-				show: true,
-				type: "error",
-				title: "Gagal Menghapus",
-				message: res.data?.message || "Gagal menghapus foto profil."
-			});
-		} catch (err) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Kesalahan Sistem",
-				message: "Gagal menghubungi server."
-			});
-		} finally {
-			setUploadingFoto(false);
-		}
-	};
-	const getInitials = (namaStr) => {
-		if (!namaStr || namaStr === "-") return "US";
-		const parts = namaStr.replace(/[^a-zA-Z\s]/g, " ").trim().split(/\s+/).filter(Boolean);
-		if (parts.length === 0) return "US";
-		if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
-		return (parts[0][0] + parts[1][0]).toUpperCase();
-	};
-	const handleSaveProfile = async (e) => {
-		e.preventDefault();
-		setProfileSaving(true);
-		try {
-			const res = await PortalProfilService.updateProfile({
-				nama,
-				no_hp: noHp,
-				alamat
-			});
-			if (res.ok && res.data?.ok) {
-				setToast({
-					show: true,
-					type: "success",
-					title: "Berhasil Disimpan",
-					message: res.data.message || "Data diri (Alamat & No. Kontak) berhasil diperbarui!"
-				});
-				if (res.data.customer) setCurrentCustomer((prev) => ({
-					...prev,
-					...res.data.customer
-				}));
-				if (onCustomerUpdate && res.data.customer) onCustomerUpdate(res.data.customer);
-				setIsEditModalOpen(false);
-			} else setToast({
-				show: true,
-				type: "error",
-				title: "Gagal Menyimpan",
-				message: res.data?.message || "Gagal menyimpan perubahan profil."
-			});
-		} catch (err) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Kesalahan Sistem",
-				message: "Gagal menghubungi server."
-			});
-		} finally {
-			setProfileSaving(false);
-		}
-	};
-	const handleChangePassword = async (e) => {
-		e.preventDefault();
-		setLoading(true);
-		if (passwordBaru.length < 6) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Kata Sandi Lemah",
-				message: "Kata sandi baru minimal 6 karakter!"
-			});
-			setLoading(false);
-			return;
-		}
-		if (passwordBaru !== konfirmasiPassword) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Tidak Cocok",
-				message: "Konfirmasi kata sandi baru tidak cocok!"
-			});
-			setLoading(false);
-			return;
-		}
-		try {
-			const res = await PortalProfilService.changePassword({
-				password_baru: passwordBaru,
-				konfirmasi_password: konfirmasiPassword
-			});
-			if (res.ok && res.data?.ok) {
-				setToast({
-					show: true,
-					type: "success",
-					title: "Kata Sandi Diperbarui",
-					message: res.data.message || "Kata sandi akun portal Anda berhasil diubah!"
-				});
-				setPasswordBaru("");
-				setKonfirmasiPassword("");
-				setIsPasswordExpanded(false);
-			} else setToast({
-				show: true,
-				type: "error",
-				title: "Gagal Mengubah Sandi",
-				message: res.data?.message || "Gagal mengubah kata sandi."
-			});
-		} catch (err) {
-			setToast({
-				show: true,
-				type: "error",
-				title: "Kesalahan Sistem",
-				message: "Gagal menghubungi server."
-			});
-		} finally {
-			setLoading(false);
-		}
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex-1 h-full min-h-0 flex flex-col bg-[#EEF2F6] text-slate-900 relative",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalHeader, {
-				showNotificationDot: hasUnreadNotifications,
-				onNotificationClick: onOpenNotifications,
-				title: "Profil Pelanggan",
-				subtitle: "Data akun & keamanan",
-				dashboardData,
-				customer
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
-				className: "scroll-area -mt-18 flex-1 overflow-y-auto relative z-10",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-3.5 pb-24 space-y-3.5",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-							className: "bg-white rounded-xl shadow-xs overflow-hidden border border-slate-200/90",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "p-3.5 border-b border-slate-100 flex items-center justify-between gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "relative shrink-0",
-										children: [
-											currentCustomer?.foto_profil && !fotoLoadError ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-												src: currentCustomer.foto_profil,
-												alt: "",
-												onError: () => setFotoLoadError(true),
-												className: "w-11 h-11 rounded-full object-cover border-2 border-white shadow-xs"
-											}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-sm font-mono shadow-xs border-2 border-white bg-blue-600",
-												children: getInitials(currentCustomer?.nama)
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-												type: "button",
-												onClick: () => fileInputRef.current?.click(),
-												disabled: uploadingFoto,
-												className: "absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-blue-600 hover:text-blue-800 hover:bg-slate-50 transition cursor-pointer disabled:opacity-50",
-												title: "Ubah Foto Profil",
-												"aria-label": "Ubah Foto Profil",
-												children: uploadingFoto ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-2.5 h-2.5 animate-spin text-blue-600" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Camera, { className: "w-3 h-3" })
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-												ref: fileInputRef,
-												type: "file",
-												accept: "image/*",
-												onChange: handleFotoChange,
-												className: "hidden"
-											})
-										]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "min-w-0",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-sm font-bold text-slate-900 leading-tight truncate",
-											children: currentCustomer?.nama || "Profil Pelanggan"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "mt-0.5 text-xs text-slate-500 font-mono font-medium flex items-center gap-1.5 flex-wrap",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "font-semibold text-slate-700 tracking-tight leading-none text-xs truncate max-w-[140px] sm:max-w-[190px]",
-												title: currentCustomer?.id_pelanggan,
-												children: currentCustomer?.id_pelanggan || "-"
-											}), currentCustomer?.foto_profil && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-												type: "button",
-												onClick: handleDeleteFoto,
-												disabled: uploadingFoto,
-												className: "text-[10px] text-slate-400 hover:text-rose-600 font-sans flex items-center gap-0.5 transition cursor-pointer",
-												title: "Hapus Foto Profil",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Trash, { className: "w-2.5 h-2.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Hapus" })]
-											})]
-										})]
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: () => setIsEditModalOpen(true),
-									className: "px-3 py-1.5 rounded-lg bg-blue-50/80 hover:bg-blue-100 text-blue-700 text-xs font-semibold transition flex items-center gap-1 cursor-pointer shrink-0",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pencil, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Edit Data" })]
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "p-3.5",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "space-y-2 text-xs",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-center justify-between py-1 border-b border-slate-50",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-slate-500 font-medium",
-												children: "Kantor Layanan"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-												className: "font-semibold text-slate-800 capitalize",
-												children: ["Kantor ", currentCustomer?.kantor || "Cabang"]
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-center justify-between py-1 border-b border-slate-50",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-slate-500 font-medium",
-												children: "No. WhatsApp / Telp"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "font-mono font-bold text-slate-800",
-												children: currentCustomer?.no_hp || "-"
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-start justify-between gap-3 py-1 border-b border-slate-50",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-slate-500 font-medium shrink-0",
-												children: "Alamat Lengkap"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "font-medium text-slate-800 text-right",
-												children: currentCustomer?.alamat || "-"
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-center justify-between py-1 border-b border-slate-50",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-slate-500 font-medium",
-												children: "Paket Internet"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "font-semibold text-slate-800",
-												children: currentCustomer?.paket || "-"
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-center justify-between py-1 border-b border-slate-50",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-slate-500 font-medium",
-												children: "Jenis Tagihan"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: `font-semibold ${billingModeTeks(currentCustomer?.billing_mode || dashboardData?.customer?.billing_mode) === "-" ? "text-slate-400" : "text-slate-800"}`,
-												children: billingModeTeks(currentCustomer?.billing_mode || dashboardData?.customer?.billing_mode)
-											})]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "flex items-center justify-between py-1",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-slate-500 font-medium",
-												children: "IP Modem Router"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "font-mono font-bold text-slate-800",
-												children: currentCustomer?.ip_router || currentCustomer?.ip_ont || "-"
-											})]
-										})
-									]
-								})
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-							className: "bg-white rounded-xl shadow-xs border border-slate-200/90 overflow-hidden divide-y divide-slate-100",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: () => onNavigate && onNavigate("wifi"),
-									className: "w-full p-3.5 flex items-center justify-between text-left hover:bg-slate-50/70 transition cursor-pointer",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-3",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wifi, { className: "w-5 h-5" })
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-xs font-bold text-slate-900",
-											children: "Pengaturan WiFi Rumah"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-[11px] text-slate-500 font-medium",
-											children: "Ubah Nama SSID & Kata Sandi WiFi"
-										})] })]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "w-4 h-4 text-slate-400 shrink-0" })]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: () => setIsPasswordExpanded(!isPasswordExpanded),
-									className: "w-full p-4 flex items-center justify-between text-left hover:bg-gray-50/70 transition cursor-pointer",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-3",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lock, { className: "w-5 h-5" })
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "portal-body-bold text-gray-900",
-											children: "Ganti Kata Sandi Akun"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "portal-caption text-gray-500 font-medium",
-											children: "Amankan akses masuk portal mandiri"
-										})] })]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: `w-4 h-4 text-gray-400 transition-transform duration-200 shrink-0 ${isPasswordExpanded ? "rotate-180" : ""}` })]
-								}), isPasswordExpanded && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "p-4 pt-1 space-y-4 border-t border-gray-100 bg-gray-50/50",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
-										onSubmit: handleChangePassword,
-										className: "space-y-3 text-xs font-semibold",
-										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "space-y-1.5",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-													className: "text-gray-700 block",
-													children: "Kata Sandi Baru"
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-													className: "relative",
-													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-														type: showPasswordBaru ? "text" : "password",
-														required: true,
-														value: passwordBaru,
-														onChange: (e) => setPasswordBaru(e.target.value),
-														placeholder: "Minimal 6 karakter",
-														className: "w-full pl-3.5 pr-10 py-2.5 rounded-xl bg-white border border-gray-200 text-xs text-gray-900 font-mono focus:outline-none focus:border-blue-600 min-h-[42px]"
-													}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-														type: "button",
-														onClick: () => setShowPasswordBaru(!showPasswordBaru),
-														className: "absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 p-1 cursor-pointer",
-														"aria-label": "Lihat kata sandi baru",
-														children: showPasswordBaru ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOff, { className: "w-3.5 h-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { className: "w-3.5 h-3.5" })
-													})]
-												})]
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "space-y-1.5",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
-													className: "text-gray-700 block",
-													children: "Konfirmasi Kata Sandi Baru"
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-													className: "relative",
-													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-														type: showPasswordKonfirm ? "text" : "password",
-														required: true,
-														value: konfirmasiPassword,
-														onChange: (e) => setKonfirmasiPassword(e.target.value),
-														placeholder: "Ulangi kata sandi baru",
-														className: "w-full pl-3.5 pr-10 py-2.5 rounded-xl bg-white border border-gray-200 text-xs text-gray-900 font-mono focus:outline-none focus:border-blue-600 min-h-[42px]"
-													}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-														type: "button",
-														onClick: () => setShowPasswordKonfirm(!showPasswordKonfirm),
-														className: "absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 p-1 cursor-pointer",
-														"aria-label": "Lihat konfirmasi kata sandi",
-														children: showPasswordKonfirm ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOff, { className: "w-3.5 h-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { className: "w-3.5 h-3.5" })
-													})]
-												})]
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-												type: "submit",
-												disabled: loading,
-												className: "w-full mt-2 py-3 px-4 rounded-xl text-white font-bold text-xs shadow-md shadow-blue-600/20 active:scale-[0.99] transition flex items-center justify-center gap-2 min-h-[44px] cursor-pointer disabled:opacity-50",
-												style: { background: "#2563eb" },
-												children: loading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-4 h-4 animate-spin" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Simpan Kata Sandi Baru" })
-											})
-										]
-									})
-								})] }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: () => setLegalModal({
-										open: true,
-										tab: "privasi"
-									}),
-									className: "w-full p-3.5 flex items-center justify-between text-left hover:bg-slate-50/70 transition cursor-pointer",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-3",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { className: "w-5 h-5" })
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-xs font-bold text-slate-900",
-											children: "Kebijakan Privasi & Izin Aplikasi"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-[11px] text-slate-500 font-medium",
-											children: "Transparansi sensor GPS, galeri foto, & data akun"
-										})] })]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "w-4 h-4 text-slate-400 shrink-0" })]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-									type: "button",
-									onClick: () => setLegalModal({
-										open: true,
-										tab: "syarat"
-									}),
-									className: "w-full p-3.5 flex items-center justify-between text-left hover:bg-slate-50/70 transition cursor-pointer",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "flex items-center gap-3",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "w-9 h-9 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileText, { className: "w-5 h-5" })
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-xs font-bold text-slate-900",
-											children: "Syarat & Ketentuan Layanan"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "text-[11px] text-slate-500 font-medium",
-											children: "Hak, kewajiban, & ketentuan langganan internet"
-										})] })]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "w-4 h-4 text-slate-400 shrink-0" })]
-								})
-							]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "pt-1",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-								type: "button",
-								onClick: () => setIsLogoutConfirmOpen(true),
-								className: "w-full py-3 px-4 rounded-xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 text-xs font-semibold flex items-center justify-center gap-2 transition min-h-[44px] cursor-pointer active:scale-98",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogOut, { className: "w-4 h-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Keluar dari Akun Portal" })]
-							})
-						})
-					]
-				})
-			}),
-			isEditModalOpen && typeof document !== "undefined" && (0, import_react_dom.createPortal)(/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-fadeIn",
-				onClick: (e) => {
-					if (e.target === e.currentTarget && !profileSaving) setIsEditModalOpen(false);
-				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					role: "dialog",
-					"aria-modal": "true",
-					"aria-labelledby": "portal-profile-edit-title",
-					className: "w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-scaleUp",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "p-4 pb-3 border-b border-gray-100 flex items-center justify-between",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pencil, { className: "w-4 h-4" })
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								id: "portal-profile-edit-title",
-								className: "text-sm font-black text-gray-900",
-								children: "Ubah Data Diri"
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							type: "button",
-							onClick: () => setIsEditModalOpen(false),
-							className: "w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-500 hover:text-gray-700",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "w-4 h-4" })
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
-						onSubmit: handleSaveProfile,
-						className: "p-4 space-y-3 text-xs font-semibold",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "space-y-1",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
-									className: "text-gray-700 flex items-center gap-1.5",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(User, { className: "w-3.5 h-3.5 text-blue-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Nama Lengkap Pelanggan" })]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									type: "text",
-									required: true,
-									value: nama,
-									onChange: (e) => setNama(e.target.value),
-									placeholder: "Nama Lengkap...",
-									className: "w-full px-3.5 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 focus:outline-none focus:border-blue-600 min-h-[42px]"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "space-y-1",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
-									className: "text-gray-700 flex items-center gap-1.5",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "w-3.5 h-3.5 text-blue-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Nomor WhatsApp / Telp" })]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-									type: "text",
-									required: true,
-									value: noHp,
-									onChange: (e) => setNoHp(e.target.value),
-									placeholder: "Contoh: 08123456789",
-									className: "w-full px-3.5 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 font-mono focus:outline-none focus:border-blue-600 min-h-[42px]"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "space-y-1",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
-									className: "text-gray-700 flex items-center gap-1.5",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, { className: "w-3.5 h-3.5 text-blue-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Alamat Lengkap Domisili" })]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", {
-									rows: 2,
-									required: true,
-									value: alamat,
-									onChange: (e) => setAlamat(e.target.value),
-									placeholder: "Alamat rumah tempat terpasang modem...",
-									className: "w-full px-3.5 py-2 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 focus:outline-none focus:border-blue-600"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex gap-2 pt-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									type: "button",
-									onClick: () => setIsEditModalOpen(false),
-									className: "flex-1 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold transition cursor-pointer",
-									children: "Batal"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-									type: "submit",
-									disabled: profileSaving,
-									className: "flex-1 py-2.5 rounded-xl text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-md shadow-blue-600/20 cursor-pointer disabled:opacity-50",
-									style: { background: "#2563eb" },
-									children: profileSaving ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-4 h-4 animate-spin" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Simpan Data" })
-								})]
-							})
-						]
-					})]
-				})
-			}), document.body),
-			isLogoutConfirmOpen && typeof document !== "undefined" && (0, import_react_dom.createPortal)(/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-fadeIn",
-				onClick: (e) => {
-					if (e.target === e.currentTarget) setIsLogoutConfirmOpen(false);
-				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					role: "dialog",
-					"aria-modal": "true",
-					"aria-labelledby": "portal-profile-logout-title",
-					className: "w-full max-w-xs sm:max-w-sm bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden p-5 space-y-4 animate-scaleUp text-center",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "flex justify-center pt-2",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalActiveMascot, {
-								mascotKey: "sedih",
-								className: "w-28 h-20"
-							})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "space-y-1.5 px-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								id: "portal-profile-logout-title",
-								className: "text-base font-black text-gray-900 leading-tight",
-								children: "Keluar dari Akun?"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs text-gray-600 leading-relaxed font-medium",
-								children: "Apakah Anda yakin ingin keluar dari akun aplikasi MyTekno?"
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex items-center gap-2 pt-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-								type: "button",
-								onClick: () => setIsLogoutConfirmOpen(false),
-								className: "flex-1 min-h-[44px] py-2.5 px-3 rounded-xl border border-gray-200 text-gray-700 hover:bg-gray-50 text-xs font-bold transition active:scale-95 cursor-pointer",
-								children: "Batal"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-								type: "button",
-								onClick: () => {
-									setIsLogoutConfirmOpen(false);
-									onLogout();
-								},
-								className: "flex-1 min-h-[44px] py-2.5 px-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition shadow-xs active:scale-95 cursor-pointer flex items-center justify-center gap-1.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogOut, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Ya, Keluar" })]
-							})]
-						})
-					]
-				})
-			}), document.body),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalToastNotification, {
-				show: toast.show,
-				type: toast.type,
-				title: toast.title,
-				message: toast.message,
-				onClose: () => setToast((prev) => ({
-					...prev,
-					show: false
-				}))
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalLegalModal, {
-				isOpen: legalModal.open,
-				initialTab: legalModal.tab,
-				onClose: () => setLegalModal({
-					open: false,
-					tab: "privasi"
-				})
-			})
-		]
-	});
-}
-//#endregion
-//#region src/portal/components/payment/PaymentKanalBank.jsx
-function BarisNominal({ label, nilai, tebal = false }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex items-baseline justify-between gap-3",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-			className: `text-xs ${tebal ? "font-bold text-gray-900" : "text-gray-600"}`,
-			children: label
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-			className: `tabular-nums ${tebal ? "text-sm font-black text-blue-600" : "text-xs font-semibold text-gray-800"}`,
-			children: nilai
-		})]
-	});
-}
-/** Satu kanal bank Virtual Account. Tertutup secara bawaan; dibuka dengan sentuhan. */
-function PaymentKanalBank({ kanal, tagihanTotal, terbuka, onToggle }) {
-	const [tersalin, setTersalin] = (0, import_react.useState)(false);
-	const salinNomor = async (e) => {
-		e.stopPropagation();
-		const bersih = String(kanal.va_number || "");
-		try {
-			await navigator.clipboard.writeText(bersih);
-		} catch {
-			const ta = document.createElement("textarea");
-			ta.value = bersih;
-			ta.style.position = "fixed";
-			ta.style.opacity = "0";
-			document.body.appendChild(ta);
-			ta.select();
-			try {
-				document.execCommand("copy");
-			} catch {}
-			document.body.removeChild(ta);
-		}
-		setTersalin(true);
-		if (navigator.vibrate) navigator.vibrate(15);
-		setTimeout(() => setTersalin(false), 1800);
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: `rounded-xl border transition-all duration-200 overflow-hidden ${terbuka ? "border-blue-400 bg-blue-50/50 shadow-xs" : "border-gray-200 bg-gray-50/60 hover:bg-gray-50"}`,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-			type: "button",
-			onClick: onToggle,
-			className: "w-full flex items-center gap-3 px-3.5 py-3 min-h-[48px] text-left cursor-pointer active:bg-gray-100/70",
-			"aria-expanded": terbuka,
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: `w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors ${terbuka ? "bg-blue-600 text-white" : "bg-blue-100 text-blue-700"}`,
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Landmark, { className: "w-4 h-4" })
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-					className: "flex-1 min-w-0",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-						className: "block text-xs font-black text-gray-900 truncate",
-						children: ["Virtual Account ", kanal.bank]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "block text-[11px] text-gray-500 font-medium",
-						children: terbuka ? "Klik tombol salin di bawah" : "Ketuk untuk melihat nomor & rincian"
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: `w-4 h-4 text-gray-400 shrink-0 transition-transform duration-200 ${terbuka ? "rotate-180 text-blue-600" : ""}` })
-			]
-		}), terbuka && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "px-3.5 pb-3.5 space-y-3 border-t border-gray-100 pt-3 bg-white",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-					className: "text-[10px] font-bold text-gray-500 uppercase tracking-wider block mb-1",
-					children: ["Nomor Virtual Account ", kanal.bank]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center justify-between gap-2",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "font-mono text-base font-black text-gray-900 tracking-wider tabular-nums",
-						children: vaTampil(kanal.va_number)
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-						type: "button",
-						onClick: salinNomor,
-						className: `shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${tersalin ? "bg-blue-800 text-white" : "bg-blue-600 hover:bg-blue-700 text-white active:scale-95"}`,
-						children: [tersalin ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "w-3.5 h-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Copy, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: tersalin ? "Tersalin" : "Salin" })]
-					})]
-				})] }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "space-y-1.5 pt-2 border-t border-gray-100 text-xs",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BarisNominal, {
-							label: "Tagihan Pokok",
-							nilai: rupiah(tagihanTotal)
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BarisNominal, {
-							label: "Biaya Admin Bank",
-							nilai: rupiah(kanal.admin_fee || 0)
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "pt-1.5 border-t border-gray-100",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BarisNominal, {
-								label: "Total Yang Harus Dibayar",
-								nilai: rupiah(kanal.amount_to_pay),
-								tebal: true
-							})
-						})
-					]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "space-y-1.5 pt-1 text-[11px] text-gray-500 font-medium leading-relaxed",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-						className: "flex items-start gap-1.5",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Info, { className: "w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
-							"Gunakan menu ",
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Virtual Account atau Bayar" }),
-							" (bukan Transfer/BI-FAST) pada m-Banking/ATM bank pilihan Anda."
-						] })]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-						className: "flex items-start gap-1.5",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Info, { className: "w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
-							"Bayar persis ",
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: rupiah(kanal.amount_to_pay) }),
-							" (nominal tertutup) agar transaksi diverifikasi otomatis."
-						] })]
-					})]
-				})
-			]
-		})]
-	});
-}
-//#endregion
-//#region src/portal/components/payment/PaymentRiwayatList.jsx
-var ITEMS_PER_PAGE = 5;
-function PaymentRiwayatList({ riwayat, memuatRiwayat }) {
-	const [filterYear, setFilterYear] = (0, import_react.useState)("semua");
-	const [currentPage, setCurrentPage] = (0, import_react.useState)(1);
-	const invoices = riwayat?.invoices || [];
-	const years = (0, import_react.useMemo)(() => {
-		const setYears = /* @__PURE__ */ new Set();
-		invoices.forEach((inv) => {
-			const p = inv.billing_period || inv.payment?.date || "";
-			const y = String(p).split("-")[0];
-			if (y && y.length === 4) setYears.add(y);
-		});
-		return Array.from(setYears).sort((a, b) => b.localeCompare(a));
-	}, [invoices]);
-	const filteredInvoices = (0, import_react.useMemo)(() => {
-		if (filterYear === "semua") return invoices;
-		return invoices.filter((inv) => {
-			const p = inv.billing_period || inv.payment?.date || "";
-			return String(p).startsWith(filterYear);
-		});
-	}, [invoices, filterYear]);
-	const totalPages = Math.ceil(filteredInvoices.length / ITEMS_PER_PAGE) || 1;
-	const paginatedInvoices = (0, import_react.useMemo)(() => {
-		const start = (currentPage - 1) * ITEMS_PER_PAGE;
-		return filteredInvoices.slice(start, start + ITEMS_PER_PAGE);
-	}, [filteredInvoices, currentPage]);
-	const handleYearChange = (year) => {
-		setFilterYear(year);
-		setCurrentPage(1);
-	};
-	const renderMetodeIcon = (method) => {
-		const m = String(method || "").toLowerCase();
-		if (m === "tunai") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Banknote, { className: "w-3.5 h-3.5 text-gray-500" });
-		if (m === "transfer") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeftRight, { className: "w-3.5 h-3.5 text-gray-500" });
-		return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Landmark, { className: "w-3.5 h-3.5 text-gray-500" });
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "p-4 bg-white space-y-3.5",
-		children: [
-			memuatRiwayat && !riwayat && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "space-y-2.5 animate-pulse",
-				children: [
-					0,
-					1,
-					2
-				].map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "p-3.5 rounded-xl border border-slate-100 bg-slate-50/70 flex items-center justify-between gap-3",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "space-y-1.5 flex-1 min-w-0",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-32 h-3.5 bg-slate-200 rounded" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-40 h-2.5 bg-slate-100 rounded" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-16 h-3 bg-emerald-100 rounded-md mt-1" })
-						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "text-right space-y-1.5 shrink-0",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-4 bg-slate-200 rounded ml-auto" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-14 h-2.5 bg-slate-100 rounded ml-auto" })]
-					})]
-				}, i))
-			}),
-			!memuatRiwayat && invoices.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "py-8 text-center",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "w-12 h-12 rounded-2xl mx-auto flex items-center justify-center mb-2.5 bg-gray-100 text-gray-500",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReceiptText, { className: "w-6 h-6" })
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-						className: "text-sm font-black text-gray-900",
-						children: "Belum Ada Riwayat Pembayaran"
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "text-xs text-gray-500 mt-1 max-w-xs mx-auto font-medium leading-relaxed",
-						children: "Pembayaran iuran yang sudah lunas akan otomatis dicatat dan tersimpan rapi di sini."
-					})
-				]
-			}),
-			invoices.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-				years.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-gray-100 scrollbar-none",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-						type: "button",
-						onClick: () => handleYearChange("semua"),
-						className: `px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer whitespace-nowrap ${filterYear === "semua" ? "bg-blue-600 text-white shadow-xs" : "bg-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-200/70"}`,
-						children: [
-							"Semua Tahun (",
-							invoices.length,
-							")"
-						]
-					}), years.map((y) => {
-						const count = invoices.filter((i) => String(i.billing_period || i.payment?.date || "").startsWith(y)).length;
-						return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-							type: "button",
-							onClick: () => handleYearChange(y),
-							className: `px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer whitespace-nowrap ${filterYear === y ? "bg-blue-600 text-white shadow-xs" : "bg-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-200/70"}`,
-							children: [
-								y,
-								" (",
-								count,
-								")"
-							]
-						}, y);
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "divide-y divide-gray-100 -mx-4",
-					children: paginatedInvoices.map((inv) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "p-4 flex items-center justify-between gap-3 hover:bg-gray-50/60 transition",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "min-w-0",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-xs font-black text-gray-900 truncate",
-									children: periodeTeks(inv.billing_period) || inv.number
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-									className: "text-[11px] text-gray-500 mt-0.5 truncate font-medium flex items-center gap-1.5",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: inv.number }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "·" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: jenisTagihanTeks(inv.type) })
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center gap-2 mt-1.5",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-										className: "inline-flex items-center gap-1 text-emerald-700 text-[11px] font-bold",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Lunas" })]
-									}), inv.payment?.method_label && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-										className: "inline-flex items-center gap-1 text-[11px] text-gray-500 font-medium",
-										children: [renderMetodeIcon(inv.payment.method), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: inv.payment.method_label })]
-									})]
-								})
-							]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "text-right shrink-0",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs font-black text-gray-900 font-mono",
-								children: rupiah(inv.payment?.amount ?? inv.total)
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-[10px] text-gray-500 mt-0.5 font-medium",
-								children: tanggalTeks(inv.payment?.date)
-							})]
-						})]
-					}, inv.id))
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalPagination, {
-					currentPage,
-					totalPages,
-					onPageChange: setCurrentPage
-				})
-			] })
-		]
-	});
-}
-//#endregion
-//#region src/portal/components/payment/PortalPaymentTab.jsx
-var _cachedTagihanData = null;
-var _cachedRiwayatData = null;
-var _cachedKanalTerbuka = null;
-function SkeletonTagihan() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-		className: "bg-white rounded-xl shadow-xs overflow-hidden border border-slate-200/90 p-4 space-y-3 animate-pulse",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex items-center gap-2.5 pb-3 border-b border-slate-100",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-8 h-8 rounded-lg bg-slate-200 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "space-y-1.5 flex-1",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-3.5 w-32 bg-slate-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-2.5 w-48 bg-slate-100 rounded" })]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 w-44 bg-slate-200 rounded-xl mt-2" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-24 bg-slate-100 rounded-xl mt-3" })
-		]
-	});
-}
-function PortalPaymentTab({ customer, dashboardData, onBack, onOpenNotifications, hasUnreadNotifications, initialSubTab = "tagihan" }) {
-	const [subTab, setSubTab] = (0, import_react.useState)(initialSubTab);
-	(0, import_react.useEffect)(() => {
-		if (initialSubTab) setSubTab(initialSubTab);
-	}, [initialSubTab]);
-	const [tagihan, setTagihan] = (0, import_react.useState)(() => _cachedTagihanData);
-	const [memuatTagihan, setMemuatTagihan] = (0, import_react.useState)(() => !_cachedTagihanData);
-	const [galatTagihan, setGalatTagihan] = (0, import_react.useState)(null);
-	const [riwayat, setRiwayat] = (0, import_react.useState)(() => _cachedRiwayatData);
-	const [memuatRiwayat, setMemuatRiwayat] = (0, import_react.useState)(false);
-	const [kanalTerbuka, setKanalTerbuka] = (0, import_react.useState)(() => _cachedKanalTerbuka);
-	const muatTagihan = (0, import_react.useCallback)(async (diam = false) => {
-		if (!diam) setMemuatTagihan(true);
-		const res = await PortalPembayaranService.getTagihan();
-		if (res.status === 401) {
-			setMemuatTagihan(false);
-			return;
-		}
-		if (res.status === 429) {
-			if (!_cachedTagihanData) setGalatTagihan(res.data?.message || "Server tagihan sedang padat. Coba beberapa saat lagi.");
-		} else if (!res.ok && !res.data?.va_state) {
-			if (!_cachedTagihanData) setGalatTagihan(res.data?.message || "Gagal membaca tagihan.");
-		} else {
-			setGalatTagihan(null);
-			setTagihan(res.data);
-			_cachedTagihanData = res.data;
-			if (res.data?.channels?.length) setKanalTerbuka((prev) => {
-				const next = prev ?? res.data.channels[0].channel;
-				_cachedKanalTerbuka = next;
-				return next;
-			});
-		}
-		setMemuatTagihan(false);
-	}, []);
-	const muatRiwayat = (0, import_react.useCallback)(async (diam = false) => {
-		if (!diam && !_cachedRiwayatData) setMemuatRiwayat(true);
-		const res = await PortalPembayaranService.getRiwayat(24);
-		if (res.status !== 401 && res.data) {
-			setRiwayat(res.data);
-			_cachedRiwayatData = res.data;
-		}
-		setMemuatRiwayat(false);
-	}, []);
-	(0, import_react.useEffect)(() => {
-		muatTagihan(Boolean(_cachedTagihanData));
-	}, [muatTagihan]);
-	(0, import_react.useEffect)(() => {
-		const handleVisibilityChange = () => {
-			if (document.visibilityState === "visible") {
-				muatTagihan(true);
-				if (subTab === "riwayat") muatRiwayat(true);
-			}
-		};
-		document.addEventListener("visibilitychange", handleVisibilityChange);
-		return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
-	}, [
-		muatTagihan,
-		muatRiwayat,
-		subTab
-	]);
-	(0, import_react.useEffect)(() => {
-		if (subTab === "riwayat") muatRiwayat(Boolean(_cachedRiwayatData));
-	}, [subTab, muatRiwayat]);
-	const rawPaket = tagihan?.package_speed || dashboardData?.kuota?.kecepatan_paket || customer?.paket || "-";
-	const paketNama = /paket/i.test(String(rawPaket)) ? rawPaket : `Paket ${rawPaket}`;
-	const billingModeLabel = billingModeTeks(tagihan?.billing_mode || customer?.billing_mode || dashboardData?.customer?.billing_mode);
-	const sortedUnpaidInvoices = (tagihan?.unpaid || tagihan?.unpaid_invoices || []).toSorted((a, b) => {
-		const periodA = String(a.due_date || a.billing_period || "");
-		const periodB = String(b.due_date || b.billing_period || "");
-		const cmp = periodA.localeCompare(periodB);
-		return cmp !== 0 ? cmp : Number(a.id || 0) - Number(b.id || 0);
-	});
-	const activeBill = tagihan?.next_bill || (sortedUnpaidInvoices.length > 0 ? sortedUnpaidInvoices[0] : null);
-	const otherUnpaidInvoices = activeBill ? sortedUnpaidInvoices.filter((inv) => String(inv.id || inv.invoice_id) !== String(activeBill.id || activeBill.invoice_id)) : sortedUnpaidInvoices;
-	const rawChannels = tagihan?.channels || [];
-	const isVaAvailable = rawChannels.length > 0 && ![
-		"inactive",
-		"not_issued",
-		"not_linked"
-	].includes(tagihan?.va_state);
-	const availableChannels = isVaAvailable ? rawChannels : [];
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "flex-1 flex flex-col min-h-0 bg-slate-50/50 relative overflow-hidden select-none",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalHeader, {
-			onBack,
-			showNotificationDot: hasUnreadNotifications,
-			onNotificationClick: onOpenNotifications,
-			title: "Tagihan & Pembayaran",
-			subtitle: "Status & riwayat bayar",
-			dashboardData,
-			customer
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
-			className: "scroll-area -mt-18 flex-1 overflow-y-auto relative z-10",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "px-3.5 pb-24 space-y-3",
-				children: [
-					memuatTagihan && !tagihan && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SkeletonTagihan, {}),
-					galatTagihan && !tagihan && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-						className: "bg-white rounded-xl shadow-xs overflow-hidden border border-rose-200 p-4",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex gap-2.5",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleX, { className: "w-5 h-5 text-rose-600 shrink-0 mt-0.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex-1",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-sm font-bold text-slate-900",
-										children: "Tagihan Belum Bisa Dibaca"
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-xs text-slate-600 mt-1 leading-relaxed",
-										children: galatTagihan
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-										type: "button",
-										onClick: () => muatTagihan(false),
-										className: "mt-3 min-h-[40px] px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold inline-flex items-center gap-1.5 active:scale-95 transition cursor-pointer",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-4 h-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Coba Lagi" })]
-									})
-								]
-							})]
-						})
-					}),
-					(!memuatTagihan || tagihan) && !galatTagihan && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "bg-white rounded-xl shadow-xs overflow-hidden border border-slate-200/90",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "p-3 sm:p-3.5 border-b border-slate-100 flex items-center justify-between gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center gap-2.5",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReceiptText, { className: "w-4 h-4" })
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-xs font-bold text-slate-900 leading-tight",
-										children: subTab === "tagihan" ? "Rincian Tagihan" : "Riwayat Bayar"
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center bg-slate-100 p-0.5 rounded-lg border border-slate-200 shrink-0",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										type: "button",
-										onClick: () => setSubTab("tagihan"),
-										className: `px-3 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${subTab === "tagihan" ? "bg-white text-blue-600 shadow-xs" : "text-slate-600 hover:text-slate-900"}`,
-										children: "Tagihan"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-										type: "button",
-										onClick: () => setSubTab("riwayat"),
-										className: `px-3 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${subTab === "riwayat" ? "bg-white text-blue-600 shadow-xs" : "text-slate-600 hover:text-slate-900"}`,
-										children: "Riwayat"
-									})]
-								})]
-							}),
-							subTab === "tagihan" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "p-4 bg-white",
-								children: activeBill ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "flex items-baseline gap-1.5",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-3xl sm:text-4xl font-black tracking-tight font-mono text-blue-600",
-											children: rupiah(activeBill.total)
-										})
-									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "mt-3 divide-y divide-gray-100 text-xs",
-										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "flex items-center justify-between py-2",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: "text-gray-500 font-medium",
-													children: "Paket aktif"
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: "font-bold text-blue-700",
-													children: paketNama
-												})]
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "flex items-center justify-between py-2",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: "text-gray-500 font-medium",
-													children: "Jenis langganan"
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: `font-bold ${billingModeLabel === "-" ? "text-slate-400" : "text-gray-900"}`,
-													children: billingModeLabel
-												})]
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "flex items-center justify-between py-2",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: "text-gray-500 font-medium",
-													children: "Periode tagihan"
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: "font-bold text-gray-900",
-													children: periodeTeks(activeBill.billing_period) || activeBill.number || "Bulan Berjalan"
-												})]
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "flex items-center justify-between py-2",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: "text-gray-500 font-medium",
-													children: "Batas jatuh tempo"
-												}), activeBill.overdue ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-													className: "font-bold text-amber-700 inline-flex items-center gap-1",
-													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TriangleAlert, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [tanggalTeks(activeBill.due_date), " (Terlambat)"] })]
-												}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-													className: "font-bold text-gray-900",
-													children: tanggalTeks(activeBill.due_date)
-												})]
-											})
-										]
-									}),
-									isVaAvailable && availableChannels.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-										className: "mt-4 pt-3 border-t border-gray-100 space-y-2.5",
-										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-												className: "flex items-center justify-between",
-												children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-													className: "text-xs font-black text-gray-900 uppercase tracking-wide flex items-center gap-1.5",
-													children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Landmark, { className: "w-4 h-4 text-blue-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Pilih Bank Pembayaran (Virtual Account)" })]
-												}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-													className: "text-[10px] font-bold text-gray-500",
-													children: [availableChannels.length, " Bank"]
-												})]
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-												className: "text-[11px] text-gray-500 font-medium leading-relaxed",
-												children: "Nomor Virtual Account siap disalin. Cukup bayar ke salah satu bank tempat rekening Anda:"
-											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-												className: "space-y-2 mt-1",
-												children: availableChannels.map((k) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentKanalBank, {
-													kanal: k,
-													tagihanTotal: activeBill.total,
-													terbuka: kanalTerbuka === k.channel,
-													onToggle: () => {
-														const nextVal = kanalTerbuka === k.channel ? null : k.channel;
-														setKanalTerbuka(nextVal);
-														_cachedKanalTerbuka = nextVal;
-													}
-												}, k.channel))
-											})
-										]
-									}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "mt-4 pt-3.5 border-t border-slate-100 space-y-2.5",
-										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-											className: "p-3.5 rounded-xl bg-slate-50 border border-slate-200/90 space-y-1 text-xs",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-												className: "font-bold text-slate-900 leading-tight",
-												children: "Pembayaran Belum Menggunakan Virtual Account"
-											}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-												className: "text-[11px] text-slate-600 leading-relaxed font-medium",
-												children: [tagihan?.message || "Pembayaran via Virtual Account otomatis belum aktif untuk kantor cabang ini.", " Rincian tagihan Anda tetap tercatat resmi. Untuk pembayaran atau informasi nomor rekening transfer bank, silakan hubungi admin / kasir kantor melalui WhatsApp."]
-											})]
-										})
-									})
-								] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "py-6 text-center",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-											className: "w-12 h-12 rounded-2xl mx-auto flex items-center justify-center mb-2.5 bg-emerald-50 text-emerald-600",
-											children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "w-6 h-6" })
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-											className: "text-sm font-black text-gray-900",
-											children: "Semua Tagihan Lunas!"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-xs text-gray-600 mt-1 max-w-xs mx-auto leading-relaxed font-medium",
-											children: "Terima kasih, tidak ada tagihan tertunggak untuk akun Anda. Layanan internet aktif normal."
-										})
-									]
-								})
-							}),
-							subTab === "tagihan" && activeBill && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "px-4 py-3 border-t border-gray-100 flex items-start gap-2.5 bg-blue-50/60",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { className: "w-4 h-4 mt-0.5 shrink-0 text-blue-700" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-									className: "text-xs text-gray-700 leading-relaxed font-normal",
-									children: isVaAvailable ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-										"Bayar via menu ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-											className: "text-gray-900 font-semibold",
-											children: "Virtual Account atau Bayar"
-										}),
-										" (bukan menu Transfer / BI-FAST) di aplikasi bank pilihan Anda. Pembayaran diverifikasi ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-											className: "text-gray-900 font-semibold",
-											children: "otomatis"
-										}),
-										" dalam 1–5 menit tanpa perlu kirim konfirmasi manual."
-									] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-										"Setelah melakukan pembayaran melalui admin atau petugas kasir kantor, status tagihan Anda akan diperbarui dan kuitansi pembayaran resmi dapat dilihat pada tab ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-											className: "text-gray-900 font-semibold",
-											children: "Riwayat"
-										}),
-										"."
-									] })
-								})]
-							}),
-							subTab === "riwayat" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentRiwayatList, {
-								riwayat,
-								memuatRiwayat
-							})
-						]
-					}),
-					subTab === "tagihan" && (!memuatTagihan || tagihan) && !galatTagihan && otherUnpaidInvoices.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-						className: "bg-white rounded-xl shadow-xs overflow-hidden border border-slate-200/90",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "p-3.5 border-b border-slate-100 flex items-center justify-between gap-2.5 bg-slate-50/60",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-blue-50 text-blue-600",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileText, { className: "w-5 h-5" })
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-									className: "text-sm font-bold text-slate-900 leading-tight",
-									children: "Tagihan Periode Berikutnya"
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-									className: "text-xs text-slate-500 mt-0.5 leading-tight font-medium",
-									children: [otherUnpaidInvoices.length, " invoice menunggu pelunasan tagihan sebelumnya"]
-								})] })]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-								className: "font-mono font-bold text-xs text-blue-600",
-								children: [otherUnpaidInvoices.length, " invoice"]
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "divide-y divide-slate-100",
-							children: otherUnpaidInvoices.map((inv) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "p-3.5 flex items-center justify-between gap-3 hover:bg-slate-50/70 transition",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "min-w-0",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-xs font-bold text-slate-900 truncate",
-											children: periodeTeks(inv.billing_period) || inv.number
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-											className: "text-[11px] text-slate-500 mt-0.5 font-medium",
-											children: [
-												jenisTagihanTeks(inv.type),
-												" · Jatuh tempo ",
-												tanggalTeks(inv.due_date)
-											]
-										}),
-										inv.overdue ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-											className: "inline-flex items-center gap-1 mt-1 text-[11px] font-bold text-amber-600",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TriangleAlert, { className: "w-3.5 h-3.5 text-amber-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Terlambat" })]
-										}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-											className: "inline-flex items-center gap-1 mt-1 text-[11px] font-medium text-slate-500",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Clock, { className: "w-3.5 h-3.5 text-slate-400" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Belum Dibayar" })]
-										})
-									]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-									className: "text-right shrink-0",
-									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-xs font-bold text-slate-900 font-mono",
-										children: rupiah(inv.total)
-									})
-								})]
-							}, inv.id))
-						})]
-					})
-				]
-			})
-		})]
-	});
-}
-//#endregion
-//#region src/portal/components/common/PortalErrorView.jsx
-function PortalErrorView({ errorCode = 404, title = "Halaman Tidak Ditemukan", description = "Tautan yang Anda tuju tidak tersedia atau rute di MyTekno telah diperbarui.", primaryActionLabel = "Beranda", onRetry, onBackToHome }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "w-full min-h-[75vh] flex flex-col items-center justify-center p-4 text-center",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "max-w-sm w-full relative",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "relative mx-auto w-32 h-32 sm:w-40 sm:h-40 mb-3 flex items-center justify-center",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalActiveMascot, {
-						mascotKey: "bingung",
-						className: "w-full h-full drop-shadow-md animate-bounce",
-						style: { animationDuration: "3.5s" }
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-mono font-bold mb-2.5",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TriangleAlert, { className: "w-3.5 h-3.5 text-rose-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
-						"STATUS: ",
-						errorCode,
-						" NOT FOUND"
-					] })]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					className: "text-lg sm:text-xl font-black text-slate-900 tracking-tight",
-					children: title
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "text-xs text-slate-600 mt-1.5 font-medium leading-relaxed",
-					children: description
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "mt-5 flex flex-row items-center justify-center gap-2 max-w-xs mx-auto",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-							type: "button",
-							onClick: () => {
-								if (window.history.length > 1) window.history.back();
-								else if (onBackToHome) onBackToHome();
-								else window.location.href = "/teknocust";
-							},
-							className: "flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 hover:text-slate-900 font-bold text-xs shadow-2xs transition active:scale-[0.98] min-h-[40px] cursor-pointer",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLeft, { className: "w-3.5 h-3.5 text-slate-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Kembali" })]
-						}),
-						onRetry && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-							type: "button",
-							onClick: onRetry,
-							className: "flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 font-bold text-xs shadow-2xs transition active:scale-[0.98] min-h-[40px] cursor-pointer",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RefreshCw, { className: "w-3.5 h-3.5 text-blue-600" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Coba Lagi" })]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-							type: "button",
-							onClick: onBackToHome || (() => {
-								window.location.href = "/teknocust";
-							}),
-							className: "flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-xs transition active:scale-[0.98] min-h-[40px] cursor-pointer",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(House, { className: "w-3.5 h-3.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: primaryActionLabel })]
-						})
-					]
-				})
-			]
-		})
-	});
-}
-//#endregion
-//#region src/portal/components/common/PortalSemanticSkeleton.jsx
-/**
-* PortalSemanticSkeleton
-*
-* Komponen Skeleton Loading Semantik Terpadu untuk TeknoCust (Portal Pelanggan).
-* Meniru struktur visual setiap tab secara presisi (Header, Card, Stat Grid, Action Box)
-* menggunakan efek `animate-pulse` halus agar tidak terjadi Cumulative Layout Shift (CLS).
-*
-* Props:
-* - tab: 'beranda' | 'kendala' | 'wifi' | 'kuota' | 'profil' | 'pembayaran' | 'app' (default: 'beranda')
-*/
-function PortalSemanticSkeleton({ tab = "beranda" }) {
-	if (tab === "app") return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "w-full max-w-[440px] mx-auto min-h-screen bg-[#f3f4f6] flex flex-col justify-between shadow-2xl relative animate-pulse",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "bg-gradient-to-br from-blue-600 to-blue-700 px-5 pt-6 pb-12 rounded-b-[2rem]",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center justify-between",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-3",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-10 h-10 rounded-full bg-white/30" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "space-y-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-3 bg-white/40 rounded-full" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-32 h-4 bg-white/50 rounded-full" })]
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-9 h-9 rounded-xl bg-white/30" })]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex-1 px-4 -mt-6 space-y-4",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "bg-white rounded-2xl p-4 shadow-sm border border-gray-100 space-y-3",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex justify-between items-center",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-28 h-4 bg-gray-200 rounded-full" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-16 h-5 bg-emerald-100 rounded-full" })]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-16 bg-gray-100 rounded-xl" })]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "grid grid-cols-2 gap-3",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "bg-white rounded-2xl p-4 shadow-sm border border-gray-100 space-y-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-14 h-3 bg-gray-200 rounded-full" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-6 bg-gray-200 rounded-lg" })]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "bg-white rounded-2xl p-4 shadow-sm border border-gray-100 space-y-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-14 h-3 bg-gray-200 rounded-full" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-6 bg-gray-200 rounded-lg" })]
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "bg-white rounded-2xl p-4 shadow-sm border border-gray-100 space-y-3",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-36 h-4 bg-gray-200 rounded-full" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "space-y-2",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-12 bg-gray-100 rounded-xl" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-12 bg-gray-100 rounded-xl" })]
-						})]
-					})
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "bg-white border-t border-gray-200/80 px-6 py-3 flex justify-between items-center",
-				children: [
-					1,
-					2,
-					3,
-					4,
-					5
-				].map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex flex-col items-center gap-1",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-6 h-6 rounded-lg bg-gray-200" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-10 h-2 rounded bg-gray-200" })]
-				}, i))
-			})
-		]
-	});
-	if (tab === "kendala") return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "px-3 pt-1 pb-24 space-y-3 animate-pulse",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-3",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex items-center justify-between pb-3 border-b border-gray-100",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center gap-2.5",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-10 h-10 rounded-xl bg-blue-100" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "space-y-1.5",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-28 h-4 bg-gray-200 rounded-md" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-40 h-3 bg-gray-100 rounded-md" })]
-					})]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-8 bg-blue-100 rounded-xl" })]
-			})
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-3",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center justify-between pb-3 border-b border-gray-100",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-32 h-4 bg-gray-200 rounded-md" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-16 h-3 bg-gray-100 rounded-md" })]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 bg-gray-100 rounded-xl" }),
-				[
-					1,
-					2,
-					3
-				].map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "p-3 rounded-xl border border-gray-100 bg-gray-50/70 space-y-2",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex justify-between items-center",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-3 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-5 bg-gray-200 rounded-full" })]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-3/4 h-3.5 bg-gray-200 rounded" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-1/2 h-3 bg-gray-100 rounded" })
-					]
-				}, i))
-			]
-		})]
-	});
-	if (tab === "kuota") return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "px-3 pt-1 pb-24 space-y-3 animate-pulse",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "p-4 border-b border-gray-100 flex items-center justify-between",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-2.5",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-10 h-10 rounded-xl bg-blue-100" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "space-y-1.5",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-36 h-4 bg-gray-200 rounded-md" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-28 h-3 bg-gray-100 rounded-md" })]
-						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-8 h-8 rounded-lg bg-gray-100" })]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "p-4 space-y-3",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-28 h-10 bg-blue-100 rounded-lg" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-2.5 bg-gray-100 rounded-full" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "flex justify-between items-center pt-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-3 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-5 bg-blue-50 rounded-md" })]
-						})
-					]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "px-4 py-3 bg-blue-50/50 border-t border-gray-100 flex items-center gap-2",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-5 h-5 rounded-full bg-blue-200 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-full h-3 bg-blue-100 rounded" })]
-				})
-			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-3",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex justify-between items-center pb-2 border-b border-gray-100",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-36 h-4 bg-gray-200 rounded-md" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-14 h-3 bg-gray-100 rounded" })]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "space-y-2.5 pt-1",
-				children: [
-					1,
-					2,
-					3,
-					4
-				].map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex justify-between items-center py-1",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-3 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-16 h-3 bg-gray-200 rounded" })]
-				}, i))
-			})]
-		})]
-	});
-	if (tab === "wifi") return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "px-3 pt-1 pb-24 space-y-3 animate-pulse",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-2",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex items-center gap-3",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-10 h-10 rounded-xl bg-blue-100 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "space-y-1.5 flex-1",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-32 h-4 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-48 h-3 bg-gray-100 rounded" })]
-					})]
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-3",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-36 h-4 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "space-y-2",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-11 bg-gray-100 rounded-xl" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-11 bg-gray-100 rounded-xl" })]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-3",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-40 h-4 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "space-y-2.5",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 bg-gray-100 rounded-xl" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 bg-gray-100 rounded-xl" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 bg-blue-200 rounded-xl" })
-					]
-				})]
-			})
-		]
-	});
-	if (tab === "profil") return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "px-3 pt-1 pb-24 space-y-3 animate-pulse",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-3",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex items-center gap-3 pb-3 border-b border-gray-100",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-12 h-12 rounded-full bg-blue-200 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "space-y-1.5 flex-1",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-32 h-4 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-3 bg-gray-100 rounded" })]
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "space-y-2",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 bg-gray-50 rounded-xl" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 bg-gray-50 rounded-xl" })]
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-3",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-36 h-4 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "space-y-2",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 bg-gray-100 rounded-xl" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 bg-gray-100 rounded-xl" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 bg-blue-200 rounded-xl" })
-				]
-			})]
-		})]
-	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "px-3 pt-1 pb-24 space-y-3 animate-pulse",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-3",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex justify-between items-center pb-2 border-b border-gray-100",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-8 h-8 rounded-lg bg-blue-100" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-28 h-4 bg-gray-200 rounded" })]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-5 bg-emerald-100 rounded-full" })]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "grid grid-cols-2 gap-2 pt-1",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "p-3 rounded-xl bg-gray-50 space-y-1",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-16 h-3 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-5 bg-gray-300 rounded" })]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "p-3 rounded-xl bg-gray-50 space-y-1",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-16 h-3 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-5 bg-gray-300 rounded" })]
-					})]
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-2",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex justify-between items-center",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-4 bg-gray-200 rounded" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-16 h-4 bg-blue-100 rounded" })]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-32 h-8 bg-blue-200 rounded-lg" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-2 bg-gray-100 rounded-full" })
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "grid grid-cols-4 gap-2",
-				children: [
-					1,
-					2,
-					3,
-					4
-				].map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "bg-white rounded-xl p-3 border border-gray-100 flex flex-col items-center gap-1.5 shadow-2xs",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-10 h-10 rounded-xl bg-gray-100" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-12 h-2.5 bg-gray-200 rounded" })]
-				}, i))
-			})
-		]
-	});
-}
-//#endregion
-//#region src/portal/components/legal/PortalLegalPage.jsx
-function PortalLegalPage({ initialTab = "privasi", onBack }) {
-	const [activeTab, setActiveTab] = (0, import_react.useState)(initialTab === "syarat-ketentuan" || initialTab === "syarat" ? "syarat" : "privasi");
-	const handleBack = () => {
-		if (onBack) onBack();
-		else window.location.href = "/portal";
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "fixed inset-0 sm:relative sm:min-h-[100dvh] bg-slate-200/90 p-0 sm:p-4 pb-0 sm:pb-4 flex justify-center items-center text-slate-900 font-sans antialiased overflow-hidden overscroll-none select-none",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "w-full max-w-[440px] mx-auto h-[100dvh] sm:h-[92dvh] bg-[#F1F5F9] relative flex flex-col sm:rounded-2xl sm:shadow-lg sm:shadow-slate-900/5 sm:border sm:border-slate-300/70 overflow-hidden overscroll-none",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "shrink-0 relative z-0 bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700 border-b border-blue-700/60 overflow-hidden",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "absolute inset-0 pointer-events-none overflow-hidden select-none",
-					"aria-hidden": "true",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-							className: "absolute -bottom-2 -left-4 w-96 h-28 text-white/10",
-							viewBox: "0 0 400 120",
-							fill: "none",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-								d: "M-20 60 C 80 15, 180 85, 280 35 C 340 10, 390 60, 440 40",
-								stroke: "currentColor",
-								strokeWidth: "1.8",
-								strokeLinecap: "round"
-							})
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -top-10 right-4 w-36 h-36 bg-blue-300/25 rounded-full blur-2xl pointer-events-none" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-10 left-10 w-28 h-28 bg-indigo-400/15 rounded-full blur-xl pointer-events-none" })
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "relative px-4 sm:px-5 pt-4 pb-20 sm:pb-22 flex items-center justify-between gap-3",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex items-center gap-2.5 min-w-0 flex-1",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							type: "button",
-							onClick: handleBack,
-							"aria-label": "Kembali",
-							className: "w-10 h-10 rounded-xl bg-blue-700/70 hover:bg-blue-700 border border-white/20 flex items-center justify-center text-white transition cursor-pointer shrink-0 active:scale-95",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { className: "w-5 h-5 stroke-[2.2]" })
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "min-w-0 flex-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-								className: "text-sm font-bold tracking-tight text-white leading-tight",
-								children: activeTab === "privasi" ? "Kebijakan Privasi" : "Syarat & Ketentuan"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-xs font-medium text-white/95 mt-0.5 leading-snug break-words",
-								children: "MyTekno Customer Care"
-							})]
-						})]
-					})
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
-				className: "scroll-area -mt-18 flex-1 overflow-y-auto relative z-10 px-3.5 pb-6 space-y-3",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "bg-white rounded-xl shadow-xs border border-slate-200/90 p-1 flex gap-1",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							type: "button",
-							onClick: () => setActiveTab("privasi"),
-							className: `flex-1 py-2 px-3 rounded-lg text-xs font-semibold transition cursor-pointer text-center ${activeTab === "privasi" ? "bg-slate-900 text-white shadow-2xs" : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"}`,
-							children: "Kebijakan Privasi"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-							type: "button",
-							onClick: () => setActiveTab("syarat"),
-							className: `flex-1 py-2 px-3 rounded-lg text-xs font-semibold transition cursor-pointer text-center ${activeTab === "syarat" ? "bg-slate-900 text-white shadow-2xs" : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"}`,
-							children: "Syarat & Ketentuan"
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-						className: "bg-white rounded-xl shadow-xs border border-slate-200/90 p-4 sm:p-5 space-y-4 text-xs text-slate-600 leading-relaxed",
-						children: activeTab === "privasi" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "pb-3 border-b border-slate-100",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "text-xs font-bold text-slate-900 mb-0.5",
-								children: "Transparansi Sensor dan Data Pelanggan"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-[11.5px] text-slate-500 leading-snug",
-								children: "Aplikasi MyTekno hanya meminta izin perangkat yang esensial untuk mendukung operasional layanan sambungan internet rumah Anda."
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "divide-y divide-slate-100 space-y-3 pt-0.5",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-									className: "space-y-1 pt-2.5 first:pt-0",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-											className: "text-xs font-semibold text-slate-900",
-											children: "1. Izin Lokasi Presisi (GPS)"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-											className: "text-[11.5px] text-slate-600 leading-relaxed",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-												className: "text-slate-700",
-												children: "Tujuan:"
-											}), " Memetakan titik fisik rumah pelanggan pada sistem NOC TeknoGuard saat Anda terhubung ke sinyal WiFi rumah pelanggan."]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-[11px] text-slate-500 leading-relaxed",
-											children: "Aplikasi tidak pernah melacak pergerakan lokasi Anda di latar belakang saat aplikasi ditutup. Koordinat hanya dipetakan agar teknisi lapangan cepat sampai saat ada kabel optik putus atau gangguan redaman."
-										})
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-									className: "space-y-1 pt-3",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-											className: "text-xs font-semibold text-slate-900",
-											children: "2. Izin Akses Galeri dan Kamera"
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-											className: "text-[11.5px] text-slate-600 leading-relaxed",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
-												className: "text-slate-700",
-												children: "Tujuan:"
-											}), " Digunakan saat Anda mengambil atau mengganti foto profil akun MyTekno serta melampirkan foto struk bukti pembayaran tagihan."]
-										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-											className: "text-[11px] text-slate-500 leading-relaxed",
-											children: "Aplikasi tidak memindai atau membaca berkas foto pribadi lainnya di memori ponsel Anda."
-										})
-									]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-									className: "space-y-1 pt-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-										className: "text-xs font-semibold text-slate-900",
-										children: "3. Data Transaksi Pembayaran"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-[11.5px] text-slate-600 leading-relaxed",
-										children: "Nomor Virtual Account dan riwayat tagihan diproses menggunakan protokol enkripsi resmi. MyTekno tidak pernah menyimpan nomor kartu kredit atau PIN perbankan pribadi Anda."
-									})]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-									className: "space-y-1 pt-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-										className: "text-xs font-semibold text-slate-900",
-										children: "4. Kepatuhan UU Perlindungan Data Pribadi"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-										className: "text-[11.5px] text-slate-600 leading-relaxed",
-										children: [
-											"Nomor WhatsApp Anda hanya digunakan untuk verifikasi login resmi dan notifikasi operasional internet. Kata sandi dienkripsi dengan standar ",
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { children: "cryptographic hash" }),
-											". Data Anda tidak pernah diperjualbelikan kepada pihak ketiga."
-										]
-									})]
-								})
-							]
-						})] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "pb-3 border-b border-slate-100",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "text-xs font-bold text-slate-900 mb-0.5",
-								children: "Ketentuan Penggunaan Layanan MyTekno"
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-[11.5px] text-slate-500 leading-snug",
-								children: "Ketentuan ini mengatur tata tertib berlangganan internet dan hak kewajiban pelanggan resmi."
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "divide-y divide-slate-100 space-y-3 pt-0.5",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-									className: "space-y-1 pt-2.5 first:pt-0",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-										className: "text-xs font-semibold text-slate-900",
-										children: "Pasal 1: Layanan Sambungan Internet"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-[11.5px] text-slate-600 leading-relaxed",
-										children: "Penyedia layanan menyediakan sambungan internet tanpa batas (unlimited) sesuai paket kecepatan bandwidth yang telah dipilih pada formulir pemasangan awal."
-									})]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-									className: "space-y-1 pt-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-										className: "text-xs font-semibold text-slate-900",
-										children: "Pasal 2: Pemantauan Daya Optik dan Pemeliharaan"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-[11.5px] text-slate-600 leading-relaxed",
-										children: "Sistem EdTeknoGuard memantau daya terima optik modem ONT secara berkala untuk mencegah terjadinya sinyal putus (LOS). Tim teknisi berhak melakukan pengecekan kabel fisik lapangan demi menjaga kualitas koneksi Anda."
-									})]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-									className: "space-y-1 pt-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-										className: "text-xs font-semibold text-slate-900",
-										children: "Pasal 3: Kewajiban Pembayaran Tagihan"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-[11.5px] text-slate-600 leading-relaxed",
-										children: "Pelanggan berkewajiban menyelesaikan pembayaran iuran bulanan selambat-lambatnya pada tanggal jatuh tempo. Keterlambatan pembayaran setelah masa tenggang dapat mengakibatkan isolir sementara hingga tagihan dilunasi."
-									})]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-									className: "space-y-1 pt-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-										className: "text-xs font-semibold text-slate-900",
-										children: "Pasal 4: Tanggung Jawab Perangkat Modem"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-[11.5px] text-slate-600 leading-relaxed",
-										children: "Perangkat modem ONT dan adaptor yang terpasang merupakan aset operasional penyedia layanan. Pelanggan berkewajiban merawat fisik perangkat dan tidak memindahtangankannya tanpa persetujuan resmi kantor cabang."
-									})]
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-									className: "space-y-1 pt-3",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
-										className: "text-xs font-semibold text-slate-900",
-										children: "Pasal 5: Pelaporan Kendala Mandiri"
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-										className: "text-[11.5px] text-slate-600 leading-relaxed",
-										children: "Pelanggan dapat membuat tiket pengaduan secara mandiri melalui aplikasi MyTekno. Tim teknisi piket akan merespons sesuai antrean dan prioritas gangguan di lapangan."
-									})]
-								})
-							]
-						})] })
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "pt-2 pb-2 text-center text-[11px] text-slate-400 font-normal",
-						children: "© 2026 MyTekno • PT Tekno Indo Network"
-					})
-				]
-			})]
-		})
-	});
-}
-//#endregion
 //#region src/utils/webNotification.js
 /**
 * webNotification.js - W3C Web Notifications API Helper
@@ -49863,444 +42235,6 @@ var autoRequestDesktopNotificationPermission = () => {
 	window.addEventListener("pointerdown", handleInteraction, { once: true });
 	window.addEventListener("keydown", handleInteraction, { once: true });
 };
-//#endregion
-//#region src/portal/PortalCustomerApp.jsx
-function PortalCustomerApp() {
-	const [isAuthenticated, setIsAuthenticated] = (0, import_react.useState)(false);
-	const [viewState, setViewState] = (0, import_react.useState)("login");
-	const getPortalTabFromPath = (path) => {
-		const parts = path.replace(/^\/+|\/+$/g, "").toLowerCase().split("/");
-		if (parts.length === 1 && (parts[0] === "mytekno" || parts[0] === "teknocust" || parts[0] === "portal")) {
-			const saved = localStorage.getItem("mytekno_active_tab");
-			if (saved && [
-				"beranda",
-				"kendala",
-				"wifi",
-				"kuota",
-				"profil",
-				"pembayaran",
-				"notifikasi"
-			].includes(saved)) return saved;
-			return "beranda";
-		}
-		if (parts.length >= 2 && (parts[0] === "mytekno" || parts[0] === "teknocust" || parts[0] === "portal")) {
-			const sub = parts[1];
-			if ([
-				"beranda",
-				"kendala",
-				"wifi",
-				"kuota",
-				"profil",
-				"pembayaran",
-				"notifikasi"
-			].includes(sub)) return sub;
-			if ([
-				"kebijakan-privasi",
-				"privasi",
-				"privacy-policy",
-				"syarat-ketentuan",
-				"terms"
-			].includes(sub)) return sub;
-			if ([
-				"login",
-				"masuk",
-				"auth",
-				"daftar"
-			].includes(sub)) return "beranda";
-			return "404_not_found";
-		}
-		return "404_not_found";
-	};
-	const [activeTab, setActiveTab] = (0, import_react.useState)(() => getPortalTabFromPath(window.location.pathname));
-	const [customer, setCustomer] = (0, import_react.useState)(null);
-	const [dashboardData, setDashboardData] = (0, import_react.useState)(null);
-	const [loading, setLoading] = (0, import_react.useState)(true);
-	const [hasUnreadNotifications, setHasUnreadNotifications] = (0, import_react.useState)(false);
-	const [paymentSubTab, setPaymentSubTab] = (0, import_react.useState)("tagihan");
-	(0, import_react.useEffect)(() => {
-		if (isAuthenticated) autoRequestDesktopNotificationPermission();
-	}, [isAuthenticated]);
-	const switchTab = (tab, updateUrl = true) => {
-		setActiveTab(tab);
-		if (tab && tab !== "404_not_found") try {
-			localStorage.setItem("mytekno_active_tab", tab);
-		} catch (_) {}
-		if (updateUrl && tab !== "404_not_found") {
-			const prefix = window.location.pathname.startsWith("/mytekno") ? "/mytekno" : window.location.pathname.startsWith("/portal") ? "/portal" : "/teknocust";
-			const newUrl = tab === "beranda" ? prefix : `${prefix}/${tab}`;
-			if (window.location.pathname !== newUrl) window.history.pushState({}, "", newUrl);
-		}
-		if (tab === "beranda" || tab === "kuota") fetchDashboard();
-	};
-	(0, import_react.useEffect)(() => {
-		const handlePopState = () => {
-			const tab = getPortalTabFromPath(window.location.pathname);
-			setActiveTab(tab);
-			if (tab === "beranda" || tab === "kuota") fetchDashboard();
-		};
-		window.addEventListener("popstate", handlePopState);
-		window.navigateToTab = (tab = "beranda") => {
-			const normalizedTab = String(tab).toLowerCase();
-			if (normalizedTab === "tiket" || normalizedTab === "kendala") switchTab("kendala");
-			else if (normalizedTab === "pembayaran" || normalizedTab === "tagihan" || normalizedTab === "payment") switchTab("pembayaran");
-			else if ([
-				"wifi",
-				"kuota",
-				"profil",
-				"notifikasi",
-				"beranda"
-			].includes(normalizedTab)) switchTab(normalizedTab);
-			else switchTab("beranda");
-		};
-		return () => {
-			window.removeEventListener("popstate", handlePopState);
-			delete window.navigateToTab;
-		};
-	}, []);
-	const fetchSession = async () => {
-		setLoading(true);
-		try {
-			const res = await PortalAuthService.me();
-			if (res.ok && res.data?.authenticated && res.data.customer) {
-				setIsAuthenticated(true);
-				setCustomer(res.data.customer);
-				setViewState("app");
-				fetchDashboard();
-				syncFcmToken(res.data.customer);
-				syncGpsLocation(res.data.customer);
-			} else {
-				setIsAuthenticated(false);
-				setViewState("login");
-			}
-		} catch (e) {
-			setIsAuthenticated(false);
-			setViewState("login");
-		} finally {
-			setLoading(false);
-		}
-	};
-	const syncFcmToken = async (targetCustomer) => {
-		if (!window.AndroidBridge || typeof window.AndroidBridge.getFcmToken !== "function") return;
-		try {
-			const token = window.AndroidBridge.getFcmToken();
-			if (token && token.length > 20) {
-				const syncKey = targetCustomer?.id_pelanggan ? `mytekno_synced_fcm_token_${targetCustomer.id_pelanggan}` : "mytekno_synced_fcm_token";
-				if (sessionStorage.getItem(syncKey) !== token) {
-					const res = await PortalAuthService.registerFcm(token, targetCustomer?.id_pelanggan, targetCustomer?.kantor);
-					if (res.ok && res.data?.ok) sessionStorage.setItem(syncKey, token);
-				}
-			}
-		} catch (_) {}
-	};
-	const syncGpsLocation = (targetCustomer) => {
-		if (!targetCustomer) return;
-		if (!targetCustomer.is_connected_to_home_wifi) return;
-		if (targetCustomer.lokasi_gps && targetCustomer.lokasi_gps.trim() !== "") return;
-		const attemptedKey = `mytekno_gps_sync_${targetCustomer.id_pelanggan}`;
-		if (sessionStorage.getItem(attemptedKey)) return;
-		const performSave = async (lat, lng, acc) => {
-			try {
-				const res = await PortalProfilService.lockGpsLocation(lat, lng, acc);
-				if (res.ok && res.data?.ok) {
-					sessionStorage.setItem(attemptedKey, "true");
-					const newLoc = res.data.lokasi_gps;
-					setCustomer((prev) => ({
-						...prev || {},
-						lokasi_gps: newLoc
-					}));
-				}
-			} catch (err) {
-				console.warn("Gagal mengunci lokasi GPS rumah:", err);
-			}
-		};
-		if (window.AndroidBridge && typeof window.AndroidBridge.getCurrentLocation === "function") try {
-			const locStr = window.AndroidBridge.getCurrentLocation();
-			if (locStr && typeof locStr === "string" && locStr.includes(",")) {
-				const parts = locStr.split(",");
-				const lat = parseFloat(parts[0]);
-				const lng = parseFloat(parts[1]);
-				if (!isNaN(lat) && !isNaN(lng)) {
-					performSave(lat, lng, 10);
-					return;
-				}
-			}
-		} catch (_) {}
-		if (typeof navigator !== "undefined" && "geolocation" in navigator) navigator.geolocation.getCurrentPosition((pos) => {
-			const lat = pos.coords.latitude;
-			const lng = pos.coords.longitude;
-			const acc = pos.coords.accuracy;
-			performSave(lat, lng, acc);
-		}, (err) => {
-			console.warn("Geolocation permission or error:", err.message);
-			sessionStorage.setItem(attemptedKey, "denied");
-		}, {
-			enableHighAccuracy: true,
-			timeout: 1e4,
-			maximumAge: 3e5
-		});
-	};
-	const fetchDashboard = async () => {
-		try {
-			const res = await PortalDashboardService.getDashboard();
-			if (res.ok && res.data?.ok) {
-				setDashboardData(res.data);
-				if (res.data.customer) {
-					setCustomer((prev) => ({
-						...prev || {},
-						...res.data.customer
-					}));
-					syncGpsLocation(res.data.customer);
-				}
-			}
-		} catch (e) {
-			console.error(e);
-		}
-	};
-	const refreshUnreadStatus = () => {
-		const pel = {
-			...customer || {},
-			...dashboardData?.customer || {}
-		};
-		if (!pel || !pel.id_pelanggan) return;
-		Promise.allSettled([PortalKendalaService.list(), PortalPembayaranService.getRiwayat(5)]).then(([ticketRes, paymentRes]) => {
-			const tickets = ticketRes.status === "fulfilled" && ticketRes.value?.ok && ticketRes.value.data?.tickets ? ticketRes.value.data.tickets : [];
-			const payments = paymentRes.status === "fulfilled" && paymentRes.value?.ok && paymentRes.value.data?.invoices ? paymentRes.value.data.invoices : [];
-			const unread = checkHasUnreadNotifications(pel, tickets, payments);
-			setHasUnreadNotifications(unread);
-			const notifyCustomer = (title, message, isEmergency = false, tag = void 0, onClick = void 0) => {
-				if (window.AndroidBridge && typeof window.AndroidBridge.showNativeNotification === "function") try {
-					window.AndroidBridge.showNativeNotification(title, message, isEmergency);
-				} catch (_) {}
-				else showDesktopNotification(title, {
-					body: message,
-					tag: tag || title,
-					icon: "/tekno-indo-logo.png",
-					onClick
-				});
-			};
-			const lastLogConn = dashboardData?.last_log?.status_koneksi?.toUpperCase?.();
-			const alertedLosKey = "mytekno_alerted_los_status";
-			const lastAlertedStatus = sessionStorage.getItem(alertedLosKey);
-			if (lastLogConn === "LOS") {
-				if (lastAlertedStatus !== "LOS") {
-					sessionStorage.setItem(alertedLosKey, "LOS");
-					notifyCustomer("Pemberitahuan Gangguan Jaringan", "Mohon maaf atas ketidaknyamanannya, koneksi internet Anda saat ini terdeteksi mengalami gangguan (LOS). Tim teknisi kami sedang segera menangani kendala ini.", true, "mytekno-los-alert", () => switchTab("beranda"));
-				}
-			} else if (lastLogConn && lastLogConn !== "LOS") {
-				if (lastAlertedStatus === "LOS") {
-					sessionStorage.setItem(alertedLosKey, "NORMAL");
-					notifyCustomer("Koneksi Internet Telah Pulih", "Koneksi internet Anda telah kembali normal dan aktif. Terima kasih atas kesabaran Anda telah menggunakan layanan kami!", false, "mytekno-recovered-alert", () => switchTab("beranda"));
-				} else if (!lastAlertedStatus) sessionStorage.setItem(alertedLosKey, lastLogConn);
-			}
-			const alertedTicketStorageKey = "mytekno_alerted_ticket_status";
-			let lastTicketStatusMap = {};
-			try {
-				const rawMap = localStorage.getItem(alertedTicketStorageKey);
-				if (rawMap) lastTicketStatusMap = JSON.parse(rawMap);
-			} catch (_) {}
-			tickets.forEach((t) => {
-				`${t.id_tiket || t.id}${t.status}`;
-				if (t.id_tiket && lastTicketStatusMap[t.id_tiket] !== t.status) {
-					lastTicketStatusMap[t.id_tiket] = t.status;
-					const labelStatus = t.status === "SELESAI" ? "Laporan kendala WiFi Anda telah selesai ditangani" : t.status === "DIPROSES" ? "Teknisi kami sedang menuju lokasi untuk perbaikan" : `Status laporan Anda: ${t.status}`;
-					notifyCustomer(`Tiket #${t.id_tiket}`, labelStatus, false, `ticket-${t.id_tiket}-${t.status}`, () => switchTab("kendala"));
-				}
-			});
-			try {
-				localStorage.setItem(alertedTicketStorageKey, JSON.stringify(lastTicketStatusMap));
-			} catch (_) {}
-			const billingAlert = pel.billing_reminder;
-			if (billingAlert && billingAlert.id) {
-				const alertedBillingKey = `mytekno_alerted_billing_${billingAlert.id}`;
-				if (!sessionStorage.getItem(alertedBillingKey)) {
-					sessionStorage.setItem(alertedBillingKey, "1");
-					notifyCustomer("Pengingat Tagihan Internet", billingAlert.pesan || "Tagihan internet bulanan Anda telah terbit. Silakan lakukan pembayaran agar layanan tetap aktif.", false, alertedBillingKey, () => switchTab("pembayaran"));
-				}
-			}
-		}).catch(() => {
-			const unread = checkHasUnreadNotifications(pel, [], []);
-			setHasUnreadNotifications(unread);
-		});
-	};
-	(0, import_react.useEffect)(() => {
-		if (isAuthenticated) refreshUnreadStatus();
-	}, [
-		isAuthenticated,
-		customer?.id_pelanggan,
-		customer?.status_pembayaran,
-		customer?.billing_reminder?.id,
-		activeTab,
-		dashboardData
-	]);
-	(0, import_react.useEffect)(() => {
-		const handleNotifUpdate = () => {
-			refreshUnreadStatus();
-		};
-		window.addEventListener("teknocust_notifications_updated", handleNotifUpdate);
-		return () => {
-			window.removeEventListener("teknocust_notifications_updated", handleNotifUpdate);
-		};
-	}, [customer, dashboardData]);
-	(0, import_react.useEffect)(() => {
-		fetchSession();
-	}, []);
-	(0, import_react.useEffect)(() => {
-		if (!isAuthenticated || viewState !== "app") return;
-		const interval = setInterval(() => {
-			fetchDashboard();
-		}, 15e3);
-		return () => clearInterval(interval);
-	}, [isAuthenticated, viewState]);
-	const handleLoginSuccess = (custData) => {
-		setIsAuthenticated(true);
-		setCustomer(custData);
-		setViewState("app");
-		switchTab("beranda");
-		fetchSession();
-		fetchDashboard();
-		syncFcmToken(custData);
-	};
-	const handleLogout = async () => {
-		let fcmToken = null;
-		const platform = typeof window !== "undefined" && window.AndroidBridge ? "APP" : "WEB";
-		if (typeof window !== "undefined" && window.AndroidBridge && typeof window.AndroidBridge.getFcmToken === "function") try {
-			fcmToken = window.AndroidBridge.getFcmToken() || null;
-		} catch (_) {}
-		try {
-			await PortalAuthService.logout(fcmToken, platform);
-		} catch (e) {
-			console.error(e);
-		} finally {
-			try {
-				Object.keys(sessionStorage).forEach((k) => {
-					if (k.startsWith("mytekno_synced_fcm_token")) sessionStorage.removeItem(k);
-				});
-			} catch (_) {}
-			setIsAuthenticated(false);
-			setCustomer(null);
-			setViewState("login");
-			window.history.pushState({}, "", "/portal");
-			setActiveTab("beranda");
-		}
-	};
-	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "min-h-screen bg-[#f3f4f6] flex items-center justify-center",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalSemanticSkeleton, { tab: "app" })
-	});
-	if ([
-		"kebijakan-privasi",
-		"privasi",
-		"privacy-policy",
-		"syarat-ketentuan",
-		"terms"
-	].includes(activeTab)) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalLegalPage, {
-		initialTab: activeTab,
-		onBack: () => {
-			if (isAuthenticated) switchTab("profil");
-			else {
-				setViewState("login");
-				window.history.pushState({}, "", "/portal");
-				setActiveTab("beranda");
-			}
-		}
-	});
-	if (viewState === "reset") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalResetPasswordView, { onBackToLogin: () => setViewState("login") });
-	if (!isAuthenticated || viewState === "login") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalLoginView, {
-		onLoginSuccess: handleLoginSuccess,
-		onGoToReset: () => setViewState("reset")
-	});
-	if (![
-		"beranda",
-		"kendala",
-		"wifi",
-		"kuota",
-		"profil",
-		"pembayaran",
-		"notifikasi"
-	].includes(activeTab)) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "min-h-screen bg-gradient-to-br from-[#ecfeff] via-[#f0f9ff] to-[#e0f2fe] flex flex-col justify-between p-4 text-slate-900 font-sans antialiased",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "flex-1 flex items-center justify-center",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalErrorView, {
-				errorCode: 404,
-				title: "Halaman MyTekno Tidak Ditemukan",
-				description: `Menu atau rute "${window.location.pathname}" tidak tersedia pada portal mandiri pelanggan.`,
-				primaryActionLabel: "Beranda",
-				onBackToHome: () => switchTab("beranda")
-			})
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "py-4 text-center text-[11px] text-slate-500 font-mono",
-			children: "© 2026 MyTekno - Layanan Mandiri Pelanggan Internet"
-		})]
-	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "fixed inset-0 sm:relative sm:min-h-[100dvh] bg-slate-200/90 p-0 sm:p-4 pb-0 sm:pb-4 flex justify-center items-center text-slate-900 font-sans antialiased overflow-hidden overscroll-none select-none",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "w-full max-w-[440px] mx-auto h-[100dvh] sm:h-[92dvh] bg-[#F1F5F9] relative flex flex-col sm:rounded-2xl sm:shadow-lg sm:shadow-slate-900/5 sm:border sm:border-slate-300/70 overflow-hidden overscroll-none",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "flex-1 flex flex-col min-h-0 relative overflow-hidden",
-				children: [
-					activeTab === "beranda" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalDashboardTab, {
-						data: dashboardData,
-						hasUnreadNotifications,
-						onNavigate: (tab) => switchTab(tab),
-						onOpenNotifications: () => switchTab("notifikasi")
-					}),
-					activeTab === "kendala" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalTicketsTab, {
-						customer,
-						dashboardData,
-						hasUnreadNotifications,
-						onOpenNotifications: () => switchTab("notifikasi")
-					}),
-					activeTab === "wifi" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalWifiTab, {
-						customer,
-						dashboardData,
-						hasUnreadNotifications,
-						onOpenNotifications: () => switchTab("notifikasi")
-					}),
-					activeTab === "kuota" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalQuotaTab, {
-						customer,
-						dashboardData,
-						hasUnreadNotifications,
-						onOpenNotifications: () => switchTab("notifikasi")
-					}),
-					activeTab === "profil" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalProfileTab, {
-						customer,
-						dashboardData,
-						hasUnreadNotifications,
-						onNavigate: (tab) => switchTab(tab),
-						onCustomerUpdate: (updated) => setCustomer((prev) => ({
-							...prev,
-							...updated
-						})),
-						onLogout: handleLogout,
-						onOpenNotifications: () => switchTab("notifikasi")
-					}),
-					activeTab === "pembayaran" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalPaymentTab, {
-						customer,
-						dashboardData,
-						hasUnreadNotifications,
-						initialSubTab: paymentSubTab,
-						onBack: () => switchTab("beranda"),
-						onOpenNotifications: () => switchTab("notifikasi")
-					}),
-					activeTab === "notifikasi" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalNotificationsPage, {
-						customer,
-						dashboardData,
-						onBack: () => switchTab("beranda"),
-						onNavigate: (tab, subTab) => {
-							if (subTab) setPaymentSubTab(subTab);
-							switchTab(tab);
-						}
-					})
-				]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalBottomNav, {
-				activeTab,
-				onTabChange: (tab) => switchTab(tab)
-			})]
-		})
-	});
-}
 //#endregion
 //#region src/App.jsx
 function getTabFromPath(path) {
@@ -51087,7 +43021,6 @@ function App() {
 		window.addEventListener("popstate", handlePopState);
 		return () => window.removeEventListener("popstate", handlePopState);
 	}, []);
-	if (activeTab === "portal" || window.location.pathname.startsWith("/portal") || window.location.pathname.startsWith("/mytekno") || window.location.pathname.startsWith("/teknocust")) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalCustomerApp, {});
 	if (!isAuthenticated) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoginView, { onLoginSuccess: (userData) => {
 		setIsAuthenticated(true);
 		if (userData) setCurrentUser(userData);

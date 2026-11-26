@@ -19,7 +19,6 @@ from app.core.config import settings
 from app.services.scheduler_service import scheduler
 # Gerbang Rute Resmi routes/ (Laravel Style Routing)
 from routes.api import register_api_routes
-from routes.portal import register_portal_routes
 
 logging.basicConfig(
     level=logging.INFO,
@@ -259,9 +258,6 @@ def serve_noc_spa_pages(request: Request):
             }
         )
     return RedirectResponse("/", status_code=303)
-
-# Mount Portal Pelanggan via Gerbang Rute routes/portal.py
-register_portal_routes(app)
 
 @app.get("/api/pengguna/list")
 @app.get("/api/users/list")
