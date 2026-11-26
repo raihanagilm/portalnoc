@@ -3,9 +3,11 @@
 Dokumen ini mendefinisikan **arsitektur ekosistem 3-repo komersial**, struktur direktori modular, dan skema database untuk aplikasi **PortalNOC (TeknoGuard)**.
 
 ## 0. Ekosistem 3-Repo & Multi-Tenant Control Plane
-- **`portalnoc`** (Data Plane Admin NOC): Berjalan di jaringan/VPS masing-masing ISP, menggunakan `driver_registry.py` untuk beradaptasi dengan merek modem ISP yang berbeda-beda.
-- **`portalpelanggan`** (Data Plane MyTekno): Portal pelanggan mandiri yang terpisah penuh secara deployment.
-- **`portalvendor`** (Vendor Control Plane): Mengontrol status langganan, fitur ON/OFF (signed policy), dan tema warna secara terpusat dari sisi Vendor, sementara Admin ISP lokal hanya diperbolehkan mengganti **Logo & Nama Brand**.
+- **Kontrak & Sinkronisasi Resmi:** Lihat [ECOSYSTEM_SYNC.md](../ECOSYSTEM_SYNC.md) (Master Source: `portalvendor/ECOSYSTEM_SYNC.md`, `Contract Version: v1.1`).
+- **`portalnoc`** (Data Plane Admin NOC, port `:7890` / `:7891`): Berjalan di jaringan/VPS masing-masing ISP, menggunakan `driver_registry.py` untuk beradaptasi dengan merek modem ISP yang berbeda-beda.
+- **`portalpelanggan`** (Data Plane MyTekno, port `:8001` / `:7891`): Portal pelanggan mandiri yang terpisah penuh secara deployment.
+- **`portalvendor`** (Vendor Control Plane, port `:9000` / `:5175`): Mengontrol status langganan, fitur ON/OFF (signed policy `Ed25519`), dan tema warna secara terpusat dari sisi Vendor, serta menyimpan catatan maintenance deployment (Repo/VPS/SSH/Folder), sementara Admin ISP lokal hanya diperbolehkan mengganti **Logo & Nama Brand**.
+- **Catatan Refaktor Fitur Statik (Tahap 2):** Saat ini router pada `routes/api.py` dan tab navigasi pada `frontend/src/components/layout/Navigation.jsx` (`menuSections`) serta `frontend/src/App.jsx` masih statik. Pada Tahap 2, modul-modul tersebut akan dibungkus `FeatureGuard` (`app/core/feature_guard.py`) dan membaca konfigurasi `/api/config/branding`.
 
 > 🔗 **Tautan Dokumen Terkait:**
 > - 📋 [Alur Kerja Sistem & Logika Bisnis (prd.md)](prd.md) — Alur monitoring 5 menit, manual check, dan alerting.

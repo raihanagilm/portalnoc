@@ -9,11 +9,13 @@ This repository operates as a **standalone Admin NOC Data Plane** inside a 3-rep
 - **`portalvendor`** (`https://github.com/raihanagilm/portalvendor`): Vendor Control Plane managing multi-tenant ISP licensing, feature flags (ON/OFF), subscription status, and theme policies.
 
 ### Multi-Tenant Commercial Guardrails (PortalVendor Integration)
-- **Feature Flags & Theme Policy:** Controlled exclusively by Vendor via `portalvendor` (signed policy). Never allow ISP Admin users to self-enable paid modules.
+- **Master Contract Sync:** Acuan kontrak ekosistem 3-repo tercatat di [ECOSYSTEM_SYNC.md](ECOSYSTEM_SYNC.md) (Master Source: `portalvendor/ECOSYSTEM_SYNC.md`, `portalvendor` berjalan di port `:9000` / `:5175`). Setiap perubahan kontrak lintas-repo wajib memperbarui `ECOSYSTEM_SYNC.md` dan `PROGRESS.md` di ketiga repositori pada sesi yang sama.
+- **Feature Flags & Theme Policy:** Controlled exclusively by Vendor via `portalvendor` (signed policy `Ed25519`). Never allow ISP Admin users to self-enable paid modules.
 - **Logo Customization:** ISP Admins may only customize their local **brand logo & display name**.
 - **Modem Differences per ISP:** Extend/select drivers in `app/services/scraper/driver_registry.py` rather than duplicating the entire backend codebase when onboarding ISPs with different ONT models.
 
 For full technical and operational guides, see:
+- [Ecosystem 3-Repo Contract & Sync](ECOSYSTEM_SYNC.md)
 - [Architecture & Design](docs/architecture.md)
 - [Operational Guide & SOP](docs/operations_guide.md)
 - [Quality Document](docs/quality-document.md)

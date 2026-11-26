@@ -29,6 +29,7 @@
 ## 📑 Navigasi Dokumen & Standar Proyek
 
 Dokumentasi proyek tersimpan terstruktur di direktori `docs/`:
+- 🔗 [Kontrak & Sinkronisasi 3-Repo (ECOSYSTEM_SYNC.md)](ECOSYSTEM_SYNC.md): Peta port, *feature keys*, dan checklist refaktor Tahap 2.
 - 🤖 [Pedoman AI Agent (AGENTS.md)](AGENTS.md) — Arsitektur sistem, SOP redaman, dan instruksi wajib AI Agent.
 - 📜 [Riwayat Perubahan & Changelog (CHANGELOG.md)](CHANGELOG.md) — Acuan riwayat perubahan sistem (*regression shield*).
 - 📐 [Design System Pro — Rulebook UI/UX (docs/designsystempro.md)](docs/designsystempro.md) — Single Source of Truth antarmuka, tata letak, dan interaktivitas UI/UX.

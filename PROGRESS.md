@@ -89,9 +89,11 @@
 ## Next Steps
 - [x] Pisahkan `portalnoc` menjadi repo Admin NOC mandiri tanpa `app.portal` & `frontend/src/portal` (`edd353d`)
 - [x] Dokumentasikan arsitektur 3-repo (`portalnoc`, `portalpelanggan`, `portalvendor`) & konsep Control Plane vs Data Plane
-- [ ] Implementasikan `FeatureGuard` backend & dynamic config loader dari `portalvendor` (signed policy)
-- [ ] Implementasikan fitur upload & ganti **Logo + Nama Brand** lokal untuk Admin ISP di `portalnoc`
-- [ ] Verifikasi integrasi end-to-end dengan `portalvendor` dan MySQL lokal menyala
+- [x] Sinkronkan Master Contract 3-repo di [ECOSYSTEM_SYNC.md](ECOSYSTEM_SYNC.md) (`portalvendor` port `:9000/:5175`, Tahap 1 sebelum Tahap 2)
+- [ ] **Tahap 2 (Refaktor Fitur Statik -> Dinamis):** Buat `app/core/feature_guard.py` untuk verifikasi `Ed25519` signed policy dari `portalvendor` (`monitoring_ont`, `mikrotik_sync`, `billing_overview`, `quota_fup`, `tickets`, `multi_office`, `customer_logs`, `push_notifications`)
+- [ ] **Tahap 2 (Backend Guard):** Pasang `Depends(require_feature(...))` pada modul di [routes/api.py](routes/api.py) & tambahkan endpoint `GET /api/config/branding`
+- [ ] **Tahap 2 (Frontend Dinamis & Logo Lokal):** Refaktor menu statik di [Navigation.jsx](frontend/src/components/layout/Navigation.jsx) (`menuSections`, hardcoded `TeknoGuard`, `/tekno-indo-logo.png`, `#0B2545`) dan [App.jsx](frontend/src/App.jsx) + fitur upload **Logo & Nama Brand** lokal di modul `settings`
+- [ ] **Tahap 3 (E2E):** Verifikasi integrasi end-to-end dengan `portalvendor` (`:9000/:5175`) dan MySQL lokal menyala tanpa menyentuh web live `portal.teknoindo.net`
 
 ## Blockers
 - None
