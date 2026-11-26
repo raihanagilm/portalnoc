@@ -44,16 +44,6 @@ import {
 // URL Path to Module Tab Mapping Helper (Tersedia secara global di atas komponen App)
 function getTabFromPath(path) {
   const clean = (path || '').replace(/^\/+|\/+$/g, '').toLowerCase()
-  if (
-    clean === 'portal' ||
-    clean.startsWith('portal/') ||
-    clean === 'mytekno' ||
-    clean.startsWith('mytekno/') ||
-    clean === 'teknocust' ||
-    clean.startsWith('teknocust/')
-  ) {
-    return 'portal'
-  }
   if (!clean || clean === 'teknoguard' || clean === 'dashboard' || clean === 'beranda') return 'beranda'
   if (clean === 'login') return 'login'
   if (clean === 'logs' || clean === 'riwayat') return 'riwayat'
@@ -74,7 +64,6 @@ function getTabFromPath(path) {
 function getPathFromTab(tab) {
   switch (tab) {
     case 'beranda': return '/'
-    case 'portal': return '/portal'
     case 'riwayat': return '/riwayat'
     case 'kuota': return '/kuota'
     case 'pelanggan': return '/pelanggan'
@@ -573,7 +562,7 @@ export default function App() {
 
   useEffect(() => {
     // Jangan lakukan polling background jika pengguna belum login atau sudah logout
-    if (!isAuthenticated || activeTab === 'login' || activeTab === 'portal') {
+    if (!isAuthenticated || activeTab === 'login') {
       return
     }
 
@@ -953,10 +942,6 @@ export default function App() {
 
   // Check backend session & sync browser URL on initial load and popstate
   useEffect(() => {
-    const isPortalRoute =
-      window.location.pathname.startsWith('/portal') ||
-      window.location.pathname.startsWith('/teknocust')
-
     const syncFromLocation = (authOverride = null) => {
       const auth = authOverride !== null ? authOverride : isAuthenticated
       const currentPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase()
@@ -1003,14 +988,6 @@ export default function App() {
       setActiveTab(initialTab === 'login' && auth ? 'beranda' : initialTab)
     }
 
-    // Jika sedang di rute /portal atau /teknocust, jangan redirect ke /login admin NOC
-    if (isPortalRoute) {
-      syncFromLocation()
-      const handlePopState = () => syncFromLocation()
-      window.addEventListener('popstate', handlePopState)
-      return () => window.removeEventListener('popstate', handlePopState)
-    }
-
     const checkAuthStatus = async () => {
       // Validasi inaktivitas 30 hari (30 * 24 * 60 * 60 * 1000 ms = 2.592.000.000 ms)
       const lastActiveStr = localStorage.getItem('edtekno_last_active_time')
@@ -1024,11 +1001,7 @@ export default function App() {
           localStorage.removeItem('edtekno_last_active_time')
           document.cookie = "edteknoguard_session=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT"
           setIsAuthenticated(false)
-          if (
-            window.location.pathname !== '/login' &&
-            !window.location.pathname.startsWith('/portal') &&
-            !window.location.pathname.startsWith('/teknocust')
-          ) {
+          if (window.location.pathname !== '/login') {
             window.history.pushState({}, '', '/login')
           }
           return
@@ -1049,11 +1022,7 @@ export default function App() {
           setIsAuthenticated(false)
           localStorage.removeItem('edtekno_auth_status')
           localStorage.removeItem('edtekno_last_active_time')
-          if (
-            window.location.pathname !== '/login' &&
-            !window.location.pathname.startsWith('/portal') &&
-            !window.location.pathname.startsWith('/teknocust')
-          ) {
+          if (window.location.pathname !== '/login') {
             window.history.pushState({}, '', '/login')
           }
         }

@@ -97,20 +97,8 @@ async def inject_current_user_middleware(request: Request, call_next):
         request.state.allowed_kantor = get_user_allowed_kantor(current_user)
         request.state.active_kantor = get_active_kantor(request, current_user)
     else:
-        # Periksa apakah ada sesi portal pelanggan (TeknoCust)
-        cust_kantor = None
-        cust_cookie = request.cookies.get("edtekno_pelanggan_session")
-        if cust_cookie:
-            try:
-                from app.portal.core.security import verify_customer_session_token
-                c_data = verify_customer_session_token(cust_cookie)
-                if c_data and c_data.get("kantor"):
-                    cust_kantor = c_data.get("kantor")
-            except Exception:
-                pass
-
         request.state.allowed_kantor = []
-        request.state.active_kantor = cust_kantor
+        request.state.active_kantor = None
     response = await call_next(request)
 
     # Aturan Sesi Inaktivitas 30 Hari:
@@ -122,7 +110,6 @@ async def inject_current_user_middleware(request: Request, call_next):
         or path_lower.endswith("/login")
         or request.url.path.startswith("/static")
         or "/static" in path_lower
-        or request.url.path.startswith("/portal")
     )
 
     if current_user and request.method == "GET" and not is_auth_or_static:

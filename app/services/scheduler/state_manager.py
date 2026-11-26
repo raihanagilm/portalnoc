@@ -182,7 +182,29 @@ class SchedulerStateManager:
     @classmethod
     def cleanup_customer_activity_logs(cls, days: int = 60) -> int:
         """Menghapus log_aktivitas_pelanggan yang berusia lebih dari X hari (60 hari) di seluruh tenant DB"""
-        from app.portal.services.customer_activity_service import CustomerActivityService
-        return CustomerActivityService.cleanup_old_logs(days=days)
+        from app.db.models import LogAktivitasPelanggan
+        total_deleted = 0
+        cutoff = get_now_wib() - timedelta(days=days)
+        master_db = TenantDatabaseManager.get_tenant_session(None)
+        try:
+            kantors = master_db.query(Kantor).filter(Kantor.is_active == True).all()
+            for k in kantors:
+                try:
+                    t_db = TenantDatabaseManager.get_tenant_session(k.kode)
+                    try:
+                        deleted = t_db.query(LogAktivitasPelanggan).filter(
+                            LogAktivitasPelanggan.created_at < cutoff
+                        ).delete(synchronize_session=False)
+                        t_db.commit()
+                        if deleted > 0:
+                            total_deleted += deleted
+                            logger.info(f"[CLEANUP] Berhasil menghapus {deleted} log aktivitas pelanggan (> {days} hari) di kantor {k.nama}.")
+                    finally:
+                        t_db.close()
+                except Exception as e:
+                    logger.error(f"[CLEANUP] Gagal membersihkan log aktivitas pelanggan kantor {k.nama}: {e}")
+        finally:
+            master_db.close()
+        return total_deleted
 
 

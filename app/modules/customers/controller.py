@@ -637,7 +637,7 @@ class CustomerController:
     def get_customer_billing(db: Session, id_pelanggan: str) -> Dict[str, Any]:
         """Ambil data tagihan live & nomor VA dari Network Bill API v1 (api-v1.md)"""
         from app.db.models import Pelanggan
-        from app.portal.modules.payment.service import PaymentService
+        from app.modules.billing.payment_reader import NetworkBillPaymentReader as PaymentService
 
         cust = db.query(Pelanggan).filter(Pelanggan.id_pelanggan == id_pelanggan).first()
         if not cust:

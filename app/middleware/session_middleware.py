@@ -27,7 +27,6 @@ class SlidingSessionMiddleware(BaseHTTPMiddleware):
             or path_lower.endswith("/login")
             or request.url.path.startswith("/static")
             or "/static" in path_lower
-            or request.url.path.startswith("/portal")
         )
 
         if current_user and request.method == "GET" and not is_auth_or_static:

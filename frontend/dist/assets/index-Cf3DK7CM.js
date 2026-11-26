@@ -42239,7 +42239,6 @@ var autoRequestDesktopNotificationPermission = () => {
 //#region src/App.jsx
 function getTabFromPath(path) {
 	const clean = (path || "").replace(/^\/+|\/+$/g, "").toLowerCase();
-	if (clean === "portal" || clean.startsWith("portal/") || clean === "mytekno" || clean.startsWith("mytekno/") || clean === "teknocust" || clean.startsWith("teknocust/")) return "portal";
 	if (!clean || clean === "teknoguard" || clean === "dashboard" || clean === "beranda") return "beranda";
 	if (clean === "login") return "login";
 	if (clean === "logs" || clean === "riwayat") return "riwayat";
@@ -42258,7 +42257,6 @@ function getTabFromPath(path) {
 function getPathFromTab(tab) {
 	switch (tab) {
 		case "beranda": return "/";
-		case "portal": return "/portal";
 		case "riwayat": return "/riwayat";
 		case "kuota": return "/kuota";
 		case "pelanggan": return "/pelanggan";
@@ -42654,7 +42652,7 @@ function App() {
 		}
 	};
 	(0, import_react.useEffect)(() => {
-		if (!isAuthenticated || activeTab === "login" || activeTab === "portal") return;
+		if (!isAuthenticated || activeTab === "login") return;
 		fetchLiveDashboardData();
 		const interval = setInterval(fetchLiveDashboardData, 5e3);
 		return () => clearInterval(interval);
@@ -42942,7 +42940,6 @@ function App() {
 		}
 	};
 	(0, import_react.useEffect)(() => {
-		const isPortalRoute = window.location.pathname.startsWith("/portal") || window.location.pathname.startsWith("/teknocust");
 		const syncFromLocation = (authOverride = null) => {
 			const auth = authOverride !== null ? authOverride : isAuthenticated;
 			const currentPath = window.location.pathname.replace(/^\/+|\/+$/g, "").toLowerCase();
@@ -42975,12 +42972,6 @@ function App() {
 			const initialTab = getTabFromPath(window.location.pathname);
 			setActiveTab(initialTab === "login" && auth ? "beranda" : initialTab);
 		};
-		if (isPortalRoute) {
-			syncFromLocation();
-			const handlePopState = () => syncFromLocation();
-			window.addEventListener("popstate", handlePopState);
-			return () => window.removeEventListener("popstate", handlePopState);
-		}
 		const checkAuthStatus = async () => {
 			const lastActiveStr = localStorage.getItem("edtekno_last_active_time");
 			if (lastActiveStr) {
@@ -42990,7 +42981,7 @@ function App() {
 					localStorage.removeItem("edtekno_last_active_time");
 					document.cookie = "edteknoguard_session=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 					setIsAuthenticated(false);
-					if (window.location.pathname !== "/login" && !window.location.pathname.startsWith("/portal") && !window.location.pathname.startsWith("/teknocust")) window.history.pushState({}, "", "/login");
+					if (window.location.pathname !== "/login") window.history.pushState({}, "", "/login");
 					return;
 				}
 			}
@@ -43007,7 +42998,7 @@ function App() {
 					setIsAuthenticated(false);
 					localStorage.removeItem("edtekno_auth_status");
 					localStorage.removeItem("edtekno_last_active_time");
-					if (window.location.pathname !== "/login" && !window.location.pathname.startsWith("/portal") && !window.location.pathname.startsWith("/teknocust")) window.history.pushState({}, "", "/login");
+					if (window.location.pathname !== "/login") window.history.pushState({}, "", "/login");
 				}
 			} catch (err) {
 				setIsAuthenticated(false);

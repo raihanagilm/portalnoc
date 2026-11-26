@@ -1,6 +1,4 @@
 import unittest
-from starlette.testclient import TestClient
-from app.main import app
 from app.core.account_lockout import account_lockout_manager, AccountLockoutManager
 
 
@@ -94,39 +92,3 @@ class TestAccountLockout(unittest.TestCase):
         self.assertTrue(account_lockout_manager.is_locked(phone)[0])
         account_lockout_manager.unlock(phone)
         self.assertFalse(account_lockout_manager.is_locked(phone)[0])
-
-    def test_portal_login_api_lockout_response(self):
-        """Memastikan API /portal/api/auth/login merespons dengan status terkunci dan pesan informatif."""
-        client = TestClient(app)
-        target_phone = "089876543210"
-
-        # Kirim 5x login gagal dengan password salah
-        for i in range(4):
-            client.post(
-                "/portal/api/auth/login",
-                json={"identifier": target_phone, "password": "wrongpassword123"},
-                headers={"X-Forwarded-For": f"10.0.0.{i+1}"}
-            )
-
-        # Percobaan ke-5
-        res5 = client.post(
-            "/portal/api/auth/login",
-            json={"identifier": target_phone, "password": "wrongpassword123"},
-            headers={"X-Forwarded-For": "10.0.0.5"}
-        )
-        self.assertEqual(res5.status_code, 423)
-        data5 = res5.json()
-        self.assertFalse(data5.get("ok"))
-        self.assertTrue(data5.get("locked"))
-        self.assertIn("dikunci sementara", data5.get("message", ""))
-
-        # Percobaan ke-6 (sudah dalam status terkunci dari IP berbeda)
-        res6 = client.post(
-            "/portal/api/auth/login",
-            json={"identifier": target_phone, "password": "anypassword"},
-            headers={"X-Forwarded-For": "10.0.0.99"}
-        )
-        self.assertEqual(res6.status_code, 423)
-        data6 = res6.json()
-        self.assertTrue(data6.get("locked"))
-        self.assertIn("terkunci sementara", data6.get("message", ""))

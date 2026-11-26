@@ -10,10 +10,6 @@ from sqlalchemy.orm import Session
 from app.core.timezone import get_now_wib
 from app.db.models import Pelanggan, PerangkatONT, AlertLog
 from app.services.network_bill_service import NetworkBillService
-try:
-    from app.portal.modules.payment.service import PaymentService
-except ImportError:
-    PaymentService = None
 from app.services.fcm_service import send_push_notification
 
 logger = logging.getLogger("billing_service")
