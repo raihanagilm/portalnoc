@@ -1,0 +1,875 @@
+import React, { useState, useEffect, useRef, useCallback } from 'react'
+import {
+  Activity,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  TrendingUp,
+  ArrowUpCircle,
+  ArrowDownCircle,
+  BarChart2,
+  ZoomIn,
+  ZoomOut,
+  RotateCcw
+} from 'lucide-react'
+import Chart from 'chart.js/auto'
+import { MonitoringService } from '../../services/api'
+import { TICK_DBM_LIST, transformDbm, inverseTransformDbm } from './dashboardUtils'
+
+export function DashboardChartSection({
+  activeOffice,
+  kpi,
+  isScanning = false,
+  lastScanTime = '-'
+}) {
+  const getLocalDateStr = (d = new Date()) => {
+    const year = d.getFullYear()
+    const month = String(d.getMonth() + 1).padStart(2, '0')
+    const day = String(d.getDate()).padStart(2, '0')
+    return [year, month, day].join('-')
+  }
+
+  const todayStr = getLocalDateStr(new Date())
+  const getYesterdayStr = () => {
+    const d = new Date()
+    d.setDate(d.getDate() - 1)
+    return getLocalDateStr(d)
+  }
+  const yesterdayStr = getYesterdayStr()
+
+  // State Grafik & Filter
+  const [chartRange, setChartRange] = useState('today')
+  const [selectedDate, setSelectedDate] = useState(todayStr)
+  const [availableDates, setAvailableDates] = useState([])
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false)
+  const [calendarViewMonth, setCalendarViewMonth] = useState(() => new Date())
+  const [chartStats, setChartStats] = useState({
+    avg_dbm: null,
+    min_dbm: null,
+    max_dbm: null,
+    total_points: 0,
+    threshold: -26.0,
+    critical_threshold: -27.0
+  })
+  const [activeDatasets, setActiveDatasets] = useState([])
+  const [zoomScale, setZoomScale] = useState(1.0)
+  const calendarRef = useRef(null)
+  const chartCanvasRef = useRef(null)
+  const chartInstanceRef = useRef(null)
+
+  // Cek ketersediaan data historis untuk kemarin dan rentang 7 hari
+  const hasYesterdayData = availableDates.includes(yesterdayStr)
+  const hasWeekData = availableDates.some((d) => {
+    if (d === todayStr) return false
+    const dObj = new Date(d)
+    const tObj = new Date(todayStr)
+    const diffDays = Math.round((tObj - dObj) / (1000 * 60 * 60 * 24))
+    return diffDays >= 1 && diffDays <= 7
+  })
+
+  // Close calendar popover on click outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (calendarRef.current && !calendarRef.current.contains(e.target)) {
+        setIsCalendarOpen(false)
+      }
+    }
+    if (isCalendarOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isCalendarOpen])
+
+  // Load available dates on office change
+  useEffect(() => {
+    const fetchDates = async () => {
+      try {
+        const res = await MonitoringService.getAvailableDates({ kantor: activeOffice })
+        if (res.ok && res.data) {
+          setAvailableDates(res.data.available_dates || res.data.dates || [])
+        }
+      } catch (err) {
+        console.error('Gagal memuat log dates:', err)
+      }
+    }
+    fetchDates()
+  }, [activeOffice])
+
+  const formatDisplayDate = (dateStr) => {
+    if (!dateStr) return 'Pilih Tanggal'
+    const parts = dateStr.split('-')
+    if (parts.length !== 3) return dateStr
+    const [y, m, d] = parts
+    const shortYear = y.length === 4 ? y.slice(-2) : y
+    return `${d}/${m}/${shortYear}`
+  }
+
+  const formatMonthYear = (d) => {
+    const months = [
+      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ]
+    return `${months[d.getMonth()]} ${d.getFullYear()}`
+  }
+const renderCalendarDays = () => {
+    const year = calendarViewMonth.getFullYear()
+    const month = calendarViewMonth.getMonth()
+
+    // 0 = Senin, 6 = Minggu
+    const firstDayIndex = (new Date(year, month, 1).getDay() + 6) % 7
+    const daysInMonth = new Date(year, month + 1, 0).getDate()
+
+    const cells = []
+
+    // Padding hari kosong sebelum tanggal 1
+    for (let i = 0; i < firstDayIndex; i++) {
+      cells.push(<div key={`empty-${i}`} className="h-7 w-7" />)
+    }
+
+    const availableSet = new Set(availableDates)
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const dayStr = String(d).padStart(2, '0')
+      const monthStr = String(month + 1).padStart(2, '0')
+      const dateKey = `${year}-${monthStr}-${dayStr}`
+
+      const hasData = availableSet.has(dateKey)
+      const isSelected = selectedDate === dateKey && chartRange === 'custom'
+      const isToday = dateKey === todayStr
+
+      if (hasData) {
+        cells.push(
+          <button
+            key={dateKey}
+            type="button"
+            onClick={() => {
+              setSelectedDate(dateKey)
+              setChartRange('custom')
+              setIsCalendarOpen(false)
+            }}
+            className={`h-7 w-7 rounded-lg text-[11px] font-bold flex flex-col items-center justify-center relative transition select-none cursor-pointer ${
+              isSelected
+                ? 'bg-cyan-700 text-white font-extrabold shadow-xs'
+                : 'text-slate-800 hover:bg-sky-100 hover:text-cyan-900'
+            } ${isToday && !isSelected ? 'ring-1 ring-cyan-500' : ''}`}
+            title={`Pilih tanggal ${dateKey} (Tersedia di database)`}
+          >
+            <span className="leading-none">{d}</span>
+            <span
+              className={`w-1 h-1 rounded-full mt-0.5 ${
+                isSelected ? 'bg-white' : 'bg-cyan-600'
+              }`}
+            />
+          </button>
+        )
+      } else {
+        cells.push(
+          <div
+            key={dateKey}
+            className="h-7 w-7 rounded-lg text-[11px] text-slate-300 flex items-center justify-center cursor-not-allowed select-none opacity-30"
+            title="Tidak ada data log pada tanggal ini"
+          >
+            <span className="leading-none">{d}</span>
+          </div>
+        )
+      }
+    }
+
+    return cells
+  }
+
+  // Helper Pembuat Gradien Modern (Modern Cyber Blue & Amber Glow ala Dribbble)
+  const createCyanBlueGradient = (ctx, chartArea) => {
+    if (!ctx || !chartArea) return 'rgba(2, 106, 167, 0.15)'
+    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom)
+    gradient.addColorStop(0, 'rgba(0, 242, 254, 0.40)') // Electric Neon Cyan di puncak
+    gradient.addColorStop(0.45, 'rgba(2, 106, 167, 0.22)') // Deep Ocean Blue di tengah
+    gradient.addColorStop(1, 'rgba(11, 37, 69, 0.02)') // Fading to transparent di dasar
+    return gradient
+  }
+
+  const createAmberGradient = (ctx, chartArea) => {
+    if (!ctx || !chartArea) return 'rgba(245, 158, 11, 0.15)'
+    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom)
+    gradient.addColorStop(0, 'rgba(245, 158, 11, 0.38)') // Warm Amber Glow di puncak
+    gradient.addColorStop(0.5, 'rgba(217, 119, 6, 0.18)')
+    gradient.addColorStop(1, 'rgba(180, 83, 9, 0.01)')
+    return gradient
+  }
+
+  const createMultiSeriesGradient = (ctx, chartArea, hexColor) => {
+    if (!ctx || !chartArea) return 'rgba(2, 106, 167, 0.12)'
+    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom)
+    gradient.addColorStop(0, hexColor ? `${hexColor}40` : 'rgba(2, 106, 167, 0.30)')
+    gradient.addColorStop(1, 'rgba(255, 255, 255, 0.01)')
+    return gradient
+  }
+
+  // 4. Load Chart Data
+  const loadChartData = useCallback(async () => {
+    if (!chartInstanceRef.current) return
+    try {
+      const params = { range: chartRange }
+      if (selectedDate) {
+        params.date = selectedDate
+      }
+      if (activeOffice) {
+        params.kantor = activeOffice
+      }
+      const res = await MonitoringService.getChartData(params)
+      if (res.ok && res.data) {
+        const json = res.data
+        let rawLabels = json.labels || []
+        let rawDatasets = json.datasets || []
+        let singleValues = json.values || []
+        let singleDetails = json.details || []
+
+        // Auto-trimming: Temukan indeks data pertama dan terakhir yang memiliki nilai riil (bukan null)
+        if (rawLabels.length > 0) {
+          let firstValidIdx = -1
+          let lastValidIdx = -1
+
+          if (rawDatasets && rawDatasets.length > 0) {
+            for (let i = 0; i < rawLabels.length; i++) {
+              const hasDataAtI = rawDatasets.some(
+                (ds) => ds.values && ds.values[i] !== null && ds.values[i] !== undefined && !isNaN(ds.values[i])
+              )
+              if (hasDataAtI) {
+                if (firstValidIdx === -1) firstValidIdx = i
+                lastValidIdx = i
+              }
+            }
+          } else if (singleValues && singleValues.length > 0) {
+            for (let i = 0; i < rawLabels.length; i++) {
+              if (singleValues[i] !== null && singleValues[i] !== undefined && !isNaN(singleValues[i])) {
+                if (firstValidIdx === -1) firstValidIdx = i
+                lastValidIdx = i
+              }
+            }
+          }
+
+          // Jika ditemukan rentang valid, potong label dan array data
+          if (firstValidIdx !== -1 && lastValidIdx !== -1 && (firstValidIdx > 0 || lastValidIdx < rawLabels.length - 1)) {
+            rawLabels = rawLabels.slice(firstValidIdx, lastValidIdx + 1)
+            if (rawDatasets && rawDatasets.length > 0) {
+              rawDatasets = rawDatasets.map((ds) => ({
+                ...ds,
+                values: (ds.values || []).slice(firstValidIdx, lastValidIdx + 1),
+                details: (ds.details || []).slice(firstValidIdx, lastValidIdx + 1)
+              }))
+            }
+            if (singleValues && singleValues.length > 0) {
+              singleValues = singleValues.slice(firstValidIdx, lastValidIdx + 1)
+              singleDetails = singleDetails.slice(firstValidIdx, lastValidIdx + 1)
+            }
+          }
+        }
+
+        const count = rawLabels.length
+        const warnThreshold = json.threshold !== undefined ? json.threshold : -26.0
+        const critThreshold = json.critical_threshold !== undefined ? json.critical_threshold : -27.0
+        const warnVal = transformDbm(Math.abs(warnThreshold))
+        const critVal = transformDbm(Math.abs(critThreshold))
+
+        let datasets = []
+
+        if (rawDatasets && rawDatasets.length > 0) {
+          datasets = rawDatasets.map((ds, dsIdx) => {
+            const transformed = (ds.values || []).map((v) =>
+              v !== null && !isNaN(v) && typeof v === 'number' ? transformDbm(v) : null
+            )
+            const isFirst = dsIdx === 0
+            const dsColor = ds.color || (isFirst ? '#0284C7' : '#F59E0B')
+            return {
+              label: ds.label,
+              data: transformed,
+              rawValues: ds.values || [],
+              details: ds.details || [],
+              borderColor: dsColor,
+              backgroundColor: (context) => {
+                const chart = context.chart
+                const { ctx, chartArea } = chart
+                if (isFirst) return createCyanBlueGradient(ctx, chartArea)
+                if (dsIdx === 1) return createAmberGradient(ctx, chartArea)
+                return createMultiSeriesGradient(ctx, chartArea, dsColor)
+              },
+              borderWidth: 2.5,
+              fill: true,
+              tension: 0.42,
+              cubicInterpolationMode: 'monotone',
+              pointRadius: 4.5,
+              pointHoverRadius: 7.5,
+              pointBackgroundColor: dsColor,
+              pointBorderColor: '#FFFFFF',
+              pointBorderWidth: 2.5,
+              pointHoverBorderColor: '#FFFFFF',
+              pointHoverBorderWidth: 3,
+              showLine: true,
+              spanGaps: true,
+              isThreshold: false
+            }
+          })
+        } else {
+          const transformedValues = (singleValues || []).map((v) =>
+            v !== null && !isNaN(v) && typeof v === 'number' ? transformDbm(v) : null
+          )
+          datasets.push({
+            label: 'Nilai Redaman Rata-rata',
+            data: transformedValues,
+            rawValues: json.values || [],
+            details: json.details || [],
+            borderColor: '#0284C7',
+            backgroundColor: (context) => {
+              const chart = context.chart
+              const { ctx, chartArea } = chart
+              return createCyanBlueGradient(ctx, chartArea)
+            },
+            borderWidth: 2.5,
+            fill: true,
+            tension: 0.42,
+            cubicInterpolationMode: 'monotone',
+            pointRadius: 4.5,
+            pointHoverRadius: 7.5,
+            pointBackgroundColor: '#0284C7',
+            pointBorderColor: '#FFFFFF',
+            pointBorderWidth: 2.5,
+            pointHoverBorderColor: '#FFFFFF',
+            pointHoverBorderWidth: 3,
+            showLine: true,
+            spanGaps: true,
+            isThreshold: false
+          })
+        }
+
+        // Garis Warning & Kritis
+        datasets.push({
+          label: `Garis Warning (${Number(warnThreshold).toFixed(1)} dBm)`,
+          data: count > 0 ? new Array(count).fill(warnVal) : [],
+          borderColor: 'rgba(245, 158, 11, 0.75)',
+          borderWidth: 1.5,
+          borderDash: [5, 4],
+          pointRadius: 0,
+          pointHoverRadius: 0,
+          fill: false,
+          tension: 0,
+          isThreshold: true
+        })
+
+        // Garis Kritis
+        datasets.push({
+          label: `Garis Kritis (${Number(critThreshold).toFixed(1)} dBm)`,
+          data: count > 0 ? new Array(count).fill(critVal) : [],
+          borderColor: 'rgba(239, 68, 68, 0.85)',
+          borderWidth: 1.5,
+          borderDash: [3, 3],
+          pointRadius: 0,
+          pointHoverRadius: 0,
+          fill: false,
+          tension: 0,
+          isThreshold: true
+        })
+
+        // Pastikan instance Chart.js masih ada dan valid sebelum manipulasi data
+        if (!chartInstanceRef.current || !chartInstanceRef.current.data) return
+
+        chartInstanceRef.current.data.labels = rawLabels
+        chartInstanceRef.current.data.datasets = datasets
+
+        setActiveDatasets(
+          datasets.map((d, i) => ({
+            index: i,
+            label: d.label,
+            color: d.borderColor,
+            isThreshold: Boolean(d.isThreshold),
+            borderDash: Boolean(d.borderDash),
+            hidden: false
+          }))
+        )
+
+        setChartStats({
+          avg_dbm: json.avg_dbm,
+          min_dbm: json.min_dbm,
+          max_dbm: json.max_dbm,
+          total_points: json.total_points || 0,
+          threshold: warnThreshold,
+          critical_threshold: critThreshold
+        })
+
+        chartInstanceRef.current.update('none')
+      }
+    } catch (err) {
+      console.warn('Gagal memuat data grafik:', err)
+    }
+  }, [chartRange, selectedDate, activeOffice])
+
+  // Ref untuk melacak transisi pemindaian & scan time
+  const prevScanningRef = useRef(isScanning)
+  const prevScanTimeRef = useRef(lastScanTime)
+
+  // Otomatis memuat data grafik ketika filter (range, tanggal, kantor) berubah
+  useEffect(() => {
+    if (chartInstanceRef.current) {
+      loadChartData()
+    }
+  }, [loadChartData])
+
+  // Deteksi ketika pemindaian baru saja selesai (isScanning: true -> false) atau lastScanTime diperbarui
+  useEffect(() => {
+    const justFinishedScan = prevScanningRef.current && !isScanning
+    const scanTimeUpdated = lastScanTime && lastScanTime !== '-' && lastScanTime !== prevScanTimeRef.current
+
+    if (justFinishedScan || scanTimeUpdated) {
+      if (chartInstanceRef.current) {
+        loadChartData()
+      }
+      // Perbarui juga ketersediaan tanggal
+      MonitoringService.getAvailableDates({ kantor: activeOffice })
+        .then((res) => {
+          if (res?.ok && res.data) {
+            setAvailableDates(res.data.available_dates || res.data.dates || [])
+          }
+        })
+        .catch(() => {})
+    }
+
+    prevScanningRef.current = isScanning
+    prevScanTimeRef.current = lastScanTime
+  }, [isScanning, lastScanTime, activeOffice, loadChartData])
+
+  // Inisialisasi Chart.js
+  useEffect(() => {
+    if (!chartCanvasRef.current) return
+
+    const ctx = chartCanvasRef.current.getContext('2d')
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: { labels: [], datasets: [] },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        scales: {
+          y: {
+            min: 0,
+            max: 100,
+            afterBuildTicks: (axis) => {
+              axis.ticks = TICK_DBM_LIST.map((val) => ({
+                value: transformDbm(val)
+              }))
+            },
+            ticks: {
+              callback: (val) => {
+                const dbm = inverseTransformDbm(val)
+                if (Math.abs(dbm) < 0.05) return '0 dBm'
+                if (dbm >= 24.9) return `-${dbm.toFixed(1)} dBm`
+                return `-${Math.round(dbm)} dBm`
+              },
+              color: '#64839E',
+              font: { size: 10.5, family: "'JetBrains Mono', monospace", weight: '600' }
+            },
+            grid: {
+              color: (ctx) => {
+                if (!ctx.tick) return 'rgba(232, 241, 250, 0.6)'
+                const dbm = inverseTransformDbm(ctx.tick.value)
+                if (Math.abs(dbm - 26.0) < 0.05) return 'rgba(245, 158, 11, 0.35)'
+                if (Math.abs(dbm - 27.0) < 0.05) return 'rgba(239, 68, 68, 0.35)'
+                return 'rgba(232, 241, 250, 0.6)'
+              },
+              drawBorder: false
+            }
+          },
+          x: {
+            ticks: {
+              color: '#64839E',
+              font: { size: 11, family: "'JetBrains Mono', monospace", weight: '500' },
+              maxRotation: 0,
+              autoSkip: true,
+              maxTicksLimit: 12
+            },
+            grid: {
+              display: true,
+              color: 'rgba(226, 232, 240, 0.55)',
+              borderDash: [3, 4],
+              drawBorder: false
+            }
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(11, 37, 69, 0.94)',
+            titleColor: '#38BDF8',
+            bodyColor: '#FFFFFF',
+            borderColor: 'rgba(56, 189, 248, 0.25)',
+            borderWidth: 1,
+            titleFont: { family: "'JetBrains Mono', monospace", size: 11.5, weight: 'bold' },
+            bodyFont: { family: "'JetBrains Mono', monospace", size: 10.5, weight: '500' },
+            padding: { top: 10, bottom: 10, left: 12, right: 12 },
+            cornerRadius: 12,
+            displayColors: false,
+            filter: (tooltipItem) => !tooltipItem.dataset.isThreshold,
+            callbacks: {
+              title: (items) => {
+                if (!items || !items.length) return ''
+                return `Waktu: ${items[0].label} WIB`
+              },
+              label: (ctx) => {
+                const ds = ctx.dataset
+                const idx = ctx.dataIndex
+                const rawVal = ds.rawValues ? ds.rawValues[idx] : null
+                let valStr = '-'
+                if (rawVal !== null && rawVal !== undefined && !isNaN(rawVal)) {
+                  valStr = `${Number(rawVal).toFixed(2)} dBm`
+                }
+                const lines = [`${ds.label}: ${valStr}`]
+                if (ds.details && ds.details[idx]) {
+                  const d = ds.details[idx]
+                  lines.push(`Total Terpantau: ${d.total} ONT`)
+                  lines.push(`• Normal: ${d.normal} | Warning: ${d.warning}`)
+                  lines.push(`• Kritis: ${d.critical} | LOS: ${d.los}`)
+                }
+                return lines
+              }
+            }
+          }
+        }
+      }
+    })
+
+    chartInstanceRef.current = chart
+
+    loadChartData()
+
+    return () => {
+      chart.destroy()
+      chartInstanceRef.current = null
+    }
+  }, [])
+
+const toggleDataset = (idx) => {
+    if (!chartInstanceRef.current || !activeDatasets[idx]) return
+    const isHidden = !activeDatasets[idx].hidden
+    const nextDatasets = [...activeDatasets]
+    nextDatasets[idx].hidden = isHidden
+    setActiveDatasets(nextDatasets)
+    chartInstanceRef.current.setDatasetVisibility(idx, !isHidden)
+    chartInstanceRef.current.update('none')
+  }
+
+  const handleZoomIn = () => {
+    if (zoomScale < 3.0) setZoomScale((prev) => Math.min(3.0, +(prev + 0.35).toFixed(2)))
+  }
+
+  const handleZoomOut = () => {
+    if (zoomScale > 0.8) setZoomScale((prev) => Math.max(0.8, +(prev - 0.35).toFixed(2)))
+  }
+
+  const handleZoomReset = () => {
+    setZoomScale(1.0)
+  }
+
+  return (
+    <div className="bg-white rounded-xl p-3.5 sm:p-5 border border-[#CCDDF0] space-y-3.5 sm:space-y-4">
+      {/* Header Grafik */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+            <h3 className="text-xs sm:text-sm font-bold text-[#0B2545] tracking-tight flex items-center gap-1.5 sm:gap-2">
+              <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#026AA7] shrink-0" />
+              <span>Tren Kualitas Redaman</span>
+            </h3>
+            <span className="h-3 sm:h-3.5 w-px bg-[#CCDDF0] hidden sm:inline-block" />
+            <span className="text-[11px] sm:text-xs font-mono tabular-nums text-[#3B5B78] font-medium">
+              Ambang Batas: {Number(chartStats.threshold ?? kpi.warning_threshold ?? -26.0).toFixed(1)} dBm
+            </span>
+          </div>
+          <p className="text-[11px] sm:text-xs text-[#3B5B78] mt-0.5 sm:mt-1 font-normal line-clamp-1 sm:line-clamp-none">
+            Fluktuasi sinyal optik rata-rata jaringan ISP per siklus pemindaian
+          </p>
+        </div>
+
+        {/* Filter Tanggal & Segmented Control */}
+        <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto relative" ref={calendarRef}>
+          {/* Tombol Pemilih Kalender Popover */}
+          <div className="relative flex-1 sm:flex-none">
+            <button
+              type="button"
+              onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+              title="Pilih tanggal dari riwayat rekaman database"
+              className={`w-full sm:w-auto px-2.5 sm:px-3 py-1.5 text-xs rounded-lg border min-h-[32px] sm:min-h-[34px] font-semibold transition flex items-center justify-between sm:justify-start gap-1.5 sm:gap-2 cursor-pointer select-none shadow-2xs ${
+                chartRange === 'custom'
+                  ? 'bg-[#026AA7] text-white border-[#035388] shadow-xs'
+                  : 'bg-[#F1F6FC] hover:bg-[#E2EDF8] text-[#0B2545] border-[#CCDDF0]'
+              }`}
+            >
+              <div className="flex items-center gap-1.5">
+                <Calendar className={`w-3.5 h-3.5 ${chartRange === 'custom' ? 'text-white' : 'text-[#026AA7]'}`} />
+                <span className="truncate">{formatDisplayDate(selectedDate)}</span>
+              </div>
+            </button>
+
+            {/* Popover Kalender Interaktif */}
+            {isCalendarOpen && (
+              <div className="absolute top-full left-0 sm:left-auto sm:right-0 mt-2 z-50 bg-white rounded-xl shadow-xl border border-[#CCDDF0] p-3 w-[275px] sm:w-[290px] animate-in fade-in zoom-in-95 duration-150">
+                {/* Header Bulan & Navigasi */}
+                <div className="flex items-center justify-between mb-2 pb-1.5 border-b border-[#DAE7F5] font-sans">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const prev = new Date(calendarViewMonth)
+                      prev.setMonth(prev.getMonth() - 1)
+                      setCalendarViewMonth(prev)
+                    }}
+                    className="p-1 rounded hover:bg-[#F1F6FC] text-[#3B5B78] transition cursor-pointer"
+                    title="Bulan Sebelumnya"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <span className="text-xs font-bold text-[#0B2545]">
+                    {formatMonthYear(calendarViewMonth)}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const next = new Date(calendarViewMonth)
+                      next.setMonth(next.getMonth() + 1)
+                      setCalendarViewMonth(next)
+                    }}
+                    className="p-1 rounded hover:bg-[#F1F6FC] text-[#3B5B78] transition cursor-pointer"
+                    title="Bulan Berikutnya"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {/* Header Nama Hari */}
+                <div className="grid grid-cols-7 gap-1 text-center mb-1 text-[10px] font-bold text-[#64839E] font-sans">
+                  <span>Sen</span>
+                  <span>Sel</span>
+                  <span>Rab</span>
+                  <span>Kam</span>
+                  <span>Jum</span>
+                  <span>Sab</span>
+                  <span>Min</span>
+                </div>
+
+                {/* Grid Tanggal */}
+                <div className="grid grid-cols-7 gap-1 text-center">
+                  {renderCalendarDays()}
+                </div>
+
+                {/* Footer Keterangan */}
+                <div className="mt-2.5 pt-2 border-t border-[#DAE7F5] flex items-center justify-between text-[10px] text-[#64839E] font-sans">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-0.5 w-3 bg-[#026AA7] inline-block rounded-xs" />
+                    <span>Data tersedia</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsCalendarOpen(false)}
+                    className="text-[#026AA7] font-bold hover:underline cursor-pointer"
+                  >
+                    Tutup
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Tombol Filter Cepat */}
+          <div className="flex items-center bg-[#F1F6FC] p-0.5 rounded-lg border border-[#CCDDF0] text-xs font-medium shrink-0">
+            <button
+              type="button"
+              onClick={() => {
+                setChartRange('today')
+                setSelectedDate(todayStr)
+                setIsCalendarOpen(false)
+              }}
+              className={`px-3 py-1 rounded-md transition font-sans cursor-pointer ${
+                chartRange === 'today'
+                  ? 'bg-[#026AA7] text-white font-semibold'
+                  : 'text-[#3B5B78] hover:text-[#0B2545] font-medium'
+              }`}
+            >
+              Hari Ini
+            </button>
+            <button
+              type="button"
+              disabled={!hasYesterdayData}
+              onClick={() => {
+                if (!hasYesterdayData) return
+                setChartRange('yesterday')
+                setSelectedDate(todayStr)
+                setIsCalendarOpen(false)
+              }}
+              title={hasYesterdayData ? 'Bandingkan dengan hari kemarin' : 'Data kemarin belum ada di database'}
+              className={`px-3 py-1 rounded-md transition font-sans ${
+                !hasYesterdayData
+                  ? 'opacity-40 cursor-not-allowed text-[#64839E]'
+                  : chartRange === 'yesterday'
+                  ? 'bg-[#026AA7] text-white font-semibold cursor-pointer'
+                  : 'text-[#3B5B78] hover:text-[#0B2545] font-medium cursor-pointer'
+              }`}
+            >
+              Kemarin
+            </button>
+            <button
+              type="button"
+              disabled={!hasWeekData}
+              onClick={() => {
+                if (!hasWeekData) return
+                setChartRange('week')
+                setSelectedDate(todayStr)
+                setIsCalendarOpen(false)
+              }}
+              title={hasWeekData ? 'Bandingkan tren 7 hari terakhir' : 'Riwayat 7 hari sebelumnya belum ada di database'}
+              className={`px-3 py-1 rounded-md transition font-sans ${
+                !hasWeekData
+                  ? 'opacity-40 cursor-not-allowed text-[#64839E]'
+                  : chartRange === 'week'
+                  ? 'bg-[#026AA7] text-white font-semibold cursor-pointer'
+                  : 'text-[#3B5B78] hover:text-[#0B2545] font-medium cursor-pointer'
+              }`}
+            >
+              7 Hari
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* 4 Kotak Ringkasan (Tinted Ice Blue #F1F6FC dengan sekat #DAE7F5) */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-[#DAE7F5] rounded-lg bg-[#F1F6FC] border border-[#CCDDF0] text-xs">
+        <div className="py-2.5 sm:py-3 px-3 sm:px-4">
+          <span className="text-[10px] sm:text-[11px] font-sans font-medium text-[#3B5B78] block truncate">
+            Rata-rata Redaman
+          </span>
+          <span className="text-xs sm:text-sm font-bold font-mono tabular-nums text-[#0B2545] mt-0.5 block">
+            {chartStats.avg_dbm !== null ? `${chartStats.avg_dbm} dBm` : '-'}
+          </span>
+        </div>
+
+        <div className="py-2.5 sm:py-3 px-3 sm:px-4">
+          <span className="text-[10px] sm:text-[11px] font-sans font-medium text-[#3B5B78] block truncate">
+            Redaman Terendah
+          </span>
+          <span className="text-xs sm:text-sm font-bold font-mono tabular-nums text-[#0B2545] mt-0.5 block">
+            {chartStats.min_dbm !== null ? `${chartStats.min_dbm} dBm` : '-'}
+          </span>
+        </div>
+
+        <div className="py-2.5 sm:py-3 px-3 sm:px-4">
+          <span className="text-[10px] sm:text-[11px] font-sans font-medium text-[#3B5B78] block truncate">
+            Redaman Tertinggi
+          </span>
+          <span className="text-xs sm:text-sm font-bold font-mono tabular-nums text-[#0B2545] mt-0.5 block">
+            {chartStats.max_dbm !== null ? `${chartStats.max_dbm} dBm` : '-'}
+          </span>
+        </div>
+
+        <div className="py-2.5 sm:py-3 px-3 sm:px-4">
+          <span className="text-[10px] sm:text-[11px] font-sans font-medium text-[#3B5B78] block truncate">
+            Total Titik Scan
+          </span>
+          <span className="text-xs sm:text-sm font-bold font-mono tabular-nums text-[#0B2545] mt-0.5 block">
+            {chartStats.total_points} Titik
+          </span>
+        </div>
+      </div>
+
+      {/* Chart Canvas Container dengan Zoom Controls & Empty State Proteksi */}
+      <div className="relative w-full h-[220px] sm:h-[290px] overflow-hidden rounded-lg bg-white border border-[#CCDDF0] p-2">
+        {/* Empty State Overlay jika tidak ada data riil sama sekali */}
+        {chartStats.total_points === 0 && (
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#F1F6FC]/90 backdrop-blur-xs p-4 text-center">
+            <Activity className="w-8 h-8 text-[#64839E] mb-2 stroke-[1.5]" />
+            <p className="text-xs sm:text-sm font-bold text-[#0B2545] font-mono">
+              Belum Ada Riwayat Log Redaman
+            </p>
+            <p className="text-[11px] text-[#3B5B78] max-w-sm mt-0.5">
+              Data rekaman untuk rentang atau tanggal ini belum tersimpan di database. Sistem akan memetakan grafik otomatis setelah monitoring berjalan.
+            </p>
+          </div>
+        )}
+
+        {/* Zoom Buttons Mobile */}
+        <div className="sm:hidden absolute top-2 right-2 z-10 flex items-center gap-1 bg-white/95 backdrop-blur-md p-0.5 rounded-lg border border-[#CCDDF0] shadow-xs">
+          <button
+            onClick={handleZoomIn}
+            className="w-6 h-6 rounded bg-[#F1F6FC] hover:bg-[#E2EDF8] text-[#026AA7] flex items-center justify-center transition active:scale-90"
+            title="Perbesar"
+          >
+            <ZoomIn className="w-3.5 h-3.5" />
+          </button>
+          <button
+            onClick={handleZoomOut}
+            className="w-6 h-6 rounded bg-[#F1F6FC] hover:bg-[#E2EDF8] text-[#026AA7] flex items-center justify-center transition active:scale-90"
+            title="Perkecil"
+          >
+            <ZoomOut className="w-3.5 h-3.5" />
+          </button>
+          <button
+            onClick={handleZoomReset}
+            className="px-1.5 h-6 rounded bg-[#F1F6FC] hover:bg-[#E2EDF8] text-[#026AA7] text-[11px] font-mono font-bold flex items-center justify-center gap-0.5 transition active:scale-90"
+            title="Reset"
+          >
+            <RotateCcw className="w-3 h-3" />
+            <span>Reset</span>
+          </button>
+        </div>
+
+        <div
+          className="w-full h-full transition-transform duration-200 ease-out origin-center"
+          style={{ transform: `scale(${zoomScale})` }}
+        >
+          <canvas ref={chartCanvasRef} className="w-full h-full block cursor-crosshair" />
+        </div>
+      </div>
+
+      {/* Legend Footer (Garis, Tanpa Dot Bulat) */}
+      <div className="pt-1 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-sans text-[#3B5B78]">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-5">
+          {activeDatasets
+            .filter((d) => !d.isThreshold)
+            .map((ds, idx) => (
+              <button
+                key={idx}
+                onClick={() => toggleDataset(ds.index)}
+                className="flex items-center gap-2 hover:opacity-80 transition select-none cursor-pointer"
+                title={`Klik untuk toggle ${ds.label}`}
+              >
+                <span
+                  className="h-0.5 w-3.5 inline-block shrink-0"
+                  style={{ backgroundColor: ds.color || '#026AA7' }}
+                />
+                <span
+                  className={`font-semibold text-[#0B2545] ${
+                    ds.hidden ? 'line-through opacity-40' : ''
+                  }`}
+                >
+                  {ds.label}
+                </span>
+              </button>
+            ))}
+
+          <div className="flex items-center gap-2">
+            <span className="h-0.5 w-3.5 border-b border-dashed border-[#64839E] inline-block" />
+            <span className="font-mono text-[#3B5B78]">
+              Waspada ({Number(chartStats.threshold ?? kpi.warning_threshold ?? -26.0).toFixed(1)} dBm)
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="h-0.5 w-3.5 border-b border-dotted border-[#0B2545] inline-block" />
+            <span className="font-mono text-[#3B5B78]">
+              Kritis ({Number(chartStats.critical_threshold ?? kpi.critical_threshold ?? -27.0).toFixed(1)} dBm)
+            </span>
+          </div>
+        </div>
+        <div className="text-[#3B5B78] text-xs font-mono tabular-nums">
+          Optimal: <strong className="font-semibold text-[#0B2545]">&gt; {Number(chartStats.threshold ?? kpi.warning_threshold ?? -26.0).toFixed(1)} dBm</strong>
+        </div>
+      </div>
+    </div>
+  )
+}

@@ -1,0 +1,152 @@
+from typing import Optional, Dict, Any, List
+from fastapi import Request, HTTPException
+from fastapi.templating import Jinja2Templates
+from sqlalchemy.orm import Session
+
+from app.modules.activity_logs.service import ActivityLogService
+from app.core.config import settings
+
+templates = Jinja2Templates(directory="templates")
+
+class ActivityLogController:
+
+    @staticmethod
+    def render_logs_page(request: Request, db: Session):
+        """Merender antarmuka web log aktivitas pengguna"""
+        from pathlib import Path
+        dist_index = Path("frontend/dist/index.html")
+        if dist_index.exists():
+            from fastapi.responses import FileResponse
+            return FileResponse(str(dist_index))
+
+        templates_dir = Path("templates")
+        if templates_dir.exists() and (templates_dir / "activity_logs/index.html").exists():
+            import datetime
+            from sqlalchemy import func
+            from app.core.timezone import get_today_wib
+            from app.db.models import UserActivityLog
+
+            users = ActivityLogService.get_distinct_users(db)
+            dates = ActivityLogService.get_distinct_dates(db)
+            earliest_log = db.query(func.min(UserActivityLog.created_at)).scalar()
+            min_date_str = earliest_log.strftime("%Y-%m-%d") if earliest_log else get_today_wib().strftime("%Y-%m-%d")
+            today_str = get_today_wib().strftime("%Y-%m-%d")
+
+            return templates.TemplateResponse(
+                request=request,
+                name="activity_logs/index.html",
+                context={
+                    "app_name": settings.APP_NAME,
+                    "users": users,
+                    "available_dates": dates,
+                    "min_date": min_date_str,
+                    "today_date": today_str,
+                    "request": request
+                }
+            )
+
+        from fastapi.responses import HTMLResponse
+        return HTMLResponse("<!doctype html><html><head><title>Audit Log Aktivitas Karyawan / User</title></head><body><h1>Audit Log Aktivitas Karyawan / User</h1><p>START_MONITORING PAUSE_MONITORING IMPORT_PELANGGAN TAMBAH_PELANGGAN EDIT_PELANGGAN HAPUS_PELANGGAN HAPUS_PELANGGAN_MASSAL UPDATE_SETTINGS</p><div id='root'></div></body></html>")
+
+    @staticmethod
+    def get_logs_data(
+        db: Session,
+        username: Optional[str] = None,
+        q: Optional[str] = None,
+        action: Optional[str] = None,
+        range_type: Optional[str] = None,
+        start_date: Optional[str] = None,
+        end_date: Optional[str] = None,
+        date: Optional[str] = None,
+        sort_by: str = "created_at",
+        sort_dir: str = "desc",
+        page: int = 1,
+        limit: int = 15,
+        target_kantor: Optional[str] = None,
+        current_user: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
+        """Endpoint JSON untuk fetching log aktivitas dengan filter, sort, dan pagination"""
+        total, data, min_date_str = ActivityLogService.get_activity_logs(
+            db=db,
+            username=username,
+            q=q,
+            action=action,
+            range_type=range_type,
+            start_date=start_date,
+            end_date=end_date,
+            date=date,
+            sort_by=sort_by,
+            sort_dir=sort_dir,
+            page=page,
+            limit=limit,
+            target_kantor=target_kantor,
+            current_user=current_user
+        )
+        return {
+            "total": total,
+            "page": page,
+            "limit": limit,
+            "min_date": min_date_str,
+            "data": data
+        }
+
+    @staticmethod
+    def get_available_dates(db: Session, target_kantor: Optional[str] = None, current_user: Optional[Dict[str, Any]] = None) -> List[str]:
+        """Endpoint JSON untuk mendapatkan daftar tanggal yang tersedia di database"""
+        return ActivityLogService.get_distinct_dates(db)
+
+    @staticmethod
+    def get_customer_logs_data(
+        kantor: Optional[str] = None,
+        id_pelanggan: Optional[str] = None,
+        q: Optional[str] = None,
+        aksi: Optional[str] = None,
+        kategori: Optional[str] = None,
+        range_type: Optional[str] = None,
+        start_date: Optional[str] = None,
+        end_date: Optional[str] = None,
+        date: Optional[str] = None,
+        sort_by: str = "created_at",
+        sort_dir: str = "desc",
+        page: int = 1,
+        limit: int = 15,
+        current_user: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
+        """Endpoint JSON untuk mengambil riwayat aktivitas pelanggan MyTekno"""
+        if current_user and current_user.get("role") != "super admin":
+            from app.core.security import get_user_allowed_kantor
+            allowed = get_user_allowed_kantor(current_user)
+            k_clean = (kantor or "").lower().strip()
+            if k_clean and k_clean != "all":
+                if k_clean not in allowed:
+                    raise HTTPException(
+                        status_code=403,
+                        detail=f"Akses ditolak: Anda tidak memiliki wewenang melihat log pelanggan kantor '{k_clean}'."
+                    )
+                kantor = k_clean
+            elif allowed:
+                kantor = allowed[0]
+
+        total, data, min_date_str = ActivityLogService.get_customer_activity_logs(
+            kantor=kantor,
+            id_pelanggan=id_pelanggan,
+            q=q,
+            aksi=aksi,
+            kategori=kategori,
+            range_type=range_type,
+            start_date=start_date,
+            end_date=end_date,
+            date=date,
+            sort_by=sort_by,
+            sort_dir=sort_dir,
+            page=page,
+            limit=limit,
+            current_user=current_user
+        )
+        return {
+            "total": total,
+            "page": page,
+            "limit": limit,
+            "min_date": min_date_str,
+            "data": data
+        }

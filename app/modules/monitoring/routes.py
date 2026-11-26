@@ -1,0 +1,95 @@
+from typing import Optional
+from fastapi import APIRouter, Depends, Query, Request
+from sqlalchemy.orm import Session
+
+from app.core.database import get_db
+from app.core.security import require_admin
+from app.modules.monitoring.controller import MonitoringController
+
+router = APIRouter(prefix="/api/monitoring", tags=["monitoring"])
+
+@router.get("/status")
+def get_monitoring_status(kantor: Optional[str] = Query(None), user: dict = Depends(require_admin)):
+    """Route status engine monitoring dan interval"""
+    return MonitoringController.get_status(kantor=kantor)
+
+@router.post("/toggle-scheduler")
+def toggle_scheduler(request: Request, kantor: Optional[str] = Query(None), db: Session = Depends(get_db), user: dict = Depends(require_admin)):
+    """Route toggle scheduler antara RUNNING dan STOPPED per kantor atau global"""
+    return MonitoringController.toggle_scheduler(request=request, db=db, user=user, kantor=kantor)
+
+@router.post("/scan-all")
+def trigger_scan_all(request: Request, kantor: Optional[str] = Query(None), db: Session = Depends(get_db), user: dict = Depends(require_admin)):
+    """Route trigger pemindaian manual ONT per kantor"""
+    return MonitoringController.trigger_scan_all(request=request, db=db, user=user, kantor=kantor)
+
+@router.post("/scan-pause")
+def trigger_scan_pause(request: Request, kantor: Optional[str] = Query(None), db: Session = Depends(get_db), user: dict = Depends(require_admin)):
+    """Route menjeda pemindaian aktif ONT dan menyimpan checkpoint ke JSON per kantor"""
+    return MonitoringController.trigger_scan_pause(request=request, db=db, user=user, kantor=kantor)
+
+@router.post("/scan-resume")
+def trigger_scan_resume(request: Request, kantor: Optional[str] = Query(None), db: Session = Depends(get_db), user: dict = Depends(require_admin)):
+    """Route melanjutkan pemindaian ONT dari checkpoint JSON per kantor"""
+    return MonitoringController.trigger_scan_resume(request=request, db=db, user=user, kantor=kantor)
+
+@router.post("/scan-stop")
+def trigger_scan_stop(request: Request, kantor: Optional[str] = Query(None), db: Session = Depends(get_db), user: dict = Depends(require_admin)):
+    """Route berhenti paksa pemindaian ONT dan menghapus file JSON per kantor"""
+    return MonitoringController.trigger_scan_stop(request=request, db=db, user=user, kantor=kantor)
+
+@router.post("/scan/{id_pelanggan}")
+def trigger_scan_single(id_pelanggan: str, db: Session = Depends(get_db), user: dict = Depends(require_admin)):
+    """Route trigger pemindaian on-demand untuk satu ONT pelanggan"""
+    return MonitoringController.trigger_scan_single(id_pelanggan=id_pelanggan, user=user, db=db)
+
+@router.post("/check-single/{id_pelanggan}")
+def check_single_alias(id_pelanggan: str, db: Session = Depends(get_db), user: dict = Depends(require_admin)):
+    """Alias route probe single ONT untuk kompatibilitas frontend"""
+    res = MonitoringController.trigger_scan_single(id_pelanggan=id_pelanggan, user=user, db=db)
+    return {
+        "status": "success",
+        "probe_result": {
+            "id_pelanggan": res.get("id_pelanggan"),
+            "nama": res.get("nama"),
+            "rx_power": res.get("rx_power"),
+            "suhu_ont": res.get("suhu_ont"),
+            "status": res.get("status_koneksi"),
+            "mac_address": res.get("mac_address"),
+            "nama_wifi": res.get("nama_wifi"),
+            "password_wifi": res.get("password_wifi"),
+            "status_kredensial": res.get("status_kredensial"),
+            "latency_ms": res.get("latency_ms"),
+            "waktu_cek": res.get("waktu_cek")
+        }
+    }
+
+@router.get("/kpi")
+def get_kpi_metrics(request: Request, kantor: Optional[str] = Query(None), db: Session = Depends(get_db), user: dict = Depends(require_admin)):
+    """Route ringkasan metrik kesehatan jaringan ONT (Office-aware)"""
+    return MonitoringController.get_kpi(request=request, db=db, kantor=kantor)
+
+@router.get("/chart-data")
+def get_chart_data(
+    request: Request,
+    range_type: str = Query("today", alias="range"),
+    date_filter: Optional[str] = Query(None, alias="date"),
+    id_pelanggan: Optional[str] = None,
+    kantor: Optional[str] = Query(None),
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route data historis redaman optik untuk Chart.js dengan filter tanggal (date=YYYY-MM-DD) atau range (today, yesterday, week, month)"""
+    return MonitoringController.get_chart_data(
+        request=request, db=db, range_type=range_type, date_filter=date_filter, id_pelanggan=id_pelanggan, kantor=kantor
+    )
+
+@router.get("/available-dates")
+def get_available_dates(
+    request: Request,
+    kantor: Optional[str] = Query(None),
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route untuk mengambil daftar tanggal yang memiliki data riil di database"""
+    return MonitoringController.get_available_dates(request=request, db=db, kantor=kantor)

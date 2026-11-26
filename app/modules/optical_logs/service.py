@@ -1,0 +1,152 @@
+from datetime import datetime, timedelta
+from typing import Optional, List, Dict, Any, Tuple
+from sqlalchemy.orm import Session
+from sqlalchemy import or_, func, desc, case
+
+from app.core.timezone import get_now_wib
+from app.db.models import LogPerformaONT, Pelanggan
+
+class LogsMgmtService:
+
+    @staticmethod
+    def get_min_date(db: Session) -> str:
+        earliest = db.query(LogPerformaONT.waktu_cek).order_by(LogPerformaONT.waktu_cek.asc()).first()
+        if earliest and earliest[0]:
+            return earliest[0].strftime("%Y-%m-%d")
+        return "2026-09-01"
+
+    @staticmethod
+    def get_logs(
+        db: Session,
+        q: Optional[str] = None,
+        status: Optional[str] = None,
+        range_type: str = "today",
+        start_date: Optional[str] = None,
+        end_date: Optional[str] = None,
+        sort_by: Optional[str] = "waktu_cek",
+        sort_dir: str = "desc",
+        page: int = 1,
+        limit: int = 15,
+        kantor: Optional[str] = None,
+        allowed_kantor: Optional[List[str]] = None
+    ) -> Tuple[int, List[Dict[str, Any]], Dict[str, Any]]:
+        from app.db.models import PerangkatONT
+        query = db.query(LogPerformaONT, Pelanggan).join(
+            Pelanggan, LogPerformaONT.id_pelanggan == Pelanggan.id_pelanggan
+        ).outerjoin(
+            PerangkatONT, Pelanggan.id_pelanggan == PerangkatONT.id_pelanggan
+        )
+
+        if kantor and kantor != "all":
+            query = query.filter(Pelanggan.kantor == kantor)
+        elif allowed_kantor:
+            query = query.filter(Pelanggan.kantor.in_(allowed_kantor))
+
+        now = get_now_wib()
+        if range_type == "today":
+            cutoff = datetime(now.year, now.month, now.day)
+            query = query.filter(LogPerformaONT.waktu_cek >= cutoff)
+        elif range_type == "7d":
+            cutoff = now - timedelta(days=7)
+            query = query.filter(LogPerformaONT.waktu_cek >= cutoff)
+        elif range_type == "30d":
+            cutoff = now - timedelta(days=30)
+            query = query.filter(LogPerformaONT.waktu_cek >= cutoff)
+        elif start_date and end_date:
+            try:
+                s_dt = datetime.strptime(start_date, "%Y-%m-%d")
+                e_dt = datetime.strptime(end_date, "%Y-%m-%d") + timedelta(days=1)
+                query = query.filter(LogPerformaONT.waktu_cek >= s_dt, LogPerformaONT.waktu_cek < e_dt)
+            except ValueError:
+                pass
+
+        # Simpan state query sebelum difilter oleh status dan search untuk keperluan summary
+        summary_base_query = query
+
+        if status and status != "Semua Status":
+            query = query.filter(LogPerformaONT.status_koneksi == status)
+
+        if q:
+            search_pattern = f"%{q.strip()}%"
+            query = query.filter(
+                or_(
+                    Pelanggan.nama.ilike(search_pattern),
+                    Pelanggan.id_pelanggan.ilike(search_pattern),
+                    Pelanggan.pop.ilike(search_pattern),
+                    PerangkatONT.ip_router.ilike(search_pattern),
+                    PerangkatONT.ip_ont.ilike(search_pattern),
+                    LogPerformaONT.status_koneksi.ilike(search_pattern)
+                )
+            )
+
+        total_count = query.count()
+
+        # Calculate quick summary metrics based on date range ONLY (ignore status and search query)
+        summary_stats = summary_base_query.with_entities(
+            func.count(LogPerformaONT.id),
+            func.sum(case((LogPerformaONT.status_koneksi == 'NORMAL', 1), else_=0)),
+            func.sum(case((LogPerformaONT.status_koneksi == 'WARNING', 1), else_=0)),
+            func.sum(case((LogPerformaONT.status_koneksi == 'CRITICAL', 1), else_=0)),
+            func.sum(case((LogPerformaONT.status_koneksi == 'LOS', 1), else_=0)),
+        ).first()
+
+        total_records = summary_stats[0] if summary_stats and summary_stats[0] else 0
+        normal_count = summary_stats[1] if summary_stats and summary_stats[1] else 0
+        warning_count = summary_stats[2] if summary_stats and summary_stats[2] else 0
+        critical_count = summary_stats[3] if summary_stats and summary_stats[3] else 0
+        los_count = summary_stats[4] if summary_stats and summary_stats[4] else 0
+
+        effective_ip = func.coalesce(PerangkatONT.ip_router, PerangkatONT.ip_ont)
+
+        # Sorting logic
+        sort_column_map = {
+            "waktu_cek": LogPerformaONT.waktu_cek,
+            "id_pelanggan": Pelanggan.id_pelanggan,
+            "nama": Pelanggan.nama,
+            "pop": Pelanggan.pop,
+            "ip_router": effective_ip,
+            "jenis_modem": PerangkatONT.jenis_modem,
+            "rx_power": LogPerformaONT.rx_power,
+            "suhu_ont": LogPerformaONT.suhu_ont,
+            "latency_ms": LogPerformaONT.latency_ms,
+            "status_koneksi": LogPerformaONT.status_koneksi
+        }
+        col = sort_column_map.get(sort_by, LogPerformaONT.waktu_cek)
+        if sort_dir.lower() == "asc":
+            query = query.order_by(col.asc())
+        else:
+            query = query.order_by(col.desc())
+
+        offset = (page - 1) * limit
+        rows = query.offset(offset).limit(limit).all()
+
+        data = []
+        for log_entry, cust in rows:
+            ip_val = cust.ip_router or cust.ip_ont or (cust.perangkat.ip_ont if cust.perangkat else None)
+            data.append({
+                "id": log_entry.id,
+                "waktu_cek": log_entry.waktu_cek.strftime("%Y-%m-%d %H:%M:%S"),
+                "id_pelanggan": cust.id_pelanggan,
+                "nama": cust.nama,
+                "pop": cust.pop,
+                "ip_router": ip_val,
+                "ip_ont": cust.ip_ont,
+                "jenis_modem": cust.jenis_modem,
+                "rx_power": float(log_entry.rx_power) if log_entry.rx_power is not None else None,
+                "suhu_ont": float(log_entry.suhu_ont) if log_entry.suhu_ont is not None else None,
+                "uptime": log_entry.uptime,
+                "latency_ms": log_entry.latency_ms,
+                "status_koneksi": log_entry.status_koneksi,
+                "kantor": getattr(cust, "kantor", "cabang") or "cabang",
+                "keterangan": log_entry.keterangan
+            })
+
+        summary = {
+            "total_records": total_records,
+            "normal": int(normal_count),
+            "warning": int(warning_count),
+            "critical": int(critical_count),
+            "los": int(los_count)
+        }
+
+        return total_count, data, summary

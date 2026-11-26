@@ -1,0 +1,65 @@
+# EdTeknoGuard - Docker Compose (Local Server Deployment)
+# Database MySQL Lokal & Tanpa Ngrok
+services:
+  # Database MySQL Lokal (Containerized)
+  mysql:
+    image: mysql:8.0
+    container_name: edtekno-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-rootpassword}
+      MYSQL_DATABASE: ${DB_NAME:-edteknoguard}
+      MYSQL_USER: ${DB_USER:-edtekno}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-rootpassword}
+      TZ: Asia/Jakarta
+    ports:
+      - "127.0.0.1:${DB_PORT:-33070}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/migrations/001_init_schema.sql:/docker-entrypoint-initdb.d/001_init_schema.sql:ro
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD:-rootpassword}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend FastAPI & Aplikasi Web
+  edteknoguard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: edteknoguard:latest
+    container_name: edteknoguard
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - APP_PORT=7890
+      - APP_URL=${APP_URL:-http://localhost:7890}
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=${DB_USER:-edtekno}
+      - DB_PASSWORD=${DB_PASSWORD:-rootpassword}
+      - DB_NAME=${DB_NAME:-edteknoguard}
+      - TZ=Asia/Jakarta
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "127.0.0.1:7890:7890"   # Bind lokal saja agar wajib lewat Nginx / Cloudflare Tunnel (tidak bypass UFW)
+    volumes:
+      - ./data:/app/data                           # Persistensi scan_state.json & runtime data
+      - ./static/uploads:/app/static/uploads       # Persistensi berkas unggahan foto profil
+    depends_on:
+      mysql:
+        condition: service_healthy
+    command: [
+      "uvicorn", "app.main:app",
+      "--host", "0.0.0.0",
+      "--port", "7890",
+      "--proxy-headers",
+      "--forwarded-allow-ips=*"
+    ]
+
+volumes:
+  mysql_data:
+    driver: local

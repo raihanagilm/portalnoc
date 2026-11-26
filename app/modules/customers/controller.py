@@ -1,0 +1,849 @@
+from typing import Optional, Dict, Any, List
+from fastapi import HTTPException, Request, Response
+from fastapi.templating import Jinja2Templates
+from sqlalchemy.orm import Session
+
+from app.modules.customers.service import CustomerService
+from app.modules.customers.schemas import CustomerCreate, CustomerUpdate
+from app.core.config import settings
+
+templates = Jinja2Templates(directory="templates")
+
+class CustomerController:
+
+    @staticmethod
+    def render_customers_page(request: Request, db: Session):
+        """Render antarmuka manajemen pelanggan (templates/customers/index.html)"""
+        active_kantor = getattr(request.state, "active_kantor", "cabang")
+        allowed_kantor = getattr(request.state, "allowed_kantor", ["cabang"])
+        pops = CustomerService.get_pop_list(db, kantor=active_kantor, allowed_kantor=allowed_kantor)
+        stats = CustomerService.get_customer_stats(db, kantor=active_kantor, allowed_kantor=allowed_kantor)
+        min_date = CustomerService.get_min_date(db)
+        from pathlib import Path
+        dist_index = Path("frontend/dist/index.html")
+        if dist_index.exists():
+            from fastapi.responses import FileResponse
+            return FileResponse(str(dist_index))
+
+        templates_dir = Path("templates")
+        if templates_dir.exists() and (templates_dir / "customers/index.html").exists():
+            return templates.TemplateResponse(
+                request=request,
+                name="customers/index.html",
+                context={
+                    "app_name": settings.APP_NAME,
+                    "pops": pops,
+                    "stats": stats,
+                    "min_date": min_date,
+                    "warning_threshold": settings.WARNING_THRESHOLD_DBM,
+                    "request": request
+                }
+            )
+
+        from fastapi.responses import HTMLResponse
+        return HTMLResponse("<!doctype html><html><head><title>Manajemen Pelanggan</title></head><body><h1>Manajemen Pelanggan</h1><div id='root'></div></body></html>")
+
+    @staticmethod
+    def list_customers(
+        db: Session,
+        q: Optional[str] = None,
+        pop: Optional[str] = None,
+        status: Optional[str] = None,
+        billing_mode: Optional[str] = None,
+        monitoring: Optional[str] = None,
+        range_type: Optional[str] = "all",
+        start_date: Optional[str] = None,
+        end_date: Optional[str] = None,
+        sort_by: Optional[str] = "id",
+        sort_dir: str = "asc",
+        page: int = 1,
+        limit: int = 15,
+        kantor: Optional[str] = None,
+        allowed_kantor: Optional[List[str]] = None
+    ) -> Dict[str, Any]:
+        total, data = CustomerService.get_customers(
+            db=db, q=q, pop=pop, status=status, billing_mode=billing_mode, monitoring=monitoring,
+            range_type=range_type, start_date=start_date, end_date=end_date,
+            sort_by=sort_by, sort_dir=sort_dir, page=page, limit=limit,
+            kantor=kantor, allowed_kantor=allowed_kantor
+        )
+        stats = CustomerService.get_customer_stats(db, kantor=kantor, allowed_kantor=allowed_kantor)
+        pops = CustomerService.get_pop_list(db, kantor=kantor, allowed_kantor=allowed_kantor)
+
+        # Ambil seluruh daftar kredensial modem yang tersimpan di database settings untuk kantor aktif
+        from app.modules.settings.service import SystemSettingsService
+        office_settings = SystemSettingsService.get_settings(db, kantor=kantor)
+        raw_db_creds = office_settings.get("default_modem_credentials", [])
+        available_creds = []
+        if isinstance(raw_db_creds, list):
+            for item in raw_db_creds:
+                u = (item.get("username") or "").strip()
+                p = (item.get("password") or "").strip()
+                if u and (u, p) not in [(x["username"], x["password"]) for x in available_creds]:
+                    available_creds.append({"username": u, "password": p})
+
+        return {
+            "total": total,
+            "page": page,
+            "limit": limit,
+            "data": data,
+            "stats": stats,
+            "pops": pops,
+            "available_credentials": available_creds
+        }
+
+    @staticmethod
+    def toggle_customer_monitoring(db: Session, id_pelanggan: str, user: dict, request: Request) -> Dict[str, Any]:
+        if user and user.get("role") in ("operator", "teknisi", "karyawan"):
+            raise HTTPException(status_code=403, detail="Akses ditolak: Teknisi tidak diizinkan mengubah status pemantauan")
+        
+        from app.modules.activity_logs.service import ActivityLogService
+        cust = CustomerService.toggle_monitoring(db=db, id_pelanggan=id_pelanggan)
+        if not cust:
+            raise HTTPException(status_code=404, detail="Pelanggan tidak ditemukan")
+
+        action = "AKTIFKAN_PEMANTAUAN" if cust.is_monitored else "NONAKTIFKAN_PEMANTAUAN"
+        ket = f"Pemantauan pelanggan '{cust.nama}' (IP: {cust.ip_router}) diubah menjadi {'AKTIF (Discan)' if cust.is_monitored else 'NONAKTIF (Tidak Discan/Abaikan)'}"
+        
+        try:
+            ActivityLogService.log_from_request(
+                db=db,
+                request=request,
+                action=action,
+                status="SUCCESS",
+                keterangan=ket,
+                user=user
+            )
+        except Exception:
+            pass
+
+        stats = CustomerService.get_customer_stats(db)
+
+        return {
+            "status": "success",
+            "id_pelanggan": cust.id_pelanggan,
+            "nama": cust.nama,
+            "is_monitored": cust.is_monitored,
+            "stats": stats,
+            "message": f"Pemantauan {cust.nama} berhasil {'diaktifkan kembali' if cust.is_monitored else 'dinonaktifkan (dilewati dari pemindaian)'}"
+        }
+
+    @staticmethod
+    def get_customer_detail(db: Session, id_pelanggan: str, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        result = CustomerService.get_customer_detail(db=db, id_pelanggan=id_pelanggan)
+        if not result:
+            raise HTTPException(status_code=404, detail="Pelanggan tidak ditemukan")
+
+        cust, logs = result
+        lokasi_gps = cust.lokasi_gps
+        alamat_final = cust.alamat or "-"
+        no_hp_final = cust.no_hp or "-"
+
+        from app.db.models import KuotaPelanggan
+        from app.core.timezone import get_current_period
+        current_period = get_current_period()
+        kuota_rec = db.query(KuotaPelanggan).filter(
+            KuotaPelanggan.id_pelanggan == id_pelanggan,
+            KuotaPelanggan.periode_bulan == current_period
+        ).first()
+
+        kuota_gb = float(kuota_rec.kuota_terpakai_gb) if kuota_rec and kuota_rec.kuota_terpakai_gb is not None else 0.0
+        up_bytes = int(kuota_rec.upload_bytes) if kuota_rec and kuota_rec.upload_bytes else 0
+        dl_bytes = int(kuota_rec.download_bytes) if kuota_rec and kuota_rec.download_bytes else 0
+        last_sync_str = kuota_rec.last_sync_mikrotik.strftime("%d/%m %H:%M") if kuota_rec and kuota_rec.last_sync_mikrotik else None
+
+        latest_log = logs[0] if logs else None
+        suhu_val = float(latest_log.suhu_ont) if (latest_log and latest_log.suhu_ont is not None) else None
+        lat_val = int(latest_log.latency_ms) if (latest_log and latest_log.latency_ms is not None) else None
+        rx_val = float(latest_log.rx_power) if (latest_log and latest_log.rx_power is not None) else None
+        status_val = latest_log.status_koneksi if latest_log else "UNTESTED"
+
+        from app.core.security import is_default_customer_password
+        is_default_pw = is_default_customer_password(cust)
+        can_view_portal_pw = bool(user and user.get("role") in ("admin", "super admin"))
+        portal_password = (cust.password_portal or (cust.no_hp if is_default_pw else None)) if can_view_portal_pw else None
+
+        return {
+            "customer": {
+                "id_pelanggan": cust.id_pelanggan,
+                "nama": cust.nama,
+                "alamat": alamat_final,
+                "no_hp": no_hp_final,
+                "lokasi_gps": lokasi_gps,
+                "pop": cust.pop,
+                "ip_router": cust.ip_router,
+                "ip_ont": cust.ip_ont,
+                "paket": cust.paket,
+                "jenis_modem": cust.jenis_modem,
+                "mac_address": cust.mac_address,
+                "redaman_baseline": float(cust.redaman_baseline) if cust.redaman_baseline else None,
+                "rx_power": rx_val,
+                "status_koneksi": status_val,
+                "suhu_ont": suhu_val,
+                "latency_ms": lat_val,
+                "nama_wifi": cust.nama_wifi or "-",
+                "password_wifi": cust.password_wifi or "-",
+                "user_admin": cust.user_admin or "-",
+                "pass_admin": cust.pass_admin or "-",
+                "password_portal": portal_password,
+                "is_default_password": is_default_pw,
+                "status_kredensial": getattr(cust, "status_kredensial", "UNTESTED") or "UNTESTED",
+                "is_monitored": bool(getattr(cust, "is_monitored", True)),
+                "status_pembayaran": getattr(cust, "status_pembayaran", "LUNAS") or "LUNAS",
+                "billing_mode": getattr(cust, "billing_mode", None),
+                "snmp_community": cust.snmp_community,
+                "queue_name": getattr(cust, "queue_name", None) or cust.nama,
+                "kuota_terpakai_gb": kuota_gb,
+                "upload_bytes": up_bytes,
+                "download_bytes": dl_bytes,
+                "last_sync_mikrotik": last_sync_str
+            },
+            "recent_logs": [
+                {
+                    "waktu_cek": l.waktu_cek.strftime("%Y-%m-%d %H:%M:%S"),
+                    "rx_power": float(l.rx_power) if l.rx_power is not None else None,
+                    "suhu_ont": float(l.suhu_ont) if l.suhu_ont is not None else None,
+                    "uptime": l.uptime,
+                    "status_koneksi": l.status_koneksi,
+                    "latency_ms": l.latency_ms
+                } for l in logs
+            ]
+        }
+
+    @staticmethod
+    def create_customer(db: Session, data: CustomerCreate, request: Optional[Request] = None, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        if user and user.get("role") in ("operator", "teknisi", "karyawan"):
+            raise HTTPException(status_code=403, detail="Akses ditolak: Teknisi tidak diizinkan menambahkan pelanggan")
+            
+        from app.modules.activity_logs.service import ActivityLogService
+        try:
+            target_kantor = getattr(data, "kantor", None)
+            if not target_kantor and request:
+                from app.core.security import get_active_kantor
+                target_kantor = getattr(request.state, "active_kantor", None) or get_active_kantor(request, user)
+            new_cust = CustomerService.create_customer(db=db, data=data, kantor=target_kantor)
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db,
+                    request=request,
+                    action="TAMBAH_PELANGGAN",
+                    status="SUCCESS",
+                    keterangan=f"Menambahkan pelanggan baru: {new_cust.nama} (ID: {new_cust.id_pelanggan}, IP: {new_cust.ip_router}, POP: {new_cust.pop})",
+                    user=user
+                )
+            return {
+                "status": "success",
+                "message": f"Pelanggan '{new_cust.nama}' berhasil ditambahkan",
+                "id_pelanggan": new_cust.id_pelanggan
+            }
+        except ValueError as e:
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db, request=request, action="TAMBAH_PELANGGAN", status="FAILED",
+                    keterangan=f"Gagal tambah pelanggan: {str(e)}", user=user
+                )
+            raise HTTPException(status_code=400, detail=str(e))
+        except Exception as e:
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db, request=request, action="TAMBAH_PELANGGAN", status="FAILED",
+                    keterangan=f"Gagal tambah pelanggan: {str(e)}", user=user
+                )
+            raise HTTPException(status_code=500, detail=f"Gagal menambahkan pelanggan: {e}")
+
+    @staticmethod
+    def update_customer(db: Session, id_pelanggan: str, data: CustomerUpdate, request: Optional[Request] = None, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        if user and user.get("role") in ("operator", "teknisi", "karyawan"):
+            raise HTTPException(status_code=403, detail="Akses ditolak: Teknisi tidak diizinkan mengubah profil pelanggan")
+
+        from app.modules.activity_logs.service import ActivityLogService
+        try:
+            cust = CustomerService.update_customer(db=db, id_pelanggan=id_pelanggan, data=data)
+            if not cust:
+                raise HTTPException(status_code=404, detail="Pelanggan tidak ditemukan")
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db,
+                    request=request,
+                    action="EDIT_PELANGGAN",
+                    status="SUCCESS",
+                    keterangan=f"Memperbarui data pelanggan: {cust.nama} (ID: {cust.id_pelanggan}, IP: {cust.ip_router}, Paket: {cust.paket})",
+                    user=user
+                )
+            return {
+                "status": "success",
+                "message": f"Data pelanggan '{cust.nama}' berhasil diperbarui",
+                "id_pelanggan": cust.id_pelanggan
+            }
+        except ValueError as e:
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db, request=request, action="EDIT_PELANGGAN", status="FAILED",
+                    keterangan=f"Gagal update pelanggan {id_pelanggan}: {str(e)}", user=user
+                )
+            raise HTTPException(status_code=400, detail=str(e))
+        except HTTPException:
+            raise
+        except Exception as e:
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db, request=request, action="EDIT_PELANGGAN", status="FAILED",
+                    keterangan=f"Gagal update pelanggan {id_pelanggan}: {str(e)}", user=user
+                )
+            raise HTTPException(status_code=500, detail=f"Gagal memperbarui pelanggan: {e}")
+
+    @staticmethod
+    def reset_portal_password(db: Session, id_pelanggan: str, request: Optional[Request] = None, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        if user and user.get("role") in ("operator", "teknisi", "karyawan"):
+            raise HTTPException(status_code=403, detail="Akses ditolak: Teknisi tidak diizinkan mereset kata sandi akun pelanggan")
+
+        from app.modules.activity_logs.service import ActivityLogService
+        cust = CustomerService.reset_customer_portal_password(db=db, id_pelanggan=id_pelanggan)
+        if not cust:
+            raise HTTPException(status_code=404, detail="Pelanggan tidak ditemukan")
+        if request:
+            ActivityLogService.log_from_request(
+                db=db,
+                request=request,
+                action="RESET_PASSWORD_PORTAL",
+                status="SUCCESS",
+                keterangan=f"Reset kata sandi aplikasi MyTekno pelanggan '{cust.nama}' (ID: {cust.id_pelanggan}) kembali ke Nomor WhatsApp ({cust.no_hp or '123456'})",
+                user=user
+            )
+        return {
+            "status": "success",
+            "message": f"Kata sandi aplikasi MyTekno pelanggan '{cust.nama}' berhasil di-reset ke Nomor WhatsApp ({cust.no_hp or '123456'})",
+            "id_pelanggan": cust.id_pelanggan,
+            "password_portal": cust.password_portal or cust.no_hp or "123456",
+            "is_default_password": True
+        }
+
+    @staticmethod
+    def change_portal_password(db: Session, id_pelanggan: str, password_baru: str, request: Optional[Request] = None, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        if user and user.get("role") in ("operator", "teknisi", "karyawan"):
+            raise HTTPException(status_code=403, detail="Akses ditolak: Teknisi tidak diizinkan mengubah kata sandi akun pelanggan")
+
+        clean_pwd = str(password_baru or "").strip()
+        if len(clean_pwd) < 6:
+            raise HTTPException(status_code=400, detail="Kata sandi baru minimal 6 karakter!")
+
+        from app.modules.activity_logs.service import ActivityLogService
+        try:
+            cust = CustomerService.change_customer_portal_password(db=db, id_pelanggan=id_pelanggan, password_baru=clean_pwd)
+        except ValueError as ve:
+            raise HTTPException(status_code=400, detail=str(ve))
+
+        if not cust:
+            raise HTTPException(status_code=404, detail="Pelanggan tidak ditemukan")
+
+        from app.core.security import is_default_customer_password
+        is_default_pw = is_default_customer_password(cust)
+
+        if request:
+            ActivityLogService.log_from_request(
+                db=db,
+                request=request,
+                action="UBAH_PASSWORD_PORTAL",
+                status="SUCCESS",
+                keterangan=f"Admin mengubah kata sandi akun MyTekno pelanggan '{cust.nama}' (ID: {cust.id_pelanggan}) secara manual",
+                user=user
+            )
+        return {
+            "status": "success",
+            "message": f"Kata sandi akun MyTekno pelanggan '{cust.nama}' berhasil diubah!",
+            "id_pelanggan": cust.id_pelanggan,
+            "password_portal": cust.password_portal,
+            "is_default_password": is_default_pw
+        }
+
+    @staticmethod
+    def delete_customer(db: Session, id_pelanggan: str, request: Optional[Request] = None, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        if user and user.get("role") in ("operator", "teknisi", "karyawan"):
+            raise HTTPException(status_code=403, detail="Akses ditolak: Teknisi tidak diizinkan menghapus data pelanggan")
+        
+        from app.modules.activity_logs.service import ActivityLogService
+        detail = CustomerService.get_customer_detail(db=db, id_pelanggan=id_pelanggan)
+        cust_name = detail[0].nama if detail and detail[0] else id_pelanggan
+        success = CustomerService.delete_customer(db=db, id_pelanggan=id_pelanggan)
+        if not success:
+            raise HTTPException(status_code=404, detail="Pelanggan tidak ditemukan")
+        if request:
+            ActivityLogService.log_from_request(
+                db=db,
+                request=request,
+                action="HAPUS_PELANGGAN",
+                status="SUCCESS",
+                keterangan=f"Menghapus data pelanggan {cust_name} (ID: {id_pelanggan}) beserta seluruh data anakannya (CASCADE)",
+                user=user
+            )
+        return {
+            "status": "success",
+            "message": f"Pelanggan '{cust_name}' (ID: {id_pelanggan}) beserta seluruh data anakannya berhasil dihapus."
+        }
+
+    @staticmethod
+    def change_wifi(
+        db: Session,
+        id_pelanggan: str,
+        nama_wifi: Optional[str] = None,
+        password_wifi: Optional[str] = None,
+        dry_run: bool = True,
+        request: Optional[Request] = None,
+        user: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
+        """Memperbarui kredensial WiFi (SSID/Password) di DB dan di modem ONT (Super Admin, Admin, & Teknisi)."""
+        from app.db.models import Pelanggan, SystemSetting
+        from app.services.ont_scraper_service import ONTScraperService
+        from app.modules.activity_logs.service import ActivityLogService
+        import json
+
+        # 1. Validasi Izin Pengguna (Super Admin, Admin, & Teknisi)
+        user_role = (user.get("role") or "").lower() if user else ""
+        if user_role not in ("super admin", "admin", "teknisi"):
+            raise HTTPException(status_code=403, detail="Akses ditolak: Hanya Super Admin, Admin, dan Teknisi yang diizinkan mengubah WiFi pelanggan")
+
+        cust = db.query(Pelanggan).filter(Pelanggan.id_pelanggan == id_pelanggan).first()
+        if not cust:
+            raise HTTPException(status_code=404, detail="Pelanggan tidak ditemukan")
+
+        # 2. Isolasi Kantor Cabang untuk Non-Super Admin
+        if user_role != "super admin" and cust.kantor:
+            allowed_kantor = user.get("allowed_kantor", []) if user else []
+            norm_allowed = [k.lower().strip() for k in allowed_kantor]
+            if norm_allowed and cust.kantor.lower().strip() not in norm_allowed:
+                raise HTTPException(status_code=403, detail=f"Akses ditolak: Anda tidak memiliki akses ke pelanggan di kantor {cust.kantor}")
+
+        # 3. Validasi Parameter Input
+        clean_ssid = nama_wifi.strip() if nama_wifi else None
+        clean_pass = password_wifi.strip() if password_wifi else None
+
+        if clean_ssid is not None and len(clean_ssid) < 3:
+            raise HTTPException(status_code=400, detail="Nama WiFi (SSID) minimal 3 karakter")
+        if clean_pass is not None and len(clean_pass) < 8:
+            raise HTTPException(status_code=400, detail="Password WiFi minimal 8 karakter")
+
+        # 4. Update ke database
+        if clean_ssid is not None:
+            cust.nama_wifi = clean_ssid
+        if clean_pass is not None:
+            cust.password_wifi = clean_pass
+
+        if hasattr(cust, "perangkat") and cust.perangkat:
+            if clean_ssid is not None:
+                cust.perangkat.nama_wifi = clean_ssid
+            if clean_pass is not None:
+                cust.perangkat.password_wifi = clean_pass
+
+        db.commit()
+        db.refresh(cust)
+
+        # 5. Ambil Kredensial Default untuk Fallback Scraper
+        default_creds = []
+        try:
+            setting = db.query(SystemSetting).filter(
+                SystemSetting.key_name == "default_modem_credentials"
+            ).first()
+            if setting and setting.value_text:
+                raw_creds = json.loads(setting.value_text)
+                if isinstance(raw_creds, list):
+                    for item in raw_creds:
+                        if isinstance(item, dict):
+                            default_creds.append((item.get("username", ""), item.get("password", "")))
+        except Exception:
+            default_creds = []
+
+        # 6. Eksekusi Scraper Service ke Modem ONT
+        scraper_res = {}
+        ont_synced = False
+        ip_target = (cust.ip_ont or cust.ip_router or "").strip()
+        
+        if ip_target:
+            scraper_res = ONTScraperService.update_wifi_credentials(
+                ip=ip_target,
+                user_admin=cust.user_admin or "admin",
+                pass_admin=cust.pass_admin or "admin",
+                new_ssid=clean_ssid or cust.nama_wifi,
+                new_wifi_password=clean_pass or cust.password_wifi,
+                default_credentials=default_creds,
+                dry_run=dry_run
+            )
+            ont_synced = bool(scraper_res.get("success", False))
+
+        # 7. Formulasi Pesan Response
+        if dry_run:
+            msg = f"Kredensial WiFi pelanggan '{cust.nama}' berhasil disimpan di sistem (Mode Simulasi)."
+        elif ont_synced:
+            msg = f"Kredensial WiFi pelanggan '{cust.nama}' berhasil diperbarui dan diterapkan langsung ke modem ONT ({ip_target})."
+        else:
+            err_detail = scraper_res.get("message") or "Modem ONT tidak merespons / offline"
+            msg = f"Kredensial WiFi berhasil disimpan di sistem, namun pengiriman ke modem fisik ONT ({ip_target}) gagal: {err_detail}"
+
+        if request:
+            ActivityLogService.log_from_request(
+                db=db,
+                request=request,
+                action="UBAH_WIFI_PELANGGAN",
+                status="SUCCESS" if (dry_run or ont_synced) else "WARNING",
+                keterangan=f"Ubah WiFi {cust.nama} (SSID: '{cust.nama_wifi}', Mode: {'DRY-RUN' if dry_run else 'LIVE'}, ONT Synced: {ont_synced}) oleh {user.get('nama') or 'User'} ({user_role.upper()})",
+                user=user
+            )
+
+        return {
+            "status": "success",
+            "message": msg,
+            "id_pelanggan": cust.id_pelanggan,
+            "nama_wifi": cust.nama_wifi,
+            "password_wifi": cust.password_wifi,
+            "ont_synced": ont_synced,
+            "ont_result": scraper_res
+        }
+
+    @staticmethod
+    def bulk_delete(db: Session, ids: List[str], request: Optional[Request] = None, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        if user and user.get("role") in ("operator", "teknisi", "karyawan"):
+            raise HTTPException(status_code=403, detail="Akses ditolak: Teknisi tidak diizinkan menghapus data pelanggan")
+        
+        from app.modules.activity_logs.service import ActivityLogService
+        affected = CustomerService.bulk_delete_customers(db=db, id_list=ids)
+        if request:
+            sample_ids = ", ".join(ids[:5])
+            if len(ids) > 5:
+                sample_ids += f" (+{len(ids)-5} lainnya)"
+            ActivityLogService.log_from_request(
+                db=db,
+                request=request,
+                action="HAPUS_PELANGGAN_MASSAL",
+                status="SUCCESS",
+                keterangan=f"Menghapus massal {affected} data pelanggan beserta seluruh anakannya (CASCADE) (Daftar ID: {sample_ids})",
+                user=user
+            )
+        return {
+            "status": "success",
+            "message": f"{affected} pelanggan beserta seluruh data anakannya berhasil dihapus.",
+            "deleted_count": affected
+        }
+
+    @staticmethod
+    def import_csv(db: Session, file_content: bytes, filename: str = "pelanggan.csv", request: Optional[Request] = None, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        if user and user.get("role") == "operator":
+            raise HTTPException(status_code=403, detail="Akses ditolak: Operator tidak diizinkan melakukan import pelanggan")
+            
+        from app.modules.activity_logs.service import ActivityLogService
+        try:
+            res = CustomerService.import_customers_from_csv(db=db, file_content=file_content)
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db,
+                    request=request,
+                    action="IMPORT_PELANGGAN",
+                    status="SUCCESS",
+                    keterangan=f"Import CSV berhasil ({filename}): {res['imported']} baru, {res['updated']} diperbarui dari total {res['total_processed']} baris",
+                    user=user
+                )
+            return {
+                "status": "success",
+                "message": f"Berhasil memproses {res['total_processed']} baris ({res['imported']} baru, {res['updated']} diperbarui, {res['failed']} gagal).",
+                "result": res
+            }
+        except ValueError as e:
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db, request=request, action="IMPORT_PELANGGAN", status="FAILED",
+                    keterangan=f"Gagal import CSV ({filename}): {str(e)}", user=user
+                )
+            raise HTTPException(status_code=400, detail=str(e))
+        except Exception as e:
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db, request=request, action="IMPORT_PELANGGAN", status="FAILED",
+                    keterangan=f"Gagal import CSV ({filename}): {str(e)}", user=user
+                )
+            raise HTTPException(status_code=500, detail=f"Gagal memproses import CSV: {e}")
+
+    @staticmethod
+    def download_template_excel() -> Response:
+        content = CustomerService.generate_excel_template()
+        return Response(
+            content=content,
+            media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            headers={"Content-Disposition": "attachment; filename=template_import_pelanggan.xlsx"}
+        )
+
+    @staticmethod
+    def download_template_csv() -> Response:
+        content = CustomerService.generate_csv_template()
+        return Response(
+            content=content,
+            media_type="text/csv; charset=utf-8",
+            headers={"Content-Disposition": "attachment; filename=template_import_pelanggan.csv"}
+        )
+
+    @staticmethod
+    def export_excel(
+        db: Session,
+        request: Optional[Request] = None,
+        kantor: Optional[str] = None,
+        q: Optional[str] = None,
+        ip: Optional[str] = None
+    ) -> Response:
+        active_kantor = kantor or (getattr(request.state, "active_kantor", "cabang") if request else "cabang")
+        allowed_kantor = getattr(request.state, "allowed_kantor", ["cabang"]) if request else None
+        excel_bytes = CustomerService.generate_excel_export(
+            db=db,
+            kantor=active_kantor,
+            allowed_kantor=allowed_kantor,
+            q=q,
+            ip=ip
+        )
+        return Response(
+            content=excel_bytes,
+            media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            headers={"Content-Disposition": f"attachment; filename=data_pelanggan_{active_kantor or 'edteknoguard'}.xlsx"}
+        )
+
+    @staticmethod
+    def analyze_import(file_content: bytes, filename: str) -> Dict[str, Any]:
+        try:
+            res = CustomerService.analyze_import_file(file_content=file_content, filename=filename)
+            return {
+                "status": "success",
+                "result": res
+            }
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Gagal menganalisis file: {e}")
+
+    @staticmethod
+    def preview_import(db: Session, file_content: bytes, filename: str, sheet_name: str, mapping: dict) -> Dict[str, Any]:
+        try:
+            res = CustomerService.preview_import_file(
+                file_content=file_content, 
+                filename=filename, 
+                sheet_name=sheet_name, 
+                mapping=mapping, 
+                db=db
+            )
+            return {
+                "status": "success",
+                "result": res
+            }
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Gagal memproses preview: {e}")
+
+    @staticmethod
+    def get_customer_billing(db: Session, id_pelanggan: str) -> Dict[str, Any]:
+        """Ambil data tagihan live & nomor VA dari Network Bill API v1 (api-v1.md)"""
+        from app.db.models import Pelanggan
+        from app.portal.modules.payment.service import PaymentService
+
+        cust = db.query(Pelanggan).filter(Pelanggan.id_pelanggan == id_pelanggan).first()
+        if not cust:
+            raise HTTPException(status_code=404, detail="Pelanggan tidak ditemukan")
+
+        paket_info = None
+        if cust.paket_ref:
+            paket_info = {
+                "nama": cust.paket_ref.nama,
+                "harga": float(cust.paket_ref.harga) if cust.paket_ref.harga else None,
+                "kecepatan_mbps": cust.paket_ref.kecepatan_mbps,
+                "deskripsi": cust.paket_ref.deskripsi
+            }
+
+        billing_page = PaymentService.build_billing_page(cust)
+        history_page = PaymentService.build_history(cust, limit=12)
+
+        ident = PaymentService.resolve_identity(cust)
+        linked = ident is not None
+        pop_slug, nb_id = ident if ident else (None, None)
+
+        due_date_day = None
+        billing_mode = getattr(cust, "billing_mode", None)
+        if linked and pop_slug and nb_id:
+            cust_prof = PaymentService.read_customer_profile(pop_slug, nb_id)
+            if cust_prof and isinstance(cust_prof.get("data"), dict):
+                cdata = cust_prof["data"]
+                due_date_day = cdata.get("due_date_day")
+                from app.services.network_bill_service import NetworkBillService
+                live_mode = NetworkBillService.normalize_billing_mode(cdata.get("billing_mode"))
+                if live_mode:
+                    billing_mode = live_mode
+                    if getattr(cust, "billing_mode", None) != live_mode:
+                        try:
+                            cust.billing_mode = live_mode
+                            db.commit()
+                        except Exception:
+                            db.rollback()
+
+        active_due_date = None
+        unpaid_list = billing_page.get("unpaid") or []
+        if unpaid_list:
+            active_due_date = unpaid_list[0].get("due_date")
+        elif billing_page.get("next_bill"):
+            active_due_date = billing_page["next_bill"].get("due_date")
+
+        return {
+            "ok": True,
+            "id_pelanggan": cust.id_pelanggan,
+            "nama": cust.nama,
+            "pop": pop_slug or getattr(cust, "kantor", None) or "slawi",
+            "network_bill_id": nb_id,
+            "linked": linked,
+            "status_pembayaran_lokal": getattr(cust, "status_pembayaran", "LUNAS") or "LUNAS",
+            "paket": cust.paket,
+            "paket_info": paket_info,
+            "due_date_day": due_date_day,
+            "billing_mode": billing_mode,
+            "active_due_date": active_due_date,
+            "billing": billing_page,
+            "history": history_page.get("invoices") or []
+        }
+
+    @staticmethod
+    def update_payment_status(db: Session, id_pelanggan: str, status_pembayaran: str) -> Dict[str, Any]:
+        """Ubah status pembayaran lokal pelanggan (LUNAS, BELUM_BAYAR, ISOLIR)"""
+        from app.db.models import Pelanggan
+        cust = db.query(Pelanggan).filter(Pelanggan.id_pelanggan == id_pelanggan).first()
+        if not cust:
+            raise HTTPException(status_code=404, detail="Pelanggan tidak ditemukan")
+        valid_status = ("LUNAS", "BELUM_BAYAR", "ISOLIR")
+        status_clean = status_pembayaran.strip().upper()
+        if status_clean not in valid_status:
+            raise HTTPException(status_code=400, detail=f"Status harus salah satu dari: {', '.join(valid_status)}")
+        cust.status_pembayaran = status_clean
+        db.commit()
+        db.refresh(cust)
+        return {
+            "status": "success",
+            "message": f"Status pembayaran berhasil diubah menjadi {status_clean}",
+            "status_pembayaran": cust.status_pembayaran
+        }
+
+    @staticmethod
+    def network_bill_get_pops() -> Dict[str, Any]:
+        """Ambil daftar PoP yang tersedia dari API Network Bill"""
+        from app.services.network_bill_service import NetworkBillService
+        pops = NetworkBillService.fetch_pops()
+        return {
+            "status": "success",
+            "result": pops
+        }
+
+    @staticmethod
+    def network_bill_preview(db: Session, pop: str, limit: int = 1) -> Dict[str, Any]:
+        """Ambil pratinjau data langsung dari API Network Bill"""
+        from app.services.network_bill_service import NetworkBillService
+        try:
+            res = NetworkBillService.preview_from_api(pop_slug=pop, limit=limit, db=db)
+            return {
+                "status": "success",
+                "result": res
+            }
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Gagal menarik pratinjau dari Network Bill: {e}")
+
+    @staticmethod
+    def execute_import(db: Session, data_list: list, target_kantor: Optional[str] = None, request: Optional[Request] = None, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        if user and user.get("role") in ("operator", "teknisi", "karyawan"):
+            raise HTTPException(status_code=403, detail="Akses ditolak: Teknisi tidak diizinkan mengeksekusi import pelanggan")
+            
+        from app.modules.activity_logs.service import ActivityLogService
+        try:
+            from app.core.security import get_all_kantor_codes
+            from app.core.tenant_database import TenantDatabaseManager
+            # Ambil semua kode kantor valid dari database master
+            db_kantor_codes = get_all_kantor_codes()
+            
+            # Tentukan default kantor berdasarkan hak akses user dan target_kantor
+            user_allowed = user.get("allowed_kantor", []) if user else []
+            is_super_admin = user and user.get("role") == "super admin"
+            
+            fallback_kantor = user_allowed[0] if (user_allowed and user_allowed[0] != "all") else (db_kantor_codes[0] if db_kantor_codes else "cabang")
+            effective_kantor = fallback_kantor
+
+            if target_kantor and target_kantor.lower().strip() in db_kantor_codes:
+                target_clean = target_kantor.lower().strip()
+                if is_super_admin or target_clean in user_allowed or "all" in user_allowed:
+                    effective_kantor = target_clean
+                else:
+                    effective_kantor = fallback_kantor
+            else:
+                active_kantor = getattr(request.state, "active_kantor", None) if request else None
+                if active_kantor and active_kantor in db_kantor_codes:
+                    effective_kantor = active_kantor
+                elif user_allowed and user_allowed[0] != "all":
+                    effective_kantor = user_allowed[0]
+                else:
+                    effective_kantor = fallback_kantor
+
+            # Pastikan sesi database mengarah ke database tenant kantor yang dituju
+            target_tenant_db = TenantDatabaseManager.get_tenant_session(effective_kantor)
+            try:
+                res = CustomerService.execute_json_import(db=target_tenant_db, data_list=data_list, default_kantor=effective_kantor)
+            finally:
+                target_tenant_db.close()
+
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db,
+                    request=request,
+                    action="IMPORT_PELANGGAN",
+                    status="SUCCESS",
+                    keterangan=f"Import berhasil ({effective_kantor.upper()}): {res['imported']} baru, {res['skipped']} dilewati, {res['failed']} gagal dari total {res['total_processed']} baris",
+                    user=user
+                )
+            return {
+                "status": "success",
+                "message": f"Berhasil memproses {res['total_processed']} baris ({res['imported']} baru, {res['skipped']} dilewati, {res['failed']} gagal).",
+                "result": res
+            }
+        except ValueError as e:
+            import logging
+            logging.getLogger("customers").warning(f"[IMPORT_VALIDATION_ERROR] {e}")
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db, request=request, action="IMPORT_PELANGGAN", status="FAILED",
+                    keterangan=f"Gagal import data pelanggan: {str(e)}", user=user
+                )
+            raise HTTPException(status_code=400, detail=str(e))
+        except Exception as e:
+            import logging
+            logging.getLogger("customers").exception(f"[IMPORT_EXECUTE_CRITICAL_ERROR] {e}")
+            if request:
+                ActivityLogService.log_from_request(
+                    db=db, request=request, action="IMPORT_PELANGGAN", status="FAILED",
+                    keterangan=f"Gagal mengeksekusi import pelanggan: {str(e)}", user=user
+                )
+            raise HTTPException(status_code=500, detail=f"Gagal mengeksekusi import: {str(e)}")
+
+    @staticmethod
+    def get_connected_devices(db: Session, id_pelanggan: str) -> Dict[str, Any]:
+        from app.services.connected_device_service import ConnectedDeviceService
+        devices = ConnectedDeviceService.get_connected_devices(db=db, id_pelanggan=id_pelanggan)
+        return {
+            "status": "success",
+            "id_pelanggan": id_pelanggan,
+            "total": len(devices),
+            "devices": devices
+        }
+
+    @staticmethod
+    def scan_connected_devices(db: Session, id_pelanggan: str, request: Optional[Request] = None, user: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        from app.services.connected_device_service import ConnectedDeviceService
+        from app.modules.activity_logs.service import ActivityLogService
+        res = ConnectedDeviceService.scan_and_sync_ont_devices(db=db, id_pelanggan=id_pelanggan)
+        if request and user:
+            ActivityLogService.log_from_request(
+                db=db,
+                request=request,
+                action="SCAN_PERANGKAT_TERHUBUNG",
+                status="SUCCESS" if res.get("success") else "WARNING",
+                keterangan=f"Scan perangkat terhubung modem ONT pelanggan {id_pelanggan} ({res.get('total', 0)} perangkat)",
+                user=user
+            )
+        return res
+

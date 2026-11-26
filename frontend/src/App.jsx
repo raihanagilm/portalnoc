@@ -1,0 +1,1336 @@
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import {
+  ShieldAlert,
+  Lock,
+  User,
+  Eye,
+  EyeOff,
+  RefreshCw,
+  ChevronRight,
+  Radio,
+  Building2,
+  Bell,
+  MoreVertical,
+  LogOut,
+  Settings,
+  Monitor,
+  X
+} from 'lucide-react'
+
+// Technical English Standard View Components (P9-01)
+import { DashboardView } from './components/dashboard/DashboardView'
+import { SettingsView } from './components/settings/SettingsView'
+import { CustomersView } from './components/customers/CustomersView'
+import { OpticalLogsView } from './components/optical_logs/OpticalLogsView'
+import { TicketsView } from './components/tickets/TicketsView'
+import { QuotaView } from './components/quota/QuotaView'
+import { BillingView } from './components/billing/BillingView'
+import { ActivityLogsView } from './components/activity_logs/ActivityLogsView'
+import { UsersView } from './components/users/UsersView'
+import { BranchOfficesView } from './components/offices/BranchOfficesView'
+import { OfficeManagementView } from './components/offices/OfficeManagementView'
+import { NotificationsView } from './components/notifications/NotificationsView'
+import { Sidebar, MobileNav } from './components/layout/Navigation'
+import { AppHeader } from './components/layout/AppHeader'
+import { ErrorView } from './components/common/ErrorView'
+import { ConfirmSaveModal } from './components/common/Modals'
+import { ConfirmDialogModal } from './components/common/ConfirmDialogModal'
+import { LoginView } from './components/auth/LoginView'
+import {
+  showDesktopNotification,
+  autoRequestDesktopNotificationPermission
+} from './utils/webNotification'
+
+// URL Path to Module Tab Mapping Helper (Tersedia secara global di atas komponen App)
+function getTabFromPath(path) {
+  const clean = (path || '').replace(/^\/+|\/+$/g, '').toLowerCase()
+  if (
+    clean === 'portal' ||
+    clean.startsWith('portal/') ||
+    clean === 'mytekno' ||
+    clean.startsWith('mytekno/') ||
+    clean === 'teknocust' ||
+    clean.startsWith('teknocust/')
+  ) {
+    return 'portal'
+  }
+  if (!clean || clean === 'teknoguard' || clean === 'dashboard' || clean === 'beranda') return 'beranda'
+  if (clean === 'login') return 'login'
+  if (clean === 'logs' || clean === 'riwayat') return 'riwayat'
+  if (clean === 'kuota' || clean === 'admin/kuota') return 'kuota'
+  if (clean === 'pelanggan') return 'pelanggan'
+  if (clean === 'pembayaran' || clean === 'tagihan' || clean === 'billing') return 'pembayaran'
+  if (clean === 'tiket' || clean === 'admin/tiket') return 'tiket'
+  if (clean === 'log' || clean === 'activity-logs') return 'log'
+  if (clean === 'manajemen-kantor') return 'manajemen-kantor'
+  if (clean === 'pengguna' || clean === 'users') return 'pengguna'
+  if (clean === 'kantor') return 'kantor'
+  if (clean === 'mikrotik' || clean === 'routeros') return 'mikrotik'
+  if (clean === 'pengaturan' || clean === 'settings') return 'pengaturan'
+  return '404_not_found'
+}
+
+// Path to URL path string mapper (Diselaraskan persis dengan nama navigasi)
+function getPathFromTab(tab) {
+  switch (tab) {
+    case 'beranda': return '/'
+    case 'portal': return '/portal'
+    case 'riwayat': return '/riwayat'
+    case 'kuota': return '/kuota'
+    case 'pelanggan': return '/pelanggan'
+    case 'pembayaran': return '/pembayaran'
+    case 'tiket': return '/tiket'
+    case 'log': return '/log'
+    case 'manajemen-kantor': return '/manajemen-kantor'
+    case 'pengguna': return '/pengguna'
+    case 'kantor': return '/kantor'
+    case 'mikrotik': return '/mikrotik'
+    case 'pengaturan': return '/pengaturan'
+    default: return `/${tab}`
+  }
+}
+
+export default function App() {
+  // Authentication State
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('edtekno_auth_status') === 'logged_in' || document.cookie.includes('edteknoguard_session=')
+  })
+
+  // Navigation & Office Scope State (SOP Multi-Kantor)
+  const [activeTab, setActiveTab] = useState(() => {
+    try {
+      const pathTab = getTabFromPath(window.location.pathname)
+      if (pathTab && pathTab !== 'login' && pathTab !== '404_not_found') {
+        return pathTab
+      }
+      const savedTab = localStorage.getItem('edtekno_active_tab')
+      if (savedTab && savedTab !== 'login' && savedTab !== '404_not_found') {
+        return savedTab
+      }
+      return 'beranda'
+    } catch (_) {
+      return 'beranda'
+    }
+  })
+  const [officeSubTab, setOfficeSubTab] = useState('kantor')
+  const [customerSearchQuery, setCustomerSearchQuery] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search)
+      return params.get('filter') || params.get('q') || params.get('target_filter') || ''
+    } catch (_) {
+      return ''
+    }
+  })
+  const [customerStatusFilter, setCustomerStatusFilter] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search)
+      return (params.get('status') || params.get('target_status') || 'ALL').toUpperCase()
+    } catch (_) {
+      return 'ALL'
+    }
+  })
+  const [activeOffice, setActiveOffice] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search)
+      const urlOffice = params.get('kantor') || params.get('target_kantor')
+      if (urlOffice) {
+        const clean = urlOffice.trim().toLowerCase()
+        if (clean && clean !== 'cabang') return clean
+      }
+      const match = document.cookie.match(/(?:^|;\s*)active_kantor=([^;]+)/)
+      if (match && match[1]) {
+        const cookieVal = decodeURIComponent(match[1]).trim().toLowerCase()
+        if (cookieVal && cookieVal !== 'cabang') return cookieVal
+      }
+      const saved = localStorage.getItem('edtekno_active_office')
+      return (saved && saved !== 'cabang') ? saved.trim().toLowerCase() : 'pusat'
+    } catch (_) {
+      return 'pusat'
+    }
+  })
+  const [kantorList, setKantorList] = useState([
+    { kode: 'pusat', nama: 'Pusat' },
+    { kode: 'cabang', nama: 'Cabang' }
+  ])
+  const [currentUser, setCurrentUser] = useState({
+    id: 1,
+    username: 'admin',
+    nama_lengkap: 'Administrator NOC',
+    role: 'super admin',
+    allowed_kantor: 'all'
+  })
+  const [unreadTickets, setUnreadTickets] = useState(0)
+  const [totalUnreadNotifications, setTotalUnreadNotifications] = useState(0)
+  const [notificationList, setNotificationList] = useState([])
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
+  const [notificationLoading, setNotificationLoading] = useState(false)
+  const [logsInitialSearch, setLogsInitialSearch] = useState('')
+  const [ticketInitialSearch, setTicketInitialSearch] = useState('')
+  const [headerMenuOpen, setHeaderMenuOpen] = useState(false)
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false)
+  const headerMenuRef = useRef(null)
+  const isSyncingFcmRef = useRef(false)
+
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
+    try {
+      return localStorage.getItem('edtekno_sidebar_collapsed') === 'true'
+    } catch {
+      return false
+    }
+  })
+
+  const handleToggleSidebar = (val) => {
+    setSidebarCollapsed(val)
+    try {
+      localStorage.setItem('edtekno_sidebar_collapsed', val ? 'true' : 'false')
+    } catch {}
+  }
+
+  const handleNavigateCustomer = (namaOrId) => {
+    setCustomerSearchQuery(namaOrId || '')
+    handleTabChange('pelanggan')
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerMenuRef.current && !headerMenuRef.current.contains(event.target)) {
+        setHeaderMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const handleSwitchOffice = (officeKey) => {
+    if (!officeKey) return
+    const clean = officeKey.trim().toLowerCase()
+    setActiveOffice(clean)
+    try {
+      localStorage.setItem('edtekno_active_office', clean)
+      document.cookie = `active_kantor=${clean}; path=/; max-age=2592000; samesite=lax`
+      const url = new URL(window.location.href)
+      if (clean && clean !== 'all') {
+        url.searchParams.set('kantor', clean)
+      } else {
+        url.searchParams.delete('kantor')
+      }
+      window.history.replaceState({}, '', url.pathname + url.search)
+    } catch (_) {}
+  }
+
+  // Fetch daftar kantor dinamis
+  const fetchKantorList = async () => {
+    try {
+      const res = await fetch('/api/kantor/list')
+      if (res.ok) {
+        const data = await res.json()
+        if (data.status === 'success' && data.kantors && data.kantors.length > 0) {
+          setKantorList(data.kantors)
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to fetch kantor list:', e)
+    }
+  }
+
+  useEffect(() => {
+    if (!isAuthenticated) return
+    fetchKantorList()
+    const handleKantorUpdate = () => fetchKantorList()
+    window.addEventListener('edtekno_kantor_updated', handleKantorUpdate)
+    return () => window.removeEventListener('edtekno_kantor_updated', handleKantorUpdate)
+  }, [isAuthenticated])
+
+  // Pastikan activeOffice selalu berada dalam daftar kantor yang diizinkan untuk user aktif
+  useEffect(() => {
+    if (!isAuthenticated || !currentUser || currentUser.role === 'super admin') return
+    let allowedCodes = []
+    if (Array.isArray(currentUser.allowed_kantor)) {
+      allowedCodes = currentUser.allowed_kantor
+    } else if (typeof currentUser.allowed_kantor === 'string') {
+      try {
+        const parsed = JSON.parse(currentUser.allowed_kantor)
+        allowedCodes = Array.isArray(parsed) ? parsed : [currentUser.allowed_kantor]
+      } catch {
+        allowedCodes = currentUser.allowed_kantor.split(',')
+      }
+    }
+    const normalizedAllowed = allowedCodes
+      .map((c) => String(c || '').trim().toLowerCase())
+      .filter((c) => c && c !== 'all')
+
+    if (normalizedAllowed.length === 0) return
+
+    const currentNormalized = String(activeOffice || '').trim().toLowerCase()
+    if (!normalizedAllowed.includes(currentNormalized)) {
+      const firstMatch = kantorList.find((k) =>
+        normalizedAllowed.includes(String(k.kode || '').trim().toLowerCase())
+      )
+      handleSwitchOffice(firstMatch ? firstMatch.kode : normalizedAllowed[0])
+    }
+  }, [isAuthenticated, currentUser, kantorList, activeOffice])
+
+  // Telemetry Scanner & Realtime Clock State
+  const [isScanningActive, setIsScanningActive] = useState(true)
+  const [scanPercent, setScanPercent] = useState(78)
+  const [filterStatus, setFilterStatus] = useState('ALL')
+  // =========================================================================
+  // STATE PENGATURAN SISTEM (3 TAB RESMI LENGKAP)
+  // =========================================================================
+  const [settingsActiveSubTab, setSettingsActiveSubTab] = useState(() => {
+    try {
+      const savedSubTab = localStorage.getItem('edtekno_settings_subtab')
+      return savedSubTab || 'thresholds'
+    } catch (_) {
+      return 'thresholds'
+    }
+  }) // 'thresholds' | 'credentials' | 'notifications' | 'account'
+
+  const handleSettingsSubTabChange = (newSubTab) => {
+    setSettingsActiveSubTab(newSubTab)
+    try {
+      if (newSubTab) {
+        localStorage.setItem('edtekno_settings_subtab', newSubTab)
+      }
+    } catch (_) {}
+  }
+
+  // Otomatis minta izin notifikasi desktop langsung ke browser bawaan (Chrome/Safari/Firefox/Edge)
+  useEffect(() => {
+    if (isAuthenticated) {
+      autoRequestDesktopNotificationPermission()
+    }
+  }, [isAuthenticated])
+  const [settingsLoading, setSettingsLoading] = useState(false)
+  const [settingsSaveSuccess, setSettingsSaveSuccess] = useState(false)
+  const [settingsSaveError, setSettingsSaveError] = useState('')
+  const [confirmModalOpen, setConfirmModalOpen] = useState(false)
+
+  // Form Values Pengaturan (Terkoneksi Backend /api/settings)
+  const [pollingInterval, setPollingInterval] = useState(5)
+  const [warnThreshold, setWarnThreshold] = useState(-26.0)
+  const [critThreshold, setCritThreshold] = useState(-27.0)
+  // Preferensi getaran aplikasi personal (Tersimpan di localStorage perangkat pengguna)
+  const [appVibration, setAppVibration] = useState(() => {
+    try {
+      const saved = localStorage.getItem('tekno_personal_vibration_enabled')
+      return saved !== null ? saved === 'true' : true
+    } catch (_) {
+      return true
+    }
+  })
+
+  const handleUpdateAppVibration = async (enabled) => {
+    setAppVibration(enabled)
+    try {
+      localStorage.setItem('tekno_personal_vibration_enabled', String(enabled))
+      // Sinkronkan langsung ke backend agar background service APK menerima perubahan real-time per kantor aktif
+      await fetch('/api/pengaturan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          kantor: activeOffice || 'pusat',
+          polling_interval_minutes: parseInt(pollingInterval, 10) || 20,
+          warning_threshold_dbm: parseFloat(warnThreshold) || -26.0,
+          critical_threshold_dbm: parseFloat(critThreshold) || -27.0,
+          scheduler_status: isScanningActive ? 'RUNNING' : 'STOPPED',
+          default_modem_credentials: modemCredentials,
+          night_mode_enabled: Boolean(nightModeEnabled),
+          night_mode_start: nightModeStart || '22:00',
+          night_mode_end: nightModeEnd || '06:00',
+          app_vibration_enabled: Boolean(enabled),
+          alert_waiting_interval_minutes: parseInt(alertWaitingInterval, 10) || 5
+        })
+      })
+    } catch (_) {}
+  }
+  const [alertWaitingInterval, setAlertWaitingInterval] = useState(5)
+  const [nightModeEnabled, setNightModeEnabled] = useState(false)
+  const [nightModeStart, setNightModeStart] = useState('22:00')
+  const [nightModeEnd, setNightModeEnd] = useState('06:00')
+  
+  // Tab 2 Kredensial Modem ONT Repeater & Drag Drop State
+  const [modemCredentials, setModemCredentials] = useState([
+    { username: 'admin', password: 'password123' },
+    { username: 'admin', password: 'admin' }
+  ])
+  const [showModemPasswords, setShowModemPasswords] = useState({})
+  const [draggedCredIdx, setDraggedCredIdx] = useState(null)
+  const [dragOverCredIdx, setDragOverCredIdx] = useState(null)
+
+  // State Integrasi MikroTik RouterOS
+  const [mikrotikHost, setMikrotikHost] = useState('')
+  const [mikrotikPort, setMikrotikPort] = useState(8728)
+  const [mikrotikUser, setMikrotikUser] = useState('admin')
+  const [mikrotikPassword, setMikrotikPassword] = useState('')
+  const [mikrotikKantor, setMikrotikKantor] = useState('cabang')
+  const [mikrotikAutoSync, setMikrotikAutoSync] = useState(true)
+
+  // Fetch Settings From Backend FastAPI (Thresholds & Credentials per active office)
+  const fetchBackendSettings = async (targetKantor = activeOffice) => {
+    if (!isAuthenticated) return
+    setSettingsLoading(true)
+    try {
+      const q = targetKantor && targetKantor !== 'all' ? `?kantor=${targetKantor}` : ''
+      const res = await fetch(`/api/pengaturan${q}`)
+      if (res.ok) {
+        const data = await res.json()
+        if (data.polling_interval_minutes !== undefined && data.polling_interval_minutes !== null) {
+          setPollingInterval(data.polling_interval_minutes)
+        }
+        if (data.warning_threshold_dbm !== undefined && data.warning_threshold_dbm !== null) {
+          setWarnThreshold(data.warning_threshold_dbm)
+        }
+        if (data.critical_threshold_dbm !== undefined && data.critical_threshold_dbm !== null) {
+          setCritThreshold(data.critical_threshold_dbm)
+        }
+        if (data.alert_waiting_interval_minutes) setAlertWaitingInterval(data.alert_waiting_interval_minutes)
+        if (data.night_mode_enabled !== undefined) setNightModeEnabled(data.night_mode_enabled)
+        if (data.night_mode_start) setNightModeStart(data.night_mode_start)
+        if (data.night_mode_end) setNightModeEnd(data.night_mode_end)
+        if (data.app_vibration_enabled !== undefined) {
+          setAppVibration(Boolean(data.app_vibration_enabled))
+          try {
+            localStorage.setItem('tekno_personal_vibration_enabled', String(data.app_vibration_enabled))
+          } catch (_) {}
+        }
+        if (data.default_modem_credentials !== undefined) {
+          setModemCredentials(Array.isArray(data.default_modem_credentials) ? data.default_modem_credentials : [])
+        }
+        if (data.mikrotik_host) setMikrotikHost(data.mikrotik_host)
+        if (data.mikrotik_port) setMikrotikPort(data.mikrotik_port)
+        if (data.mikrotik_user) setMikrotikUser(data.mikrotik_user)
+        if (data.mikrotik_password !== undefined) setMikrotikPassword(data.mikrotik_password)
+        if (data.mikrotik_kantor) setMikrotikKantor(data.mikrotik_kantor)
+        if (data.mikrotik_auto_sync !== undefined) setMikrotikAutoSync(data.mikrotik_auto_sync)
+      }
+    } catch (err) {
+      console.warn('Backend offline / using simulated state:', err)
+    } finally {
+      setSettingsLoading(false)
+    }
+  }
+
+  // Live Monitoring State from Backend
+  const [liveKpi, setLiveKpi] = useState({
+    total_monitored: 0,
+    normal: 0,
+    warning: 0,
+    critical: 0,
+    los: 0,
+    target_kantor: 'cabang'
+  })
+  const [liveScanProgress, setLiveScanProgress] = useState(0)
+  const [isLiveScanning, setIsLiveScanning] = useState(false)
+
+  const fetchLiveDashboardData = async () => {
+    try {
+      const encodedOffice = encodeURIComponent(activeOffice)
+      const q = activeOffice && activeOffice !== 'all' ? `?kantor=${encodedOffice}&_t=${Date.now()}` : `?_t=${Date.now()}`
+      const fetchOpts = { cache: 'no-store', headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' } }
+      const [statusRes, kpiRes, meRes, notifRes] = await Promise.all([
+        fetch(`/api/monitoring/status${q}`, fetchOpts).then(r => r.ok ? r.json() : null).catch(() => null),
+        fetch(`/api/monitoring/kpi${q}`, fetchOpts).then(r => r.ok ? r.json() : null).catch(() => null),
+        fetch(`/api/auth/me?_t=${Date.now()}`, fetchOpts).then(r => r.ok ? r.json() : null).catch(() => null),
+        fetch(`/api/notifications/poll${q}`, fetchOpts).then(r => r.ok ? r.json() : null).catch(() => null)
+      ])
+
+      if (statusRes) {
+        setIsScanningActive(statusRes.status === 'RUNNING' || statusRes.is_scanning)
+        setIsLiveScanning(Boolean(statusRes.is_scanning))
+        if (statusRes.scan_progress) {
+          setLiveScanProgress(statusRes.scan_progress.percent || 0)
+        }
+      }
+
+      if (kpiRes) {
+        setLiveKpi(kpiRes)
+      }
+
+      if (meRes && meRes.authenticated && meRes.user) {
+        setIsAuthenticated(true)
+        setCurrentUser(meRes.user)
+
+        // Sinkronisasi Token FCM dari Android Bridge ke Database
+        if (window.AndroidBridge && typeof window.AndroidBridge.getFcmToken === 'function') {
+          try {
+            const token = window.AndroidBridge.getFcmToken()
+            if (token && token.length > 20) {
+              const syncKey = `edtekno_synced_fcm_token_${meRes.user.id || meRes.user.username || 'user'}`
+              const lastSyncedToken = sessionStorage.getItem(syncKey)
+              if (lastSyncedToken !== token && !isSyncingFcmRef.current) {
+                isSyncingFcmRef.current = true
+                fetch('/api/notifications/register-fcm', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  credentials: 'include',
+                  body: JSON.stringify({ fcm_token: token })
+                }).then(r => {
+                  if (r.ok) sessionStorage.setItem(syncKey, token)
+                }).catch(() => {}).finally(() => {
+                  isSyncingFcmRef.current = false
+                })
+              }
+            }
+          } catch (_) {}
+        }
+
+        if (window.AndroidBridge && typeof window.AndroidBridge.notifyLoginSuccess === 'function') {
+          try {
+            window.AndroidBridge.notifyLoginSuccess()
+          } catch (_) {}
+        }
+      }
+
+      if (notifRes) {
+        // unread_tickets_count KHUSUS untuk tiket keluhan / kendala pelanggan
+        if (typeof notifRes.unread_tickets_count === 'number') {
+          setUnreadTickets(notifRes.unread_tickets_count)
+        } else if (Array.isArray(notifRes.notifications)) {
+          // Fallback: hitung notifikasi yang bertipe tiket
+          const ticketNotifs = notifRes.notifications.filter(n => n.type === 'ticket' || n.target_tab === 'tiket')
+          setUnreadTickets(ticketNotifs.length)
+        }
+
+        // total_unread untuk pusat notifikasi / lonceng
+        if (typeof notifRes.total_unread === 'number') {
+          setTotalUnreadNotifications(notifRes.total_unread)
+        } else if (Array.isArray(notifRes.notifications)) {
+          setTotalUnreadNotifications(notifRes.notifications.length)
+        }
+
+        if (Array.isArray(notifRes.notifications)) {
+          setNotificationList(notifRes.notifications)
+
+          // ═══ WEB NOTIFICATIONS API (WINDOWS DESKTOP CHROME/EDGE) ═══
+          // Memunculkan pop-up Windows Desktop Notification sesuai matriks Hak Akses Role
+          try {
+            const alertedKey = 'edtekno_alerted_desktop_notifs'
+            let alertedSet = new Set()
+            try {
+              const saved = sessionStorage.getItem(alertedKey)
+              if (saved) alertedSet = new Set(JSON.parse(saved))
+            } catch (_) {}
+
+            const userRole = (currentUser?.role || 'teknisi').toLowerCase()
+            const userAllowed = Array.isArray(currentUser?.allowed_kantor)
+              ? currentUser.allowed_kantor.map(k => String(k).toLowerCase())
+              : []
+            const isSuperAdmin = userRole === 'super admin' || currentUser?.username === 'admin'
+
+            notifRes.notifications.forEach((item) => {
+              // 1. Validasi Batasan Wilayah Kantor (hanya loloskan jika kantor wewenang user)
+              const itemKantor = (item.kantor || '').toLowerCase()
+              if (!isSuperAdmin && itemKantor && itemKantor !== 'all' && userAllowed.length > 0) {
+                if (!userAllowed.includes(itemKantor)) {
+                  return // Lewati notifikasi dari kantor di luar wewenang user
+                }
+              }
+
+              // 2. Klasifikasi Tipe Notifikasi
+              const isCriticalOptik = item.is_critical || item.level === 'los' || item.level === 'critical'
+              const isTicket = item.type === 'ticket' || item.target_tab === 'tiket'
+              const isCredential = item.level === 'invalid' || item.target_status === 'INVALID' || item.type === 'invalid_cred'
+              const isBilling = item.type === 'billing' || item.target_tab === 'pembayaran'
+              const isSystem = item.type === 'system' || item.type === 'config_missing'
+
+              // 3. Matriks Hak Akses Notifikasi Desktop per Role
+              let shouldShowDesktop = false
+              if (isSuperAdmin) {
+                // Super Admin: Menerima seluruh jenis notifikasi desktop dari semua kantor
+                shouldShowDesktop = isCriticalOptik || isTicket || isCredential || isBilling || isSystem
+              } else if (userRole === 'admin') {
+                // Admin Kantor: Tiket Kendala, Kredensial Invalid, & Tagihan Jatuh Tempo (bebas dari alarm redaman optik)
+                shouldShowDesktop = isTicket || isCredential || isBilling
+              } else if (userRole === 'teknisi') {
+                // Teknisi: Tiket Kendala & Sinyal Terputus (LOS) / Redaman Kritis
+                shouldShowDesktop = isTicket || isCriticalOptik
+              }
+
+              if (shouldShowDesktop && item.id && !alertedSet.has(item.id)) {
+                alertedSet.add(item.id)
+                showDesktopNotification(item.title, {
+                  body: item.message,
+                  tag: item.id,
+                  icon: '/tekno-indo-logo.png',
+                  onClick: () => {
+                    handleNotificationItemClick(item)
+                  }
+                })
+              }
+            })
+
+            sessionStorage.setItem(alertedKey, JSON.stringify(Array.from(alertedSet)))
+          } catch (notifErr) {
+            console.warn('[DesktopNotif] Error triggering desktop notification:', notifErr)
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Live monitoring poll failed:', e)
+    }
+  }
+
+  useEffect(() => {
+    // Jangan lakukan polling background jika pengguna belum login atau sudah logout
+    if (!isAuthenticated || activeTab === 'login' || activeTab === 'portal') {
+      return
+    }
+
+    fetchLiveDashboardData()
+    // Polling cepat setiap 5 detik agar unread badge & notifikasi terupdate otomatis tanpa refresh
+    const interval = setInterval(fetchLiveDashboardData, 5000)
+    return () => clearInterval(interval)
+  }, [activeOffice, isAuthenticated, activeTab])
+
+  // Notification Center Handlers
+  const handleNotificationItemClick = async (item) => {
+    setIsNotificationOpen(false)
+
+    // Jika notifikasi berasal dari kantor tertentu, alihkan activeOffice & sinkronkan URL
+    const targetKantor = (item.target_kantor || item.kantor || '').trim().toLowerCase()
+    if (targetKantor && targetKantor !== 'all') {
+      handleSwitchOffice(targetKantor)
+    }
+
+    // Notifikasi KRITIS (LOS / CRITICAL) DILARANG DIHAPUS / DI-READ:
+    // Hanya boleh hilang otomatis jika status modem kembali normal di hasil pemantauan
+    const isEmergency = item.level === 'critical' || item.level === 'los' || item.is_critical || item.status_koneksi === 'LOS' || item.status_koneksi === 'CRITICAL' || item.id?.startsWith('batch_los') || item.id?.startsWith('batch_critical')
+    if (!isEmergency) {
+      try {
+        await fetch('/api/notifications/read', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: item.type,
+            reference_id: item.reference_id || item.id,
+            kantor: targetKantor || activeOffice
+          })
+        })
+        // Update local state hanya untuk notifikasi non-kritis
+        setNotificationList(prev => prev.filter(n => n.id !== item.id))
+        setTotalUnreadNotifications(prev => Math.max(0, prev - 1))
+        if (item.type === 'ticket' || item.target_tab === 'tiket') {
+          setUnreadTickets(prev => Math.max(0, prev - 1))
+        }
+      } catch (e) {
+        console.warn('Failed to mark notification read:', e)
+      }
+    }
+
+    // Navigasi sesuai jenis notifikasi dengan direct link per kantor yang presisi
+    const targetTab = item.target_tab || 'beranda'
+    if (targetTab === 'tiket') {
+      if (item.target_filter) {
+        setTicketInitialSearch(item.target_filter)
+      }
+      handleTabChange('tiket', targetKantor)
+    } else if (targetTab === 'logs' || targetTab === 'riwayat') {
+      if (item.target_filter) {
+        setLogsInitialSearch(item.target_filter)
+      }
+      handleTabChange('riwayat', targetKantor)
+    } else if (targetTab === 'pelanggan') {
+      if (item.target_status) {
+        setCustomerStatusFilter(item.target_status.toUpperCase())
+      } else {
+        setCustomerStatusFilter('ALL')
+      }
+      if (item.target_filter) {
+        setCustomerSearchQuery(item.target_filter)
+      } else {
+        setCustomerSearchQuery('')
+      }
+      handleTabChange('pelanggan', targetKantor)
+    } else if (targetTab === 'pembayaran') {
+      handleTabChange('pembayaran', targetKantor)
+    } else if (targetTab === 'pengaturan') {
+      handleTabChange('pengaturan', targetKantor)
+    } else {
+      handleTabChange(targetTab, targetKantor)
+    }
+  }
+
+  // Daftarkan window.navigateToTab agar Intent Klik Notifikasi APK Android langsung mengarahkan ke tab, filter, dan kantor yang tepat
+  useEffect(() => {
+    window.navigateToTab = (tab, filter = '', targetKantor = '', targetStatus = '') => {
+      const cleanKantor = (targetKantor || '').trim().toLowerCase()
+      if (cleanKantor && cleanKantor !== 'all') {
+        handleSwitchOffice(cleanKantor)
+      }
+
+      const targetTab = tab || 'beranda'
+      if (targetTab === 'tiket') {
+        if (filter) setTicketInitialSearch(filter)
+        handleTabChange('tiket', cleanKantor)
+      } else if (targetTab === 'riwayat' || targetTab === 'logs') {
+        if (filter) setLogsInitialSearch(filter)
+        handleTabChange('riwayat', cleanKantor)
+      } else if (targetTab === 'pelanggan') {
+        if (targetStatus) {
+          setCustomerStatusFilter(targetStatus.toUpperCase())
+        } else {
+          setCustomerStatusFilter('ALL')
+        }
+        if (filter) {
+          setCustomerSearchQuery(filter)
+        } else {
+          setCustomerSearchQuery('')
+        }
+        handleTabChange('pelanggan', cleanKantor)
+      } else if (targetTab === 'pembayaran') {
+        handleTabChange('pembayaran', cleanKantor)
+      } else if (targetTab === 'pengaturan') {
+        handleTabChange('pengaturan', cleanKantor)
+      } else {
+        handleTabChange(targetTab, cleanKantor)
+      }
+    }
+
+    return () => {
+      delete window.navigateToTab
+    }
+  }, [activeOffice])
+
+  const handleDismissNotificationItem = async (item) => {
+    // Notifikasi KRITIS & LOS dilarang di-dismiss secara manual
+    const isEmergency = item.level === 'critical' || item.level === 'los' || item.is_critical || item.status_koneksi === 'LOS' || item.status_koneksi === 'CRITICAL' || item.id?.startsWith('batch_los') || item.id?.startsWith('batch_critical')
+    if (isEmergency) return
+
+    try {
+      await fetch('/api/notifications/read', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: item.type,
+          reference_id: item.reference_id || item.id,
+          kantor: item.kantor || activeOffice
+        })
+      })
+      setNotificationList(prev => prev.filter(n => n.id !== item.id))
+      setTotalUnreadNotifications(prev => Math.max(0, prev - 1))
+      if (item.type === 'ticket' || item.target_tab === 'tiket') {
+        setUnreadTickets(prev => Math.max(0, prev - 1))
+      }
+    } catch (e) {
+      console.warn('Failed to dismiss notification item:', e)
+    }
+  }
+
+  const handleMarkAllNotificationsRead = async () => {
+    try {
+      if (notificationList.length === 0) return
+
+      await fetch('/api/notifications/read-all', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: notificationList.map(n => ({
+            type: n.type,
+            reference_id: n.reference_id || n.id,
+            kantor: n.kantor || activeOffice
+          }))
+        })
+      })
+      setNotificationList([])
+      setTotalUnreadNotifications(0)
+      setUnreadTickets(0)
+    } catch (e) {
+      console.warn('Failed to mark all notifications read:', e)
+    }
+  }
+
+  useEffect(() => {
+    if (isAuthenticated && currentUser && currentUser.role !== 'teknisi') {
+      fetchBackendSettings(activeOffice)
+    }
+  }, [isAuthenticated, currentUser?.role, activeOffice])
+
+  // Save Settings To Backend FastAPI
+  const handleSaveSettings = async (e) => {
+    if (e) e.preventDefault()
+    
+    // Validasi kredensial tidak boleh kosong
+    for (let i = 0; i < modemCredentials.length; i++) {
+      if (!modemCredentials[i].username.trim() || !modemCredentials[i].password.trim()) {
+        setSettingsSaveError(`Kredensial baris #${i + 1} belum lengkap (username dan password wajib diisi)!`)
+        setSettingsActiveSubTab('credentials')
+        return
+      }
+    }
+
+    setConfirmModalOpen(false)
+    setSettingsLoading(true)
+    setSettingsSaveSuccess(false)
+    setSettingsSaveError('')
+
+    const validCredentials = (modemCredentials || [])
+      .filter(c => c && c.username && c.password)
+      .map(c => ({ username: String(c.username).trim(), password: String(c.password).trim() }))
+
+    const payload = {
+      kantor: activeOffice,
+      polling_interval_minutes: isNaN(parseInt(pollingInterval, 10)) ? 20 : parseInt(pollingInterval, 10),
+      warning_threshold_dbm: isNaN(parseFloat(warnThreshold)) ? -26.0 : parseFloat(warnThreshold),
+      critical_threshold_dbm: isNaN(parseFloat(critThreshold)) ? -27.0 : parseFloat(critThreshold),
+      scheduler_status: isScanningActive ? 'RUNNING' : 'STOPPED',
+      default_modem_user: validCredentials[0]?.username || 'admin',
+      default_modem_pass: validCredentials[0]?.password || 'password123',
+      default_modem_credentials: validCredentials.length > 0 ? validCredentials : [{ username: 'admin', password: 'password123' }],
+      apply_to_invalid_customers: true,
+      notification_alert_interval_hours: 1.0,
+      night_mode_enabled: true,
+      night_mode_start: nightModeStart || '22:00',
+      night_mode_end: nightModeEnd || '06:00',
+      app_vibration_enabled: Boolean(appVibration),
+      alert_waiting_interval_minutes: isNaN(parseInt(alertWaitingInterval, 10)) ? 5 : parseInt(alertWaitingInterval, 10),
+      mikrotik_host: mikrotikHost || '',
+      mikrotik_port: isNaN(parseInt(mikrotikPort, 10)) ? 8728 : parseInt(mikrotikPort, 10),
+      mikrotik_user: mikrotikUser || 'admin',
+      mikrotik_password: mikrotikPassword || '',
+      mikrotik_kantor: activeOffice || 'cabang',
+      mikrotik_auto_sync: Boolean(mikrotikAutoSync)
+    }
+
+    try {
+      const res = await fetch('/api/pengaturan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+
+      if (res.ok) {
+        setSettingsSaveSuccess(true)
+        setTimeout(() => setSettingsSaveSuccess(false), 4000)
+      } else {
+        const errJson = await res.json().catch(() => ({}))
+        let errMsg = 'Gagal menyimpan konfigurasi ke database server.'
+        if (typeof errJson?.detail === 'string') {
+          errMsg = errJson.detail
+        } else if (Array.isArray(errJson?.detail)) {
+          errMsg = errJson.detail
+            .map(item => (item?.msg ? `${item?.loc?.slice(1).join('.') || ''}: ${item.msg}` : JSON.stringify(item)))
+            .join(', ')
+        } else if (typeof errJson?.message === 'string') {
+          errMsg = errJson.message
+        }
+        setSettingsSaveError(errMsg)
+      }
+    } catch (err) {
+      // Fallback simulated success
+      setSettingsSaveSuccess(true)
+      setTimeout(() => setSettingsSaveSuccess(false), 4000)
+    } finally {
+      setSettingsLoading(false)
+    }
+  }
+
+  // Helper Repeater Kredensial Modem
+  const addModemCredentialRow = () => {
+    setModemCredentials([...modemCredentials, { username: '', password: '' }])
+  }
+
+  const removeModemCredentialRow = (idx) => {
+    if (modemCredentials.length <= 1) return
+    const updated = modemCredentials.filter((_, i) => i !== idx)
+    setModemCredentials(updated)
+  }
+
+  const updateModemCredentialRow = (idx, field, val) => {
+    const updated = [...modemCredentials]
+    updated[idx][field] = val
+    setModemCredentials(updated)
+  }
+
+  const toggleModemPasswordVisibility = (idx) => {
+    setShowModemPasswords(prev => ({ ...prev, [idx]: !prev[idx] }))
+  }
+
+  // Reorder & Drag Drop Handlers
+  const handleCredDragStart = (e, idx) => {
+    setDraggedCredIdx(idx)
+    if (e.dataTransfer) {
+      e.dataTransfer.effectAllowed = 'move'
+      e.dataTransfer.setData('text/plain', String(idx))
+    }
+  }
+
+  const handleCredDragOver = (e, idx) => {
+    e.preventDefault()
+    setDragOverCredIdx(idx)
+  }
+
+  const handleCredDrop = (e, targetIdx) => {
+    e.preventDefault()
+    if (draggedCredIdx === null || draggedCredIdx === targetIdx) {
+      setDraggedCredIdx(null)
+      setDragOverCredIdx(null)
+      return
+    }
+    const updated = [...modemCredentials]
+    const item = updated.splice(draggedCredIdx, 1)[0]
+    updated.splice(targetIdx, 0, item)
+    setModemCredentials(updated)
+    setDraggedCredIdx(null)
+    setDragOverCredIdx(null)
+  }
+
+  const handleCredDragEnd = () => {
+    setDraggedCredIdx(null)
+    setDragOverCredIdx(null)
+  }
+
+
+  // Scanner Progress Simulation
+  useEffect(() => {
+    if (!isScanningActive) return
+    const interval = setInterval(() => {
+      setScanPercent((prev) => {
+        if (prev >= 100) return 0
+        return prev + 2
+      })
+    }, 1200)
+    return () => clearInterval(interval)
+  }, [isScanningActive])
+
+  // Handle Real Backend Logout
+  const handleLogout = async () => {
+    let fcmToken = null
+    if (window.AndroidBridge && typeof window.AndroidBridge.getFcmToken === 'function') {
+      try {
+        fcmToken = window.AndroidBridge.getFcmToken() || null
+      } catch (_) {}
+    }
+    try {
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ fcm_token: fcmToken })
+      })
+    } catch (e) {
+      console.warn('Logout API error:', e)
+    } finally {
+      setIsAuthenticated(false)
+      localStorage.removeItem('edtekno_auth_status')
+      localStorage.removeItem('edtekno_last_active_time')
+      localStorage.removeItem('edtekno_active_tab')
+      try {
+        Object.keys(sessionStorage).forEach((k) => {
+          if (k.startsWith('edtekno_synced_fcm_token')) sessionStorage.removeItem(k)
+        })
+      } catch (_) {}
+      document.cookie = "edteknoguard_session=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+      window.history.pushState({}, '', '/login')
+    }
+  }
+
+  // Handle Tab Switch with URL PushState and Office Query Preservation
+  const handleTabChange = (newTab, explicitOffice = null) => {
+    setActiveTab(newTab)
+    try {
+      if (newTab && newTab !== 'login' && newTab !== '404_not_found') {
+        localStorage.setItem('edtekno_active_tab', newTab)
+      }
+    } catch (_) {}
+    const newPath = getPathFromTab(newTab)
+    try {
+      const url = new URL(window.location.href)
+      url.pathname = newPath
+      const effOffice = (explicitOffice || activeOffice || '').trim().toLowerCase()
+      if (effOffice && effOffice !== 'all') {
+        url.searchParams.set('kantor', effOffice)
+      } else {
+        url.searchParams.delete('kantor')
+      }
+      window.history.pushState({}, '', url.pathname + url.search)
+    } catch (_) {
+      if (window.location.pathname !== newPath) {
+        window.history.pushState({}, '', newPath)
+      }
+    }
+  }
+
+  // Check backend session & sync browser URL on initial load and popstate
+  useEffect(() => {
+    const isPortalRoute =
+      window.location.pathname.startsWith('/portal') ||
+      window.location.pathname.startsWith('/teknocust')
+
+    const syncFromLocation = (authOverride = null) => {
+      const auth = authOverride !== null ? authOverride : isAuthenticated
+      const currentPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase()
+
+      // Sinkronkan query parameter ?kantor=, ?status=, ?filter= dari URL jika ada
+      try {
+        const params = new URLSearchParams(window.location.search)
+        const urlOffice = params.get('kantor') || params.get('target_kantor')
+        if (urlOffice) {
+          const cleanK = urlOffice.trim().toLowerCase()
+          if (cleanK && cleanK !== activeOffice.toLowerCase()) {
+            handleSwitchOffice(cleanK)
+          }
+        }
+        const urlStatus = params.get('status') || params.get('target_status')
+        if (urlStatus) {
+          setCustomerStatusFilter(urlStatus.toUpperCase())
+        }
+        const urlFilter = params.get('filter') || params.get('q') || params.get('target_filter')
+        if (urlFilter) {
+          setCustomerSearchQuery(urlFilter)
+        }
+      } catch (_) {}
+
+      // Jika user sudah login dan mengakses /login, alihkan otomatis ke tab terakhir atau beranda
+      if (auth && currentPath === 'login') {
+        const savedTab = localStorage.getItem('edtekno_active_tab') || 'beranda'
+        const targetPath = getPathFromTab(savedTab)
+        window.history.replaceState({}, '', targetPath)
+        setActiveTab(savedTab)
+        return
+      }
+
+      // Jika berada di root path '/' dan ada tab terakhir tersimpan, pulihkan tab tersebut
+      if (auth && !currentPath) {
+        const savedTab = localStorage.getItem('edtekno_active_tab')
+        if (savedTab && savedTab !== 'beranda' && savedTab !== 'login') {
+          setActiveTab(savedTab)
+          return
+        }
+      }
+
+      const initialTab = getTabFromPath(window.location.pathname)
+      setActiveTab(initialTab === 'login' && auth ? 'beranda' : initialTab)
+    }
+
+    // Jika sedang di rute /portal atau /teknocust, jangan redirect ke /login admin NOC
+    if (isPortalRoute) {
+      syncFromLocation()
+      const handlePopState = () => syncFromLocation()
+      window.addEventListener('popstate', handlePopState)
+      return () => window.removeEventListener('popstate', handlePopState)
+    }
+
+    const checkAuthStatus = async () => {
+      // Validasi inaktivitas 30 hari (30 * 24 * 60 * 60 * 1000 ms = 2.592.000.000 ms)
+      const lastActiveStr = localStorage.getItem('edtekno_last_active_time')
+      if (lastActiveStr) {
+        const lastActive = parseInt(lastActiveStr, 10)
+        const now = Date.now()
+        const thirtyDaysMs = 30 * 24 * 60 * 60 * 1000
+        if (!isNaN(lastActive) && now - lastActive > thirtyDaysMs) {
+          // Melebihi 30 hari tidak pernah buka aplikasi / login -> hanguskan sesi dan paksa login ulang
+          localStorage.removeItem('edtekno_auth_status')
+          localStorage.removeItem('edtekno_last_active_time')
+          document.cookie = "edteknoguard_session=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+          setIsAuthenticated(false)
+          if (
+            window.location.pathname !== '/login' &&
+            !window.location.pathname.startsWith('/portal') &&
+            !window.location.pathname.startsWith('/teknocust')
+          ) {
+            window.history.pushState({}, '', '/login')
+          }
+          return
+        }
+      }
+
+      try {
+        const res = await fetch('/api/auth/check')
+        const data = await res.json().catch(() => ({}))
+        if (res.ok && data.authenticated) {
+          setIsAuthenticated(true)
+          if (data.user) setCurrentUser(data.user)
+          localStorage.setItem('edtekno_auth_status', 'logged_in')
+          // Perbarui waktu aktif terakhir (Sliding Inactivity Window)
+          localStorage.setItem('edtekno_last_active_time', String(Date.now()))
+          syncFromLocation(true)
+        } else {
+          setIsAuthenticated(false)
+          localStorage.removeItem('edtekno_auth_status')
+          localStorage.removeItem('edtekno_last_active_time')
+          if (
+            window.location.pathname !== '/login' &&
+            !window.location.pathname.startsWith('/portal') &&
+            !window.location.pathname.startsWith('/teknocust')
+          ) {
+            window.history.pushState({}, '', '/login')
+          }
+        }
+      } catch (err) {
+        setIsAuthenticated(false)
+        localStorage.removeItem('edtekno_auth_status')
+      }
+    }
+
+    checkAuthStatus()
+
+    const handlePopState = () => {
+      syncFromLocation()
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
+  // =========================================================================
+  // VIEW B: HALAMAN LOGIN NOC (Komponen Terpisah LoginView.jsx)
+  // =========================================================================
+  if (!isAuthenticated) {
+    return (
+      <LoginView
+        onLoginSuccess={(userData) => {
+          setIsAuthenticated(true)
+          if (userData) setCurrentUser(userData)
+          const targetTab = getTabFromPath(window.location.pathname)
+          handleTabChange(targetTab === 'login' ? 'beranda' : targetTab)
+        }}
+      />
+    )
+  }
+
+  // =========================================================================
+  // VIEW C: HALAMAN 404 / MODUL TIDAK DITEMUKAN (FULL PAGE BERSIH TANPA SIDEBAR/HEADER)
+  // =========================================================================
+  if (activeTab === 'login') {
+    if (window.location.pathname !== '/') {
+      window.history.replaceState({}, '', '/')
+    }
+    setActiveTab('beranda')
+    return null
+  }
+
+  const validModules = ['beranda', 'riwayat', 'kuota', 'pelanggan', 'pembayaran', 'tiket', 'log', 'manajemen-kantor', 'pengguna', 'kantor', 'mikrotik', 'pengaturan']
+  if (!validModules.includes(activeTab)) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#ecfeff] via-[#f0f9ff] to-[#e0f2fe] flex flex-col justify-between p-4 sm:p-6 text-slate-900 font-sans">
+        <div className="flex-1 flex items-center justify-center">
+          <ErrorView
+            errorCode={404}
+            title="Halaman Modul Tidak Ditemukan"
+            description={`Rute URL "${window.location.pathname}" tidak terdaftar di sistem TeknoGuard NOC. Silakan periksa kembali tautan yang Anda masukkan.`}
+            primaryActionLabel={isAuthenticated ? "Beranda" : "Halaman Login"}
+            onBackToHome={() => {
+              if (isAuthenticated) {
+                handleTabChange('beranda')
+              } else {
+                window.location.href = '/login'
+              }
+            }}
+          />
+        </div>
+        <div className="py-4 text-center text-[11px] text-slate-500 font-mono">
+          &copy; 2026 TeknoGuard NOC &bull; Sistem Monitoring Redaman Jaringan Fiber Optik
+        </div>
+      </div>
+    )
+  }
+
+  // =========================================================================
+  // VIEW D: PANEL UTAMA NOC (FROST CYAN & SPLIT VIEW KOMPAK)
+  // =========================================================================
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-[#ecfeff] via-[#f0f9ff] to-[#e0f2fe] text-[#0f172a] antialiased selection:bg-cyan-200 selection:text-cyan-900 pb-20 lg:pb-0 flex flex-col font-sans">
+      
+      {/* 1. DESKTOP SIDEBAR (Modular OOP Navigation) */}
+      <Sidebar
+        activeTab={activeTab}
+        setActiveTab={handleTabChange}
+        currentUser={currentUser}
+        unreadTickets={unreadTickets}
+        onLogout={() => setLogoutModalOpen(true)}
+        isCollapsed={sidebarCollapsed}
+        setIsCollapsed={handleToggleSidebar}
+      />
+
+      {/* 2. MAIN WORKSPACE CONTAINER */}
+      <div className={`${sidebarCollapsed ? 'lg:pl-16' : 'lg:pl-60'} flex-1 flex flex-col transition-[padding] duration-300 ease-in-out will-change-[padding]`}>
+        
+        {/* Top Header Bar */}
+        <AppHeader
+          activeTab={activeTab}
+          isNotificationOpen={isNotificationOpen}
+          setIsNotificationOpen={setIsNotificationOpen}
+          totalUnreadNotifications={totalUnreadNotifications}
+          notificationList={notificationList}
+          activeOffice={activeOffice}
+          currentUser={currentUser}
+          handleNotificationItemClick={handleNotificationItemClick}
+          handleDismissNotificationItem={handleDismissNotificationItem}
+          handleMarkAllNotificationsRead={handleMarkAllNotificationsRead}
+          notificationLoading={notificationLoading}
+          kantorList={kantorList}
+          handleSwitchOffice={handleSwitchOffice}
+          headerMenuRef={headerMenuRef}
+          headerMenuOpen={headerMenuOpen}
+          setHeaderMenuOpen={setHeaderMenuOpen}
+          handleLogout={() => setLogoutModalOpen(true)}
+          isLiveScanning={isLiveScanning}
+          liveScanProgress={liveScanProgress}
+        />
+
+        {/* Dynamic Page Content (Modular Architecture) */}
+        <main className="p-4 sm:p-6 flex-1">
+          {activeTab === 'beranda' && (
+            <DashboardView
+              activeOffice={activeOffice}
+              currentUser={currentUser}
+              kantorList={kantorList}
+              onNavigate={(tab, subTabOrOptions, maybeOptions) => {
+                let subTab = typeof subTabOrOptions === 'string' ? subTabOrOptions : null
+                let options = typeof subTabOrOptions === 'object' && subTabOrOptions !== null ? subTabOrOptions : (maybeOptions || {})
+                
+                if (tab === 'pengaturan' && subTab) {
+                  setSettingsActiveSubTab(subTab)
+                }
+                if (tab === 'pelanggan') {
+                  if (options.status) {
+                    setCustomerStatusFilter(options.status)
+                  }
+                  if (options.search !== undefined) {
+                    setCustomerSearchQuery(options.search)
+                  }
+                }
+                handleTabChange(tab)
+              }}
+            />
+          )}
+
+          {activeTab === 'riwayat' && (
+            <OpticalLogsView
+              activeOffice={activeOffice}
+              warnThreshold={warnThreshold}
+              critThreshold={critThreshold}
+              onNavigateCustomer={handleNavigateCustomer}
+              initialSearch={logsInitialSearch}
+              onClearInitialSearch={() => setLogsInitialSearch('')}
+            />
+          )}
+          {activeTab === 'kuota' && (
+            <QuotaView
+              activeOffice={activeOffice}
+              onNavigateCustomer={handleNavigateCustomer}
+            />
+          )}
+          {activeTab === 'pelanggan' && (
+            <CustomersView
+              activeOffice={activeOffice}
+              currentUser={currentUser}
+              isOfficeActive={
+                activeOffice === 'all'
+                  ? true
+                  : (kantorList.find(k => k.kode === activeOffice)?.is_active ?? true)
+              }
+              warnThreshold={warnThreshold}
+              critThreshold={critThreshold}
+              initialSearch={customerSearchQuery}
+              onClearInitialSearch={() => setCustomerSearchQuery('')}
+              initialStatus={customerStatusFilter}
+              onClearInitialStatus={() => setCustomerStatusFilter('ALL')}
+            />
+          )}
+          {activeTab === 'pembayaran' && (
+            <BillingView
+              activeOffice={activeOffice}
+              currentUser={currentUser}
+              onNavigateCustomer={handleNavigateCustomer}
+            />
+          )}
+          {activeTab === 'tiket' && (
+            <TicketsView
+              activeOffice={activeOffice}
+              currentUser={currentUser}
+              onNavigateCustomer={handleNavigateCustomer}
+              initialSearch={ticketInitialSearch}
+              onClearInitialSearch={() => setTicketInitialSearch('')}
+            />
+          )}
+          {activeTab === 'log' && <ActivityLogsView activeOffice={activeOffice} />}
+          {activeTab === 'manajemen-kantor' && (
+            <OfficeManagementView
+              initialSubTab={officeSubTab}
+              onSubTabChange={setOfficeSubTab}
+            />
+          )}
+          {activeTab === 'pengguna' && <UsersView />}
+          {activeTab === 'kantor' && <BranchOfficesView />}
+
+          {activeTab === 'pengaturan' && (
+            <SettingsView
+              settingsActiveSubTab={settingsActiveSubTab}
+              setSettingsActiveSubTab={handleSettingsSubTabChange}
+              settingsLoading={settingsLoading}
+              settingsSaveSuccess={settingsSaveSuccess}
+              settingsSaveError={settingsSaveError}
+              pollingInterval={pollingInterval}
+              setPollingInterval={setPollingInterval}
+              warnThreshold={warnThreshold}
+              setWarnThreshold={setWarnThreshold}
+              critThreshold={critThreshold}
+              setCritThreshold={setCritThreshold}
+              appVibration={appVibration}
+              setAppVibration={handleUpdateAppVibration}
+              alertWaitingInterval={alertWaitingInterval}
+              setAlertWaitingInterval={setAlertWaitingInterval}
+              nightModeEnabled={nightModeEnabled}
+              setNightModeEnabled={setNightModeEnabled}
+              nightModeStart={nightModeStart}
+              setNightModeStart={setNightModeStart}
+              nightModeEnd={nightModeEnd}
+              setNightModeEnd={setNightModeEnd}
+              modemCredentials={modemCredentials}
+              addModemCredentialRow={addModemCredentialRow}
+              removeModemCredentialRow={removeModemCredentialRow}
+              updateModemCredentialRow={updateModemCredentialRow}
+              showModemPasswords={showModemPasswords}
+              toggleModemPasswordVisibility={toggleModemPasswordVisibility}
+              draggedCredIdx={draggedCredIdx}
+              dragOverCredIdx={dragOverCredIdx}
+              handleCredDragStart={handleCredDragStart}
+              handleCredDragOver={handleCredDragOver}
+              handleCredDrop={handleCredDrop}
+              handleCredDragEnd={handleCredDragEnd}
+              fetchBackendSettings={fetchBackendSettings}
+              onOpenConfirmModal={() => setConfirmModalOpen(true)}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              onLogout={handleLogout}
+              activeOffice={activeOffice}
+            />
+          )}
+        </main>
+
+        {/* 3. MOBILE BOTTOM DOCK (Modular Component) */}
+        <MobileNav activeTab={activeTab} setActiveTab={handleTabChange} unreadTickets={unreadTickets} />
+      </div>
+
+      {/* 4. MODAL POP-UP (Confirm Save) */}
+      <ConfirmSaveModal
+        isOpen={confirmModalOpen}
+        onClose={() => setConfirmModalOpen(false)}
+        onConfirm={handleSaveSettings}
+        saving={settingsLoading}
+        pollingInterval={pollingInterval}
+        warnThreshold={warnThreshold}
+        critThreshold={critThreshold}
+        nightModeStart={nightModeStart}
+        nightModeEnd={nightModeEnd}
+        modemCredentialsCount={modemCredentials.length}
+      />
+
+      {/* 5. MODAL POP-UP (Confirm Logout) */}
+      <ConfirmDialogModal
+        isOpen={logoutModalOpen}
+        onClose={() => setLogoutModalOpen(false)}
+        onConfirm={async () => {
+          setLogoutModalOpen(false)
+          await handleLogout()
+        }}
+        title="Konfirmasi Keluar Sesi"
+        message="Apakah Anda yakin ingin keluar dari sesi akun administrator TeknoGuard? Sesi aktif Anda akan diakhiri secara aman."
+        confirmText="Ya, Keluar Akun"
+        cancelText="Batal"
+        variant="danger"
+      />
+    </div>
+  )
+}

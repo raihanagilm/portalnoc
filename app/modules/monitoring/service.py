@@ -1,0 +1,622 @@
+from datetime import datetime, timedelta
+from typing import Optional, Dict, Any, List
+from sqlalchemy.orm import Session
+from sqlalchemy import func, or_
+
+from app.core.timezone import get_now_wib, get_today_wib
+from app.db.models import Pelanggan, LogPerformaONT
+from app.services.scheduler_service import scheduler
+from app.core.config import settings
+
+
+def _build_kantor_condition(column, target_kantor: Optional[str]):
+    """Helper filter dinamis generik untuk fleksibilitas nama kantor (dengan atau tanpa spasi)."""
+    if not target_kantor or target_kantor == "all":
+        return None
+    raw = target_kantor.lower().strip()
+    no_space = raw.replace(" ", "")
+    variants = list(dict.fromkeys([raw, no_space]))
+    return or_(
+        column.in_(variants),
+        func.replace(func.lower(column), " ", "") == no_space
+    )
+
+
+def _build_allowed_kantor_condition(column, allowed_kantor: Optional[List[str]]):
+    """Helper filter dinamis generik untuk daftar allowed_kantor dengan normalisasi varian."""
+    if not allowed_kantor:
+        return None
+    all_variants = []
+    clean_no_spaces = set()
+    for item in allowed_kantor:
+        if not item:
+            continue
+        raw = item.lower().strip()
+        no_space = raw.replace(" ", "")
+        all_variants.extend([raw, no_space])
+        clean_no_spaces.add(no_space)
+    return or_(
+        column.in_(list(dict.fromkeys(all_variants))),
+        func.replace(func.lower(column), " ", "").in_(list(clean_no_spaces))
+    )
+
+
+class MonitoringService:
+
+    @staticmethod
+    def get_status(kantor: Optional[str] = None) -> Dict[str, Any]:
+        return scheduler.get_status(kantor=kantor)
+
+    @staticmethod
+    def toggle_scheduler(kantor: Optional[str] = None) -> str:
+        curr = scheduler.get_status(kantor=kantor).get("status")
+        if curr == "RUNNING":
+            scheduler.stop(kantor=kantor)
+            return "STOPPED"
+        else:
+            scheduler.resume(kantor=kantor)
+            return "RUNNING"
+
+    @staticmethod
+    def scan_all(kantor: Optional[str] = None) -> Dict[str, Any]:
+        return scheduler.execute_scan_sync(kantor=kantor)
+
+    @staticmethod
+    def scan_single(id_pelanggan: str, db: Optional[Session] = None) -> Optional[Dict[str, Any]]:
+        return scheduler.scan_single(id_pelanggan, db=db)
+
+    @staticmethod
+    def get_kpi_metrics(
+        db: Session,
+        kantor: Optional[str] = None,
+        allowed_kantor: Optional[list] = None
+    ) -> Dict[str, Any]:
+        # Hitung seluruh pelanggan yang aktif di kantor terkait
+        q_all = db.query(Pelanggan).filter(Pelanggan.is_active == True)
+        cond = _build_kantor_condition(Pelanggan.kantor, kantor)
+        if cond is not None:
+            q_all = q_all.filter(cond)
+        elif allowed_kantor:
+            allowed_cond = _build_allowed_kantor_condition(Pelanggan.kantor, allowed_kantor)
+            if allowed_cond is not None:
+                q_all = q_all.filter(allowed_cond)
+        total_all = q_all.count()
+        monitored_active = q_all.filter(Pelanggan.is_monitored == True).count()
+        monitored_inactive = total_all - monitored_active
+        offline_count = q_all.filter(
+            or_(
+                Pelanggan.status_lease != "bound",
+                Pelanggan.status_lease.is_(None),
+                Pelanggan.is_monitored == False
+            )
+        ).count()
+
+        subq_query = (
+            db.query(
+                LogPerformaONT.id_pelanggan,
+                func.max(LogPerformaONT.id).label("max_id")
+            )
+            .join(Pelanggan, Pelanggan.id_pelanggan == LogPerformaONT.id_pelanggan)
+            .filter(
+                Pelanggan.is_active == True
+            )
+        )
+        if cond is not None:
+            subq_query = subq_query.filter(cond)
+        elif allowed_kantor:
+            allowed_cond = _build_allowed_kantor_condition(Pelanggan.kantor, allowed_kantor)
+            if allowed_cond is not None:
+                subq_query = subq_query.filter(allowed_cond)
+        subq = subq_query.group_by(LogPerformaONT.id_pelanggan).subquery()
+
+        latest_logs = (
+            db.query(LogPerformaONT)
+            .join(
+                subq,
+                LogPerformaONT.id == subq.c.max_id
+            )
+            .all()
+        )
+
+        normal_count = 0
+        warning_count = 0
+        critical_count = 0
+        los_count = 0
+
+        for l in latest_logs:
+            if l.status_koneksi == "NORMAL":
+                normal_count += 1
+            elif l.status_koneksi == "WARNING":
+                warning_count += 1
+            elif l.status_koneksi == "CRITICAL":
+                critical_count += 1
+            elif l.status_koneksi == "LOS":
+                los_count += 1
+        from app.db.models import PerangkatONT
+        invalid_q = (
+            db.query(func.count(Pelanggan.id))
+            .outerjoin(PerangkatONT, PerangkatONT.id_pelanggan == Pelanggan.id_pelanggan)
+            .outerjoin(subq, subq.c.id_pelanggan == Pelanggan.id_pelanggan)
+            .outerjoin(LogPerformaONT, LogPerformaONT.id == subq.c.max_id)
+            .filter(
+                Pelanggan.is_active == True,
+                or_(
+                    PerangkatONT.status_kredensial == "INVALID",
+                    LogPerformaONT.status_koneksi == "INVALID"
+                )
+            )
+        )
+        if cond is not None:
+            invalid_q = invalid_q.filter(cond)
+        elif allowed_kantor:
+            allowed_cond = _build_allowed_kantor_condition(Pelanggan.kantor, allowed_kantor)
+            if allowed_cond is not None:
+                invalid_q = invalid_q.filter(allowed_cond)
+        invalid_count = invalid_q.scalar() or 0
+
+        from app.modules.settings.service import SystemSettingsService
+        office_settings = SystemSettingsService.get_settings(db, kantor=kantor)
+        warn_th = office_settings.get("warning_threshold_dbm", getattr(settings, "WARNING_THRESHOLD_DBM", -26.0))
+        crit_th = office_settings.get("critical_threshold_dbm", getattr(settings, "CRITICAL_THRESHOLD_DBM", -27.0))
+
+        return {
+            "total_monitored": total_all,
+            "total_all": total_all,
+            "monitored_active": monitored_active,
+            "monitored_inactive": monitored_inactive,
+            "offline": offline_count,
+            "normal": normal_count,
+            "warning": warning_count,
+            "critical": critical_count,
+            "los": los_count,
+            "invalid": invalid_count,
+            "target_kantor": kantor or "all",
+            "warning_threshold": warn_th,
+            "critical_threshold": crit_th
+        }
+
+    @staticmethod
+    def pause_scan(kantor: Optional[str] = None) -> Dict[str, Any]:
+        return scheduler.pause_scan(kantor=kantor)
+
+    @staticmethod
+    def resume_scan(kantor: Optional[str] = None) -> Dict[str, Any]:
+        return scheduler.resume_scan(kantor=kantor)
+
+    @staticmethod
+    def stop_scan(kantor: Optional[str] = None) -> Dict[str, Any]:
+        return scheduler.stop_scan(kantor=kantor)
+
+    @staticmethod
+    def get_chart_data(
+        db: Session,
+        range_type: str = "today",
+        date_filter: Optional[str] = None,
+        id_pelanggan: Optional[str] = None,
+        kantor: Optional[str] = None,
+        allowed_kantor: Optional[list] = None
+    ) -> Dict[str, Any]:
+        from sqlalchemy import case
+        from app.modules.settings.service import SystemSettingsService
+        now = get_now_wib()
+        today = get_today_wib()
+
+        office_settings = SystemSettingsService.get_settings(db, kantor=kantor)
+        warning_th = office_settings.get("warning_threshold_dbm", getattr(settings, "WARNING_THRESHOLD_DBM", -26.0))
+        critical_th = office_settings.get("critical_threshold_dbm", getattr(settings, "CRITICAL_THRESHOLD_DBM", -27.0))
+
+        # Helper query data hourly multi-hari dalam 1 roundtrip database
+        def query_range_hourly(start_d, end_d):
+            d_start = datetime.combine(start_d, datetime.min.time())
+            d_end = datetime.combine(end_d, datetime.max.time())
+            q = (
+                db.query(
+                    func.date_format(LogPerformaONT.waktu_cek, '%Y-%m-%d').label('day_key'),
+                    func.date_format(LogPerformaONT.waktu_cek, '%H:00').label('hour_label'),
+                    func.round(func.avg(LogPerformaONT.rx_power), 2).label('avg_rx'),
+                    func.count(LogPerformaONT.id).label('total_count'),
+                    func.sum(case((LogPerformaONT.status_koneksi == 'NORMAL', 1), else_=0)).label('normal_count'),
+                    func.sum(case((LogPerformaONT.status_koneksi == 'WARNING', 1), else_=0)).label('warning_count'),
+                    func.sum(case((LogPerformaONT.status_koneksi == 'CRITICAL', 1), else_=0)).label('critical_count'),
+                    func.sum(case((LogPerformaONT.status_koneksi == 'LOS', 1), else_=0)).label('los_count'),
+                    func.min(LogPerformaONT.rx_power).label('min_rx'),
+                    func.max(LogPerformaONT.rx_power).label('max_rx')
+                )
+                .join(Pelanggan, Pelanggan.id_pelanggan == LogPerformaONT.id_pelanggan)
+                .filter(LogPerformaONT.waktu_cek >= d_start, LogPerformaONT.waktu_cek <= d_end)
+            )
+            cond_chart = _build_kantor_condition(Pelanggan.kantor, kantor)
+            if cond_chart is not None:
+                q = q.filter(cond_chart)
+            elif allowed_kantor:
+                allowed_cond = _build_allowed_kantor_condition(Pelanggan.kantor, allowed_kantor)
+                if allowed_cond is not None:
+                    q = q.filter(allowed_cond)
+            if id_pelanggan:
+                q = q.filter(LogPerformaONT.id_pelanggan == id_pelanggan)
+            else:
+                from sqlalchemy import or_
+                q = q.filter(
+                    or_(
+                        LogPerformaONT.keterangan == None,
+                        ~LogPerformaONT.keterangan.ilike('%Single Check%')
+                    )
+                )
+            rows = q.group_by(
+                func.date_format(LogPerformaONT.waktu_cek, '%Y-%m-%d'),
+                func.date_format(LogPerformaONT.waktu_cek, '%H:00')
+            ).all()
+
+            res = {}
+            for r in rows:
+                d_key = r[0]
+                h_key = r[1]
+                if d_key not in res:
+                    res[d_key] = {}
+                res[d_key][h_key] = {
+                    "avg": float(r[2]) if r[2] is not None else None,
+                    "total": int(r[3]) if r[3] is not None else 0,
+                    "normal": int(r[4]) if r[4] is not None else 0,
+                    "warning": int(r[5]) if r[5] is not None else 0,
+                    "critical": int(r[6]) if r[6] is not None else 0,
+                    "los": int(r[7]) if r[7] is not None else 0,
+                    "min_rx": float(r[8]) if r[8] is not None else None,
+                    "max_rx": float(r[9]) if r[9] is not None else None
+                }
+            return res
+
+        if date_filter:
+            try:
+                anchor_date = datetime.strptime(date_filter, "%Y-%m-%d").date()
+            except Exception:
+                anchor_date = today
+        else:
+            anchor_date = today
+
+        # Skenario 1: Kemarin (2 Garis: Hari Ini & Kemarin diplot pada sumbu jam riil)
+        if range_type == "yesterday" and not id_pelanggan:
+            day_target = today
+            yesterday = day_target - timedelta(days=1)
+            range_data = query_range_hourly(yesterday, day_target)
+            data_today = range_data.get(day_target.strftime("%Y-%m-%d"), {})
+            data_yesterday = range_data.get(yesterday.strftime("%Y-%m-%d"), {})
+
+            # Cari jam paling awal dan jam paling akhir yang memiliki data riil rx_power
+            active_hours = set()
+            for d_map in [data_today, data_yesterday]:
+                for h_str, h_val in d_map.items():
+                    if h_val.get("avg") is not None:
+                        try:
+                            active_hours.add(int(h_str.split(":")[0]))
+                        except Exception:
+                            pass
+
+            if active_hours:
+                min_hour = min(active_hours)
+                max_hour = max(active_hours)
+                hours_labels = [f"{h:02d}:00" for h in range(min_hour, max_hour + 1)]
+            else:
+                hours_labels = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"]
+            
+            today_values = []
+            today_details = []
+            yest_values = []
+            yest_details = []
+
+            for h_str in hours_labels:
+                t_item = data_today.get(h_str)
+                if t_item and t_item.get("avg") is not None:
+                    today_values.append(t_item["avg"])
+                    today_details.append(t_item)
+                else:
+                    today_values.append(None)
+                    today_details.append(None)
+
+                y_item = data_yesterday.get(h_str)
+                if y_item and y_item.get("avg") is not None:
+                    yest_values.append(y_item["avg"])
+                    yest_details.append(y_item)
+                else:
+                    yest_values.append(None)
+                    yest_details.append(None)
+
+            NAMA_HARI = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+            hari_target = NAMA_HARI[day_target.weekday()]
+            hari_yest = NAMA_HARI[yesterday.weekday()]
+
+            valid_today = [v for v in today_values if v is not None]
+            valid_yest = [v for v in yest_values if v is not None]
+
+            datasets = []
+            if valid_today:
+                datasets.append({
+                    "id": "today",
+                    "label": f"Hari Ini ({hari_target}, {day_target.strftime('%d/%m')})",
+                    "color": "#4F46E5",
+                    "values": today_values,
+                    "details": today_details
+                })
+            if valid_yest:
+                datasets.append({
+                    "id": "yesterday",
+                    "label": f"Kemarin ({hari_yest}, {yesterday.strftime('%d/%m')})",
+                    "color": "#F59E0B",
+                    "values": yest_values,
+                    "details": yest_details
+                })
+
+            all_valid = valid_today + valid_yest
+            all_details = [d for d in (today_details + yest_details) if d]
+            all_min_rx = [d["min_rx"] for d in all_details if d.get("min_rx") is not None]
+            all_max_rx = [d["max_rx"] for d in all_details if d.get("max_rx") is not None]
+            avg_dbm = round(sum(all_valid) / len(all_valid), 2) if all_valid else None
+            min_dbm = round(max(all_max_rx), 2) if all_max_rx else (round(max(all_valid), 2) if all_valid else None)
+            max_dbm = round(min(all_min_rx), 2) if all_min_rx else (round(min(all_valid), 2) if all_valid else None)
+
+            return {
+                "range": "yesterday",
+                "is_multi_series": True,
+                "labels": hours_labels if all_valid else ["Belum ada riwayat data"],
+                "datasets": datasets,
+                "values": today_values if valid_today else (yest_values if valid_yest else []),
+                "counts": [d["total"] if d else 0 for d in today_details],
+                "threshold": warning_th,
+                "critical_threshold": critical_th,
+                "avg_dbm": avg_dbm,
+                "min_dbm": min_dbm,
+                "max_dbm": max_dbm,
+                "total_points": len(all_valid),
+                "date": day_target.strftime("%Y-%m-%d")
+            }
+
+        # Skenario 2: 7 Hari (7 Garis: diplot pada rentang jam riil terukur, kronologis tertua ke terbaru)
+        elif range_type == "week" and not id_pelanggan:
+            colors = [
+                "#64748B", # Day 0 (Oldest / H-6) - Slate
+                "#EC4899", # Day 1 (H-5) - Pink
+                "#8B5CF6", # Day 2 (H-4) - Violet
+                "#06B6D4", # Day 3 (H-3) - Cyan
+                "#10B981", # Day 4 (H-2) - Emerald
+                "#F59E0B", # Day 5 (H-1 / Kemarin) - Amber
+                "#4F46E5"  # Day 6 (Today / Hari Ini) - Indigo
+            ]
+            start_7d = anchor_date - timedelta(days=6)
+            range_data = query_range_hourly(start_7d, anchor_date)
+            
+            # Cari jam paling awal dan jam paling akhir yang memiliki data riil rx_power di seluruh 7 hari
+            active_hours = set()
+            for d_map in range_data.values():
+                for h_str, h_val in d_map.items():
+                    if h_val.get("avg") is not None:
+                        try:
+                            active_hours.add(int(h_str.split(":")[0]))
+                        except Exception:
+                            pass
+
+            if active_hours:
+                min_hour = min(active_hours)
+                max_hour = max(active_hours)
+                hours_labels = [f"{h:02d}:00" for h in range(min_hour, max_hour + 1)]
+            else:
+                hours_labels = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00"]
+
+            datasets = []
+            all_valid = []
+            NAMA_HARI = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+
+            # Kronologis maju dari 6 hari lalu (H-6) menuju hari ini (H-0)
+            for idx, offset in enumerate(reversed(range(7))):
+                d_target = anchor_date - timedelta(days=offset)
+                d_key = d_target.strftime("%Y-%m-%d")
+                d_data = range_data.get(d_key, {})
+                d_values = []
+                d_details = []
+
+                for h_str in hours_labels:
+                    item = d_data.get(h_str)
+                    if item and item.get("avg") is not None:
+                        d_values.append(item["avg"])
+                        d_details.append(item)
+                    else:
+                        d_values.append(None)
+                        d_details.append(None)
+
+                # Hanya sertakan dataset jika tanggal tersebut memiliki setidaknya 1 titik data riil di DB
+                day_valid_vals = [v for v in d_values if v is not None]
+                if day_valid_vals:
+                    nama_hari = NAMA_HARI[d_target.weekday()]
+                    label_title = f"{nama_hari} ({d_target.strftime('%d/%m')})"
+                    datasets.append({
+                        "id": f"day_{idx}",
+                        "label": label_title,
+                        "color": colors[idx % len(colors)],
+                        "values": d_values,
+                        "details": d_details
+                    })
+                    all_valid.extend(day_valid_vals)
+
+            primary_ds = datasets[-1] if datasets else {"values": [], "details": []}
+            all_week_details = [d for ds in datasets for d in ds.get("details", []) if d]
+            all_min_rx = [d["min_rx"] for d in all_week_details if d.get("min_rx") is not None]
+            all_max_rx = [d["max_rx"] for d in all_week_details if d.get("max_rx") is not None]
+            avg_dbm = round(sum(all_valid) / len(all_valid), 2) if all_valid else None
+            min_dbm = round(max(all_max_rx), 2) if all_max_rx else (round(max(all_valid), 2) if all_valid else None)
+            max_dbm = round(min(all_min_rx), 2) if all_min_rx else (round(min(all_valid), 2) if all_valid else None)
+
+            return {
+                "range": "week",
+                "is_multi_series": True,
+                "labels": hours_labels if all_valid else ["Belum ada riwayat data"],
+                "datasets": datasets,
+                "values": primary_ds["values"],
+                "counts": [d["total"] if d else 0 for d in primary_ds["details"]],
+                "threshold": warning_th,
+                "critical_threshold": critical_th,
+                "avg_dbm": avg_dbm,
+                "min_dbm": min_dbm,
+                "max_dbm": max_dbm,
+                "total_points": len(all_valid),
+                "date": today.strftime("%Y-%m-%d")
+            }
+
+        # Skenario 3: Single Day (Hari Ini atau Tanggal Spesifik via Date Picker)
+        else:
+            if date_filter:
+                try:
+                    target_date = datetime.strptime(date_filter, "%Y-%m-%d").date()
+                except ValueError:
+                    target_date = today
+            else:
+                target_date = today
+
+            d_start = datetime.combine(target_date, datetime.min.time())
+            d_end = datetime.combine(target_date, datetime.max.time())
+
+            q = (
+                db.query(
+                    func.date_format(LogPerformaONT.waktu_cek, '%H:%i').label('time_label'),
+                    func.round(func.avg(LogPerformaONT.rx_power), 2).label('avg_rx'),
+                    func.count(LogPerformaONT.id).label('total_count'),
+                    func.sum(case((LogPerformaONT.status_koneksi == 'NORMAL', 1), else_=0)).label('normal_count'),
+                    func.sum(case((LogPerformaONT.status_koneksi == 'WARNING', 1), else_=0)).label('warning_count'),
+                    func.sum(case((LogPerformaONT.status_koneksi == 'CRITICAL', 1), else_=0)).label('critical_count'),
+                    func.sum(case((LogPerformaONT.status_koneksi == 'LOS', 1), else_=0)).label('los_count'),
+                    func.min(LogPerformaONT.rx_power).label('min_rx'),
+                    func.max(LogPerformaONT.rx_power).label('max_rx'),
+                    func.min(LogPerformaONT.waktu_cek).label('min_waktu')
+                )
+                .join(Pelanggan, Pelanggan.id_pelanggan == LogPerformaONT.id_pelanggan)
+                .filter(LogPerformaONT.waktu_cek >= d_start, LogPerformaONT.waktu_cek <= d_end)
+            )
+
+            cond_chart = _build_kantor_condition(Pelanggan.kantor, kantor)
+            if cond_chart is not None:
+                q = q.filter(cond_chart)
+            elif allowed_kantor:
+                allowed_cond = _build_allowed_kantor_condition(Pelanggan.kantor, allowed_kantor)
+                if allowed_cond is not None:
+                    q = q.filter(allowed_cond)
+
+            if id_pelanggan:
+                q = q.filter(LogPerformaONT.id_pelanggan == id_pelanggan)
+            else:
+                # Grafik umum kantor khusus menampilkan pemindaian massal (mengecualikan Single Check mandiri 1 pelanggan)
+                from sqlalchemy import or_
+                q = q.filter(
+                    or_(
+                        LogPerformaONT.keterangan == None,
+                        ~LogPerformaONT.keterangan.ilike('%Single Check%')
+                    )
+                )
+
+            rows = q.group_by(func.date_format(LogPerformaONT.waktu_cek, '%H:%i')).order_by('min_waktu').all()
+
+            if not rows:
+                return {
+                    "range": range_type,
+                    "is_multi_series": False,
+                    "labels": ["Belum ada log pada tanggal ini"],
+                    "datasets": [{
+                        "id": "single",
+                        "label": f"Redaman ({target_date.strftime('%d/%m')})",
+                        "color": "#4F46E5",
+                        "values": [None],
+                        "details": [None]
+                    }],
+                    "values": [None],
+                    "counts": [0],
+                    "details": [None],
+                    "threshold": warning_th,
+                    "critical_threshold": critical_th,
+                    "avg_dbm": None,
+                    "min_dbm": None,
+                    "max_dbm": None,
+                    "total_points": 0,
+                    "date": target_date.strftime("%Y-%m-%d")
+                }
+
+            labels = [r[0] for r in rows]
+            values = [float(r[1]) if r[1] is not None else None for r in rows]
+            counts = [int(r[2]) if r[2] is not None else 1 for r in rows]
+            details = [
+                {
+                    "avg": float(r[1]) if r[1] is not None else None,
+                    "total": int(r[2]) if r[2] is not None else 0,
+                    "normal": int(r[3]) if r[3] is not None else 0,
+                    "warning": int(r[4]) if r[4] is not None else 0,
+                    "critical": int(r[5]) if r[5] is not None else 0,
+                    "los": int(r[6]) if r[6] is not None else 0,
+                    "min_rx": float(r[7]) if r[7] is not None else None,
+                    "max_rx": float(r[8]) if r[8] is not None else None
+                }
+                for r in rows
+            ]
+
+            all_min_rx = [d["min_rx"] for d in details if d and d.get("min_rx") is not None]
+            all_max_rx = [d["max_rx"] for d in details if d and d.get("max_rx") is not None]
+            valid_vals = [v for v in values if v is not None]
+            avg_dbm = round(sum(valid_vals) / len(valid_vals), 2) if valid_vals else None
+            min_dbm = round(max(all_max_rx), 2) if all_max_rx else (round(max(valid_vals), 2) if valid_vals else None)
+            max_dbm = round(min(all_min_rx), 2) if all_min_rx else (round(min(valid_vals), 2) if valid_vals else None)
+
+            NAMA_HARI = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+            hari_single = NAMA_HARI[target_date.weekday()]
+            day_title = f"Hari Ini ({hari_single}, {target_date.strftime('%d/%m')})" if target_date == today else f"{hari_single} ({target_date.strftime('%d/%m')})"
+            datasets = [
+                {
+                    "id": "single",
+                    "label": day_title,
+                    "color": "#4F46E5",
+                    "values": values,
+                    "details": details
+                }
+            ]
+
+            return {
+                "range": range_type,
+                "is_multi_series": False,
+                "labels": labels,
+                "datasets": datasets,
+                "values": values,
+                "counts": counts,
+                "details": details,
+                "threshold": warning_th,
+                "critical_threshold": critical_th,
+                "avg_dbm": avg_dbm,
+                "min_dbm": min_dbm,
+                "max_dbm": max_dbm,
+                "total_points": len(rows),
+                "date": target_date.strftime("%Y-%m-%d")
+            }
+
+    @staticmethod
+    def get_available_dates(
+        db: Session,
+        kantor: Optional[str] = None,
+        allowed_kantor: Optional[list] = None
+    ) -> Dict[str, Any]:
+        """
+        Mengembalikan daftar tanggal unik (format YYYY-MM-DD) yang memiliki rekaman
+        log performa ONT di database, diurutkan descending (terbaru ke terlama).
+        """
+        q = db.query(func.date_format(LogPerformaONT.waktu_cek, '%Y-%m-%d').label('tgl'))
+        cond_date = _build_kantor_condition(Pelanggan.kantor, kantor)
+        if cond_date is not None:
+            q = q.join(Pelanggan, Pelanggan.id_pelanggan == LogPerformaONT.id_pelanggan).filter(cond_date)
+        elif allowed_kantor:
+            allowed_cond = _build_allowed_kantor_condition(Pelanggan.kantor, allowed_kantor)
+            if allowed_cond is not None:
+                q = q.join(Pelanggan, Pelanggan.id_pelanggan == LogPerformaONT.id_pelanggan).filter(allowed_cond)
+        
+        rows = q.group_by(func.date_format(LogPerformaONT.waktu_cek, '%Y-%m-%d')).order_by(
+            func.date_format(LogPerformaONT.waktu_cek, '%Y-%m-%d').desc()
+        ).limit(120).all()
+
+        dates = [r[0] for r in rows if r[0]]
+        return {
+            "status": "success",
+            "kantor": kantor or "all",
+            "available_dates": dates,
+            "total_dates": len(dates)
+        }
+

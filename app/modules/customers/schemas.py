@@ -1,0 +1,60 @@
+from typing import Optional
+from pydantic import BaseModel, Field
+
+class CustomerBase(BaseModel):
+    nama: str = Field(..., min_length=2, max_length=150, description="Nama lengkap pelanggan")
+    alamat: Optional[str] = Field(None, description="Alamat pemasangan")
+    no_hp: Optional[str] = Field(None, max_length=50, description="Nomor telepon/WhatsApp")
+    pop: Optional[str] = Field(None, max_length=100, description="Point of Presence")
+    kantor: Optional[str] = Field(None, max_length=50, description="Kantor aktif")
+    ip_router: str = Field(..., description="Alamat IP ONT/Modem pelanggan")
+    paket: Optional[str] = Field(None, max_length=50, description="Paket bandwidth")
+    jenis_modem: Optional[str] = Field(None, max_length=50, description="Tipe ONT / Modem")
+    mac_address: Optional[str] = Field(None, max_length=30, description="MAC Address ONT")
+    redaman_baseline: Optional[float] = Field(None, description="Redaman awal saat instalasi (dBm)")
+    nama_wifi: Optional[str] = Field(None, max_length=100, description="SSID WiFi pelanggan")
+    password_wifi: Optional[str] = Field(None, max_length=100, description="Password WiFi")
+    user_admin: Optional[str] = Field("admin", max_length=50, description="Username admin web GUI modem")
+    pass_admin: Optional[str] = Field(None, max_length=100, description="Password admin web GUI modem")
+    snmp_community: Optional[str] = Field("public", max_length=50, description="SNMP Community String")
+    is_monitored: Optional[bool] = Field(True, description="Status pemantauan berkala (True = Aktif, False = Nonaktif/Diabaikan)")
+
+class CustomerCreate(CustomerBase):
+    id_pelanggan: Optional[str] = Field(None, description="ID Pelanggan (otomatis di-generate jika kosong)")
+
+class CustomerUpdate(BaseModel):
+    nama: Optional[str] = Field(None, min_length=2, max_length=150)
+    alamat: Optional[str] = None
+    no_hp: Optional[str] = None
+    no_wa: Optional[str] = None
+    pop: Optional[str] = None
+    kantor: Optional[str] = None
+    ip_router: Optional[str] = None
+    paket: Optional[str] = None
+    jenis_modem: Optional[str] = None
+    mac_address: Optional[str] = None
+    redaman_baseline: Optional[float] = None
+    nama_wifi: Optional[str] = None
+    password_wifi: Optional[str] = None
+    user_admin: Optional[str] = None
+    pass_admin: Optional[str] = None
+    snmp_community: Optional[str] = None
+    is_monitored: Optional[bool] = None
+    is_active: Optional[bool] = None
+
+class CustomerWifiUpdateSchema(BaseModel):
+    nama_wifi: Optional[str] = Field(None, max_length=100, description="SSID WiFi Baru")
+    password_wifi: Optional[str] = Field(None, max_length=100, description="Password WiFi Baru")
+    dry_run: bool = Field(True, description="Proteksi mode aman (True = tidak modifikasi modem fisik)")
+
+class CustomerPortalPasswordChangeSchema(BaseModel):
+    password_baru: str = Field(..., min_length=6, max_length=100, description="Kata sandi baru akun portal pelanggan")
+
+class BulkDeleteSchema(BaseModel):
+    ids: list[str] = Field(..., description="Daftar ID pelanggan yang akan dihapus")
+
+class DynamicImportSchema(BaseModel):
+    file_id: str = Field(..., description="ID unik file yang diupload sementara")
+    sheet_name: Optional[str] = Field(None, description="Nama sheet jika menggunakan Excel")
+    mapping: dict = Field(..., description="Dictionary mapping {field_db: nama_kolom_excel}")
+    skip_duplicates: bool = Field(True, description="Lewati jika id_pelanggan sudah ada")

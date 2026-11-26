@@ -1,0 +1,328 @@
+from typing import Optional
+from fastapi import APIRouter, Depends, Query, Request, UploadFile, File
+from sqlalchemy.orm import Session
+
+from app.core.database import get_db
+from app.core.security import require_admin
+from app.modules.customers.controller import CustomerController
+from app.modules.customers.schemas import CustomerCreate, CustomerUpdate, BulkDeleteSchema, CustomerWifiUpdateSchema, CustomerPortalPasswordChangeSchema
+
+router = APIRouter(tags=["customers"])
+
+# ----------------- HTML PAGE ROUTE -----------------
+@router.get("/pelanggan")
+def render_customers_page(
+    request: Request,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Halaman Manajemen & Daftar Pelanggan (Protected NOC Admin)"""
+    return CustomerController.render_customers_page(request=request, db=db)
+
+
+# ----------------- REST API ROUTES -----------------
+@router.get("/api/pelanggan")
+@router.get("/api/customers")
+def list_customers(
+    request: Request,
+    q: Optional[str] = Query(None, description="Pencarian nama, IP, MAC, atau ID"),
+    pop: Optional[str] = Query(None, description="Filter POP"),
+    kantor: Optional[str] = Query(None, description="Filter kantor"),
+    status: Optional[str] = Query(None, description="Filter status NORMAL, WARNING, CRITICAL, LOS, NONAKTIF"),
+    billing_mode: Optional[str] = Query(None, description="Filter jenis tagihan: ALL, prabayar, pascabayar, unset"),
+    monitoring: Optional[str] = Query(None, description="Filter pemantauan: all, active, inactive"),
+    range: Optional[str] = Query("all", description="Filter rentang waktu: all, today, 7d, 30d, custom"),
+    start_date: Optional[str] = Query(None, description="Tanggal awal (YYYY-MM-DD)"),
+    end_date: Optional[str] = Query(None, description="Tanggal akhir (YYYY-MM-DD)"),
+    sort_by: Optional[str] = Query("id", description="Kolom urutan: id, nama, pop, ip_router, jenis_modem, redaman_baseline, status_kredensial, is_monitored, waktu_cek"),
+    sort_dir: str = Query("asc", description="Arah urutan: asc atau desc"),
+    page: int = Query(1, ge=1),
+    limit: int = Query(15, ge=5, le=200),
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route untuk mendapatkan daftar pelanggan dengan filter, sorting, dan pagination"""
+    from app.core.security import get_user_allowed_kantor
+    active_kantor = getattr(request.state, "active_kantor", None)
+    allowed_kantor = getattr(request.state, "allowed_kantor", None) or get_user_allowed_kantor(user)
+    req_kantor = (kantor or "").strip().lower()
+    if req_kantor and req_kantor != "all" and req_kantor in allowed_kantor:
+        target_kantor = req_kantor
+    else:
+        target_kantor = active_kantor or (allowed_kantor[0] if allowed_kantor else "cabang")
+
+    return CustomerController.list_customers(
+        db=db, q=q, pop=pop, status=status, billing_mode=billing_mode, monitoring=monitoring,
+        range_type=range, start_date=start_date, end_date=end_date,
+        sort_by=sort_by, sort_dir=sort_dir, page=page, limit=limit,
+        kantor=target_kantor, allowed_kantor=allowed_kantor
+    )
+
+@router.get("/api/customers/template-excel")
+def download_customers_template_excel(
+    user: dict = Depends(require_admin)
+):
+    """Unduh format contoh berkas Excel data pelanggan"""
+    return CustomerController.download_template_excel()
+
+@router.get("/api/customers/template-csv")
+def download_customers_template_csv(
+    user: dict = Depends(require_admin)
+):
+    """Unduh format contoh berkas CSV data pelanggan"""
+    return CustomerController.download_template_csv()
+
+@router.get("/api/customers/export-excel")
+def export_customers_excel(
+    request: Request,
+    kantor: Optional[str] = Query(None, description="Filter wilayah kantor"),
+    q: Optional[str] = Query(None, description="Pencarian query / nama / IP"),
+    ip: Optional[str] = Query(None, description="Filter IP router atau ONT"),
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Ekspor seluruh data pelanggan ke format spreadsheet Excel (.xlsx)"""
+    return CustomerController.export_excel(db=db, request=request, kantor=kantor, q=q, ip=ip)
+
+@router.get("/api/customers/{id_pelanggan}")
+def get_customer_detail(
+    id_pelanggan: str,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route untuk mendapatkan data detail pelanggan beserta riwayat log ONT"""
+    return CustomerController.get_customer_detail(
+        db=db, id_pelanggan=id_pelanggan, user=user
+    )
+
+@router.get("/api/customers/{id_pelanggan}/billing")
+def get_customer_billing(
+    id_pelanggan: str,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route untuk mendapatkan data tagihan live & nomor Virtual Account dari Network Bill API v1"""
+    return CustomerController.get_customer_billing(
+        db=db, id_pelanggan=id_pelanggan
+    )
+
+@router.put("/api/customers/{id_pelanggan}/status-pembayaran")
+def update_customer_payment_status(
+    id_pelanggan: str,
+    status_pembayaran: str = Query(..., description="Status pembayaran baru: LUNAS, BELUM_BAYAR, ISOLIR"),
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route untuk mengubah status pembayaran lokal pelanggan"""
+    return CustomerController.update_payment_status(
+        db=db, id_pelanggan=id_pelanggan, status_pembayaran=status_pembayaran
+    )
+
+
+@router.post("/api/customers")
+def create_customer(
+    request: Request,
+    data: CustomerCreate,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Tambah data pelanggan baru"""
+    return CustomerController.create_customer(db=db, data=data, request=request, user=user)
+
+@router.put("/api/customers/{id_pelanggan}")
+def update_customer(
+    request: Request,
+    id_pelanggan: str,
+    data: CustomerUpdate,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Update data informasi pelanggan"""
+    return CustomerController.update_customer(db=db, id_pelanggan=id_pelanggan, data=data, request=request, user=user)
+
+@router.delete("/api/customers/{id_pelanggan}")
+def delete_customer(
+    request: Request,
+    id_pelanggan: str,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Hapus pelanggan (Soft Delete)"""
+    return CustomerController.delete_customer(db=db, id_pelanggan=id_pelanggan, request=request, user=user)
+
+@router.post("/api/customers/{id_pelanggan}/change-wifi")
+def change_customer_wifi(
+    request: Request,
+    id_pelanggan: str,
+    payload: CustomerWifiUpdateSchema,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route untuk mengubah nama WiFi & password WiFi (dengan proteksi mode aman dry_run)"""
+    return CustomerController.change_wifi(
+        db=db,
+        id_pelanggan=id_pelanggan,
+        nama_wifi=payload.nama_wifi,
+        password_wifi=payload.password_wifi,
+        dry_run=payload.dry_run,
+        request=request,
+        user=user
+    )
+
+
+@router.post("/api/customers/{id_pelanggan}/toggle-monitoring")
+@router.patch("/api/customers/{id_pelanggan}/toggle-monitoring")
+def toggle_customer_monitoring(
+    request: Request,
+    id_pelanggan: str,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route untuk mengubah toggle status pemantauan berkala pelanggan (ON / OFF)"""
+    return CustomerController.toggle_customer_monitoring(
+        db=db, id_pelanggan=id_pelanggan, user=user, request=request
+    )
+
+@router.post("/api/customers/{id_pelanggan}/reset-portal-password")
+def reset_customer_portal_password(
+    request: Request,
+    id_pelanggan: str,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Reset kata sandi aplikasi portal pelanggan kembali ke Nomor WhatsApp terdaftar."""
+    return CustomerController.reset_portal_password(
+        db=db, id_pelanggan=id_pelanggan, user=user, request=request
+    )
+
+@router.post("/api/customers/{id_pelanggan}/change-portal-password")
+def change_customer_portal_password(
+    request: Request,
+    id_pelanggan: str,
+    payload: CustomerPortalPasswordChangeSchema,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Mengubah kata sandi akun portal pelanggan secara manual oleh admin."""
+    return CustomerController.change_portal_password(
+        db=db, id_pelanggan=id_pelanggan, password_baru=payload.password_baru, user=user, request=request
+    )
+
+@router.get("/api/customers/{id_pelanggan}/perangkat-terhubung")
+def get_customer_connected_devices(
+    id_pelanggan: str,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route untuk mendapatkan daftar riwayat perangkat yang terhubung ke modem ONT pelanggan"""
+    return CustomerController.get_connected_devices(db=db, id_pelanggan=id_pelanggan)
+
+@router.post("/api/customers/{id_pelanggan}/perangkat-terhubung/scan")
+def scan_customer_connected_devices(
+    request: Request,
+    id_pelanggan: str,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Route untuk melakukan live probe & scanning perangkat terhubung langsung ke modem ONT pelanggan"""
+    return CustomerController.scan_connected_devices(db=db, id_pelanggan=id_pelanggan, request=request, user=user)
+
+@router.post("/api/customers/bulk-delete")
+def bulk_delete_customers(
+    request: Request,
+    payload: BulkDeleteSchema,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Hapus massal pelanggan (Bulk Soft Delete)"""
+    return CustomerController.bulk_delete(db=db, ids=payload.ids, request=request, user=user)
+
+@router.post("/api/customers/import-csv")
+async def import_customers_csv(
+    request: Request,
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Import data pelanggan via upload berkas CSV"""
+    content = await file.read()
+    return CustomerController.import_csv(db=db, file_content=content, filename=file.filename, request=request, user=user)
+
+@router.post("/api/customers/import/analyze")
+async def analyze_import(
+    file: UploadFile = File(...),
+    user: dict = Depends(require_admin)
+):
+    """Analisis file Excel/CSV untuk mendapatkan daftar sheet dan headers"""
+    content = await file.read()
+    return CustomerController.analyze_import(file_content=content, filename=file.filename)
+
+@router.post("/api/customers/import/preview")
+async def preview_import(
+    request: Request,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Preview pemetaan data Excel/CSV ke database"""
+    form = await request.form()
+    file = form.get("file")
+    sheet_name = form.get("sheet_name", "")
+    mapping_str = form.get("mapping", "{}")
+    
+    if not file or not mapping_str:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=400, detail="File atau mapping tidak valid")
+        
+    import json
+    mapping = json.loads(mapping_str)
+    content = await file.read()
+    
+    return CustomerController.preview_import(
+        db=db,
+        file_content=content, 
+        filename=file.filename,
+        sheet_name=sheet_name,
+        mapping=mapping
+    )
+
+@router.get("/api/customers/network-bill/pops")
+def get_network_bill_pops(
+    user: dict = Depends(require_admin)
+):
+    """Mendapatkan daftar PoP yang diizinkan untuk klien API Network Bill"""
+    return CustomerController.network_bill_get_pops()
+
+@router.post("/api/customers/network-bill/preview")
+def preview_network_bill_import(
+    pop: str = Query(..., description="Slug PoP target (misal: slawi)"),
+    limit: int = Query(0, ge=0, le=50000, description="Jumlah data yang ditarik (0 = seluruh pelanggan)"),
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Pratinjau data pelanggan langsung dari API Network Bill sebelum diimpor/disinkronkan"""
+    effective_limit = 999999 if limit == 0 else limit
+    return CustomerController.network_bill_preview(db=db, pop=pop, limit=effective_limit)
+
+@router.post("/api/customers/import/execute")
+async def execute_import(
+    request: Request,
+    db: Session = Depends(get_db),
+    user: dict = Depends(require_admin)
+):
+    """Eksekusi import ke database dari data preview secara non-blocking di threadpool"""
+    data = await request.json()
+    if not data or "data" not in data:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=400, detail="Data import tidak valid")
+        
+    target_kantor = data.get("target_kantor")
+    from starlette.concurrency import run_in_threadpool
+    return await run_in_threadpool(
+        CustomerController.execute_import,
+        db=db,
+        data_list=data["data"],
+        target_kantor=target_kantor,
+        request=request,
+        user=user
+    )
+

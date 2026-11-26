@@ -1,0 +1,128 @@
+"""
+routes.py - Endpoint API MikroTik NOC Center untuk TeknoGuard
+Menyediakan REST endpoint untuk:
+- /api/mikrotik/health: Metrik router gateway (CPU, RAM, Uptime, RouterOS 7.x)
+- /api/mikrotik/queues: Live Simple Queues, limits, byte kuota & korelasi pelanggan
+- /api/mikrotik/sync-quota: Trigger sinkronisasi kuota dari Simple Queues ke database
+"""
+
+from typing import Optional
+from fastapi import APIRouter, Depends, Request, HTTPException, Body
+from sqlalchemy.orm import Session
+
+from app.core.database import get_db
+from app.core.security import require_admin
+from app.services.mikrotik_service import MikroTikSyncService
+from app.modules.activity_logs.service import ActivityLogService
+
+router = APIRouter(prefix="/api/mikrotik", tags=["MikroTik NOC Center"])
+
+@router.get("/health")
+def get_mikrotik_health(
+    request: Request,
+    kantor: Optional[str] = None,
+    db: Session = Depends(get_db)
+):
+    """Mengambil status metrik hardware dan identitas router MikroTik"""
+    require_admin(request)
+    return MikroTikSyncService.get_router_health(db, kantor=kantor)
+
+@router.get("/queues")
+def get_mikrotik_queues(
+    request: Request,
+    kantor: Optional[str] = None,
+    db: Session = Depends(get_db)
+):
+    """Mengambil daftar seluruh Simple Queues, limit paket, live data usage, dan status isolir"""
+    require_admin(request)
+    data = MikroTikSyncService.get_live_queues_and_bandwidth(db, kantor=kantor)
+    return {
+        "status": "success",
+        "kantor": kantor or "all",
+        "total_rules": len(data),
+        "data": data
+    }
+
+@router.post("/sync-quota")
+def sync_mikrotik_quota(
+    request: Request,
+    payload: dict = Body(default={}),
+    db: Session = Depends(get_db)
+):
+    """
+    Memicu sinkronisasi lengkap dari router MikroTik:
+    1. Tarik & perbarui daftar pelanggan (DHCP Leases / ARP / PPPoE).
+    2. Perbarui counter bytes / kuota internet dari Simple Queues.
+    """
+    user_sess = require_admin(request)
+    kantor = payload.get("kantor")
+
+    # Normalisasi kantor: jika 'cabang', arahkan ke 'slawi'
+    if kantor == "cabang":
+        kantor = "slawi"
+
+    # 1. Tarik data pelanggan dari router MikroTik kantor yang bersangkutan
+    sync_cust_res = {"added_count": 0, "updated_count": 0}
+    try:
+        from app.db.models import Kantor
+        from app.core.database import SessionLocal
+        from sqlalchemy import func
+        # Selalu baca konfigurasi router MikroTik dari Master DB agar kredensial host/port/user akurat
+        m_db = SessionLocal()
+        m_params = None
+        knt_kode = None
+        try:
+            if kantor and kantor != "all":
+                clean_k = kantor.lower().replace(" ", "")
+                knt_obj = m_db.query(Kantor).filter(func.replace(func.lower(Kantor.nama), " ", "") == clean_k).first()
+            else:
+                knt_obj = None
+
+            if knt_obj and knt_obj.mikrotik_host and knt_obj.mikrotik_user:
+                knt_kode = knt_obj.kode
+                m_params = {
+                    "host": knt_obj.mikrotik_host,
+                    "port": knt_obj.mikrotik_port or 8728,
+                    "username": knt_obj.mikrotik_user,
+                    "password": knt_obj.mikrotik_pass or "",
+                    "kantor": knt_obj.kode
+                }
+        finally:
+            m_db.close()
+
+        if m_params and knt_kode:
+            params = m_params
+            from app.core.tenant_database import TenantDatabaseManager
+            tenant_db = TenantDatabaseManager.get_tenant_session(knt_kode)
+            try:
+                sync_cust_res = MikroTikSyncService.sync_customers_from_mikrotik(tenant_db, params)
+            finally:
+                tenant_db.close()
+        else:
+            # Fallback ke konfigurasi global/auto-sync semua kantor
+            res_all = MikroTikSyncService.sync_all_configured_kantors(db)
+            for r in res_all:
+                sync_cust_res["added_count"] = sync_cust_res.get("added_count", 0) + r.get("added_count", 0)
+                sync_cust_res["updated_count"] = sync_cust_res.get("updated_count", 0) + r.get("updated_count", 0)
+    except Exception as e:
+        pass
+
+    # 2. Tarik data kuota & Simple Queues
+    res = MikroTikSyncService.sync_traffic_quota_to_db(db, kantor=kantor)
+    res["added_customers"] = sync_cust_res.get("added_count", 0)
+    res["updated_customers"] = sync_cust_res.get("updated_count", 0)
+
+    # Catat audit log aktivitas
+    try:
+        ActivityLogService.log_from_request(
+            db=db,
+            request=request,
+            action="SYNC_MIKROTIK_ALL",
+            status="SUCCESS",
+            keterangan=f"Sinkronisasi MikroTik kantor {kantor or 'semua'}: {res.get('added_customers', 0)} pelanggan baru, {res.get('total_synced', 0)} kuota diperbarui.",
+            user=user_sess
+        )
+    except Exception:
+        pass
+
+    return res

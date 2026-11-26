@@ -1,0 +1,178 @@
+import React from 'react'
+import {
+  Search,
+  X,
+  Activity,
+  FileSpreadsheet,
+  Download,
+  RefreshCw,
+  Trash2
+} from 'lucide-react'
+import { FilterContainer } from '../common/CommonUI'
+
+export function CustomersFilterBar({
+  searchQuery,
+  setSearchQuery,
+  filterBillingMode = 'ALL',
+  setFilterBillingMode,
+  setPage,
+  handleSyncMikrotik,
+  mikrotikSyncing,
+  isOfficeActive,
+  setImportModalOpen,
+  activeOffice,
+  fetchCustomers,
+  loading,
+  selectedIds,
+  setSelectedIds,
+  handleBulkDelete,
+  bulkDeleting
+}) {
+  return (
+    <>
+      <div className="relative z-30">
+        <FilterContainer>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2">
+            {/* Kotak Pencarian & Filter Jenis Tagihan */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 flex-1 min-w-0">
+              <div className="relative flex-1 min-w-[150px]">
+                <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#64839E]" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value)
+                    setPage(1)
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') {
+                      setSearchQuery('')
+                      setPage(1)
+                    }
+                  }}
+                  placeholder="Cari ID, Nama, Alamat, Modem, WA, IP..."
+                  className="w-full pl-8 pr-8 py-1.5 rounded-lg bg-[#F1F6FC] border border-[#CCDDF0] text-xs font-sans text-[#0B2545] focus:outline-none focus:border-[#026AA7] min-h-[34px] sm:min-h-[36px]"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery('')
+                      setPage(1)
+                    }}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 rounded-full text-[#64839E] hover:text-[#0B2545] hover:bg-[#E2EDF8] transition cursor-pointer"
+                    title="Hapus pencarian (Esc)"
+                    aria-label="Hapus pencarian"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+              {setFilterBillingMode && (
+                <select
+                  value={filterBillingMode}
+                  onChange={(e) => {
+                    setFilterBillingMode(e.target.value)
+                    setPage(1)
+                  }}
+                  aria-label="Filter jenis tagihan"
+                  className="px-2.5 py-1.5 rounded-lg bg-[#F1F6FC] border border-[#CCDDF0] text-xs font-sans font-semibold text-[#0B2545] focus:outline-none focus:border-[#026AA7] min-h-[34px] sm:min-h-[36px] cursor-pointer shrink-0"
+                >
+                  <option value="ALL">Semua Jenis</option>
+                  <option value="prabayar">Prabayar</option>
+                  <option value="pascabayar">Pascabayar</option>
+                  <option value="unset">Belum Diset</option>
+                </select>
+              )}
+            </div>
+
+            {/* Tombol Aksi Lengkapi Data, Ekspor, Reload */}
+            <div className="flex items-center gap-1.5 justify-end shrink-0">
+              <button
+                onClick={handleSyncMikrotik}
+                disabled={mikrotikSyncing || !isOfficeActive}
+                className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg border text-[11px] sm:text-xs font-mono font-bold flex items-center justify-center gap-1.5 transition shadow-2xs min-h-[34px] sm:min-h-[36px] ${
+                  !isOfficeActive
+                    ? 'bg-[#F1F6FC] text-[#64839E] border-[#CCDDF0] cursor-not-allowed opacity-60'
+                    : 'bg-[#F1F6FC] hover:bg-[#E2EDF8] text-[#026AA7] border-[#CCDDF0] cursor-pointer'
+                }`}
+                title={!isOfficeActive ? 'Kantor dalam status nonaktif. Sinkronisasi MikroTik dimatikan.' : 'Sinkronisasi Kuota & Traffic Real-Time dari Router MikroTik'}
+              >
+                {mikrotikSyncing ? (
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#026AA7]" />
+                ) : (
+                  <Activity className={`w-3.5 h-3.5 ${!isOfficeActive ? 'text-[#64839E]' : 'text-[#026AA7]'}`} />
+                )}
+                <span>{mikrotikSyncing ? 'Syncing...' : !isOfficeActive ? 'Sync Mati' : 'Sync MikroTik'}</span>
+              </button>
+
+              <button
+                onClick={() => setImportModalOpen(true)}
+                className="flex-1 sm:flex-none px-3.5 py-1.5 rounded-lg bg-[#026AA7] hover:bg-[#035388] text-white text-[11px] sm:text-xs font-mono font-bold flex items-center justify-center gap-1.5 transition shadow-2xs min-h-[34px] sm:min-h-[36px] cursor-pointer"
+                title="Lengkapi Data Pelanggan (No. WA, Alamat, Kredensial WiFi)"
+              >
+                <FileSpreadsheet className="w-3.5 h-3.5 text-sky-200" />
+                <span>Lengkapi Data</span>
+              </button>
+
+              <a
+                href={`/api/customers/export-excel?kantor=${encodeURIComponent(activeOffice || 'cabang')}${searchQuery ? `&q=${encodeURIComponent(searchQuery)}` : ''}`}
+                download={`data_pelanggan_${activeOffice || 'edteknoguard'}.xlsx`}
+                className="p-2 sm:px-2.5 sm:py-1.5 rounded-lg bg-[#026AA7] hover:bg-[#035388] text-white text-[11px] sm:text-xs font-mono font-bold flex items-center justify-center gap-1.5 transition shadow-2xs min-h-[34px] sm:min-h-[36px]"
+                title="Ekspor Seluruh Data ke Excel"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Ekspor</span>
+              </a>
+
+              <button
+                onClick={fetchCustomers}
+                disabled={loading}
+                className="p-2 rounded-lg bg-[#F1F6FC] hover:bg-[#E2EDF8] text-[#026AA7] border border-[#CCDDF0] transition min-h-[34px] sm:min-h-[36px] flex items-center justify-center cursor-pointer"
+                title="Muat Ulang Data"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
+              </button>
+            </div>
+          </div>
+        </FilterContainer>
+      </div>
+
+      {/* Selection / Bulk Action Bar */}
+      {selectedIds.length > 0 && (
+        <div className="p-3 rounded-2xl bg-rose-50 border border-rose-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 transition">
+          <div className="flex items-center gap-2">
+            <span className="p-1 rounded-lg bg-rose-100 text-rose-700">
+              <Trash2 className="w-4 h-4" />
+            </span>
+            <div>
+              <span className="text-xs font-bold text-rose-950 font-sans">
+                {selectedIds.length} Pelanggan Terpilih
+              </span>
+              <p className="text-[11px] text-rose-700 font-sans">
+                Aksi hapus massal akan menghapus pelanggan dan data terkait secara permanen (CASCADE).
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <button
+              onClick={() => setSelectedIds([])}
+              className="flex-1 sm:flex-none px-3 py-1.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 text-xs font-mono font-bold transition"
+            >
+              Batal
+            </button>
+            <button
+              onClick={handleBulkDelete}
+              disabled={bulkDeleting}
+              className="flex-1 sm:flex-none px-3.5 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-mono font-bold flex items-center justify-center gap-1.5 transition shadow-xs"
+            >
+              <Trash2 className="w-3.5 h-3.5" />
+              <span>{bulkDeleting ? 'Menghapus...' : `Hapus Terpilih (${selectedIds.length})`}</span>
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
+
